@@ -1,0 +1,79 @@
+:root {
+  --pad: 3rem;
+  --gap: 3rem;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+h1 {
+  font-size: 4rem;
+}
+h2 {
+  font-size: 3.5rem;
+}
+h3 {
+  font-size: 3rem;
+}
+h4 {
+  font-size: 2.5rem;
+}
+
+a {
+  cursor: pointer;
+}
+
+p,
+a,
+li,
+span {
+  font-size: 1.6rem;
+  color: #000;
+} 
+
+button {
+  color: #000;
+}
+
+.main-content {
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+.container {
+  padding: var(--pad);
+  height: max-content;
+  min-width: 100%;
+}
+
+::selection {
+  background-color: var(--corSecundaria);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: var(--corPrimaria);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--corSecundaria);
+  border-radius: 2rem;
+}
