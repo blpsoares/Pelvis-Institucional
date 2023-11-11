@@ -1,6 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Poppins:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+
 :root {
   --pad: 3rem;
   --gap: 3rem;
+  --padBtn: 2rem 3rem;
+  --verde1: #9ed69a;
+  --roxo1: #9668a8;
+  --branco: #fff;
+  --preto: #000;
+  --cinzaTemporario: #1c1b1b;
+  --inter: "Inter", sans-serif;
+  --poppins: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--cinzaTemporario);
 }
 
 *,
@@ -23,6 +37,15 @@ html {
   font-size: 62.5%;
 }
 
+h1,
+h2,
+h3,
+p,
+span,
+li {
+  font-family: var(--poppins);
+}
+
 h1 {
   font-size: 4rem;
 }
@@ -32,12 +55,10 @@ h2 {
 h3 {
   font-size: 3rem;
 }
-h4 {
-  font-size: 2.5rem;
-}
 
 a {
   cursor: pointer;
+  font-family: var(--inter);
 }
 
 p,
@@ -46,13 +67,12 @@ li,
 span {
   font-size: 1.6rem;
   color: #000;
-} 
+}
 
 button {
   color: #000;
 }
-
-.main-content {
+.mainContent {
   max-width: 120rem;
   margin: 0 auto;
 }
@@ -61,6 +81,12 @@ button {
   padding: var(--pad);
   height: max-content;
   min-width: 100%;
+}
+
+
+
+body {
+  padding-top: 4rem;
 }
 
 ::selection {
