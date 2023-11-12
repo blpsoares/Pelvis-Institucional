@@ -1,7 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import Loader from "./components/loader";
 
-import Homepage from "./pages/homepage"
+import Homepage from "./pages/homepage/Index";
 const Tratamento = React.lazy(() => import("./pages/tratamento"));
 const Equipe = React.lazy(() => import("./pages/equipe"));
 const QuemSomos = React.lazy(() => import("./pages/quemSomos"));
@@ -13,7 +14,7 @@ const AppRoutes = () => {
       <Route
         path="tratamento"
         element={
-          <React.Suspense fallback={<div>Carregando...</div>}>
+          <React.Suspense fallback={<Loader />}>
             <Tratamento />
           </React.Suspense>
         }
@@ -21,7 +22,7 @@ const AppRoutes = () => {
       <Route
         path="equipe"
         element={
-          <React.Suspense fallback={<div>Carregando...</div>}>
+          <React.Suspense fallback={<Loader />}>
             <Equipe />
           </React.Suspense>
         }
@@ -29,7 +30,7 @@ const AppRoutes = () => {
       <Route
         path="quem-somos"
         element={
-          <React.Suspense fallback={<div>Carregando...</div>}>
+          <React.Suspense fallback={<Loader />}>
             <QuemSomos />
           </React.Suspense>
         }
