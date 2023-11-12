@@ -69,6 +69,11 @@ span {
 button {
   color: #000;
 }
+
+body {
+  padding-top: 100px;
+}
+
 .mainContent {
   max-width: 120rem;
   margin: 0 auto;
@@ -118,10 +123,6 @@ button {
   top: 45%;
 }
 
-body {
-  padding-top: 4rem;
-}
-
 @media (max-width: 1100px) {
   .navMenu a {
     color: var(--branco);
@@ -147,6 +148,10 @@ body {
   .navMenu a:not(.active):hover::before {
     left: -10px;
     top: 38%;
+  }
+
+  body {
+    padding-top: 0;
   }
 }
 ::selection {
