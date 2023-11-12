@@ -1,26 +1,28 @@
-import React from "react";
 import "./styles.css";
-import { NavLink } from "react-router-dom";
+import Menu from "../menu";
+import { useState } from "react";
 
 const Header = () => {
+  const [openMenu, setOpenMenu] = useState(false);
+
+  function handleClick() {
+    setOpenMenu((value) => !value);
+  }
   return (
     <>
-      <div className="header">
-        <div className="headerContent">
-          <h1>LOGO</h1>
-          <nav className="navMenu">
-            <NavLink to="/" end>
-              Página Inicial
-            </NavLink>
-            <NavLink to="tratamento">Tratamento</NavLink>
-            <NavLink to="equipe">Equipe</NavLink>
-            <NavLink to="quem-somos">Quem somos</NavLink>
-          </nav>
-          <div className="faleConosco">
-            <a href="#">Fale Conosco</a>
-          </div>
-        </div>
+      <input
+        type="checkbox"
+        checked={openMenu}
+        className="btnMenu"
+        onClick={handleClick}
+      />
+      <div className="hamburguerLine">
+        <span className="line"></span>
+        <span className="line"></span>
+        <span className="line"></span>
       </div>
+
+      <Menu openMenu={openMenu} setOpenMenu={setOpenMenu} />
     </>
   );
 };

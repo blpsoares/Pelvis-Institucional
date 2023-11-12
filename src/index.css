@@ -6,15 +6,12 @@
   --padBtn: 2rem 3rem;
   --verde1: #9ed69a;
   --roxo1: #9668a8;
+  --roxo2: #874e9d;
   --branco: #fff;
   --preto: #000;
   --cinzaTemporario: #1c1b1b;
   --inter: "Inter", sans-serif;
   --poppins: "Poppins", sans-serif;
-}
-
-body {
-  background-color: var(--cinzaTemporario);
 }
 
 *,
@@ -83,15 +80,78 @@ button {
   min-width: 100%;
 }
 
-
+.navMenu a {
+  display: block;
+  padding: 3rem 2rem;
+  position: relative;
+  color: var(--branco);
+}
+.active {
+  transition: 0.4s;
+  color: var(--roxo1) !important;
+}
+.active::before,
+.navMenu a:not(.active)::before {
+  transition: 0.2s;
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--roxo1);
+  left: -2px;
+  top: 45%;
+}
+.navMenu a:not(.active)::before {
+  width: 0;
+  height: 0;
+  top: 50%;
+  left: 20px;
+}
+.navMenu a:not(.active):hover {
+  color: var(--roxo1);
+}
+.navMenu a:not(.active):hover::before {
+  width: 10px;
+  height: 10px;
+  left: -2px;
+  top: 45%;
+}
 
 body {
   padding-top: 4rem;
 }
 
+@media (max-width: 1100px) {
+  .navMenu a {
+    color: var(--branco);
+    /* width: 100%; */
+  }
+  .active {
+    color: var(--branco) !important;
+    font-weight: bold;
+  }
+  .active::before,
+  .navMenu a:not(.active)::before {
+    background-color: var(--verde1);
+    left: -10px;
+    top: 38%;
+  }
+  .navMenu a:not(.active)::before {
+    top: 50%;
+    left: 20px;
+  }
+  .navMenu a:not(.active):hover {
+    color: var(--verde1);
+  }
+  .navMenu a:not(.active):hover::before {
+    left: -10px;
+    top: 38%;
+  }
+}
 ::selection {
-  background-color: var(--corSecundaria);
-  color: #fff;
+  background-color: var(--verde1);
+  color: var(--roxo2);
 }
 
 ::-webkit-scrollbar {
