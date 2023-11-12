@@ -2,39 +2,18 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Loader from "./components/loader";
 
-import Homepage from "./pages/homepage/Index";
-const Tratamento = React.lazy(() => import("./pages/tratamento"));
-const Equipe = React.lazy(() => import("./pages/equipe"));
-const QuemSomos = React.lazy(() => import("./pages/quemSomos"));
+import Homepage from "./pages/homepage/";
+import Tratamento from "./pages/tratamento";
+import Equipe from "./pages/equipe";
+import QuemSomos from "./pages/quemSomos";
 
 const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
-      <Route
-        path="tratamento"
-        element={
-          <React.Suspense fallback={<Loader />}>
-            <Tratamento />
-          </React.Suspense>
-        }
-      />
-      <Route
-        path="equipe"
-        element={
-          <React.Suspense fallback={<Loader />}>
-            <Equipe />
-          </React.Suspense>
-        }
-      />
-      <Route
-        path="quem-somos"
-        element={
-          <React.Suspense fallback={<Loader />}>
-            <QuemSomos />
-          </React.Suspense>
-        }
-      />
+      <Route path="tratamento" element={<Tratamento />} />
+      <Route path="equipe" element={<Equipe />} />
+      <Route path="quem-somos" element={<QuemSomos />} />
     </Routes>
   );
 };
