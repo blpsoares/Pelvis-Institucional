@@ -1,11 +1,34 @@
+@keyframes menuOpen {
+  from {
+    height: 0;
+    filter: blur(2rem);
+    top: -100%;
+  }
+  to {
+    height: 100%;
+    top: 0;
+    filter: blur(0);
+  }
+}
+@keyframes menuClose {
+  from {
+    display: initial;
+    height: 100%;
+    filter: blur(0);
+  }
+  to {
+    height: 0;
+    top: -100%;
+    filter: blur(2rem);
+  }
+}
 .header,
 .headerClosed {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  min-width: 100%;
-  background-color: var(--verde1);
+  background-color: var(--branco);
   z-index: 2;
 }
 .header h1 {
@@ -19,6 +42,9 @@
 .navMenu {
   display: flex;
   justify-content: center;
+}
+.navMenuHeader a {
+  color: black;
 }
 .contato {
   display: flex;
@@ -37,11 +63,9 @@
 .footerMenuMobile {
   display: none;
 }
-
 .navigationTextMenu {
   display: none;
 }
-
 @media (max-width: 1100px) {
   .header,
   .headerContent {
@@ -192,7 +216,6 @@
     font-size: 1.3rem;
   }
 }
-
 @media (max-width: 1100px) and (min-height: 800px) {
   .navMenu a {
     font-size: 2.2rem;
@@ -221,30 +244,5 @@
   }
   .textFooterMenu p {
     font-size: 1.8rem !important;
-  }
-}
-
-@keyframes menuOpen {
-  from {
-    height: 0;
-    filter: blur(2rem);
-    top: -100%;
-  }
-  to {
-    height: 100%;
-    top: 0;
-    filter: blur(0);
-  }
-}
-@keyframes menuClose {
-  from {
-    display: initial;
-    height: 100%;
-    filter: blur(0);
-  }
-  to {
-    height: 0;
-    top: -100%;
-    filter: blur(2rem);
   }
 }

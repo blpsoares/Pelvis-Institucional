@@ -1,8 +1,7 @@
 .bgHero {
-  background-image: url(../../assets/img/webp/pelvisImgOffice.webp);
+  background-image: url(../../assets/img/webp/bgHero.webp);
   min-height: 100vh;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: red;
 }

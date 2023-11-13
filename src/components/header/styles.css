@@ -16,6 +16,9 @@
   opacity: 0;
   z-index: 1000;
 }
+.labelMenu {
+  display: none;
+}
 .hamburguerLine {
   position: fixed;
   width: 40px;
@@ -29,7 +32,6 @@
   align-items: center;
   justify-content: center;
 }
-
 .line {
   position: absolute;
   content: "";

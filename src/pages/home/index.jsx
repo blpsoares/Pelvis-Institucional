@@ -5,9 +5,11 @@ import "./styles.css";
 
 const Home = () => {
   return (
-    <Container sectionClass="bgHero teste">
-      <h1>Página Inicial</h1>
-    </Container>
+    <>
+      <Container sectionClass="bgHero teste">
+        <h1>Página Inicial</h1>
+      </Container>
+    </>
   );
 };
 

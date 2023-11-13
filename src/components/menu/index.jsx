@@ -9,9 +9,10 @@ const Menu = ({ openMenu, setOpenMenu }) => {
   function closeMenu() {
     setOpenMenu(false);
   }
+
   return (
     <header className={`${openMenu ? "header" : "headerClosed"}`}>
-      <div className="headerContent">
+      <div className="headerContent mainContent">
         <img
           className="logoColoridaDesktop"
           src={logoColorida}
@@ -26,7 +27,7 @@ const Menu = ({ openMenu, setOpenMenu }) => {
             <h3>O que você deseja fazer?</h3>
           </div>
         )}
-        <nav className="navMenu">
+        <nav className="navMenu navMenuHeader">
           <NavLink to="/" end onClick={closeMenu}>
             Página Inicial
           </NavLink>
