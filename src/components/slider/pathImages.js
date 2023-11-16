@@ -1,4 +1,4 @@
-import fotoUm from "../../assets/foto1.png";
+import fotoUm from "../../assets/img/foto1.png";
 
 export const slides = [
   {
