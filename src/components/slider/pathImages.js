@@ -1,4 +1,17 @@
+//* FOTOS GRANDES
 import fotoUm from "../../assets/img/foto1.png";
+
+// * MINIATURA DAS FOTOS
+import mfotoUm from "../../assets/img/mfoto1.png";
+import mfotoDois from "../../assets/img/mfoto2.png";
+import mfotoTres from "../../assets/img/mfoto3.png";
+import mfotoQuatro from "../../assets/img/mfoto4.png";
+import mfotoCinco from "../../assets/img/mfoto5.png";
+import mfotoSeis from "../../assets/img/mfoto6.png";
+import mfotoSete from "../../assets/img/mfoto7.png";
+import mfotoOito from "../../assets/img/mfoto8.png";
+import mfotoNove from "../../assets/img/mfoto9.png";
+import mfotoDez from "../../assets/img/mfoto10.png";
 
 export const slides = [
   {
@@ -7,80 +20,80 @@ export const slides = [
   },
   {
     id: "slide2",
-    text: "src/assets/img/foto1.png",
+    text: fotoUm,
   },
   {
     id: "slide3",
-    text: "src/assets/img/foto1.png",
+    text: fotoUm,
   },
   {
     id: "slide4",
-    text: "src/assets/img/foto1.png",
+    text: fotoUm,
   },
   {
     id: "slide5",
-    text: "src/assets/img/foto1.png",
+    text: fotoUm,
   },
   {
     id: "slide6",
-    text: "src/assets/img/foto1.png",
+    text: fotoUm,
   },
   {
     id: "slide7",
-    text: "src/assets/img/foto1.png",
+    text: fotoUm,
   },
   {
     id: "slide8",
-    text: "src/assets/img/foto1.png",
+    text: fotoUm,
   },
   {
     id: "slide9",
-    text: "src/assets/img/foto1.png",
+    text: fotoUm,
   },
   {
     id: "slide10",
-    text: "src/assets/img/foto1.png",
+    text: fotoUm,
   },
 ];
 export const slidesMin = [
   {
     id: "slide1",
-    text: "src/assets/img/mfoto1.png",
+    text: mfotoUm,
   },
   {
     id: "slide2",
-    text: "src/assets/img/mfoto2.png",
+    text: mfotoDois,
   },
   {
     id: "slide3",
-    text: "src/assets/img/mfoto3.png",
+    text: mfotoTres,
   },
   {
     id: "slide4",
-    text: "src/assets/img/mfoto4.png",
+    text: mfotoQuatro,
   },
   {
     id: "slide5",
-    text: "src/assets/img/mfoto5.png",
+    text: mfotoCinco,
   },
   {
     id: "slide6",
-    text: "src/assets/img/mfoto6.png",
+    text: mfotoSeis,
   },
   {
     id: "slide7",
-    text: "src/assets/img/mfoto7.png",
+    text: mfotoSete,
   },
   {
     id: "slide8",
-    text: "src/assets/img/mfoto8.png",
+    text: mfotoOito,
   },
   {
     id: "slide9",
-    text: "src/assets/img/mfoto9.png",
+    text: mfotoNove,
   },
   {
     id: "slide10",
-    text: "src/assets/img/mfoto10.png",
+    text: mfotoDez,
   },
 ];
