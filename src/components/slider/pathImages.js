@@ -1,7 +1,7 @@
 export const slides = [
   {
     id: "slide1",
-    text: "src/assets/img/foto1.png",
+    text: "../../assets/foto1.png",
   },
   {
     id: "slide2",
