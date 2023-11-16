@@ -1,7 +1,9 @@
+import fotoUm from "../../assets/foto1.png";
+
 export const slides = [
   {
     id: "slide1",
-    text: "../../assets/foto1.png",
+    text: fotoUm,
   },
   {
     id: "slide2",
