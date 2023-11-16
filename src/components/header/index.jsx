@@ -1,6 +1,6 @@
 import "./styles.css";
 import Menu from "../menu";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const Header = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -25,6 +25,7 @@ const Header = () => {
         <span className="line"></span>
         <span className="line"></span>
       </div>
+
       <Menu openMenu={openMenu} setOpenMenu={setOpenMenu} />
     </>
   );

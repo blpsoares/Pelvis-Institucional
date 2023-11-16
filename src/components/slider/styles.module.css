@@ -1,0 +1,96 @@
+.containerSlide {
+  overflow: hidden;
+  position: relative;
+  background-color: red;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  border-radius: 30px;
+}
+
+.content {
+  display: flex;
+  z-index: 2;
+  position: relative;
+}
+
+.item {
+  flex-shrink: 0;
+  width: 100%;
+  position: relative;
+  /* margin: 0 10%; */
+  border-radius: 30px;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.item img {
+  width: 100%;
+  height: auto;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 2rem;
+  position: absolute;
+  z-index: 3;
+}
+
+.nav button {
+  font-size: 5rem;
+  padding: 0 1rem;
+  background-color: transparent;
+}
+
+.thumbnailContainer {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom: -150px;
+  gap: 2rem;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.thumbnailContainer::-webkit-scrollbar {
+  background-color: rgb(224, 224, 224);
+  width: 8px;
+  height: 8px;
+}
+
+.thumbnailItem {
+  opacity: 0.2;
+}
+
+.thumbnailActive {
+  opacity: 1;
+}
+
+.thumbnail {
+  background-color: rgb(63, 63, 63);
+  width: 100px;
+  height: auto;
+  transition: 0.3s;
+  border-radius: 15px;
+}
+
+.thumbnail img {
+  width: 100px;
+}
+
+.slideItem {
+  opacity: 0.2;
+}
+
+.slideActive {
+  opacity: 1;
+}
+
+@media (max-width: 1100px) {
+  .containerSlide {
+    height: max-content;
+  }
+}
