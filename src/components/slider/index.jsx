@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./styles.module.css";
-import { slides, slidesMin } from "./pathImages";
+import { slides } from "./pathImages";
 
 const Slider = () => {
   const [active, setActive] = React.useState(0);
@@ -35,7 +35,7 @@ const Slider = () => {
                 active === index ? styles.slideActive : styles.slideItem
               }`}
             >
-              <img src={slide.text} alt="Slide" />
+              <img src={slide.full} alt="Slide" />
             </div>
           ))}
         </div>
@@ -47,7 +47,7 @@ const Slider = () => {
       </section>
       {/* Miniaturas dos slides */}
       <div className={styles.thumbnailContainer}>
-        {slidesMin.map((slide, index) => (
+        {slides.map((slide, index) => (
           <div
             key={slide.id}
             className={`${styles.thumbnail} ${
@@ -55,7 +55,7 @@ const Slider = () => {
             }`}
             onClick={() => setActive(index)}
           >
-            <img src={slide.text} alt="Slide" />
+            <img src={slide.thumb} alt="Slide" />
           </div>
         ))}
       </div>

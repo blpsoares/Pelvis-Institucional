@@ -28,9 +28,11 @@
   top: 0;
   left: 0;
   right: 0;
-  background-color: var(--branco);
-  z-index: 2;
+  background-color: var(--branco2);
+  border-bottom: 1px solid var(--branco3);
+  z-index: 110;
 }
+
 .header h1 {
   color: var(--branco);
 }

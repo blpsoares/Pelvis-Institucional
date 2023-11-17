@@ -16,84 +16,52 @@ import mfotoDez from "../../assets/img/mfoto10.png";
 export const slides = [
   {
     id: "slide1",
-    text: fotoUm,
+    full: fotoUm,
+    thumb: mfotoUm,
   },
   {
     id: "slide2",
-    text: fotoUm,
+    full: fotoUm,
+    thumb: mfotoDois,
   },
   {
     id: "slide3",
-    text: fotoUm,
+    full: fotoUm,
+    thumb: mfotoTres,
   },
   {
     id: "slide4",
-    text: fotoUm,
+    full: fotoUm,
+    thumb: mfotoQuatro,
   },
   {
     id: "slide5",
-    text: fotoUm,
+    full: fotoUm,
+    thumb: mfotoCinco,
   },
   {
     id: "slide6",
-    text: fotoUm,
+    full: fotoUm,
+    thumb: mfotoSeis,
   },
   {
     id: "slide7",
-    text: fotoUm,
+    full: fotoUm,
+    thumb: mfotoSete,
   },
   {
     id: "slide8",
-    text: fotoUm,
+    full: fotoUm,
+    thumb: mfotoOito,
   },
   {
     id: "slide9",
-    text: fotoUm,
+    full: fotoUm,
+    thumb: mfotoNove,
   },
   {
     id: "slide10",
-    text: fotoUm,
-  },
-];
-export const slidesMin = [
-  {
-    id: "slide1",
-    text: mfotoUm,
-  },
-  {
-    id: "slide2",
-    text: mfotoDois,
-  },
-  {
-    id: "slide3",
-    text: mfotoTres,
-  },
-  {
-    id: "slide4",
-    text: mfotoQuatro,
-  },
-  {
-    id: "slide5",
-    text: mfotoCinco,
-  },
-  {
-    id: "slide6",
-    text: mfotoSeis,
-  },
-  {
-    id: "slide7",
-    text: mfotoSete,
-  },
-  {
-    id: "slide8",
-    text: mfotoOito,
-  },
-  {
-    id: "slide9",
-    text: mfotoNove,
-  },
-  {
-    id: "slide10",
-    text: mfotoDez,
+    full: fotoUm,
+    thumb: mfotoDez,
   },
 ];

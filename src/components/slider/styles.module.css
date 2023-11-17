@@ -93,3 +93,9 @@
     height: max-content;
   }
 }
+
+/* @media (max-width: 500px) {
+  .thumbnailContainer {
+    display: none;
+  }
+} */

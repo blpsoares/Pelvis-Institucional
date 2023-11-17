@@ -8,8 +8,10 @@
   --roxo1: #9668a8;
   --roxo2: #874e9d;
   --branco: #fff;
+  --branco2: #f6f6f6;
+  --branco3: #bdbdbd;
+  --cinza: #4a4a4a;
   --preto: #000;
-  --cinzaTemporario: #1c1b1b;
   --inter: "Inter", sans-serif;
   --poppins: "Poppins", sans-serif;
 }
@@ -44,13 +46,13 @@ li {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 5rem;
 }
 h2 {
-  font-size: 3.5rem;
+  font-size: 4.5rem;
 }
 h3 {
-  font-size: 3rem;
+  font-size: 4rem;
 }
 
 a {
@@ -75,9 +77,6 @@ button {
 }
 button:hover {
   background-color: var(--roxo1);
-}
-body {
-  padding-top: 100px;
 }
 .mainContent {
   max-width: 120rem;

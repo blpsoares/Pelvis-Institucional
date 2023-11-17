@@ -11,10 +11,10 @@ const Header = () => {
 
   return (
     <>
-      <label for="menuMobile" className="labelMenu"></label>
+      <label htmlFor="menuMobile" className="labelMenu"></label>
       <input
         type="checkbox"
-        checked={openMenu}
+        defaultChecked={false}
         className="btnMenu"
         onClick={handleClick}
         id="menuMobile"
