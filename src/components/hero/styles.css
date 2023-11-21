@@ -1,0 +1,45 @@
+.bgHero {
+  background-position: 120%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+}
+
+.hero {
+  padding-top: 100px;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+}
+
+.hero div {
+  height: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  top: -60px;
+}
+
+.hero span:nth-child(1),
+.hero h1 {
+  color: var(--cinza);
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.hero span:nth-child(1) {
+  margin-bottom: 1rem;
+}
+.hero h1 span {
+  font-size: inherit;
+  color: var(--roxo1) !important;
+}
+.hero h1 {
+  margin-bottom: 1rem;
+}
+.hero p {
+  margin-top: 2rem;
+  font-size: 2rem;
+}

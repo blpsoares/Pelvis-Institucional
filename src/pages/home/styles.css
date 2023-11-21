@@ -1,44 +1,37 @@
-.bgHero {
-  background-image: url(../../assets/img/webp/bgHeroTeste.webp);
-  background-position: 120%;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.hero {
-  padding-top: 100px;
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  place-items: center;
-}
-
-.hero div {
-  height: 100%;
+.hEscolha {
+  border-radius: 1.875rem;
+  border: 2px solid #dfdfdf;
+  background: #fff;
+  box-shadow: 10px 8px 10px 0px rgba(124, 124, 124, 0.2);
   display: flex;
-  align-items: start;
-  justify-content: center;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 1rem;
   position: relative;
-  top: -60px;
+
+  top: -150px;
+}
+.hDescription {
+  max-width: 50%;
+  margin-left: 3rem;
+}
+.hDescription h3 {
+  font-weight: 800;
+  font-size: 2.5rem;
+  color: var(--roxo1);
 }
 
-.hero span:nth-child(1),
-.hero h1 {
-  color: var(--cinza);
-  line-height: 1.2;
+.hCardEscolha {
+  /* background-color: red; */
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0 0.5rem;
+  gap: 2rem;
+  justify-content: space-between;
 }
-.hero span:nth-child(1) {
-  margin-bottom: 1rem;
-}
-.hero h1 span {
-  font-size: inherit;
-  color: var(--roxo1) !important;
-}
-.hero h1 {
-  margin-bottom: 1rem;
-}
-.hero p {
-  margin-top: 2rem;
+
+.hCardEscolha h3 {
   font-size: 2rem;
+  color: var(--roxo1);
 }

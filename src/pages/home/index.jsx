@@ -2,27 +2,48 @@ import React from "react";
 import Container from "../../components/container";
 import "./styles.css";
 import BoxAnimation from "../../components/boxAnimation";
+import Hero from "../../components/hero";
+import heartIcon from "../../assets/img/svgs/heartIcon.svg";
+import starIcon from "../../assets/img/svgs/starIcon.svg";
+import peopleIcon from "../../assets/img/svgs/peopleIcon.svg";
 
 const Home = () => {
   return (
     <>
-      <Container sectionClass="bgHero teste" mainClass="hero">
-        <div>
-          <span>Tratamento humanizado e personalizado!</span>
-          <h1>
-            SOMOS UMA CLÍNICA ESPECIALIZADA EM{" "}
-            <span>FISIOTERAPIA PÉLVICA!</span>
-          </h1>
-          <p>
-            Benefícios duradouros através de mudanças positivas no estilo de
-            vida. Todas as profissionais com especialização na área de
-            Fisioterapia Pélvica!
-          </p>
-        </div>
-      </Container>
-      <Container>
-        
-      </Container>
+      <Hero
+        spanText="Tratamento humanizado e personalizado!"
+        titleTextBe="SOMOS UMA CLÍNICA ESPECIALIZADA EM"
+        titleSpan="FISIOTERAPIA PÉLVICA!"
+        imgBg="/src/assets/img/webp/bgHeroTeste.webp"
+        pText="Benefícios duradouros através de mudanças positivas no estilo de vida.
+        Todas as profissionais com especialização na área de Fisioterapia
+        Pélvica!"
+      />
+      <BoxAnimation animation="top">
+        <Container mainClass="hEscolha">
+          <div className="hDescription">
+            <h3>Por que escolher a Pelvie?</h3>
+            <p>Temos um cuidado completo e inigualável em saúde pélvica</p>
+          </div>
+          <div className="hCardEscolha">
+            <img src={heartIcon} width="50" alt="icone de coração" />
+            <h3>Suporte completo</h3>
+            <p>
+              Temos várias linhas de atuação para entregar a melhor experiência!
+            </p>
+          </div>
+          <div className="hCardEscolha">
+            <img src={starIcon} width="50" alt="icone de estrela" />
+            <h3>+100 avaliações</h3>
+            <p>Todas as nossas avaliações no Google são 5 estrelas!</p>
+          </div>
+          <div className="hCardEscolha">
+            <img src={peopleIcon} width="50" alt="icone de pessoa" />
+            <h3>Equipe especializada</h3>
+            <p>Temos uma equipe completa para ajudar na sua recuperação!</p>
+          </div>
+        </Container>
+      </BoxAnimation>
     </>
   );
 };
