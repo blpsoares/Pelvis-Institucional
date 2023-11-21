@@ -6,20 +6,22 @@ import Hero from "../../components/hero";
 import heartIcon from "../../assets/img/svgs/heartIcon.svg";
 import starIcon from "../../assets/img/svgs/starIcon.svg";
 import peopleIcon from "../../assets/img/svgs/peopleIcon.svg";
+import imgteste from "../../assets/img/webp/bgHeroTeste.webp";
 
 const Home = () => {
+  console.log(imgteste);
   return (
     <>
       <Hero
         spanText="Tratamento humanizado e personalizado!"
         titleTextBe="SOMOS UMA CLÍNICA ESPECIALIZADA EM"
         titleSpan="FISIOTERAPIA PÉLVICA!"
-        imgBg="/src/assets/img/webp/bgHeroTeste.webp"
+        imgBg={imgteste}
         pText="Benefícios duradouros através de mudanças positivas no estilo de vida.
         Todas as profissionais com especialização na área de Fisioterapia
         Pélvica!"
       />
-      <BoxAnimation animation="top">
+      <BoxAnimation animation="bottom">
         <Container mainClass="hEscolha">
           <div className="hDescription">
             <h3>Por que escolher a Pelvie?</h3>
