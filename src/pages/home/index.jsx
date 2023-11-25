@@ -6,7 +6,7 @@ import Hero from "../../components/hero";
 import heartIcon from "../../assets/img/svgs/heartIcon.svg";
 import starIcon from "../../assets/img/svgs/starIcon.svg";
 import peopleIcon from "../../assets/img/svgs/peopleIcon.svg";
-import imgteste from "../../assets/img/bgHero.png";
+import imgteste from "../../assets/img/bghero.png";
 
 const Home = () => {
   console.log(imgteste);
