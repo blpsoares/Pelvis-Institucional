@@ -1,8 +1,8 @@
 .bgHero {
-  background-position: 120%;
-  background-size: contain;
+  /* background-size: auto 100%; */
+  background-size: cover;
   background-repeat: no-repeat;
-  /* background-attachment: fixed; */
+  background-position: top center;
 }
 
 .hero {
@@ -42,4 +42,85 @@
 .hero p {
   margin-top: 2rem;
   font-size: 2rem;
+}
+
+@media (max-width: 1300px) {
+  .hero {
+    grid-template-columns: 1fr 55%;
+  }
+
+  .hero p {
+    font-size: 1.6rem;
+  }
+
+  .hero div > span {
+    font-size: 1.3rem;
+  }
+}
+@media (max-width: 1000px) {
+  .hero {
+    grid-template-columns: 1fr 30%;
+    align-content: start;
+  }
+
+  .bgHero {
+    position: relative;
+    z-index: 0;
+    min-height: 70vh !important;
+    max-height: 70vh !important;
+  }
+
+  .bgHero::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #9668a8d3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    backdrop-filter: blur(1rem);
+    -webkit-backdrop-filter: blur(1rem);
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero p {
+    font-size: 1.8rem;
+  }
+
+  .hero div {
+    margin: 0 auto;
+  }
+
+  .hero h1 {
+    color: var(--branco) !important;
+  }
+
+  .hero span,
+  .hero p {
+    color: var(--branco) !important;
+  }
+
+  .hero h1 span {
+    color: var(--verde1) !important;
+  }
+}
+@media (max-width: 520px) {
+  .hero {
+    display: flex;
+    align-items: start;
+  }
+  .hero div > span {
+    font-size: 1.2rem;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+  .hero p {
+    font-size: 1.6rem;
+  }
 }

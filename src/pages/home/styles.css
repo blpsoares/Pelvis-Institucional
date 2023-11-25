@@ -8,11 +8,9 @@
   align-items: center;
   padding: 4rem 1rem;
   position: relative;
-
   top: -150px;
 }
 .hDescription {
-  max-width: 50%;
   margin-left: 3rem;
 }
 .hDescription h3 {
@@ -22,7 +20,6 @@
 }
 
 .hCardEscolha {
-  /* background-color: red; */
   padding: 0 2rem;
   display: flex;
   flex-direction: column;
@@ -34,4 +31,35 @@
 .hCardEscolha h3 {
   font-size: 2rem;
   color: var(--roxo1);
+}
+
+@media (max-width: 1175px) {
+  .hEscolha {
+    flex-direction: column;
+  }
+
+  .hDescription {
+    margin: 0;
+    width: 100%;
+    padding: 0 2rem;
+  }
+
+  .hDescription h3 {
+    font-size: 2.5rem;
+  }
+
+  .hCardEscolha {
+    width: 100%;
+    position: relative;
+    margin: 4rem 0;
+  }
+
+  .hCardEscolha::after {
+    content: "";
+    width: 90%;
+    height: 1px;
+    background-color: var(--roxo1);
+    position: absolute;
+    bottom: -20px;
+  }
 }

@@ -14,7 +14,7 @@ const Header = () => {
       <label htmlFor="menuMobile" className="labelMenu"></label>
       <input
         type="checkbox"
-        defaultChecked={false}
+        checked={openMenu}
         className="btnMenu"
         onClick={handleClick}
         id="menuMobile"
