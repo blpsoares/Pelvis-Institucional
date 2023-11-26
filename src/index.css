@@ -11,6 +11,7 @@
   --branco2: #f6f6f6;
   --branco3: #bdbdbd;
   --cinza: #4a4a4a;
+  --cinza2: #444444;
   --preto: #000;
   --inter: "Inter", sans-serif;
   --poppins: "Poppins", sans-serif;
@@ -64,7 +65,7 @@ a,
 li,
 span {
   font-size: 1.6rem;
-  color: var(--preto);
+  color: var(--cinza);
 }
 button {
   color: var(--branco);
@@ -87,6 +88,47 @@ button:hover {
   padding: var(--pad);
   height: max-content;
   min-width: 100%;
+}
+.titleCubeL {
+  font-weight: 500;
+  position: relative;
+  color: var(--cinza2);
+  text-align: center;
+}
+
+.titleCubeL::after {
+  content: "";
+  border-radius: 1.25rem 0rem;
+  background: #bcddba;
+  box-shadow: 10px 5px 4px 0px rgba(187, 187, 187, 0.15);
+  width: 30px;
+  height: 30px;
+  border-top-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  position: absolute;
+  left: -30px;
+  top: 0;
+}
+
+.cta {
+  padding: 2rem 3rem;
+  background-color: var(--roxo1);
+  color: var(--branco);
+  border-radius: 30rem;
+  font-weight: bold;
+  position: relative;
+}
+
+.cta:hover {
+  -webkit-animation: heartbeat 2s ease-in-out infinite both;
+  animation: heartbeat 2s ease-in-out infinite both;
+}
+
+.cardBox {
+  border-radius: 3.125rem;
+  border: 3px solid #ececec;
+  background: #fefefe;
+  box-shadow: 10px 15px 20px 0px rgba(106, 106, 106, 0.15);
 }
 .navMenu a {
   font-size: 1.8rem;
@@ -167,6 +209,25 @@ button:hover {
   body {
     padding-top: 0;
   }
+
+  .titleCubeL {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .titleCubeL {
+    font-size: 2rem;
+  }
+
+  .titleCubeL::after {
+    top: -5px;
+    left: -15px;
+    width: 15px;
+    height: 15px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+  }
 }
 ::selection {
   background-color: var(--verde1);
@@ -179,4 +240,73 @@ button:hover {
 ::-webkit-scrollbar-thumb {
   background-color: var(--roxo2);
   border-radius: 2rem;
+}
+
+@-webkit-keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.91);
+    transform: scale(0.91);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+    transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.87);
+    transform: scale(0.87);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+@keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.91);
+    transform: scale(0.91);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+    transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.87);
+    transform: scale(0.87);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
 }

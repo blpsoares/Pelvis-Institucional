@@ -9,7 +9,6 @@ import peopleIcon from "../../assets/img/svgs/peopleIcon.svg";
 import imgteste from "../../assets/img/bghero.png";
 
 const Home = () => {
-  console.log(imgteste);
   return (
     <>
       <Hero
@@ -21,7 +20,8 @@ const Home = () => {
         Todas as profissionais com especialização na área de Fisioterapia
         Pélvica!"
       />
-      <Container mainClass="hEscolha">
+
+      <Container mainClass="hEscolha cardBox">
         <div className="hDescription">
           <h3>Por que escolher a Pelvie?</h3>
           <p>Temos um cuidado completo e inigualável em saúde pélvica</p>
@@ -43,6 +43,92 @@ const Home = () => {
           <h3>Equipe especializada</h3>
           <p>Temos uma equipe completa para ajudar na sua recuperação!</p>
         </div>
+      </Container>
+
+      <Container>
+        <div className="steps cardBox">
+          <BoxAnimation animation="top">
+            <div className="stepsHeader">
+              <span>Agendamento</span>
+              <h2 className="titleCubeL">As etapas do atendimento</h2>
+              <p>
+                Acolhimento, empatia e segurança:
+                <br /> aqui os pacientes se
+                <b> sentem em casa.</b>
+              </p>
+            </div>
+          </BoxAnimation>
+          <div className="stepsCards">
+            <BoxAnimation animation="left">
+              <div className="cardBox">
+                <h3>Agende uma avaliação</h3>
+                <p>
+                  O primeiro passo é <b>agendar sua avaliação</b> para que seu
+                  tratamento seja determinado da maneira <b>mais efetiva</b>
+                  possível!
+                </p>
+                <p>
+                  O agendamento deverá ser feito através do WhatsApp ou ligação!
+                </p>
+                <a href="#" target="_blank">
+                  Como funciona a avaliação?
+                </a>
+              </div>
+            </BoxAnimation>
+            <BoxAnimation animation="right">
+              <div className="cardBox">
+                <h3>Início das sessões</h3>
+                <p>
+                  Após <b>passar pela avaliação</b>, você iniciará suas sessões,
+                  cuja frequência será determinada <b>em conjunto</b> com a
+                  fisioterapeuta.
+                </p>
+                <p>
+                  A frequência pode ser semanal, duas vezes por semana ou até
+                  mesmo com intervalos maiores, a depender de cada caso.
+                </p>
+                <a href="#" target="_blank">
+                  Conheça a nossa equipe!
+                </a>
+              </div>
+            </BoxAnimation>
+          </div>
+
+          <div className="stepsFooter">
+            <h2 className="titleCubeL">Atendimento personalizado</h2>
+            <p>
+              Dispomos de uma secretária que te auxiliará em todos as etapas,
+              desde o <b>agendamento</b> e <b>confirmação das sessões,</b> até
+              as formas de pagamento e <b>obtenção do reembolso</b> junto ao
+              plano de saúde.
+            </p>
+
+            <BoxAnimation animation="bottom">
+              <a href="#" className="cta">
+                Reserve seu horário
+              </a>
+            </BoxAnimation>
+          </div>
+        </div>
+      </Container>
+
+      <Container>
+        <h1>Ses. 5</h1>
+      </Container>
+      <Container>
+        <h1>Ses. 6</h1>
+      </Container>
+      <Container>
+        <h1>Ses. 7</h1>
+      </Container>
+      <Container>
+        <h1>Ses. 8</h1>
+      </Container>
+      <Container>
+        <h1>Ses. 9</h1>
+      </Container>
+      <Container>
+        <h1>Footer</h1>
       </Container>
     </>
   );

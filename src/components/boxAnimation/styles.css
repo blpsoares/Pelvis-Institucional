@@ -30,4 +30,14 @@
   width: inherit;
   height: inherit;
   background-color: inherit;
+  flex-direction: inherit;
+  justify-content: inherit;
+  align-items: inherit;
+  margin: inherit;
+  left: inherit;
+  right: inherit;
+  top: inherit;
+  bottom: inherit;
+  position: inherit;
+  overflow: inherit;
 }
