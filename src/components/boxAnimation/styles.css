@@ -6,6 +6,13 @@
 [data-anime="left"] {
   transform: translate3d(-50px, 0, 0);
 }
+[data-anime="opacity"] {
+  opacity: 0;
+}
+[data-anime="scale"] {
+  transform: scale(0%);
+  scale: 0;
+}
 
 [data-anime="right"] {
   transform: translate3d(50px, 0, 0);
@@ -21,23 +28,26 @@
 
 [data-anime].animate {
   opacity: 1;
+  scale: 1;
   transform: translate3d(0, 0, 0);
 }
 
 .boxAnimation {
-  color: inherit;
-  display: inherit;
-  width: inherit;
-  height: inherit;
-  background-color: inherit;
-  flex-direction: inherit;
-  justify-content: inherit;
-  align-items: inherit;
-  margin: inherit;
-  left: inherit;
-  right: inherit;
-  top: inherit;
-  bottom: inherit;
-  position: inherit;
-  overflow: inherit;
+  color: unset;
+  display: unset;
+  width: unset;
+  height: unset;
+  background-color: unset;
+  flex-direction: unset;
+  justify-content: unset;
+  align-items: unset;
+  margin: unset;
+  left: unset;
+  right: unset;
+  top: unset;
+  bottom: unset;
+  position: unset;
+  overflow: unset;
+  position: unset;
+  padding: unset;
 }

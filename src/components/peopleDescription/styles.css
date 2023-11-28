@@ -1,0 +1,105 @@
+.peopleDescription,
+.reverse {
+  display: flex;
+  flex-direction: row-reverse;
+  position: relative;
+  justify-content: center;
+  padding: 8rem 0;
+}
+
+.peopleDescriptionImg h2 {
+  font-size: 2.3rem;
+  margin-top: 1rem;
+  color: var(--cinza);
+}
+.peopleDescriptionImg span {
+  max-width: 300px;
+  display: block;
+}
+
+.pDescription {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  padding: 0 10rem 0 0;
+  text-align: left;
+}
+
+.pDescription h1 {
+  text-align: left;
+  width: 100%;
+  margin: 2rem 0;
+  font-size: 3rem;
+  color: var(--roxo2);
+}
+.pDescription p {
+  margin: 1rem 0;
+}
+
+.objetivo {
+  margin-top: 4rem;
+  width: 50%;
+}
+
+.objetivo h3 {
+  font-size: 2rem;
+  padding-left: 3rem;
+  position: relative;
+  color: var(--roxo2);
+}
+
+.objetivo h3::after {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  left: -5px;
+  top: -5px;
+  background-color: var(--roxo1);
+  content: "";
+  border-bottom-right-radius: 6px;
+  border-top-left-radius: 6px;
+}
+
+.objetivo p {
+  font-size: 1.4rem;
+}
+
+.reverse {
+  flex-direction: row;
+}
+.reverse .pDescription {
+  padding: 0 0 0 10rem;
+}
+
+.bgReverse {
+  background-color: var(--rosa1);
+}
+
+.reverse .peopleDescriptionImg h2,
+.reverse .peopleDescriptionImg span {
+  color: var(--roxo2);
+}
+
+@media (max-width: 1140px) {
+  .reverse,
+  .peopleDescription {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .reverse,
+  .pDescription {
+    padding: 3rem 0 !important;
+    width: 100%;
+  }
+
+  .pDescription h1 {
+    text-align: center;
+    width: 100%;
+  }
+
+  .pDescription .objetivo {
+    width: 100%;
+  }
+}

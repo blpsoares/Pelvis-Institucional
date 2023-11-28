@@ -7,6 +7,9 @@ import heartIcon from "../../assets/img/svgs/heartIcon.svg";
 import starIcon from "../../assets/img/svgs/starIcon.svg";
 import peopleIcon from "../../assets/img/svgs/peopleIcon.svg";
 import imgteste from "../../assets/img/bghero.png";
+import PeopleDescription from "../../components/peopleDescription";
+import { michelle, juliana, thays } from "./texts";
+import Slider from "../../components/slider";
 
 const Home = () => {
   return (
@@ -93,31 +96,100 @@ const Home = () => {
               </div>
             </BoxAnimation>
           </div>
+          <BoxAnimation animation="top">
+            <div className="stepsFooter">
+              <h2 className="titleCubeL">Atendimento personalizado</h2>
+              <p>
+                Dispomos de uma secretária que te auxiliará em todos as etapas,
+                desde o <b>agendamento</b> e <b>confirmação das sessões,</b> até
+                as formas de pagamento e <b>obtenção do reembolso</b> junto ao
+                plano de saúde.
+              </p>
 
-          <div className="stepsFooter">
-            <h2 className="titleCubeL">Atendimento personalizado</h2>
-            <p>
-              Dispomos de uma secretária que te auxiliará em todos as etapas,
-              desde o <b>agendamento</b> e <b>confirmação das sessões,</b> até
-              as formas de pagamento e <b>obtenção do reembolso</b> junto ao
-              plano de saúde.
-            </p>
-
-            <BoxAnimation animation="bottom">
               <a href="#" className="cta">
                 Reserve seu horário
               </a>
-            </BoxAnimation>
-          </div>
+            </div>
+          </BoxAnimation>
         </div>
       </Container>
 
       <Container>
-        <h1>Ses. 5</h1>
+        <PeopleDescription
+          foto={michelle.foto}
+          alt={michelle.alt}
+          hUm={michelle.hUm}
+          hDois={michelle.hDois}
+          spanHDois={michelle.spanHDois}
+          span={michelle.spanHDois}
+          isList={false}
+          content={michelle.content}
+          animationUm="opacity"
+          animationD="opacity"
+        >
+          <div className="objetivo">
+            <h3>Objetivo</h3>
+            <p>
+              Ajudar a restaurar a função normal e fortalecer os músculos do
+              assoalho pélvico. Eles desempenham um papel fundamental no suporte
+              dos órgãos pélvicos, controle da micção, da defecação e na função
+              sexual.
+            </p>
+          </div>
+        </PeopleDescription>
       </Container>
+
+      <Container sectionClass="bgReverse">
+        <PeopleDescription
+          foto={thays.foto}
+          alt={thays.alt}
+          hUm={thays.hUm}
+          hDois={thays.hDois}
+          spanHDois={thays.spanHDois}
+          span={thays.spanHDois}
+          isList={false}
+          content={thays.content}
+          reverse={true}
+          animationUm="opacity"
+          animationD="opacity"
+        >
+          <div className="objetivo">
+            <h3>Objetivo</h3>
+            <p>
+              Ajudar a restaurar a função normal e fortalecer os músculos do
+              assoalho pélvico. Eles desempenham um papel fundamental no suporte
+              dos órgãos pélvicos, controle da micção, da defecação e na função
+              sexual.
+            </p>
+          </div>
+        </PeopleDescription>
+      </Container>
+
       <Container>
-        <h1>Ses. 6</h1>
+        <PeopleDescription
+          foto={juliana.foto}
+          alt={juliana.alt}
+          hUm={juliana.hUm}
+          hDois={juliana.hDois}
+          spanHDois={juliana.spanHDois}
+          span={juliana.spanHDois}
+          isList={false}
+          content={juliana.content}
+          animationUm="opacity"
+          animationD="opacity"
+        >
+          <div className="objetivo">
+            <h3>Objetivo</h3>
+            <p>
+              Ajudar a restaurar a função normal e fortalecer os músculos do
+              assoalho pélvico. Eles desempenham um papel fundamental no suporte
+              dos órgãos pélvicos, controle da micção, da defecação e na função
+              sexual.
+            </p>
+          </div>
+        </PeopleDescription>
       </Container>
+
       <Container>
         <h1>Ses. 7</h1>
       </Container>
