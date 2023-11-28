@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./styles.css";
 import { NavLink } from "react-router-dom";
-import logoBranca from "../../assets/img/svgs/logoBranca.svg";
-import logoColorida from "../../assets/img/svgs/logoColorida.svg";
+import logoBranca from "/src/assets/img/svgs/logoBranca.svg";
+import logoColorida from "/src/assets/img/svgs/logoColorida.svg";
 import setaBtn from "../../assets/img/svgs/setaIconMenu.svg";
 
 const Menu = ({ openMenu, setOpenMenu }) => {
   function closeMenu() {
     setOpenMenu(false);
   }
+
+  console.log(logoBranca, logoColorida);
 
   return (
     <header className={`${openMenu ? "header" : "headerClosed"}`}>
