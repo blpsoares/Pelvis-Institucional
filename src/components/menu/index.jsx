@@ -19,7 +19,6 @@ const Menu = ({ openMenu, setOpenMenu }) => {
           alt="logo pelvie"
           width="150"
         />
-
         {openMenu && (
           <div className="navigationTextMenu">
             <img src={logoBranca} alt="logo pelvie" width="150" />
