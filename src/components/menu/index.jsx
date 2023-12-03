@@ -10,7 +10,7 @@ const Menu = ({ openMenu, setOpenMenu }) => {
     setOpenMenu(false);
   }
 
-  console.log(logoBranca, logoColorida);
+
 
   return (
     <header className={`${openMenu ? "header" : "headerClosed"}`}>
