@@ -1,4 +1,3 @@
-import React from "react";
 import Container from "../../components/container";
 import "./styles.css";
 import BoxAnimation from "../../components/boxAnimation";
@@ -9,7 +8,7 @@ import peopleIcon from "../../assets/img/svgs/peopleIcon.svg";
 import imgteste from "../../assets/img/bghero.png";
 import PeopleDescription from "../../components/peopleDescription";
 import { michelle, juliana, thays } from "./texts";
-import Slider from "../../components/slider";
+// import Slider from "../../components/slider";
 
 const Home = () => {
   return (

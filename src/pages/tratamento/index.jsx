@@ -1,6 +1,6 @@
-import React from "react";
-import Container from "../../components/container";
-import Slider from "../../components/slider";
+// import React from "react";
+// import Container from "../../components/container";
+// import Slider from "../../components/slider";
 import Hero from "../../components/hero";
 import bgHero from "../../assets/img/bgHeroTratamento.png";
 
