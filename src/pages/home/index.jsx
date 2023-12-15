@@ -1,19 +1,20 @@
 import Container from "../../components/container";
 import "./styles.css";
 import BoxAnimation from "../../components/boxAnimation";
-import Hero from "../../components/hero";
-import heartIcon from "../../assets/img/svgs/heartIcon.svg";
-import starIcon from "../../assets/img/svgs/starIcon.svg";
-import peopleIcon from "../../assets/img/svgs/peopleIcon.svg";
-import imgteste from "../../assets/img/bghero.png";
+// import Hero from "../../components/hero";
+// import heartIcon from "../../assets/img/svgs/heartIcon.svg";
+// import starIcon from "../../assets/img/svgs/starIcon.svg";
+// import peopleIcon from "../../assets/img/svgs/peopleIcon.svg";
+// import imgteste from "../../assets/img/bghero.png";
 import PeopleDescription from "../../components/peopleDescription";
 import { michelle, juliana, thays } from "./texts";
+import Carrossel from "../../components/carrossel";
 // import Slider from "../../components/slider";
 
 const Home = () => {
   return (
     <>
-      <Hero
+      {/* <Hero
         spanText="Tratamento humanizado e personalizado!"
         titleTextBe="SOMOS UMA CLÍNICA ESPECIALIZADA EM"
         titleSpan="FISIOTERAPIA PÉLVICA!"
@@ -21,8 +22,9 @@ const Home = () => {
         pText="Benefícios duradouros através de mudanças positivas no estilo de vida.
         Todas as profissionais com especialização na área de Fisioterapia
         Pélvica!"
-      />
-
+      /> */}
+      <Carrossel />
+      {/* 
       <Container mainClass="hEscolha cardBox">
         <div className="hDescription">
           <h3>Por que escolher a Pelvie?</h3>
@@ -45,7 +47,7 @@ const Home = () => {
           <h3>Equipe especializada</h3>
           <p>Temos uma equipe completa para ajudar na sua recuperação!</p>
         </div>
-      </Container>
+      </Container> */}
 
       <Container>
         <div className="steps cardBox">

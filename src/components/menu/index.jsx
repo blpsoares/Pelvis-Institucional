@@ -1,23 +1,40 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import "./styles.css";
 import { NavLink } from "react-router-dom";
 import logoBranca from "/src/assets/img/svgs/logoBranca.svg";
-import logoColorida from "../../assets/img/svgs/logoColorida.svg";
 import setaBtn from "../../assets/img/svgs/setaIconMenu.svg";
+import { useEffect, useState } from "react";
+import insta from "../../assets/img/svgs/instagram.svg";
+import whats from "../../assets/img/svgs/whatsapp.svg";
 
 const Menu = ({ openMenu, setOpenMenu }) => {
+  const [scrollPosition, setScrollPosition] = useState(0);
   function closeMenu() {
     setOpenMenu(false);
   }
+  useEffect(() => {
+    function handleScroll() {
+      const position = window.scrollY;
+      setScrollPosition(position);
+    }
 
-
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <header className={`${openMenu ? "header" : "headerClosed"}`}>
+    <header
+      style={{
+        background: scrollPosition === 0 ? "var(--roxo5)" : "var(--roxo2)",
+      }}
+      className={`${openMenu ? "header" : "headerClosed"}`}
+    >
       <div className="headerContent mainContent">
         <img
           className="logoColoridaDesktop"
-          src={logoColorida}
+          src={logoBranca}
           alt="logo pelvie"
           width="150"
         />
@@ -44,7 +61,12 @@ const Menu = ({ openMenu, setOpenMenu }) => {
         </nav>
 
         <div className="contato">
-          <a href="#">Contato</a>
+          <a href="#">
+            <img src={insta} alt="logo do instagram" width="43" height="42" />
+          </a>
+          <a href="#">
+            <img src={whats} alt="logo do whatsapp" width="43" height="42" />
+          </a>
         </div>
         {openMenu && (
           <div className="footerMenuMobile">
