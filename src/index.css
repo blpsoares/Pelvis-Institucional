@@ -10,6 +10,7 @@
   --roxo3: #9b59ff7d;
   --roxo4: #9c59ff;
   --roxo5: #5e1d8a7e;
+  --roxo6: ##270061;
   --rosa1: #fbe7ff;
   --branco: #fff;
   --branco2: #f6f6f6;
@@ -17,6 +18,7 @@
   --cinza: #4a4a4a;
   --cinza2: #444444;
   --cinza3: #f5f5f5;
+  --azul1: ;
   --preto: #000;
   --taviraj: "Taviraj", serif;
   --sourceSans: "Source Sans 3", sans-serif;
@@ -40,9 +42,12 @@ html {
 }
 
 p,
-span,
 li {
   font-family: var(--sourceSans);
+}
+
+span {
+  font-family: inherit;
 }
 h1 {
   font-size: 4.5rem;
