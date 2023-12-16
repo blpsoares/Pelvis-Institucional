@@ -1,6 +1,7 @@
 .containerSwiper {
   max-width: 100%;
   min-height: 100vh;
+  max-height: 100vh;
   display: flex;
 }
 .swiper-pagination-bullet {
@@ -11,7 +12,7 @@
   opacity: 1;
   transition: opacity 0.2s ease;
   position: relative;
-  top: -30px;
+  top: -10px;
 }
 .swiper-pagination-bullet-active {
   background-color: var(--roxo1);

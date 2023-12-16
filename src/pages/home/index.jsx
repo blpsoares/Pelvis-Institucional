@@ -8,46 +8,14 @@ import BoxAnimation from "../../components/boxAnimation";
 // import imgteste from "../../assets/img/bghero.png";
 import PeopleDescription from "../../components/peopleDescription";
 import { michelle, juliana, thays } from "./texts";
-import Carrossel from "../../components/carrossel";
+import HeroCarrossel from "../../components/HeroCarrossel";
+
 // import Slider from "../../components/slider";
 
 const Home = () => {
   return (
     <>
-      {/* <Hero
-        spanText="Tratamento humanizado e personalizado!"
-        titleTextBe="SOMOS UMA CLÍNICA ESPECIALIZADA EM"
-        titleSpan="FISIOTERAPIA PÉLVICA!"
-        imgBg={imgteste}
-        pText="Benefícios duradouros através de mudanças positivas no estilo de vida.
-        Todas as profissionais com especialização na área de Fisioterapia
-        Pélvica!"
-      /> */}
-      <Carrossel />
-      {/* 
-      <Container mainClass="hEscolha cardBox">
-        <div className="hDescription">
-          <h3>Por que escolher a Pelvie?</h3>
-          <p>Temos um cuidado completo e inigualável em saúde pélvica</p>
-        </div>
-        <div className="hCardEscolha">
-          <img src={heartIcon} width="50" alt="icone de coração" />
-          <h3>Suporte completo</h3>
-          <p>
-            Temos várias linhas de atuação para entregar a melhor experiência!
-          </p>
-        </div>
-        <div className="hCardEscolha">
-          <img src={starIcon} width="50" alt="icone de estrela" />
-          <h3>+100 avaliações</h3>
-          <p>Todas as nossas avaliações no Google são 5 estrelas!</p>
-        </div>
-        <div className="hCardEscolha">
-          <img src={peopleIcon} width="50" alt="icone de pessoa" />
-          <h3>Equipe especializada</h3>
-          <p>Temos uma equipe completa para ajudar na sua recuperação!</p>
-        </div>
-      </Container> */}
+      <HeroCarrossel />
 
       <Container>
         <div className="steps cardBox">
@@ -199,9 +167,6 @@ const Home = () => {
       </Container>
       <Container>
         <h1>Ses. 9</h1>
-      </Container>
-      <Container>
-        <h1>Footer</h1>
       </Container>
     </>
   );

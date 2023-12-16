@@ -10,7 +10,7 @@ import cFotoTres from "../../assets/img/webp/c_foto3.webp";
 import cFotoQuatro from "../../assets/img/webp/c_foto4.webp";
 import cFotoCinco from "../../assets/img/webp/c_foto5.webp";
 
-const Carrossel = () => {
+const HeroCarrossel = () => {
   return (
     <div className="containerSwiper">
       <Swiper
@@ -68,4 +68,4 @@ const Carrossel = () => {
   );
 };
 
-export default Carrossel;
+export default HeroCarrossel;

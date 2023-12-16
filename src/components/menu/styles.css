@@ -53,7 +53,6 @@
   padding: 3rem 2rem;
   align-items: center;
   justify-content: center;
-
   gap: 2rem;
 }
 .contato a {
@@ -62,7 +61,6 @@
   color: var(--branco);
   transition: 0.2s;
 }
-
 .contato a:hover {
   transform: scale(105%);
   filter: brightness(120%);
@@ -72,6 +70,44 @@
 }
 .navigationTextMenu {
   display: none;
+}
+.navMenu a {
+  font-size: 1.8rem;
+  display: block;
+  padding: 3rem 2rem;
+  position: relative;
+}
+.active {
+  transition: 0.4s;
+  font-weight: bold;
+  color: var(--branco) !important;
+}
+.active::before,
+.navMenu a:not(.active)::before {
+  transition: 0.2s;
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--branco);
+  left: -2px;
+  top: 45%;
+}
+.navMenu a:not(.active)::before {
+  width: 0;
+  height: 0;
+  top: 50%;
+  left: 20px;
+}
+.navMenu a:not(.active):hover {
+  color: var(--branco);
+}
+.navMenu a:not(.active):hover::before {
+  width: 10px;
+  height: 10px;
+  left: -2px;
+  top: 45%;
 }
 @media (max-width: 1000px) {
   .header,
@@ -189,6 +225,30 @@
   }
 }
 @media (max-width: 600px) {
+  .navMenu a {
+    color: var(--branco);
+  }
+  .active {
+    color: var(--branco) !important;
+    font-weight: bold;
+  }
+  .active::before,
+  .navMenu a:not(.active)::before {
+    background-color: var(--verde1);
+    left: -10px;
+    top: 38%;
+  }
+  .navMenu a:not(.active)::before {
+    top: 50%;
+    left: 20px;
+  }
+  .navMenu a:not(.active):hover {
+    color: var(--verde1);
+  }
+  .navMenu a:not(.active):hover::before {
+    left: -10px;
+    top: 38%;
+  }
   .navigationTextMenu {
     position: relative;
     top: 30px;
@@ -223,34 +283,3 @@
     font-size: 1.3rem;
   }
 }
-
-/* @media (max-width: 1000px) and (min-height: 800px) {
-  .navMenu a {
-    font-size: 2.2rem;
-    padding: 2rem 0 2rem 2rem !important;
-  }
-
-  .navigationTextMenu {
-    position: relative;
-    top: 50px;
-    left: 15px;
-  }
-
-  .buttonsFooterMenu a {
-    font-size: 2rem;
-  }
-
-  .navigationTextMenu h3 {
-    font-size: 2.5rem;
-  }
-  .navigationTextMenu span {
-    font-size: 1.9rem;
-  }
-
-  .textFooterMenu h3 {
-    font-size: 2.5rem !important;
-  }
-  .textFooterMenu p {
-    font-size: 1.8rem !important;
-  }
-} */

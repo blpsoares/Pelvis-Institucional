@@ -1,6 +1,6 @@
-import React from "react";
+// import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Loader from "./components/loader";
+// import Loader from "./components/loader";
 import Home from "./pages/home";
 import Tratamento from "./pages/tratamento";
 import Equipe from "./pages/equipe";

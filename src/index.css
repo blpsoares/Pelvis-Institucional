@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Poppins:ital,wght@0,300;0,400;0,700;0,800;1,300;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,700;0,800;0,900;1,300;1,400;1,700;1,800&family=Taviraj:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700;1,800&display=swap");
 :root {
   --pad: 3rem;
   --gap: 3rem;
@@ -16,9 +16,10 @@
   --branco3: #bdbdbd;
   --cinza: #4a4a4a;
   --cinza2: #444444;
+  --cinza3: #f5f5f5;
   --preto: #000;
-  --inter: "Inter", sans-serif;
-  --poppins: "Poppins", sans-serif;
+  --taviraj: "Taviraj", serif;
+  --sourceSans: "Source Sans 3", sans-serif;
 }
 *,
 *::after,
@@ -37,13 +38,11 @@ button {
 html {
   font-size: 62.5%;
 }
-h1,
-h2,
-h3,
+
 p,
 span,
 li {
-  font-family: var(--poppins);
+  font-family: var(--sourceSans);
 }
 h1 {
   font-size: 4.5rem;
@@ -54,9 +53,16 @@ h2 {
 h3 {
   font-size: 3.5rem;
 }
+
+h1,
+h2,
+h3 {
+  font-family: var(--taviraj);
+}
+
 a {
   cursor: pointer;
-  font-family: var(--inter);
+  font-family: var(--sourceSans);
 }
 p,
 a,
@@ -123,45 +129,6 @@ button:hover {
   background: #fefefe;
   box-shadow: 10px 15px 20px 0px rgba(106, 106, 106, 0.15);
 }
-.navMenu a {
-  font-size: 1.8rem;
-  display: block;
-  padding: 3rem 2rem;
-  position: relative;
-  color: var(--roxo1);
-}
-.active {
-  transition: 0.4s;
-  font-weight: bold;
-  color: var(--branco) !important;
-}
-.active::before,
-.navMenu a:not(.active)::before {
-  transition: 0.2s;
-  content: "";
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: var(--branco);
-  left: -2px;
-  top: 45%;
-}
-.navMenu a:not(.active)::before {
-  width: 0;
-  height: 0;
-  top: 50%;
-  left: 20px;
-}
-.navMenu a:not(.active):hover {
-  color: var(--branco);
-}
-.navMenu a:not(.active):hover::before {
-  width: 10px;
-  height: 10px;
-  left: -2px;
-  top: 45%;
-}
 @media (max-width: 1300px) {
   h1 {
     font-size: 3.5rem;
@@ -172,31 +139,6 @@ button:hover {
   }
 }
 @media (max-width: 1000px) {
-  .navMenu a {
-    color: var(--branco);
-  }
-  .active {
-    color: var(--branco) !important;
-    font-weight: bold;
-  }
-  .active::before,
-  .navMenu a:not(.active)::before {
-    background-color: var(--verde1);
-    left: -10px;
-    top: 38%;
-  }
-  .navMenu a:not(.active)::before {
-    top: 50%;
-    left: 20px;
-  }
-  .navMenu a:not(.active):hover {
-    color: var(--verde1);
-  }
-  .navMenu a:not(.active):hover::before {
-    left: -10px;
-    top: 38%;
-  }
-
   body {
     padding-top: 0;
   }
