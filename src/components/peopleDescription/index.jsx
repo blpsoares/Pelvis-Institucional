@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+// import React from "react";
 import "./styles.css";
 import Animation from "../boxAnimation";
 
@@ -6,8 +7,6 @@ const PeopleDescription = ({
   foto,
   alt,
   hUm,
-  hDois,
-  spanHDois,
   span,
   content,
   isList,
@@ -35,8 +34,6 @@ const PeopleDescription = ({
       <Animation animation={animationUm}>
         <div className="peopleDescriptionImg">
           <img src={foto} width="300" height="367" alt={alt} loading="lazy" />
-          {hDois && <h2>{hDois}</h2>}
-          {spanHDois && <span>{spanHDois}</span>}
         </div>
       </Animation>
       <Animation animation={animationD}>
