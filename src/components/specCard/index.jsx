@@ -1,9 +1,9 @@
+/* eslint-disable react/prop-types */
 import "./styles.css";
-import michelle from "../../assets/img/webp/michelle.png";
 import arrow from "../../assets/img/svgs/whiteArrow.svg";
 import { useState } from "react";
 
-const SpecCard = () => {
+const SpecCard = ({ h3, p, img, span }) => {
   const [openCard, setOpenCard] = useState(false);
 
   function handleClick() {
@@ -14,28 +14,40 @@ const SpecCard = () => {
     <>
       <div className="CardMain">
         <div className="specCard">
-          <img src={michelle} alt="foto da dra.michelle" />
+          <img
+            src={img}
+            alt="foto da dra.michelle"
+            width={270}
+            style={{
+              border: openCard
+                ? "0px solid var(--branco)"
+                : "3px solid var(--branco)",
+            }}
+          />
           <div
             className="descriptionCard"
             style={{ bottom: openCard ? "0px" : "-50%" }}
           >
             <h3>
-              <span>Dra.</span>Michelle Villas Bôas
+              <span>Dra.</span>
+              {h3}
             </h3>
-            <p>Fisioterapeuta especializada em Saúde da Mulher </p>
-            <span>CREFITO-3 221316-F</span>
+            <p>{p}</p>
+            <span>{span}</span>
           </div>
           <button
             onClick={handleClick}
             style={{ rotate: openCard ? "360deg" : "180deg" }}
+            name="arrowCard"
           >
-            <img src={arrow} alt="" />
+            <img src={arrow} alt="seta para abrir o cartão" />
           </button>
         </div>
         {!openCard && (
           <div className="doctorName">
             <h3>
-              <span>Dra. </span>Michelle Villas Bôas
+              <span>Dra. </span>
+              {h3}
             </h3>
           </div>
         )}

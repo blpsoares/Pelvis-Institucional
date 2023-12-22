@@ -29,7 +29,7 @@
   left: 0;
   right: 0;
   background-color: var(--roxo5);
-  backdrop-filter: blur(0.5rem);
+  backdrop-filter: blur(1rem);
   z-index: 110;
   transition: background 0.3s ease-in-out;
 }
@@ -223,6 +223,21 @@
   .logoColoridaDesktop {
     display: none;
   }
+  .active::before,
+  .navMenu a:not(.active)::before {
+    background-color: var(--verde1);
+    left: -10px;
+    top: 38%;
+  }
+
+  .navMenu a:not(.active)::before {
+    top: 50%;
+    left: 20px;
+  }
+  .navMenu a:not(.active):hover::before {
+    left: -10px;
+    top: 38%;
+  }
 }
 @media (max-width: 600px) {
   .navMenu a {
@@ -232,23 +247,11 @@
     color: var(--branco) !important;
     font-weight: bold;
   }
-  .active::before,
-  .navMenu a:not(.active)::before {
-    background-color: var(--verde1);
-    left: -10px;
-    top: 38%;
-  }
-  .navMenu a:not(.active)::before {
-    top: 50%;
-    left: 20px;
-  }
+
   .navMenu a:not(.active):hover {
     color: var(--verde1);
   }
-  .navMenu a:not(.active):hover::before {
-    left: -10px;
-    top: 38%;
-  }
+
   .navigationTextMenu {
     position: relative;
     top: 30px;

@@ -27,7 +27,7 @@ const Menu = ({ openMenu, setOpenMenu }) => {
   return (
     <header
       style={{
-        background: scrollPosition === 0 ? "var(--roxo5)" : "var(--roxo2)",
+        background: scrollPosition === 0 ? "var(--roxo5)" : "var(--roxo7)",
       }}
       className={`${openMenu ? "header" : "headerClosed"}`}
     >

@@ -1,6 +1,7 @@
 import React from "react";
-import styles from "./styles.module.css";
+import s from "./styles.module.css";
 import { slides } from "./pathImages";
+import arrow from "../../assets/img/svgs/whiteArrow.svg";
 
 const Slider = () => {
   const [active, setActive] = React.useState(0);
@@ -21,41 +22,59 @@ const Slider = () => {
   }
 
   return (
-    <div style={{ position: "relative" }}>
-      <section className={styles.containerSlide}>
-        <div
-          ref={contentRef}
-          className={styles.content}
-          style={{ transform: `translateX(${position}px)` }}
-        >
-          {slides.map((slide, index) => (
-            <div
-              key={slide.id}
-              className={`${styles.item} ${
-                active === index ? styles.slideActive : styles.slideItem
-              }`}
-            >
-              <img src={slide.full} alt="Slide" />
-            </div>
-          ))}
-        </div>
+    <div className={s.sliderMain}>
+      <div style={{ position: "relative" }}>
+        <section className={s.containerSlide}>
+          <div
+            ref={contentRef}
+            className={s.content}
+            style={{ transform: `translateX(${position}px)` }}
+          >
+            {slides.map((slide, index) => (
+              <div
+                key={slide.id}
+                className={`${s.item} ${
+                  active === index ? s.slideActive : s.slideItem
+                }`}
+              >
+                <img
+                  src={slide.full}
+                  alt="Slide"
+                  width="1200"
+                  height="455"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
 
-        <nav className={styles.nav}>
-          <button onClick={slidePrev}>&lt;</button>
-          <button onClick={slideNext}>&gt;</button>
-        </nav>
-      </section>
-      {/* Miniaturas dos slides */}
-      <div className={styles.thumbnailContainer}>
+          <nav className={s.nav}>
+            <button onClick={slidePrev} name="arrowLeft">
+              <img src={arrow} alt="svg de uma seta" loading="lazy" />
+            </button>
+            <button onClick={slideNext} name="arrowRight">
+              <img src={arrow} alt="svg de uma seta" loading="lazy" />
+            </button>
+          </nav>
+        </section>
+        {/* Miniaturas dos slides */}
+      </div>
+      <div className={s.thumbnailContainer}>
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`${styles.thumbnail} ${
-              active === index ? styles.thumbnailActive : styles.thumbnailItem
+            className={`${s.thumbnail} ${
+              active === index ? s.thumbnailActive : s.thumbnailItem
             }`}
             onClick={() => setActive(index)}
           >
-            <img src={slide.thumb} alt="Slide" />
+            <img
+              src={slide.thumb}
+              alt="Foto da clínica"
+              loading="lazy"
+              width="100"
+              height="81"
+            />
           </div>
         ))}
       </div>

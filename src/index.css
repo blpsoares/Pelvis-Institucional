@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,700;0,800;0,900;1,300;1,400;1,700;1,800&family=Taviraj:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,800&family=Taviraj:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap");
 :root {
   --pad: 3rem;
   --gap: 3rem;
@@ -7,10 +7,12 @@
   --verde2: #b1ef80;
   --roxo1: #9668a8;
   --roxo2: #874e9d;
-  --roxo3: #9b59ff7d;
+  --roxo3: #9b59ffab;
   --roxo4: #9c59ff;
-  --roxo5: #5e1d8a7e;
-  --roxo6: ##270061;
+  --roxo5: #5e1d8a0d;
+  --roxo6: #270061;
+  --roxo7: #5e1d8a5d;
+  --roxo8: #a66bff;
   --rosa1: #fbe7ff;
   --branco: #fff;
   --branco2: #f6f6f6;
@@ -32,6 +34,7 @@
   list-style-type: none;
   text-decoration: none;
 }
+
 button {
   background-color: transparent;
   border: none;
@@ -39,6 +42,11 @@ button {
 }
 html {
   font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 p,
@@ -134,6 +142,54 @@ button:hover {
   background: #fefefe;
   box-shadow: 10px 15px 20px 0px rgba(106, 106, 106, 0.15);
 }
+
+.spanLabel,
+.spanLabelLeaked {
+  color: var(--branco);
+  font-size: 1.8rem;
+  background-color: var(--roxo4);
+  padding: 0.2rem 2rem;
+  font-family: var(--sourceSans);
+  border-radius: 2rem;
+}
+
+.spanLabelLeaked {
+  background-color: transparent;
+  border: 2px solid var(--roxo4);
+  color: var(--roxo4);
+}
+
+.ctaBtn1 {
+  border-radius: 0.6rem;
+  border: 2px solid var(--roxo4);
+  color: var(--roxo4);
+}
+
+.ctaBtn2 {
+  border-radius: 0.6rem;
+  background-color: var(--roxo4);
+  color: var(--branco);
+}
+
+.ctaBtn1,
+.ctaBtn2 {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out,
+    background 0.2s ease-in-out;
+}
+
+.ctaBtn1:hover,
+.ctaBtn2:hover {
+  transform: scale(102%);
+  box-shadow: 0 0 3px var(--roxo4);
+}
+.ctaBtn2:hover {
+  background-color: var(--roxo8);
+}
+
+*:focus {
+  outline: none;
+}
+
 @media (max-width: 1300px) {
   h1 {
     font-size: 3.5rem;
@@ -143,13 +199,16 @@ button:hover {
     font-size: 1.6rem;
   }
 }
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   body {
     padding-top: 0;
   }
 
   .titleCubeL {
     font-size: 3rem;
+  }
+  .spanLabel {
+    font-size: 1.3rem;
   }
 }
 @media (max-width: 600px) {

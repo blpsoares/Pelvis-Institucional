@@ -1,7 +1,12 @@
+.sliderMain {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
 .containerSlide {
   overflow: hidden;
   position: relative;
-  height: 50vh;
   display: flex;
   align-items: center;
   border-radius: 30px;
@@ -18,6 +23,7 @@
   width: 100%;
   position: relative;
   border-radius: 30px;
+
   transition: opacity 0.5s ease-in-out;
 }
 
@@ -35,22 +41,33 @@
   z-index: 3;
 }
 
+.nav button:nth-child(1) {
+  rotate: 90deg;
+}
+.nav button:nth-child(2) {
+  rotate: -90deg;
+}
+
 .nav button {
   font-size: 5rem;
   padding: 0 1rem;
   background-color: transparent;
+  transition: transform 0.2s ease-in-out;
+}
+
+.nav button:hover {
+  transform: scale(120%);
 }
 
 .thumbnailContainer {
   padding: 2rem 0;
   display: flex;
   justify-content: space-between;
-  position: absolute;
-  bottom: -150px;
+
+  bottom: 0;
   gap: 2rem;
   width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .thumbnailContainer::-webkit-scrollbar {
@@ -88,9 +105,56 @@
   opacity: 1;
 }
 
+@media (max-width: 1370px) {
+  .containerSlide {
+    max-height: 70vh;
+  }
+}
+
+/* @media (max-width: 1280px) {
+  .thumbnailContainer {
+    display: none;
+  }
+} */
+
 @media (max-width: 1100px) {
   .containerSlide {
     height: max-content;
+  }
+}
+
+@media (max-width: 770px) {
+  /* .containerSlide {
+    max-height: 70vh;
+    min-height: 70vh;
+    background-color: blue;
+  }
+  .item {
+    background-color: red;
+    height: 100%;
+    
+  }
+
+  .item img {
+    width: 100%;
+    height: auto;
+    
+  }
+
+  .content {
+    background-color: purple;
+    height: 60vh;
+  } */
+
+  .nav button {
+    transform: scale(80%);
+  }
+
+  .nav {
+    padding: 0 1rem;
+  }
+  .thumbnailContainer {
+    overflow-x: scroll;
   }
 }
 
