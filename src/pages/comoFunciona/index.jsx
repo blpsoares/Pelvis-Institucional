@@ -1,7 +1,8 @@
 // import Accordion from "../../components/accordion";
 import Container from "../../components/container";
+import "./styles.css";
 
-const Equipe = () => {
+const ComoFunciona = () => {
   return (
     <>
       <Container></Container>
@@ -9,4 +10,4 @@ const Equipe = () => {
   );
 };
 
-export default Equipe;
+export default ComoFunciona;
