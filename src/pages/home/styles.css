@@ -1,3 +1,85 @@
+.bgTitleCardsHome {
+  background-image: url(../../assets/img/bgCardsHome.png);
+  background-position: center center;
+  backdrop-filter: blur(200px);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 1rem;
+  padding: 0rem 2rem 5rem;
+  position: relative;
+  margin-bottom: 10rem;
+}
+
+.cardsHome {
+  display: flex;
+  /* padding: 10rem 0; */
+  /* flex-direction: column; */
+  justify-content: space-evenly;
+  padding-bottom: 5rem;
+  /* gap: 3rem; */
+  position: absolute;
+  bottom: -180px;
+  left: 0;
+  width: 100%;
+}
+
+.cardsHomeHeader {
+  display: flex;
+  justify-content: space-around;
+  margin: 5rem 0;
+  width: 100%;
+  padding: 5rem 2rem;
+}
+
+.titleCardsHomeText {
+  color: var(--branco);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.titleCardsHomeText h1 {
+  font-weight: 400;
+  text-align: center;
+  font-size: 3.5rem;
+  line-height: 1;
+  margin-bottom: 2rem;
+}
+
+.titleCardsHomeText span {
+  padding: 0.5rem 2rem;
+  color: var(--branco);
+  border-radius: 4rem;
+  border: 2px solid var(--branco);
+  font-size: 2.4rem;
+}
+
+.titleCardsHomeCtas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.titleCardsHomeCtas a {
+  padding: 1rem 0;
+  width: 250px;
+  font-weight: bold;
+  color: var(--branco);
+  border-radius: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.titleCardsHomeCtas a:nth-child(1) {
+  border: 2px solid var(--branco);
+}
+.titleCardsHomeCtas a:nth-child(2) {
+  background-color: var(--branco);
+  color: var(--roxo4);
+}
+
 .especialidades {
   display: flex;
   justify-content: space-evenly;
@@ -126,8 +208,52 @@
     margin: 2rem 0;
     font-weight: 500;
   }
+
+  .titleCardsHomeText h1 {
+    font-size: 2.5rem;
+  }
+
+  .titleCardsHomeText span {
+    font-size: 2rem;
+  }
+
+  .cardsHome {
+    flex-direction: column;
+    margin: 0;
+    position: initial;
+    gap: 5rem;
+  }
+
+  .bgTitleCardsHome {
+    margin-bottom: 0;
+    padding-bottom: 160px;
+  }
+
+  .cardsHomeHeader {
+    margin: 0;
+  }
+
+  .cardsHome .card {
+    width: 100%;
+  }
+
+  .titleCardsHomeCtas {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: px;
+  }
 }
 
+@media (max-width: 900px) {
+  .cardsHomeHeader {
+    flex-direction: column;
+  }
+
+  .titleCardsHomeCtas a {
+    width: 100%;
+  }
+}
 @media (max-width: 800px) {
   .titleCarrossel {
     flex-direction: column;

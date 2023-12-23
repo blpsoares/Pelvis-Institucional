@@ -10,12 +10,64 @@ import BoxAnimation from "../../components/boxAnimation";
 import { NavLink } from "react-router-dom";
 import React from "react";
 import Loader from "../../components/loader";
+import CardHome from "../../components/cardHome";
+import peopleIcon from "../../assets/img/svgs/peopleIcon.svg";
 const Carrossel = React.lazy(() => import("../../components/slider"));
 
 const Home = () => {
   return (
     <>
       <HeroCarrossel />
+
+      <Container mainClass="bgTitleCardsHome">
+        <div className="cardsHomeHeader">
+          <BoxAnimation animation="top">
+            <div className="titleCardsHomeText">
+              <h1>
+                Somos uma clínica especializada em
+                <br />
+                <strong>reabilitação pélvica</strong>
+              </h1>
+              <span>Por que escolher a Clínica Pelvie?</span>
+            </div>
+          </BoxAnimation>
+          <BoxAnimation animation="top">
+            <div className="titleCardsHomeCtas">
+              <NavLink to="/tratamento">Tratamentos</NavLink>
+              <a href="#" target="_blank">
+                Agendar sua avaliação
+              </a>
+            </div>
+          </BoxAnimation>
+        </div>
+        <div className="cardsHome">
+          <BoxAnimation animation="left">
+            <CardHome
+              img={peopleIcon}
+              h3="Equipe especializada"
+              p="Temos uma equipe
+            completa para ajudar na sua recuperação!"
+            />
+          </BoxAnimation>
+          <BoxAnimation animation="left">
+            <CardHome
+              img={peopleIcon}
+              h3="Equipe especializada"
+              p="Temos uma equipe
+            completa para ajudar na sua recuperação!"
+            />
+          </BoxAnimation>
+          <BoxAnimation animation="left">
+            <CardHome
+              img={peopleIcon}
+              h3="Equipe especializada"
+              p="Temos uma equipe
+            completa para ajudar na sua recuperação!"
+            />
+          </BoxAnimation>
+        </div>
+      </Container>
+
       <Container mainClass="especialidadesMain">
         <span className="spanLabel">Uma clínica acolhedora e agradável!</span>
         <h3>Conheça nossas especialidades</h3>

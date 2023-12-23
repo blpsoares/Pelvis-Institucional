@@ -124,27 +124,20 @@
 }
 
 @media (max-width: 770px) {
-  /* .containerSlide {
-    max-height: 70vh;
-    min-height: 70vh;
-    background-color: blue;
-  }
   .item {
-    background-color: red;
     height: 100%;
-    
+    width: 100%;
   }
 
   .item img {
     width: 100%;
-    height: auto;
-    
+    height: 100%;
+    object-fit: cover;
   }
 
   .content {
-    background-color: purple;
     height: 60vh;
-  } */
+  }
 
   .nav button {
     transform: scale(80%);
@@ -158,8 +151,8 @@
   }
 }
 
-/* @media (max-width: 500px) {
+@media (max-width: 1260px) {
   .thumbnailContainer {
     display: none;
   }
-} */
+}
