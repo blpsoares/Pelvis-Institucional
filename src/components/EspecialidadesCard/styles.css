@@ -1,3 +1,7 @@
+:root {
+  --sizeImage: 370px;
+}
+
 .especCard {
   display: flex;
   flex-direction: column;
@@ -33,11 +37,12 @@
 .especCard p {
   text-align: justify;
   word-wrap: break-word;
+  width: var(--sizeImage);
 }
 
 .especCard a {
   background-color: var(--roxo4);
-  width: 100%;
+  width: var(--sizeImage);
   padding: 1rem 0;
   text-align: center;
   border-radius: 0.7rem;
@@ -50,31 +55,26 @@
   transform: scale(105%);
 }
 
-@media (max-width: 1600px) {
-  .especCard img {
-    width: 300px;
-    height: auto;
-  }
-
-  .especCard a,
-  .especCard p {
-    width: 300px;
-  }
-}
-
 @media (max-width: 1100px) {
+  :root {
+    --sizeImage: 290px;
+  }
   .especCard {
     margin: 4rem 0;
     position: relative;
-    padding: 2rem 0;
+    /* padding: 3rem; */
+    padding: 4rem 1rem;
     border-bottom-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
-    border-bottom-right-radius: 7rem;
-    border-top-left-radius: 7rem;
-
+    border-bottom-right-radius: 5rem;
+    border-top-left-radius: 5rem;
     background: linear-gradient(#fff, #fff) padding-box,
       linear-gradient(120deg, var(--roxo5), var(--roxo4)) border-box;
     border: 2px solid transparent;
+  }
+
+  .especCard img {
+    width: var(--sizeImage);
   }
   .especCard::after {
     content: "";

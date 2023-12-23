@@ -1,0 +1,66 @@
+.googleCard {
+  width: 380px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  border: 2px solid #ebebeb;
+  background: linear-gradient(
+    120deg,
+    #f1f1f1 -0.02%,
+    #fff 55.19%,
+    #f6f6f6 99.98%
+  );
+  box-shadow: 10px 8px 10px 0px rgba(188, 188, 188, 0.15);
+  padding: 2rem 3rem;
+
+  transition: all 0.2s ease-in-out;
+}
+
+.googleCard img {
+  transform: scale(120%);
+  margin-bottom: 2rem;
+}
+
+.googleCard h3 {
+  font-family: var(--sourceSans);
+  font-size: 2.5rem;
+  color: var(--roxo4);
+  margin: 1rem 0;
+}
+
+.googleCard p {
+  text-align: justify;
+  word-wrap: break-word;
+}
+
+.googleCard:hover {
+  transform: scale(103%);
+  box-shadow: 0 0 20px #ccf, 0 0 0px rgba(0, 0, 0, 0.315);
+}
+
+@media (max-width: 950px) {
+  .googleCard {
+    width: 100%;
+    height: max-content;
+    gap: 2rem;
+    padding: 4rem 3rem;
+  }
+
+  .googleCard h3 {
+    position: relative;
+    width: 100%;
+  }
+
+  .googleCard h3::after {
+    content: "";
+    position: absolute;
+    background-color: var(--roxo5);
+    width: 50%;
+    left: 25%;
+    bottom: -5px;
+    height: 2px;
+  }
+}

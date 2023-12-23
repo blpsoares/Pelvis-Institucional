@@ -163,12 +163,15 @@ button:hover {
   border-radius: 0.6rem;
   border: 2px solid var(--roxo4);
   color: var(--roxo4);
+  display: block;
 }
 
 .ctaBtn2 {
   border-radius: 0.6rem;
   background-color: var(--roxo4);
   color: var(--branco);
+  display: block;
+  border: 2px solid var(--roxo4);
 }
 
 .ctaBtn1,
