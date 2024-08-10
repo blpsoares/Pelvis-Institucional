@@ -26,7 +26,8 @@ import acupuntura from "../../assets/img/webp/especialidadeMobile2.webp";
 import pilates from "../../assets/img/webp/especialidadeMobile3.webp";
 import michele from "../../assets/img/webp/michelle.webp";
 import juliana from "../../assets/img/webp/juliana.webp";
-import thais from "../../assets/img/webp/thais.webp";
+import laura from "../../assets/img/webp/laura.webp";
+import leila from "../../assets/img/webp/leila.webp";
 import cibele from "../../assets/img/webp/cibele.webp";
 
 //Icones
@@ -176,6 +177,7 @@ const Home = () => {
               id="DraJuliana"
             />
           </BoxAnimation>
+
           <BoxAnimation animation="bottom">
             <SpecCard
               h3="Michelle Villas Bôas"
@@ -185,15 +187,17 @@ const Home = () => {
               id="DraMichelle"
             />
           </BoxAnimation>
+
           <BoxAnimation animation="top">
             <SpecCard
-              h3="Thays Roncato"
-              img={thais}
-              p="Fisioterapeuta especializada em Saúde da Mulher e Mestre em Ginecologia e Obstetrícia"
+              h3="Laura Noronha"
+              img={laura}
+              p="Mudar essa descrição"
               span="CREFITO-3/296198-F"
-              id="DraThays"
+              id="DraLaura"
             />
           </BoxAnimation>
+
           <BoxAnimation animation="bottom">
             <SpecCard
               h3="Cibele Ferrari"
@@ -201,6 +205,16 @@ const Home = () => {
               p="Fisioterapeuta Acupunturista especializada em Saúde da Mulher e Gestantes"
               span="CREFITO-3/111858-F"
               id="DraCibele"
+            />
+          </BoxAnimation>
+
+          <BoxAnimation animation="top">
+            <SpecCard
+              h3="Leila Cristina"
+              img={leila}
+              p="Mudar essa descrição"
+              span="CREFITO-3/296198-F"
+              id="DraLeila"
             />
           </BoxAnimation>
         </div>
@@ -270,9 +284,11 @@ const Home = () => {
           </BoxAnimation>
           <BoxAnimation animation="left">
             <GoogleCard
-              h3="Priscilla Sulzbacher"
-              p="As meninas são uma graça! A Dra Thays teve muito cuidado, muita paciência nesse momento da gestação e sempre preocupada em proporcionar o máximo de conforto, olhando a paciente como um todo! Me deixou muito mais tranquila em relação ao parto, em saber o que esperar, e me ajudou com as dores dessa fase final!"
-              googleHref="https://g.co/kgs/j6KMQyG"
+              h3="Natália Melo"
+              p="Tive uma excelente experiência com a Pelvie, fazendo o tratamento de vaginismo.
+A equipe é extremamente profissional, atenciosa e empática, me senti à vontade desde a primeira consulta. A dra. Michelle foi muito cuidadosa com os meus limites e minhas dificuldades e me guiou durante todo o processo com muito respeito e paciência. Atendimento perfeito e resultado muito satisfatório.
+"
+              googleHref="https://g.co/kgs/o3Y1aLC"
             />
           </BoxAnimation>
           <BoxAnimation animation="bottom">

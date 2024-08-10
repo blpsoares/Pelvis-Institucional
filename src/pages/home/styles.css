@@ -104,9 +104,9 @@
 .bgOurTeam {
   background: url(../../assets/img/webp/bgTemporario.webp);
   background-position: center;
+  background-color: #ffff;
   background-repeat: no-repeat;
   background-size: cover;
-  backdrop-filter: brightness(20%);
   min-height: max-content;
   display: flex;
   margin-top: 10rem;
@@ -127,7 +127,9 @@
 .ourTeamCards {
   margin-top: 5rem;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 5rem;
+  justify-content: center;
   width: 100%;
 }
 .ourSpace > .mainContent {
@@ -267,15 +269,8 @@
     flex-direction: column;
   }
 }
-@media (max-width: 1220px) {
-  .ourTeamCards {
-    display: grid;
-    grid-template-columns: repeat(2, max-content);
-    gap: 10rem;
-    place-content: center;
-    place-items: center;
-  }
 
+@media (max-width: 1220px) {
   .cardsGoogle {
     grid-template-columns: repeat(2, 380px);
     justify-content: center;
@@ -325,6 +320,11 @@
     width: 100%;
   }
 }
+@media (max-width: 1000px) {
+  .ourTeamCards {
+    padding: 2rem;
+  }
+}
 @media (max-width: 950px) {
   .cardsGoogle {
     display: flex;
@@ -358,6 +358,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0;
     gap: 10rem;
   }
 }

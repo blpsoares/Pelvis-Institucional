@@ -12,7 +12,8 @@ import CtaCard from "../../components/ctaCard";
 //Fotos
 import michele from "../../assets/img/webp/michelle.webp";
 import juliana from "../../assets/img/webp/juliana.webp";
-import thais from "../../assets/img/webp/thais.webp";
+import laura from "../../assets/img/webp/laura.webp";
+import leila from "../../assets/img/webp/leila.webp";
 import cibele from "../../assets/img/webp/cibele.webp";
 
 //Icons
@@ -702,6 +703,7 @@ const Tratamento = () => {
               id="DraJuliana"
             />
           </BoxAnimation>
+
           <BoxAnimation animation="bottom">
             <SpecCard
               h3="Michelle Villas Bôas"
@@ -711,15 +713,17 @@ const Tratamento = () => {
               id="DraMichelle"
             />
           </BoxAnimation>
+
           <BoxAnimation animation="top">
             <SpecCard
-              h3="Thays Roncato"
-              img={thais}
-              p="Fisioterapeuta especializada em Saúde da Mulher e Mestre em Ginecologia e Obstetrícia"
+              h3="Laura Noronha"
+              img={laura}
+              p="Mudar essa descrição"
               span="CREFITO-3/296198-F"
-              id="DraThays"
+              id="DraLaura"
             />
           </BoxAnimation>
+
           <BoxAnimation animation="bottom">
             <SpecCard
               h3="Cibele Ferrari"
@@ -727,6 +731,16 @@ const Tratamento = () => {
               p="Fisioterapeuta Acupunturista especializada em Saúde da Mulher e Gestantes"
               span="CREFITO-3/111858-F"
               id="DraCibele"
+            />
+          </BoxAnimation>
+
+          <BoxAnimation animation="top">
+            <SpecCard
+              h3="Leila Cristina"
+              img={leila}
+              p="Mudar essa descrição"
+              span="CREFITO-3/296198-F"
+              id="DraLeila"
             />
           </BoxAnimation>
         </div>

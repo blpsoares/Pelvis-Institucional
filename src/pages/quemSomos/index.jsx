@@ -16,7 +16,8 @@ import { lazy, Suspense } from "react";
 //Fotos
 import michelle from "../../assets/img/webp/michelleCV.webp";
 import juliana from "../../assets/img/webp/julianaCV.webp";
-import thais from "../../assets/img/webp/thaisCV.webp";
+import laura from "../../assets/img/webp/lauraCV.webp";
+import leila from "../../assets/img/webp/leilaCV.webp";
 import cibele from "../../assets/img/webp/CibeleCV.webp";
 
 //Icons
@@ -229,41 +230,31 @@ const QuemSomos = () => {
         </Curriculum>
       </Container>
 
-      <Container sectionClass="bgCurriculumNoPic" id="DraThays">
+      <Container sectionClass="bgCurriculumNoPic" id="DraLaura">
         <Curriculum
-          a="Agendar avaliação com a Dra. Thays"
-          aUrl="https://wa.me/+5511913112992?text=Olá! Gostaria de agendar uma avaliação com a Dra. Thays. Estou buscando a clínica porque…"
-          altImg="Foto da Dra.Thays"
-          img={thais}
+          a="Agendar avaliação com a Dra. Laura"
+          aUrl="https://wa.me/+5511913112992?text=Olá! Gostaria de agendar uma avaliação com a Dra. Laura. Estou buscando a clínica porque…"
+          altImg="Foto da Dra.Laura"
+          img={laura}
         >
           <div className="descriptionCV">
-            <h2>Dra. Thays Roncato</h2>
+            <h2>Dra. Laura Noronha</h2>
             <span className="subtitleDra">
               Fisioterapeuta especializada em Saúde da Mulher e Mestre em
               Ginecologia e Obstetrícia
             </span>
             <span className="crefito">CREFITO-3/296198-F</span>
             <ul>
+              <li>Graduada em Fisioterapia pela FMU;</li>
+              <li>Pós-Graduada em Saúde Pélvica Funcional (HCFMUSP);</li>
               <li>
-                Graduada em Fisioterapia pela Faculdade de Medicina de Ribeirão
-                Preto (FMRP/ USP);
+                Pós-Graduada em Terapia pelo Movimento (Faculdade Angel Vianna);
               </li>
+              <li>Formação completa no método Pilates;</li>
               <li>
-                Mestre pelo Departamento de Ginecologia e Obstetrícia da FMRP/
-                USP, com projeto intitulado &quot;Avaliação da função sexual e
-                do perfil hormonal de pessoas com incongruência de gênero&quot;;
+                Diversos cursos na área (Biomecânica pélvica, O assoalho pélvico
+                da Mulher Atleta, Terapias Manuais, Kinesiotaping…).
               </li>
-              <li>
-                Participou como supervisora do estágio de Fisioterapia em Saúde
-                da Mulher e como fisioterapeuta do Ambulatório de Sexualidade
-                Humana e Incongruência de Gênero do HC de Ribeirão Preto;
-              </li>
-              <li>
-                Atuou como fisioterapeuta no ambulatório do Hospital Pérola
-                Biyngton;
-              </li>
-              <li>Fez curso de formação em Ginecologia e Obstetrícia;</li>
-              <li>Formação em Pilates.</li>
             </ul>
           </div>
         </Curriculum>
@@ -302,6 +293,39 @@ const QuemSomos = () => {
                 auriculoterapia, moxabustão, ventosaterapia, Gua sha,
                 eletroacupuntura, laseracupuntura, aromaterapia e
                 fitoacupuntura.
+              </li>
+            </ul>
+          </div>
+        </Curriculum>
+      </Container>
+
+      <Container sectionClass="bgCurriculumNoPic" id="DraLeila">
+        <Curriculum
+          a="Agendar avaliação com a Dra. Leila"
+          aUrl="https://wa.me/+5511913112992?text=Olá! Gostaria de agendar uma avaliação com a Dra. Leila. Estou buscando a clínica porque…"
+          altImg="Foto da Dra.Leila"
+          img={leila}
+        >
+          <div className="descriptionCV">
+            <h2>Dra. Leila Cristina </h2>
+            <span className="subtitleDra">
+              Fisioterapeuta especializada em Saúde da Mulher e Mestre em
+              Ginecologia e Obstetrícia
+            </span>
+            <span className="crefito">CREFITO-3/296198-F</span>
+            <ul>
+              <li>
+                Graduada em Fisioterapia pelo Centro Universitário Saúde ABC -
+                FMABC;
+              </li>
+              <li>Pós-Graduada em Fisioterapia Pélvica (HCFMUSP);</li>
+              <li>
+                Atuou como Fisioterapeuta Pélvica na Maternidade Hospital
+                Brasil;
+              </li>
+              <li>
+                Foi intercambista na Escola Superior de Tecnologia de Saúde de
+                Coimbra - Portugal.
               </li>
             </ul>
           </div>
