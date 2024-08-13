@@ -61,9 +61,9 @@
   transform: scale(105%);
 }
 
-@media (max-width: 1270px) {
+@media (max-width: 1250px) {
   .especCard {
-    margin: 4rem ;
+    margin: 4rem 0;
     position: relative;
     padding: 4rem 1rem;
     border-bottom-left-radius: 0.5rem;
@@ -71,9 +71,10 @@
     border-bottom-right-radius: 5rem;
     border-top-left-radius: 5rem;
     background: linear-gradient(#fff, #fff) padding-box,
-    linear-gradient(120deg, var(--roxo5), var(--roxo4)) border-box;
+      linear-gradient(120deg, var(--roxo5), var(--roxo4)) border-box;
     border: 2px solid transparent;
   }
+  
 }
 
 @media (max-width: 1100px) {
