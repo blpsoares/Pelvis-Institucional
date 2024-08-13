@@ -260,7 +260,39 @@ const QuemSomos = () => {
         </Curriculum>
       </Container>
 
-      <Container sectionClass="bgCurriculum" id="DraCibele">
+      <Container sectionClass="bgCurriculum" id="DraLeila">
+        <Curriculum
+          a="Agendar avaliação com a Dra. Leila"
+          aUrl="https://wa.me/+5511913112992?text=Olá! Gostaria de agendar uma avaliação com a Dra. Leila. Estou buscando a clínica porque…"
+          altImg="Foto da Dra.Leila"
+          img={leila}
+        >
+          <div className="descriptionCV">
+            <h2>Dra. Leila Cristina </h2>
+            <span className="subtitleDra">
+              Fisioterapeuta especializada em Saúde da Mulher
+            </span>
+            <span className="crefito">CREFITO-3/322756-F</span>
+            <ul>
+              <li>
+                Graduada em Fisioterapia pelo Centro Universitário Saúde ABC -
+                FMABC;
+              </li>
+              <li>Pós-Graduada em Fisioterapia Pélvica (HCFMUSP);</li>
+              <li>
+                Atuou como Fisioterapeuta Pélvica na Maternidade Hospital
+                Brasil;
+              </li>
+              <li>
+                Foi intercambista na Escola Superior de Tecnologia de Saúde de
+                Coimbra - Portugal.
+              </li>
+            </ul>
+          </div>
+        </Curriculum>
+      </Container>
+
+      <Container sectionClass="bgCurriculumNoPic" id="DraCibele">
         <Curriculum
           a="Agendar avaliação com a Dra. Cibele"
           aUrl="https://wa.me/+5511913112992?text=Olá! Gostaria de agendar uma avaliação com a Dra. Cibele. Estou buscando a clínica porque…"
@@ -293,38 +325,6 @@ const QuemSomos = () => {
                 auriculoterapia, moxabustão, ventosaterapia, Gua sha,
                 eletroacupuntura, laseracupuntura, aromaterapia e
                 fitoacupuntura.
-              </li>
-            </ul>
-          </div>
-        </Curriculum>
-      </Container>
-
-      <Container sectionClass="bgCurriculumNoPic" id="DraLeila">
-        <Curriculum
-          a="Agendar avaliação com a Dra. Leila"
-          aUrl="https://wa.me/+5511913112992?text=Olá! Gostaria de agendar uma avaliação com a Dra. Leila. Estou buscando a clínica porque…"
-          altImg="Foto da Dra.Leila"
-          img={leila}
-        >
-          <div className="descriptionCV">
-            <h2>Dra. Leila Cristina </h2>
-            <span className="subtitleDra">
-              Fisioterapeuta especializada em Saúde da Mulher
-            </span>
-            <span className="crefito">CREFITO-3/322756-F</span>
-            <ul>
-              <li>
-                Graduada em Fisioterapia pelo Centro Universitário Saúde ABC -
-                FMABC;
-              </li>
-              <li>Pós-Graduada em Fisioterapia Pélvica (HCFMUSP);</li>
-              <li>
-                Atuou como Fisioterapeuta Pélvica na Maternidade Hospital
-                Brasil;
-              </li>
-              <li>
-                Foi intercambista na Escola Superior de Tecnologia de Saúde de
-                Coimbra - Portugal.
               </li>
             </ul>
           </div>

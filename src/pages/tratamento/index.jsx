@@ -726,21 +726,21 @@ const Tratamento = () => {
 
           <BoxAnimation animation="bottom">
             <SpecCard
-              h3="Cibele Ferrari"
-              img={cibele}
-              p="Fisioterapeuta Acupunturista especializada em Saúde da Mulher e Gestantes"
-              span="CREFITO-3/111858-F"
-              id="DraCibele"
-            />
-          </BoxAnimation>
-
-          <BoxAnimation animation="top">
-            <SpecCard
               h3="Leila Cristina"
               img={leila}
               p="Fisioterapeuta especializada em Saúde da Mulher"
               span="CREFITO-3/322756-F"
               id="DraLeila"
+            />
+          </BoxAnimation>
+
+          <BoxAnimation animation="top">
+            <SpecCard
+              h3="Cibele Ferrari"
+              img={cibele}
+              p="Fisioterapeuta Acupunturista especializada em Saúde da Mulher e Gestantes"
+              span="CREFITO-3/111858-F"
+              id="DraCibele"
             />
           </BoxAnimation>
         </div>
