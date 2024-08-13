@@ -240,10 +240,10 @@ const QuemSomos = () => {
           <div className="descriptionCV">
             <h2>Dra. Laura Noronha</h2>
             <span className="subtitleDra">
-              Fisioterapeuta especializada em Saúde da Mulher e Mestre em
-              Ginecologia e Obstetrícia
+              Fisioterapeuta especializada em Saúde da Mulher e Terapia pelo
+              Movimento
             </span>
-            <span className="crefito">CREFITO-3/296198-F</span>
+            <span className="crefito">CREFITO-3/309697-F</span>
             <ul>
               <li>Graduada em Fisioterapia pela FMU;</li>
               <li>Pós-Graduada em Saúde Pélvica Funcional (HCFMUSP);</li>
@@ -309,10 +309,9 @@ const QuemSomos = () => {
           <div className="descriptionCV">
             <h2>Dra. Leila Cristina </h2>
             <span className="subtitleDra">
-              Fisioterapeuta especializada em Saúde da Mulher e Mestre em
-              Ginecologia e Obstetrícia
+              Fisioterapeuta especializada em Saúde da Mulher
             </span>
-            <span className="crefito">CREFITO-3/296198-F</span>
+            <span className="crefito">CREFITO-3/322756-F</span>
             <ul>
               <li>
                 Graduada em Fisioterapia pelo Centro Universitário Saúde ABC -

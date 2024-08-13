@@ -547,7 +547,7 @@ const Tratamento = () => {
               </BoxAnimation>
               <BoxAnimation animation="left">
                 <li>
-                  &quot;Virar o bebê&quot; (para ficar em apresentação pélvica,
+                  &quot;Virar o bebê&quot; (para ficar em apresentação cefálica,
                   facilitando o parto normal);
                 </li>
               </BoxAnimation>
@@ -718,8 +718,8 @@ const Tratamento = () => {
             <SpecCard
               h3="Laura Noronha"
               img={laura}
-              p="Mudar essa descrição"
-              span="CREFITO-3/296198-F"
+              p="Fisioterapeuta especializada em Saúde da Mulher e Terapia do Movimento"
+              span="CREFITO-3/309697-F"
               id="DraLaura"
             />
           </BoxAnimation>
@@ -738,8 +738,8 @@ const Tratamento = () => {
             <SpecCard
               h3="Leila Cristina"
               img={leila}
-              p="Mudar essa descrição"
-              span="CREFITO-3/296198-F"
+              p="Fisioterapeuta especializada em Saúde da Mulher"
+              span="CREFITO-3/322756-F"
               id="DraLeila"
             />
           </BoxAnimation>
