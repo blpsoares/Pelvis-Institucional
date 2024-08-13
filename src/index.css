@@ -164,6 +164,7 @@ button:hover {
   border: 2px solid var(--roxo4);
 }
 
+
 .ctaBtn1,
 .ctaBtn2 {
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out,
@@ -322,3 +323,10 @@ button:hover {
     animation-timing-function: ease-out;
   }
 }
+
+@media (max-width: 1300px){
+  html{
+    font-size: 56%;
+  }
+}
+

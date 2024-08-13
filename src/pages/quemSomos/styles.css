@@ -192,27 +192,25 @@ body {
   }
   .heroQuemSomosContent {
     padding: 5rem 1rem;
-    /* background-color: red; */
   }
 
   .heroQuemSomosContent video {
-    height: 550px !important;
+    height: 550px ;
   }
 }
-@media (max-width: 1300px) {
+
+
+@media(max-width: 1230px){
   .heroQuemSomosContent {
     flex-direction: column;
   }
-
   .quemSomosCards {
     width: 100%;
   }
-
   .heroQuemSomosContent video {
-    height: 80% !important;
-    width: 100%;
+    height:500px;
+    margin-top: 70px;
   }
-
   .quemSomosVideo {
     margin-left: 0;
   }
