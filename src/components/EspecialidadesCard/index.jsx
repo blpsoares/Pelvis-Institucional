@@ -13,7 +13,6 @@ const EspecialidadesCard = ({ h3, img, altImg, href, aText, children }) => {
       </div>
       {children}
       <NavLink to={href}>{aText}</NavLink>
-      {/* <a href={href}>{aText}</a> */}
     </div>
   );
 };
