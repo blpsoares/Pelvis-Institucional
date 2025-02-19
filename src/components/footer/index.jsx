@@ -85,7 +85,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="footDescription mainContent">
-        <p>2023 - Todos os direitos reservados</p>
+        <p>{new Date().getFullYear()} - Todos os direitos reservados</p>
         <p>
           Desenvolvido por <a href="https://nextfusion.tech">Next Fusion</a>
         </p>
