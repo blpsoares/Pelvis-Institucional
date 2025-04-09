@@ -23,8 +23,6 @@ import cibele from "../../assets/img/webp/CibeleCV.webp";
 //Icons
 import peopleIcon from "../../assets/img/svgs/peopleIcon.svg";
 
-// Lazy imports
-const PlayerVideo = lazy(() => import("../../components/playerVideo"));
 const QuemSomos = () => {
   return (
     <>
@@ -32,11 +30,6 @@ const QuemSomos = () => {
         sectionClass="bgHeroQuemSomos"
         mainClass="heroQuemSomosContent"
       >
-        <div className="quemSomosVideo">
-          <Suspense fallback={<Loader />}>
-            <PlayerVideo />
-          </Suspense>
-        </div>
         <div className="quemSomosCards">
           <div className="heroCard">
             <h2>Nossa Missão</h2>

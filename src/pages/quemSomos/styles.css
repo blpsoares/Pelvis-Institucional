@@ -3,7 +3,7 @@
   min-height: 110vh;
   padding-top: 70px;
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -23,7 +23,13 @@
 
 .quemSomosCards {
   width: 500px;
+  width: 100%;
+  gap: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 5rem;
 }
+
 .heroCard {
   background-color: var(--cinza4);
   color: var(--branco);
@@ -206,6 +212,11 @@ body {
   }
   .quemSomosCards {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 0;
+
   }
   .heroQuemSomosContent video {
     height:500px;
