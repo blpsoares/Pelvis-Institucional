@@ -171,9 +171,7 @@ const QuemSomos = () => {
               </li>
               <li>Formação completa no método Pilates;</li>
               <li>
-                Diversos cursos na área (disfunções sexuais femininas,
-                disfunções pélvicas masculinas, laserterapia em uroginecologia,
-                dryneedling…);
+                Diversos cursos na área (disfunções sexuais femininas, disfunções coloproctológicas, disfunções pélvicas masculinas, laserterapia em uroginecologia, dryneedling…);
               </li>
               <li>
                 Sócia e fundadora da PELVIE - Fisioterapia Pélvica Funcional.
@@ -246,7 +244,7 @@ const QuemSomos = () => {
         </Curriculum>
       </Container>
 
-      <Container sectionClass="bgCurriculumNoPic" id="DraCibele">
+      <Container sectionClass="bgCurriculum" id="DraCibele">
         <Curriculum
           a="Agendar avaliação com a Dra. Cibele"
           aUrl="https://wa.me/+5511913112992?text=Olá! Gostaria de agendar uma avaliação com a Dra. Cibele. Estou buscando a clínica porque…"
