@@ -23,7 +23,7 @@ const Curriculum = ({ img, altImg, a, aUrl, addClass, children }) => {
           <BoxAnimation addClass="textContent" animation="right">
             {children}
             <BoxAnimation animation="top" addClass="animationLink">
-              <a href={aUrl} target="_blank">{a}</a>
+              <a href={aUrl} target="noreferrer">{a}</a>
             </BoxAnimation>
           </BoxAnimation>
         </div>

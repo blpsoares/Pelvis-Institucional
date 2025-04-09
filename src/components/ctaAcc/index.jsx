@@ -5,7 +5,7 @@ import "./styles.css";
 const CtaAcc = ({ href, aText, img }) => {
   return (
     <div className="ctaAcc">
-      <a href={href} target="_blank">
+      <a href={href} target="noreferrer">
         {aText}
         <img
           src={img}

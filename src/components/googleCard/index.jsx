@@ -5,7 +5,7 @@ import "./styles.css";
 
 const GoogleCard = ({ h3, p, googleHref }) => {
   return (
-    <a href={googleHref} target="_blank">
+    <a href={googleHref} target="noreferrer">
       <div className="googleCard">
         <img
           src={stars}
