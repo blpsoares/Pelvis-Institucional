@@ -31,15 +31,15 @@ const Footer = () => {
         <div className="contatoFooter">
           <h3>Contato</h3>
 
-          <a href="mailto:secretaria@pelviefisioterapia.com.br" target="_blank">
+          <a href="mailto:secretaria@pelviefisioterapia.com.br" target="noreferrer">
             secretaria@pelviefisioterapia.com.br
           </a>
-          <a href="tel:+5511913112992" target="_blank">
+          <a href="tel:+5511913112992" target="noreferrer">
             (11) 91311-2992
           </a>
           <a
             href="https://www.google.com/maps?ll=-23.613567,-46.69575&z=16&t=m&hl=pt-BR&gl=BR&mapclient=embed&cid=17403131375481056319"
-            target="_blank"
+            target="noreferrer"
           >
             Rua James Watt, 142, Sala 42, Brooklin, São Paulo - SP CEP 04576-050
           </a>
@@ -58,7 +58,7 @@ const Footer = () => {
             <nav>
               <a
                 href="https://www.instagram.com/pelviefisioterapia?igsh=cTg1d3NxejRnbTNs"
-                target="_blank"
+                target="noreferrer"
               >
                 <img
                   src={icoInsta}
@@ -70,7 +70,7 @@ const Footer = () => {
               </a>
               <a
                 href="https://wa.me/+5511913112992?text=Olá! Gostaria de mais informações. Estou buscando a clínica porque…"
-                target="_blank"
+                target="noreferrer"
               >
                 <img
                   src={icoWhats}

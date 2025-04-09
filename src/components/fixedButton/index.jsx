@@ -10,7 +10,7 @@ const FixedButton = () => {
     <a
       className="whatsBtn"
       href="https://wa.me/+5511913112992?text=Olá! Gostaria de mais informações. Estou buscando a clínica porque…"
-      target="_blank"
+      target="noreferrer"
     >
       <Suspense fallback={<Loader />}>
         <Lottie animationData={animationData} />

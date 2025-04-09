@@ -190,47 +190,7 @@ const QuemSomos = () => {
         </Curriculum>
       </Container>
 
-      <Container sectionClass="bgCurriculum" id="DraMichelle">
-        <Curriculum
-          a="Agendar avaliação com a Dra. Michelle"
-          aUrl="https://wa.me/+5511913112992?text=Olá! Gostaria de agendar uma avaliação com a Dra. Michelle. Estou buscando a clínica porque…"
-          altImg="Foto da Dra.Michelle"
-          img={michelle}
-          addClass="reverse"
-        >
-          <div className="descriptionCV">
-            <h2>Dra. Michelle Villas Bôas</h2>
-            <span className="subtitleDra">
-              Fisioterapeuta especializada em Saúde da Mulher, Doula e Educadora
-              Perinatal
-            </span>
-            <span className="crefito">CREFITO-3/221316-F</span>
-            <ul>
-              <li>
-                Graduada em Fisioterapia pela Universidade de Brasília (UnB);
-              </li>
-              <li>
-                Pós-graduada pelo Programa de Residência Multiprofissional em
-                Saúde da Mulher (PUC-Campinas);
-              </li>
-              <li>
-                Pós-graduada pelo Programa de Especialização em Fisioterapia
-                aplicada à Saúde da Mulher (UNICAMP/CAISM);
-              </li>
-              <li>
-                Atuou como fisioterapeuta no Centro Obstétrico do Hospital
-                SEPACO;
-              </li>
-              <li>Doula e Educadora Perinatal (Matriusca);</li>
-              <li>
-                Sócia e fundadora da PELVIE - Fisioterapia Pélvica Funcional.
-              </li>
-            </ul>
-          </div>
-        </Curriculum>
-      </Container>
-
-      <Container sectionClass="bgCurriculumNoPic" id="DraLaura">
+      <Container sectionClass="bgCurriculum" id="DraLaura">
         <Curriculum
           a="Agendar avaliação com a Dra. Laura"
           aUrl="https://wa.me/+5511913112992?text=Olá! Gostaria de agendar uma avaliação com a Dra. Laura. Estou buscando a clínica porque…"
@@ -260,7 +220,7 @@ const QuemSomos = () => {
         </Curriculum>
       </Container>
 
-      <Container sectionClass="bgCurriculum" id="DraLeila">
+      <Container sectionClass="bgCurriculumNoPic" id="DraLeila">
         <Curriculum
           a="Agendar avaliação com a Dra. Leila"
           aUrl="https://wa.me/+5511913112992?text=Olá! Gostaria de agendar uma avaliação com a Dra. Leila. Estou buscando a clínica porque…"

@@ -226,6 +226,11 @@ body {
   }
 }
 @media (max-width: 800px) {
+  /* TODO: COLOCAR A FOTO MOBILE */
+  /* .bgHeroQuemSomos {
+    background: url(../../assets/img/webp/bgQuemSomosMobile.webp);
+  } */
+
   .bgTeam {
     margin: 4rem 0;
     background: url(../../assets/img/webp/teamPicMobile.webp);

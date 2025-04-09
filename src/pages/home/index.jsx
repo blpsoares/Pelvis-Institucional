@@ -24,7 +24,6 @@ import { lazy, Suspense } from "react";
 import fisioPelvica from "../../assets/img/webp/especialidadeMobile1.webp";
 import acupuntura from "../../assets/img/webp/especialidadeMobile2.webp";
 import pilates from "../../assets/img/webp/especialidadeMobile3.webp";
-import michele from "../../assets/img/webp/michelle.webp";
 import juliana from "../../assets/img/webp/juliana.webp";
 import laura from "../../assets/img/webp/laura.webp";
 import leila from "../../assets/img/webp/leila.webp";
@@ -62,7 +61,7 @@ const Home = () => {
               <NavLink to="/tratamento">Tratamentos</NavLink>
               <a
                 href="https://wa.me/+5511913112992?text=Olá! Gostaria de agendar minha avaliação. Estou buscando a clínica porque…"
-                target="_blank"
+                target="noreferrer"
               >
                 Agendar sua avaliação
               </a>
@@ -106,7 +105,7 @@ const Home = () => {
 
       <Container mainClass="especialidadesMain">
         <span className="spanLabel">Cuidado completo</span>
-        <h3>Conheça nossas especialidades</h3>
+        <h3>noreferrerça nossas especialidades</h3>
         <div className="especialidades">
           <BoxAnimation animation="left" addClass="specCardsAnimate">
             <EspecialidadesCard
@@ -178,16 +177,6 @@ const Home = () => {
             />
           </BoxAnimation>
 
-          <BoxAnimation animation="bottom">
-            <SpecCard
-              h3="Michelle Villas Bôas"
-              img={michele}
-              p="Fisioterapeuta especializada em Saúde da Mulher, Doula e Educadora Perinatal"
-              span="CREFITO-3/221316-F"
-              id="DraMichelle"
-            />
-          </BoxAnimation>
-
           <BoxAnimation animation="top">
             <SpecCard
               h3="Laura Noronha"
@@ -224,7 +213,7 @@ const Home = () => {
         <div className="titleCarrossel">
           <div className="titleCarrosselText">
             <span className="spanLabel">Ambiente moderno e aconchegante</span>
-            <h3>Conheça nosso espaço</h3>
+            <h3>noreferrerça nosso espaço</h3>
           </div>
           <div className="titleCarrosselLinks">
             <BoxAnimation animation="left">
@@ -236,7 +225,7 @@ const Home = () => {
               <a
                 href="https://wa.me/+5511913112992?text=Olá! Gostaria de reservar um horário para avaliação. Estou buscando a clínica porque…"
                 className="ctaBtnZap"
-                target="_blank"
+                target="noreferrer"
               >
                 Reservar um horário
                 <img
@@ -308,7 +297,7 @@ A equipe é extremamente profissional, atenciosa e empática, me senti à vontad
         </div>
         <a
           href="https://www.google.com/search?q=pelvie+-+fisioterapia+p%C3%A9lvica+funcional&oq=Pelvie&gs_lcrp=EgZjaHJvbWUqBggBECMYJzIGCAAQRRg5MgYIARAjGCcyDQgCEC4YrwEYxwEYgAQyCQgDEAAYChiABDIJCAQQABgKGIAEMgwIBRAAGAoYsQMYgAQyBggGEEUYPTIGCAcQRRg90gEIMzQ1M2owajeoAgCwAgA&sourceid=chrome&ie=UTF-8#lrd=0x94ce573422e3ce3f:0xf18457c7bf00ec3f,1,,,,"
-          target="_blank"
+          target="noreferrer"
           className="ctaBtn2"
         >
           Veja as avaliações no Google
@@ -327,14 +316,14 @@ A equipe é extremamente profissional, atenciosa e empática, me senti à vontad
             <h3>Endereço</h3>
             <a
               href="https://www.google.com/maps?ll=-23.613567,-46.69575&z=16&t=m&hl=pt-BR&gl=BR&mapclient=embed&cid=17403131375481056319"
-              target="_blank"
+              target="noreferrer"
             >
               Rua James Watt 142, sala 42 – Brooklin - São Paulo - SP
             </a>
           </div>
           <div className="phoneMaps">
             <h3>Telefone</h3>
-            <a href="tel:+5511913112992" target="_blank">
+            <a href="tel:+5511913112992" target="noreferrer">
               (11) 91311-2992
             </a>
           </div>

@@ -704,16 +704,6 @@ const Tratamento = () => {
             />
           </BoxAnimation>
 
-          <BoxAnimation animation="bottom">
-            <SpecCard
-              h3="Michelle Villas Bôas"
-              img={michele}
-              p="Fisioterapeuta especializada em Saúde da Mulher, Doula e Educadora Perinatal"
-              span="CREFITO-3/221316-F"
-              id="DraMichelle"
-            />
-          </BoxAnimation>
-
           <BoxAnimation animation="top">
             <SpecCard
               h3="Laura Noronha"
