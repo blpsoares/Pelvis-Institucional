@@ -273,18 +273,16 @@ const Home = () => {
           </BoxAnimation>
           <BoxAnimation animation="left">
             <GoogleCard
-              h3="Natália Melo"
-              p="Tive uma excelente experiência com a Pelvie, fazendo o tratamento de vaginismo.
-A equipe é extremamente profissional, atenciosa e empática, me senti à vontade desde a primeira consulta. A dra. Michelle foi muito cuidadosa com os meus limites e minhas dificuldades e me guiou durante todo o processo com muito respeito e paciência. Atendimento perfeito e resultado muito satisfatório.
-"
-              googleHref="https://g.co/kgs/o3Y1aLC"
+              h3="Ana Gratieri"
+              p="A Pelvie é excelente! Desde meu primeiro contato já me senti muito acolhida. Fiz meu acompanhamento na gestação e no pós parto com a Laura, que é um amor de pessoa e muito competente. A fisioterapia se tornou um momento de descontração. Ainda fiz acupuntura com a Cibele que é ótima e super simpática. O espaço é excelente, bem equipado e com limpeza impecável. Só tenho elogios e saudade."
+              googleHref="https://g.co/kgs/d5GGRF3"
             />
           </BoxAnimation>
           <BoxAnimation animation="bottom">
             <GoogleCard
-              h3=" Gabriela Ikawa"
-              p="Clínica cheirosa, equipamentos novos e com toda estrutura que precisamos, eu me sinto mt bem cuidada e relaxada quando estou lá. A Michele, fisio que me atende, é um amor de pessoa! Super atenciosa e profissional excelente no que faz. Recomendo a todas as gravidinhas que desejam se preparar para uma gestação saudável!"
-              googleHref="https://g.co/kgs/xPZTH3Q"
+              h3="Thayza Campo"
+              p="Gostaria de expressar minha profunda gratidão e admiração pelo excelente trabalho que a Leila realiza. Seu profissionalismo, atenção e cuidado com cada detalhe fizeram toda a diferença no meu tratamento. Traz muita confiança e segurança. O estabelecimento é incrível, muito bem estruturado e acolhedor. A equipe transmite uma sensação de bem-estar desde o primeiro contato."
+              googleHref="https://g.co/kgs/gmGQT7A"
             />
           </BoxAnimation>
           <BoxAnimation animation="right">
