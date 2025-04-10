@@ -126,10 +126,9 @@
 }
 .ourTeamCards {
   margin-top: 5rem;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
   gap: 5rem;
-  justify-content: center;
   width: 100%;
 }
 .ourSpace > .mainContent {
@@ -263,6 +262,13 @@
   }
 }
 
+@media (max-width: 1500px) {
+  .ourTeamCards {
+    grid-template-columns: repeat(2, max-content);
+    justify-content: center;
+  }
+}
+
 @media (max-width: 1220px) {
   .cardsGoogle {
     grid-template-columns: repeat(2, 380px);
@@ -301,7 +307,7 @@
   }
 
   .bgTitleCardsHome {
-    margin-bottom: 0 !;
+    margin-bottom: 0;
     padding-bottom: 0;
   }
 
