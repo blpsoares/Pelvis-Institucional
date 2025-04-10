@@ -105,7 +105,7 @@ const Home = () => {
 
       <Container mainClass="especialidadesMain">
         <span className="spanLabel">Cuidado completo</span>
-        <h3>noreferrerça nossas especialidades</h3>
+        <h3>Conheça nossas especialidades</h3>
         <div className="especialidades">
           <BoxAnimation animation="left" addClass="specCardsAnimate">
             <EspecialidadesCard
