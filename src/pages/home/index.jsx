@@ -213,7 +213,7 @@ const Home = () => {
         <div className="titleCarrossel">
           <div className="titleCarrosselText">
             <span className="spanLabel">Ambiente moderno e aconchegante</span>
-            <h3>noreferrerça nosso espaço</h3>
+            <h3>Conheça nosso espaço</h3>
           </div>
           <div className="titleCarrosselLinks">
             <BoxAnimation animation="left">

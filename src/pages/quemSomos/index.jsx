@@ -186,6 +186,7 @@ const QuemSomos = () => {
           a="Agendar avaliação com a Dra. Laura"
           aUrl="https://wa.me/+5511913112992?text=Olá! Gostaria de agendar uma avaliação com a Dra. Laura. Estou buscando a clínica porque…"
           altImg="Foto da Dra.Laura"
+          addClass="reverse"
           img={laura}
         >
           <div className="descriptionCV">
