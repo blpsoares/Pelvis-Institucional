@@ -58,7 +58,7 @@ const ComoFunciona = () => {
               <p>
                 Nosso agendamento é feito via WhatsApp ou ligação. O horário de
                 atendimento é bem amplo: segunda a sexta das 7h às 21h e aos
-                sábado das 8h às 14h.
+                sábados das 8h às 14h.
               </p>
               <p>
                 A avaliação é personalizada e consiste em uma entrevista inicial

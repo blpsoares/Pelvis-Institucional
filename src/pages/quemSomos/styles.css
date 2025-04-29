@@ -237,9 +237,9 @@ body {
   }
 }
 @media (max-width: 800px) {
-  /* TODO: COLOCAR A FOTO MOBILE */
   .bgHeroQuemSomos {
     background: url(../../assets/img/webp/bgQuemSomosMobile.webp);
+    background-position: 10%;
   }
 
   .bgTeam {
