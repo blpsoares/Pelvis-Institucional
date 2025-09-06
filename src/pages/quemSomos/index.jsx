@@ -19,6 +19,8 @@ import juliana from "../../assets/img/webp/julianaCV.webp";
 import laura from "../../assets/img/webp/lauraCV.webp";
 import leila from "../../assets/img/webp/leilaCV.webp";
 import cibele from "../../assets/img/webp/CibeleCV.webp";
+import thipphane from "../../assets/img/webp/thipphaneCV.webp";
+import isadora from "../../assets/img/webp/isadoraCV.webp";
 
 //Icons
 import peopleIcon from "../../assets/img/svgs/peopleIcon.svg";
@@ -50,7 +52,6 @@ const QuemSomos = () => {
 					</div>
 				</div>
 			</Container>
-
 			<Container mainClass="ourValues">
 				<h2>Nossos Valores</h2>
 				<div className="ourValuesCards">
@@ -138,14 +139,11 @@ const QuemSomos = () => {
 					</BoxAnimation>
 				</div>
 			</Container>
-
 			<Container sectionClass="bgTeam" />
-
 			<Container mainClass="professionalDescription">
 				<span className="spanLabel">Profissionais sempre atualizadas</span>
 				<h2>Conheça a nossa equipe</h2>
 			</Container>
-
 			<Container sectionClass="bgCurriculumNoPic" id="DraJuliana">
 				<Curriculum
 					a="Agendar avaliação com a Dra. Juliana"
@@ -182,7 +180,6 @@ const QuemSomos = () => {
 					</div>
 				</Curriculum>
 			</Container>
-
 			<Container sectionClass="bgCurriculum" id="DraLaura">
 				<Curriculum
 					a="Agendar avaliação com a Dra. Laura"
@@ -213,7 +210,6 @@ const QuemSomos = () => {
 					</div>
 				</Curriculum>
 			</Container>
-
 			<Container sectionClass="bgCurriculumNoPic" id="DraLeila">
 				<Curriculum
 					a="Agendar avaliação com a Dra. Leila"
@@ -245,7 +241,6 @@ const QuemSomos = () => {
 					</div>
 				</Curriculum>
 			</Container>
-
 			<Container sectionClass="bgCurriculum" id="DraCibele">
 				<Curriculum
 					a="Agendar avaliação com a Dra. Cibele"
@@ -284,7 +279,66 @@ const QuemSomos = () => {
 					</div>
 				</Curriculum>
 			</Container>
-
+			// thipphane
+			<Container sectionClass="bgCurriculumNoPic" id="DraThipphane">
+				<Curriculum
+					a="Agendar avaliação com a Dra. Thipphane"
+					aUrl="https://wa.me/+5511913112992?text=Olá! Gostaria de agendar uma avaliação com a Dra. Thipphane. Estou buscando a clínica porque…"
+					altImg="Foto da Dra.Thipphane"
+					img={thipphane}
+				>
+					<div className="descriptionCV">
+						<h2>Dra. Thipphane</h2>
+						<span className="subtitleDra">Fisioterapeuta e Massoterapeuta</span>
+						{/* <span className="crefito">CREFITO-3/322756-F</span> */}
+						<ul>
+							<li>
+								Graduada em Fisioterapia pela Universidade Presbiteriana
+								Mackenzie;
+							</li>
+							<li>
+								Cursando pós-graduação em Saúde da Mulher e do Homem pela
+								FCMSCSP;
+							</li>
+							<li>
+								Massoterapeuta formada pelo Conselho Internacional de Massagem
+								Sueca;
+							</li>
+							<li>Formação completa no método Pilates.</li>
+						</ul>
+					</div>
+				</Curriculum>
+			</Container>
+			//isadora
+			<Container sectionClass="bgCurriculum" id="DraIsadora">
+				<Curriculum
+					a="Agendar avaliação com a Dra. Isadora"
+					aUrl="https://wa.me/+5511913112992?text=Olá! Gostaria de agendar uma avaliação com a Dra. Isadora. Estou buscando a clínica porque…"
+					altImg="Foto da Dra.Isadora"
+					addClass="reverse"
+					img={isadora}
+				>
+					<div className="descriptionCV">
+						<h2>Dra. Isadora</h2>
+						<span className="subtitleDra">
+							Fisioterapeuta especializada em Saúde Pélvica e Obstétrica
+						</span>
+						<span className="crefito">CREFITO-3/402185-F</span>
+						<ul>
+							<li>
+								Graduada em Fisioterapia pela Universidade Presbiteriana
+								Mackenzie;
+							</li>
+							<li>Pós-graduada em Saúde Pélvica e Obstétrica (HCFMUSP);</li>
+							<li>
+								Experiência em ambulatórios de urologia, coloproctologia e
+								obstetrícia e também na enfermaria de gestantes e puérperas;
+							</li>
+							<li>Formação completa no método Pilates.</li>
+						</ul>
+					</div>
+				</Curriculum>
+			</Container>
 			<Container>
 				<CtaCard
 					googleBtn={true}
