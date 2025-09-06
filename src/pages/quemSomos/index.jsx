@@ -1,4 +1,5 @@
 // * IMPORTS
+/** biome-ignore-all lint/correctness/useUniqueElementIds: <explanation> */
 // Estilos
 import "./styles.css";
 
@@ -279,7 +280,7 @@ const QuemSomos = () => {
 					</div>
 				</Curriculum>
 			</Container>
-			// thipphane
+
 			<Container sectionClass="bgCurriculumNoPic" id="DraThipphane">
 				<Curriculum
 					a="Agendar avaliação com a Dra. Thipphane"
@@ -288,7 +289,7 @@ const QuemSomos = () => {
 					img={thipphane}
 				>
 					<div className="descriptionCV">
-						<h2>Dra. Thipphane</h2>
+						<h2>Dra. Thipphane Yuka</h2>
 						<span className="subtitleDra">Fisioterapeuta e Massoterapeuta</span>
 						{/* <span className="crefito">CREFITO-3/322756-F</span> */}
 						<ul>
@@ -309,7 +310,7 @@ const QuemSomos = () => {
 					</div>
 				</Curriculum>
 			</Container>
-			//isadora
+
 			<Container sectionClass="bgCurriculum" id="DraIsadora">
 				<Curriculum
 					a="Agendar avaliação com a Dra. Isadora"
@@ -319,7 +320,7 @@ const QuemSomos = () => {
 					img={isadora}
 				>
 					<div className="descriptionCV">
-						<h2>Dra. Isadora</h2>
+						<h2>Dra. Isadora Savi</h2>
 						<span className="subtitleDra">
 							Fisioterapeuta especializada em Saúde Pélvica e Obstétrica
 						</span>

@@ -212,7 +212,7 @@ const Home = () => {
 
 					<BoxAnimation animation="top">
 						<SpecCard
-							h3="Thipphane"
+							h3="Thipphane Yuka"
 							img={thipphane}
 							p="Fisioterapeuta e Massoterapeuta"
 							// span="CREFITO-3/111858-F"
@@ -222,7 +222,7 @@ const Home = () => {
 
 					<BoxAnimation animation="top">
 						<SpecCard
-							h3="Dra. Isadora Savi"
+							h3="Isadora Savi"
 							img={isadora}
 							p="Fisioterapeuta especializada em Saúde Pélvica e Obstétrica"
 							span="CREFITO-3/402185-F"
