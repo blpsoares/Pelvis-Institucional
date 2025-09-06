@@ -687,6 +687,95 @@ const Tratamento = () => {
 				/>
 			</Container>
 
+			<Container mainClass="acc">
+				<BoxAnimation>
+					<Accordion title="Massagem Relaxante e Drenagem Linfática">
+						<BoxAnimation
+							addClass="accordionInternoAnimation"
+							animation="opacity"
+						>
+							<Accordion
+								addClass="accordionInterno"
+								bolinha="noBall"
+								title="Massagem Relaxante"
+							>
+								<p>
+									A saúde vai muito além da ausência de dor. Cuidar do corpo é
+									também cuidar da mente — e a massagem relaxante é uma das
+									formas mais eficazes de promover esse equilíbrio. Com técnicas
+									suaves, movimentos rítmicos e foco no relaxamento muscular, a
+									massagem relaxante proporciona alívio imediato do estresse,
+									ansiedade e tensões acumuladas no dia a dia.
+								</p>
+								<p>
+									<b>Benefícios da Massagem:</b>
+								</p>
+								<ul>
+									<li>Redução do estresse e da ansiedade;</li>
+									<li>Alívio de dores musculares e tensões;</li>
+									<li>Melhora da circulação sanguínea;</li>
+									<li>Melhora da qualidade do sono;</li>
+									<li>Sensação profunda de bem-estar e relaxamento.</li>
+								</ul>
+								<p>
+									A sessão é realizada por uma fisioterapeuta especializada, em
+									um ambiente calmo, confortável e seguro. Permita-se esse
+									cuidado!{" "}
+								</p>
+							</Accordion>
+						</BoxAnimation>
+						{/*  */}
+						<BoxAnimation
+							addClass="accordionInternoAnimation"
+							animation="opacity"
+						>
+							<Accordion
+								addClass="accordionInterno"
+								bolinha="noBall"
+								title="Drenagem Linfática"
+							>
+								<p>
+									A drenagem linfática é uma técnica manual suave, indicada para
+									estimular o sistema linfático — responsável por eliminar
+									toxinas, líquidos retidos e resíduos metabólicos do corpo.
+									Muito além da estética, a drenagem linfática tem importantes
+									benefícios terapêuticos, sendo indicada para diversos públicos
+									e situações clínicas.
+								</p>
+								<p>
+									<b>Benefícios da Drenagem:</b>
+								</p>
+								<ul>
+									<li>Redução do inchaço (edema) e da retenção de líquidos;</li>
+									<li>Melhora da circulação sanguínea e linfática;</li>
+									<li>
+										Auxílio no pós-operatório (cirurgias plásticas, ortopédicas,
+										etc.);
+									</li>
+									<li>Alívio de dores e sensação de peso nas pernas;</li>
+									<li>Estímulo ao sistema imunológico;</li>
+									<li>Relaxamento corporal e redução do estresse.</li>
+								</ul>
+								<p>
+									Além disso, a drenagem linfática é uma grande aliada em casos
+									de linfedema, celulite, TPM, gestação (com liberação médica) e
+									outros quadros que envolvem acúmulo de líquidos ou inflamação
+									leve dos tecidos. Essa técnica é realizada por fisioterapeuta
+									especializada, garantindo segurança, conforto e resultados
+									reais.
+								</p>
+							</Accordion>
+						</BoxAnimation>
+					</Accordion>
+				</BoxAnimation>
+
+				<CtaAcc
+					aText={"Agendar Massagem ou Drenagem"}
+					href="https://wa.me/+5511913112992?text=Olá! Gostaria de agendar uma avaliação de Massagem ou Drenagem. Estou buscando a clínica porque…"
+					img={whatsappGreen}
+				/>
+			</Container>
+
 			<Container
 				sectionClass="bgOurTeam tratamentosNossoTime"
 				mainClass="ourTeam"
