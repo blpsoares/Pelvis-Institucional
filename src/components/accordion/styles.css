@@ -1,200 +1,200 @@
 .accordion,
 .accordionInterno {
-  border-radius: 20px;
-  border: 1px solid var(--roxo4);
-  background: #fff;
-  box-shadow: 5px 10px 50px 0px rgba(69, 69, 69, 0.15);
-  margin-top: 2rem;
-  max-height: 100px;
-  overflow-y: hidden;
-  border-radius: 10px;
-  position: relative;
-  margin: 3rem 0;
-  background: linear-gradient(270deg, #bee596 0%, #56a88a 87%);
-  border-color: var(--verde3);
+	border-radius: 20px;
+	border: 1px solid var(--roxo4);
+	background: #fff;
+	box-shadow: 5px 10px 50px 0px rgba(69, 69, 69, 0.15);
+	margin-top: 2rem;
+	max-height: 100px;
+	overflow-y: hidden;
+	border-radius: 10px;
+	position: relative;
+	margin: 3rem 0;
+	background: linear-gradient(270deg, #bee596 0%, #56a88a 87%);
+	border-color: var(--verde3);
 }
 
 .noBall.bolinha::after,
 .noBall.bolinha::before {
-  display: none;
+	display: none;
 }
 
 .bolinha {
-  position: relative;
+	position: relative;
 }
 .bolinha::before {
-  content: url(../../assets/img/svgs/pelvieFundoVerdeAccordion.svg);
-  position: absolute;
-  left: -60px;
-  top: -45px;
-  z-index: 3;
-  transform: scale(60%);
+	content: url(../../assets/img/svgs/pelvieFundoVerdeAccordion.svg);
+	position: absolute;
+	left: -60px;
+	top: -45px;
+	z-index: 3;
+	transform: scale(60%);
 }
 
 .open {
-  animation: opened 9s ease forwards;
+	animation: opened 9s ease forwards;
 }
 .accordionHeader {
-  display: flex;
-  padding: 1rem 2rem;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
+	display: flex;
+	padding: 1rem 2rem;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
 }
 .accordionHeader h2 {
-  padding-left: 4rem;
-  font-size: 3rem;
-  color: var(--branco);
-  font-family: var(--sourceSans);
-  text-align: center;
-  width: 100%;
-  font-weight: bold;
+	padding-left: 4rem;
+	font-size: 3rem;
+	color: var(--branco);
+	font-family: var(--sourceSans);
+	text-align: center;
+	width: 100%;
+	font-weight: bold;
 }
 .accordionHeader button {
-  transition: rotate 0.2s linear;
-  background-color: transparent;
-  color: var(--cinza);
-  background-image: url(../../assets/img/svgs/arrow.svg);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain;
-  rotate: 90deg;
-  transform: scale(70%);
+	transition: rotate 0.2s linear;
+	background-color: transparent;
+	color: var(--cinza);
+	background-image: url(../../assets/img/svgs/arrow.svg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+	rotate: 90deg;
+	transform: scale(70%);
 }
 .accordionText {
-  padding: 2rem 4rem;
-  position: relative;
-  gap: 3rem;
-  animation: openText 0.4s linear;
-  background-color: var(--branco);
-  z-index: 2;
-  transition: none;
+	padding: 2rem 4rem;
+	position: relative;
+	gap: 3rem;
+	animation: openText 0.4s linear;
+	background-color: var(--branco);
+	z-index: 2;
+	transition: none;
 }
 
 .accordionText h3,
 .accordionText h4 {
-  font-size: 2.6rem;
-  font-family: var(--sourceSans);
-  font-weight: 500;
-  color: var(--verde3);
-  margin: 1rem 0;
+	font-size: 2.6rem;
+	font-family: var(--sourceSans);
+	font-weight: 500;
+	color: var(--verde3);
+	margin: 1rem 0;
 }
 
 .accordionText h4 {
-  font-size: 2.2rem;
-  margin-top: 2rem;
+	font-size: 2.2rem;
+	margin-top: 2rem;
 }
 
 .accordionText ul li {
-  list-style-type: disc;
-  margin: 0.5rem 0;
-  margin-left: 6rem;
-  color: var(--verde3);
+	list-style-type: disc;
+	margin: 0.5rem 0;
+	margin-left: 6rem;
+	color: --var(--cinza);
 }
 
 .accordionText ul p {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 .accordionText p {
-  padding: 1rem 0;
-  text-align: justify;
-  hyphens: auto;
+	padding: 1rem 0;
+	text-align: justify;
+	hyphens: auto;
 }
-/* 
+/*
 .accordionInterno p {
   color: var(--branco);
 } */
 
 .accordionInterno h2 {
-  width: max-content;
-  text-align: center;
-  padding: 0;
-  font-size: 2rem;
-  font-weight: normal;
-  padding-left: 2rem;
+	width: max-content;
+	text-align: center;
+	padding: 0;
+	font-size: 2rem;
+	font-weight: normal;
+	padding-left: 2rem;
 }
 
 @media (max-width: 1100px) {
-  .accordionHeader h2 {
-    font-size: 2rem;
-  }
-  .bolinha::before,
-  .verde::before {
-    left: -60px;
-    top: -46px;
-    transform: scale(50%);
-  }
+	.accordionHeader h2 {
+		font-size: 2rem;
+	}
+	.bolinha::before,
+	.verde::before {
+		left: -60px;
+		top: -46px;
+		transform: scale(50%);
+	}
 }
 @media (max-width: 700px) {
-  .bolinha::before,
-  .verde::before {
-    display: none;
-  }
-  .accordion {
-    margin: 2rem 0;
-  }
+	.bolinha::before,
+	.verde::before {
+		display: none;
+	}
+	.accordion {
+		margin: 2rem 0;
+	}
 
-  .accordionHeader h2 {
-    padding: 0;
-    text-align: left;
-    padding-left: 1rem;
-  }
-  .accordionText ul li {
-    list-style-type: disc;
-    margin-left: 2rem;
-    color: var(--verde3);
-  }
+	.accordionHeader h2 {
+		padding: 0;
+		text-align: left;
+		padding-left: 1rem;
+	}
+	.accordionText ul li {
+		list-style-type: disc;
+		margin-left: 2rem;
+		color: var(--verde3);
+	}
 }
 @media (max-width: 600px) {
-  .accordionHeader {
-    padding: 1rem 0;
-  }
+	.accordionHeader {
+		padding: 1rem 0;
+	}
 
-  .accordion {
-    width: 100% !important;
-  }
+	.accordion {
+		width: 100% !important;
+	}
 
-  .accordionHeader h2 {
-    font-size: 2.2rem;
-    /* text-align: center; */
+	.accordionHeader h2 {
+		font-size: 2.2rem;
+		/* text-align: center; */
 
-    margin-left: 1rem;
-  }
+		margin-left: 1rem;
+	}
 
-  .accordionInterno h2 {
-    font-size: 1.6rem;
-    font-weight: 400;
-  }
+	.accordionInterno h2 {
+		font-size: 1.6rem;
+		font-weight: 400;
+	}
 
-  .accordionText {
-    padding: 2rem;
-  }
-  .accordionHeader button {
-    transform: scale(50%);
-  }
+	.accordionText {
+		padding: 2rem;
+	}
+	.accordionHeader button {
+		transform: scale(50%);
+	}
 }
 @keyframes opened {
-  0% {
-    max-height: 100px;
-  }
-  100% {
-    max-height: 10000px;
-  }
+	0% {
+		max-height: 100px;
+	}
+	100% {
+		max-height: 10000px;
+	}
 }
 @keyframes closed {
-  0% {
-    max-height: 10000px;
-  }
-  100% {
-    max-height: 100px;
-  }
+	0% {
+		max-height: 10000px;
+	}
+	100% {
+		max-height: 100px;
+	}
 }
 @keyframes openText {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }

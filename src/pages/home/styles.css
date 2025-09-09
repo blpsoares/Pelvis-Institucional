@@ -1,395 +1,409 @@
 .bgTitleCardsHome {
-  background-image: url(../../assets/img/webp/bgCardsHome.webp);
-  background-position: center center;
-  backdrop-filter: blur(200px);
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: 1rem;
-  padding: 0rem 2rem 5rem;
-  position: relative;
-  margin-bottom: 15rem !important;
+	background-image: url(../../assets/img/webp/bgCardsHome.webp);
+	background-position: center center;
+	backdrop-filter: blur(200px);
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 1rem;
+	padding: 0rem 2rem 5rem;
+	position: relative;
+	margin-bottom: 15rem !important;
 }
 .cardsHome {
-  display: flex;
-  justify-content: space-evenly;
-  padding-bottom: 5rem;
-  position: absolute;
-  bottom: -180px;
-  left: 0;
-  width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	padding-bottom: 5rem;
+	position: absolute;
+	bottom: -180px;
+	left: 0;
+	width: 100%;
 }
 
 .cardsHome .card {
-  height: 100%;
-  justify-content: center;
-  padding: 2rem 1rem;
+	height: 100%;
+	justify-content: center;
+	padding: 2rem 1rem;
 }
 
 .cardsHome .card p {
-  text-align: center;
+	text-align: center;
 }
 .cardsHomeHeader {
-  display: flex;
-  justify-content: space-around;
-  margin: 5rem 0;
-  width: 100%;
-  padding: 5rem 2rem;
+	display: flex;
+	justify-content: space-around;
+	margin: 5rem 0;
+	width: 100%;
+	padding: 5rem 2rem;
 }
 .titleCardsHomeText {
-  color: var(--branco);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 4rem;
+	color: var(--branco);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 4rem;
 }
 .titleCardsHomeText h1 {
-  font-weight: 400;
-  text-align: center;
-  font-size: 3.5rem;
-  line-height: 1;
-  margin-bottom: 2rem;
+	font-weight: 400;
+	text-align: center;
+	font-size: 3.5rem;
+	line-height: 1;
+	margin-bottom: 2rem;
 }
 .titleCardsHomeText span {
-  padding: 0.5rem 2rem;
-  color: var(--branco);
-  border-radius: 4rem;
-  font-size: 2.4rem;
+	padding: 0.5rem 2rem;
+	color: var(--branco);
+	border-radius: 4rem;
+	font-size: 2.4rem;
 }
 .titleCardsHomeCtas {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
 }
 .titleCardsHomeCtas a {
-  padding: 1rem 0;
-  width: 250px;
-  font-weight: bold;
-  color: var(--branco);
-  border-radius: 1rem;
-  text-align: center;
-  text-transform: uppercase;
+	padding: 1rem 0;
+	width: 250px;
+	font-weight: bold;
+	color: var(--branco);
+	border-radius: 1rem;
+	text-align: center;
+	text-transform: uppercase;
 }
 .titleCardsHomeCtas a:nth-child(1) {
-  border: 2px solid var(--branco);
+	border: 2px solid var(--branco);
 }
 .titleCardsHomeCtas a:nth-child(2) {
-  background-color: var(--branco);
-  color: var(--roxo4);
+	background-color: var(--branco);
+	color: var(--roxo4);
 }
 .especialidades {
-  display: flex;
-  transition: gap 0.2s ease-in-out;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 5rem;
+	display: flex;
+	transition: gap 0.2s ease-in-out;
+	justify-content: space-between;
+	width: 100%;
+	margin-top: 5rem;
 }
 .especialidadesMain {
-  margin-top: 5rem;
-  text-align: center;
+	margin-top: 5rem;
+	text-align: center;
 }
 .especialidadesMain > span {
-  color: var(--branco);
-  font-size: 1.8rem;
-  background-color: var(--roxo4);
-  padding: 0.2rem 2rem;
-  font-family: var(--sourceSans);
-  border-radius: 2rem;
+	color: var(--branco);
+	font-size: 1.8rem;
+	background-color: var(--roxo4);
+	padding: 0.2rem 2rem;
+	font-family: var(--sourceSans);
+	border-radius: 2rem;
 }
 .especialidadesMain > h3 {
-  font-weight: 400;
-  color: var(--roxo4);
-  margin: 1rem 0;
+	font-weight: 400;
+	color: var(--roxo4);
+	margin: 1rem 0;
 }
 .bgOurTeam {
-  background: url(../../assets/img/webp/bgTemporario.webp);
-  background-position: center;
-  background-color: #ffff;
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: max-content;
-  display: flex;
-  margin-top: 10rem;
-  padding: 8rem 0 15rem !important;
+	background: url(../../assets/img/webp/bgTemporario.webp);
+	background-position: center;
+	background-color: #ffff;
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: max-content;
+	display: flex;
+	margin-top: 10rem;
+	padding: 8rem 0 15rem !important;
 }
 .ourTeam {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
 }
 .ourTeam > h3 {
-  color: var(--roxo4);
-  font-weight: 400;
-  margin: 1rem 0;
+	color: var(--roxo4);
+	font-weight: 400;
+	margin: 1rem 0;
 }
+
 .ourTeamCards {
-  margin-top: 5rem;
-  display: grid;
-  grid-template-columns: repeat(4, max-content);
-  gap: 5rem;
-  width: 100%;
+	margin-top: 5rem;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 5rem;
+	width: 100%;
+	justify-items: center;
+	align-items: start;
+	grid-auto-flow: row dense;
 }
+
+.ourTeamCards > *:nth-child(5) {
+	grid-row: 2;
+	grid-column: 2;
+}
+.ourTeamCards > *:nth-child(6) {
+	grid-row: 2;
+	grid-column: 3;
+}
+
 .ourSpace > .mainContent {
-  padding: 5rem 0;
+	padding: 5rem 0;
 }
 .titleCarrossel {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 4rem;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 4rem;
 }
 .titleCarrosselText {
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
 }
 .titleCarrosselText > span {
-  color: var(--cinza);
-  font-family: var(--taviraj);
+	color: var(--cinza);
+	font-family: var(--taviraj);
 }
 .titleCarrosselText h3 {
-  font-weight: 400;
-  color: var(--roxo4);
-  line-height: 0.9;
+	font-weight: 400;
+	color: var(--roxo4);
+	line-height: 0.9;
 }
 .titleCarrosselLinks {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
 }
 .titleCarrosselLinks a {
-  padding: 0.5rem 2rem;
-  font-weight: bold;
-  margin: 0.5rem 0;
+	padding: 0.5rem 2rem;
+	font-weight: bold;
+	margin: 0.5rem 0;
 }
 .bgGoogle {
-  background-image: linear-gradient(
-    115deg,
-    rgba(102, 53, 155, 0.2) 0%,
-    rgba(69, 51, 97, 0.12) 99.01%
-  );
+	background-image: linear-gradient(
+		115deg,
+		rgba(102, 53, 155, 0.2) 0%,
+		rgba(69, 51, 97, 0.12) 99.01%
+	);
 }
 .google {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
 }
 .google span {
-  font-size: 2rem;
-  line-height: 0.3;
-  color: #979797;
-  margin: 0 auto;
-  padding: 1.2rem 3rem;
+	font-size: 2rem;
+	line-height: 0.3;
+	color: #979797;
+	margin: 0 auto;
+	padding: 1.2rem 3rem;
 }
 .google h2 {
-  font-size: 3.3rem;
-  margin-bottom: 4rem;
-  color: var(--roxo4);
-  font-weight: 500;
+	font-size: 3.3rem;
+	margin-bottom: 4rem;
+	color: var(--roxo4);
+	font-weight: 500;
 }
 .cardsGoogle {
-  display: grid;
-  grid-template-columns: repeat(3, 380px);
-  flex-shrink: 0;
-  place-content: start;
-  place-items: center;
-  place-self: center;
-  height: max-content;
-  gap: 3rem;
-  margin-bottom: 3rem;
+	display: grid;
+	grid-template-columns: repeat(3, 380px);
+	flex-shrink: 0;
+	place-content: start;
+	place-items: center;
+	place-self: center;
+	height: max-content;
+	gap: 3rem;
+	margin-bottom: 3rem;
 }
 .cardsGoogle span {
-  padding: 0;
-  margin: 0;
+	padding: 0;
+	margin: 0;
 }
 .google a {
-  width: max-content;
-  margin: 2rem auto;
-  padding: 1rem 4rem;
+	width: max-content;
+	margin: 2rem auto;
+	padding: 1rem 4rem;
 }
 .googleMaps {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 .googleMaps span {
-  color: var(--cinza);
-  font-family: var(--taviraj);
+	color: var(--cinza);
+	font-family: var(--taviraj);
 }
 .googleMaps > h3 {
-  font-weight: 400;
-  color: var(--roxo4);
-  line-height: 0.9;
-  margin-bottom: 4rem;
-  text-align: center;
+	font-weight: 400;
+	color: var(--roxo4);
+	line-height: 0.9;
+	margin-bottom: 4rem;
+	text-align: center;
 }
 .adressMaps {
-  display: flex;
-  width: 100%;
-  gap: 10rem;
-  margin-top: 6rem;
-  justify-content: space-around;
+	display: flex;
+	width: 100%;
+	gap: 10rem;
+	margin-top: 6rem;
+	justify-content: space-around;
 }
 .adressText h3,
 .phoneMaps h3 {
-  color: var(--roxo6);
+	color: var(--roxo6);
 }
 .adressText a,
 .phoneMaps a {
-  font-size: 2rem;
-  position: relative;
-  transition: color 0.1s ease-in-out;
-  text-decoration: underline;
+	font-size: 2rem;
+	position: relative;
+	transition: color 0.1s ease-in-out;
+	text-decoration: underline;
 }
 .adressMaps a:hover {
-  color: var(--roxo4);
+	color: var(--roxo4);
 }
 @media (max-width: 1600px) {
-  .especCard img {
-    width: 300px;
-    height: auto;
-  }
+	.especCard img {
+		width: 300px;
+		height: auto;
+	}
 
-  .especCard a,
-  .especCard p {
-    width: 300px;
-  }
+	.especCard a,
+	.especCard p {
+		width: 300px;
+	}
 
-  .especialidades {
-    gap: 2rem;
-  }
+	.especialidades {
+		gap: 2rem;
+	}
 }
 
 @media (max-width: 1500px) {
-  .ourTeamCards {
-    grid-template-columns: repeat(2, max-content);
-    justify-content: center;
-  }
+	.ourTeamCards {
+		grid-template-columns: repeat(2, max-content);
+		justify-content: center;
+	}
 }
 
 @media (max-width: 1220px) {
-  .cardsGoogle {
-    grid-template-columns: repeat(2, 380px);
-    justify-content: center;
-  }
-  .especialidades {
-    flex-direction: column;
-  }
+	.cardsGoogle {
+		grid-template-columns: repeat(2, 380px);
+		justify-content: center;
+	}
+	.especialidades {
+		flex-direction: column;
+	}
 
-  .bgTitleCardsHome {
-    margin-bottom: 0 !important;
-  }
+	.bgTitleCardsHome {
+		margin-bottom: 0 !important;
+	}
 
-  .especialidadesMain > h3,
-  .ourTeam > h3 {
-    font-size: 2.3rem;
-    text-align: center;
-    line-height: 1.2;
-    margin: 2rem 0;
-    font-weight: 500;
-  }
+	.especialidadesMain > h3,
+	.ourTeam > h3 {
+		font-size: 2.3rem;
+		text-align: center;
+		line-height: 1.2;
+		margin: 2rem 0;
+		font-weight: 500;
+	}
 
-  .titleCardsHomeText h1 {
-    font-size: 2.5rem;
-  }
+	.titleCardsHomeText h1 {
+		font-size: 2.5rem;
+	}
 
-  .titleCardsHomeText span {
-    font-size: 2rem;
-  }
+	.titleCardsHomeText span {
+		font-size: 2rem;
+	}
 
-  .cardsHome {
-    flex-direction: column;
-    margin: 0;
-    position: initial;
-    gap: 5rem;
-  }
+	.cardsHome {
+		flex-direction: column;
+		margin: 0;
+		position: initial;
+		gap: 5rem;
+	}
 
-  .bgTitleCardsHome {
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
+	.bgTitleCardsHome {
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
 
-  .cardsHomeHeader {
-    margin: 0;
-  }
+	.cardsHomeHeader {
+		margin: 0;
+	}
 
-  .cardsHome .card {
-    width: 100%;
-  }
+	.cardsHome .card {
+		width: 100%;
+	}
 }
 @media (max-width: 1000px) {
-  .ourTeamCards {
-    padding: 2rem;
-  }
+	.ourTeamCards {
+		padding: 2rem;
+	}
 }
 @media (max-width: 950px) {
-  .cardsGoogle {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+	.cardsGoogle {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 }
 @media (max-width: 900px) {
-  .cardsHomeHeader {
-    flex-direction: column;
-  }
+	.cardsHomeHeader {
+		flex-direction: column;
+	}
 
-  .titleCardsHomeText {
-    /* margin-top: 4rem; */
-    flex-direction: column-reverse;
-  }
+	.titleCardsHomeText {
+		/* margin-top: 4rem; */
+		flex-direction: column-reverse;
+	}
 
-  .titleCardsHomeText span {
-    margin-bottom: 2rem;
-  }
+	.titleCardsHomeText span {
+		margin-bottom: 2rem;
+	}
 
-  .titleCardsHomeCtas a {
-    width: 100%;
-  }
+	.titleCardsHomeCtas a {
+		width: 100%;
+	}
 
-  .ourTeam {
-    padding: 0 1rem;
-  }
+	.ourTeam {
+		padding: 0 1rem;
+	}
 
-  .ourTeamCards {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
-    gap: 10rem;
-  }
+	.ourTeamCards {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 0;
+		gap: 10rem;
+	}
 }
 @media (max-width: 800px) {
-  .titleCarrossel {
-    flex-direction: column;
-    gap: 3rem;
-  }
+	.titleCarrossel {
+		flex-direction: column;
+		gap: 3rem;
+	}
 
-  .googleMaps > h3 {
-    font-size: 2.7rem;
-  }
+	.googleMaps > h3 {
+		font-size: 2.7rem;
+	}
 
-  .adressMaps {
-    flex-direction: column;
-    gap: 4rem;
-  }
+	.adressMaps {
+		flex-direction: column;
+		gap: 4rem;
+	}
 
-  .adressText h3,
-  .phoneMaps h3 {
-    font-size: 2.8rem;
-  }
+	.adressText h3,
+	.phoneMaps h3 {
+		font-size: 2.8rem;
+	}
 
-  .adressText a,
-  .phoneMaps a {
-    font-size: 1.7rem;
-  }
+	.adressText a,
+	.phoneMaps a {
+		font-size: 1.7rem;
+	}
 
-  .cardsHomeHeader {
-    padding: 5rem 0;
-  }
+	.cardsHomeHeader {
+		padding: 5rem 0;
+	}
 
-  .cardsHomeHeader h1 {
-    font-size: 2rem;
-  }
+	.cardsHomeHeader h1 {
+		font-size: 2rem;
+	}
 }
