@@ -215,7 +215,7 @@ const Home = () => {
 							h3="Thipphane Yuka"
 							img={thipphane}
 							p="Fisioterapeuta e Massoterapeuta"
-							// span="CREFITO-3/111858-F"
+							span="CREFITO-3/439481-F"
 							id="Dra. Thipphane Yuka"
 						/>
 					</BoxAnimation>

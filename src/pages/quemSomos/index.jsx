@@ -291,7 +291,7 @@ const QuemSomos = () => {
 					<div className="descriptionCV">
 						<h2>Dra. Thipphane Yuka</h2>
 						<span className="subtitleDra">Fisioterapeuta e Massoterapeuta</span>
-						{/* <span className="crefito">CREFITO-3/322756-F</span> */}
+						<span className="crefito">CREFITO-3/439481-F</span>
 						<ul>
 							<li>
 								Graduada em Fisioterapia pela Universidade Presbiteriana
