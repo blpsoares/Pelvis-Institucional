@@ -5,6 +5,16 @@
   background-size: cover;
   min-height: 100vh;
 }
+.comoFuncionaTitle {
+  text-align: center;
+  padding: 5rem 0 1rem 0;
+  color: var(--roxo4);
+}
+.comoFuncionaTitle span {
+  color: var(--roxo4);
+  font-family: var(--sourceSans);
+  font-size: 1.8rem;
+}
 .stepsAtendimento {
   border: 2px solid var(--cinza5);
   border-radius: 2rem;

@@ -31,9 +31,8 @@ import check from "../../assets/img/svgs/check.svg";
 const ComoFunciona = () => {
   return (
     <>
-      {/* Placeholder — valor definitivo é escopo de F4.1 */}
       <Head>
-        <title>Como Funciona | PELVIE Fisioterapia Pélvica</title>
+        <title>Como Funciona o Atendimento | PELVIE Fisioterapia Pélvica</title>
         <meta
           name="description"
           content="Entenda como funciona o atendimento na PELVIE, da avaliação inicial ao plano de tratamento personalizado, no Brooklin, São Paulo."
@@ -46,6 +45,13 @@ const ComoFunciona = () => {
       <MedicalBusinessSchema />
 
       <Container sectionClass="bgHeroComoFunciona" />
+      <Container mainClass="comoFuncionaTitle">
+        <h1>Como Funciona o Atendimento na PELVIE</h1>
+        <span>
+          Do primeiro contato ao plano de tratamento personalizado — veja o
+          passo a passo do atendimento na PELVIE.
+        </span>
+      </Container>
       <Container mainClass="stepsAtendimento">
         <BoxAnimation animation="opacity">
           <h2>
@@ -75,7 +81,7 @@ const ComoFunciona = () => {
               <span className="stepsCardDesc">Fácil e rápido</span>
               <p>
                 Nosso agendamento é feito via WhatsApp ou ligação. O horário de
-                atendimento é bem amplo: segunda a sexta das 7h às 21h e aos
+                atendimento é bem amplo: segunda a sexta das 7h às 20h30 e aos
                 sábados das 8h às 14h.
               </p>
               <p>
