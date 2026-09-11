@@ -171,7 +171,6 @@
   .bgHeroOverlay .hero p,
   .bgHeroOverlay .hero div > span {
     color: var(--branco) !important;
-    text-shadow: 0 1px 12px rgba(25, 5, 40, 0.55);
   }
 
   .bgHeroOverlay .hero h1 span {
