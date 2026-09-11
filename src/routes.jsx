@@ -6,6 +6,7 @@ import ComoFunciona from "./pages/comoFunciona";
 import QuemSomos from "./pages/quemSomos";
 import FisioterapiaPelvica from "./pages/fisioterapiaPelvica";
 import Pilates from "./pages/pilates";
+import Acupuntura from "./pages/acupuntura";
 import Loader from "./components/loader";
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -22,6 +23,7 @@ const routes = [
       { path: "ComoFunciona", Component: ComoFunciona },
       { path: "fisioterapia-pelvica", Component: FisioterapiaPelvica },
       { path: "pilates", Component: Pilates },
+      { path: "acupuntura", Component: Acupuntura },
       {
         path: "*",
         element: (
