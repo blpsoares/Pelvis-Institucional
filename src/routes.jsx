@@ -5,6 +5,7 @@ import Tratamento from "./pages/tratamento";
 import ComoFunciona from "./pages/comoFunciona";
 import QuemSomos from "./pages/quemSomos";
 import FisioterapiaPelvica from "./pages/fisioterapiaPelvica";
+import Acupuntura from "./pages/acupuntura";
 import Pilates from "./pages/pilates";
 import Loader from "./components/loader";
 
@@ -21,6 +22,7 @@ const routes = [
       { path: "Tratamento", Component: Tratamento },
       { path: "ComoFunciona", Component: ComoFunciona },
       { path: "fisioterapia-pelvica", Component: FisioterapiaPelvica },
+      { path: "acupuntura", Component: Acupuntura },
       { path: "pilates", Component: Pilates },
       {
         path: "*",
