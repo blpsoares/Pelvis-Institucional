@@ -3,6 +3,10 @@
 // Estilos
 import "./styles.css";
 
+// Head/SEO
+import { Head } from "vite-react-ssg";
+import MedicalBusinessSchema from "../../components/medicalBusinessSchema";
+
 //Components
 import Container from "../../components/container";
 import Loader from "../../components/loader";
@@ -29,6 +33,20 @@ import peopleIcon from "../../assets/img/svgs/peopleIcon.svg";
 const QuemSomos = () => {
 	return (
 		<>
+			{/* Placeholder — valor definitivo é escopo de F4.1 */}
+			<Head>
+				<title>Quem Somos | PELVIE Fisioterapia Pélvica</title>
+				<meta
+					name="description"
+					content="Conheça a equipe de fisioterapeutas especializadas da PELVIE, clínica de fisioterapia pélvica funcional no Brooklin, São Paulo."
+				/>
+				<link
+					rel="canonical"
+					href="https://www.pelviefisioterapia.com.br/QuemSomos"
+				/>
+			</Head>
+			<MedicalBusinessSchema />
+
 			<Container
 				sectionClass="bgHeroQuemSomos"
 				mainClass="heroQuemSomosContent"
