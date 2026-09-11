@@ -3,10 +3,22 @@
 # suPHP_ConfigPath /home/pelviefisioterap1/
 RewriteEngine On
 RewriteBase /
-RewriteRule ^index\.html$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.html [L]
+
+# 404 real: serve o HTML estático gerado a partir de src/pages/notFound,
+# preservando o status HTTP 404 (Apache mantém o status original ao usar ErrorDocument).
+ErrorDocument 404 /404.html
+
+# Arquivos e diretorios que existem fisicamente (assets/*, *.html gerados, etc.) passam direto.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# URL limpa -> arquivo .html gerado pelo build SSG (ex: /Tratamento -> /Tratamento.html)
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*?)/?$ $1.html [L]
+
+# Nao existe arquivo nem URL limpa correspondente: sem rewrite, cai no 404 real acima.
+
 RewriteCond %{SERVER_PORT} 80
 RewriteRule ^(.*)$ https://www.pelviefisioterapia/$1 [R,L]
 ##### LOCAWEB - NAO REMOVER #####

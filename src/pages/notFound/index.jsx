@@ -6,6 +6,7 @@ import "./styles.css";
 //Componentes
 import { NavLink } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import { ClientOnly } from "vite-react-ssg";
 const Lottie = lazy(() => import("lottie-react"));
 import Loader from "../../components/loader";
 import Container from "../../components/container";
@@ -43,9 +44,13 @@ const NotFound = () => {
             </a>
           </div>
         </div>
-        <Suspense fallback={<Loader />}>
-          <Lottie animationData={animationData} className="notFoundJson" />
-        </Suspense>
+        <ClientOnly fallback={<Loader />}>
+          {() => (
+            <Suspense fallback={<Loader />}>
+              <Lottie animationData={animationData} className="notFoundJson" />
+            </Suspense>
+          )}
+        </ClientOnly>
       </Container>
     </>
   );
