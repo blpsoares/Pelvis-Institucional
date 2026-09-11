@@ -58,7 +58,7 @@ const ComoFunciona = () => {
               <p>
                 Nosso agendamento é feito via WhatsApp ou ligação. O horário de
                 atendimento é bem amplo: segunda a sexta das 7h às 21h e aos
-                sábado das 8h às 14h.
+                sábados das 8h às 14h.
               </p>
               <p>
                 A avaliação é personalizada e consiste em uma entrevista inicial
@@ -70,7 +70,7 @@ const ComoFunciona = () => {
               <a
                 href="https://wa.me/+5511913112992?text=Olá! Gostaria de agendar minha avaliação. Estou buscando a clínica porque…"
                 className="linkAvaliação"
-                target="_blank"
+                target="noreferrer"
               >
                 Agendar avaliação
                 <img src={whats} alt="logo do whatsapp" width="20" />
@@ -106,7 +106,7 @@ const ComoFunciona = () => {
               <a
                 href="https://wa.me/+5511913112992?text=Olá! Gostaria de tirar algumas dúvidas sobre o tratamento. Estou buscando a clínica porque…"
                 className="linkTratamentos"
-                target="_blank"
+                target="noreferrer"
               >
                 Tire suas dúvidas
                 <img src={checklist} alt="logo do whatsapp" width="20" />
@@ -174,7 +174,7 @@ const ComoFunciona = () => {
             </ul>
             <a
               href="https://wa.me/+5511913112992?text=Olá! Gostaria de solicitar um orçamento. Estou buscando a clínica porque…"
-              target="_blank"
+              target="noreferrer"
               className="ctaBtn2"
             >
               Solicitar orçamento

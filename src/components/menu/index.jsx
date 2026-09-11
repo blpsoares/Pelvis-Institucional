@@ -64,13 +64,13 @@ const Menu = ({ openMenu, setOpenMenu }) => {
         <div className="contato">
           <a
             href="https://www.instagram.com/pelviefisioterapia/?igsh=cTg1d3NxejRnbTNs"
-            target="_blank"
+            target="noreferrer"
           >
             <img src={insta} alt="logo do instagram" width="43" height="42" />
           </a>
           <a
             href="https://wa.me/+5511913112992?text=Olá! Gostaria de mais informações. Estou buscando a clínica porque…"
-            target="_blank"
+            target="noreferrer"
           >
             <img src={whats} alt="logo do whatsapp" width="43" height="42" />
           </a>
@@ -80,14 +80,14 @@ const Menu = ({ openMenu, setOpenMenu }) => {
             <div className="buttonsFooterMenu">
               <a
                 href="https://wa.me/+5511913112992?text=Olá! Gostaria de mais informações. Estou buscando a clínica porque…"
-                target="_blank"
+                target="noreferrer"
               >
                 Fale Conosco
                 <img src={setaBtn} width="20" alt="seta com fundo branco" />
               </a>
               <a
                 href="https://www.instagram.com/pelviefisioterapia/?igsh=cTg1d3NxejRnbTNs"
-                target="_blank"
+                target="noreferrer"
               >
                 Nosso instagram
                 <img src={setaBtn} width="20" alt="seta com fundo branco" />

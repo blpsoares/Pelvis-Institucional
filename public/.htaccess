@@ -1,6 +1,6 @@
 ##### LOCAWEB - NAO REMOVER #####
-AddHandler php80-script .php
-suPHP_ConfigPath /home/pelviefisioterap1/
+# AddHandler php80-script .php
+# suPHP_ConfigPath /home/pelviefisioterap1/
 RewriteEngine On
 RewriteBase /
 RewriteRule ^index\.html$ - [L]

@@ -1,31 +1,33 @@
-// import React from "react";
-import { Routes, Route } from "react-router-dom";
-
+import { lazy, Suspense } from "react";
+import Layout from "./App.jsx";
 import Home from "./pages/home";
 import Tratamento from "./pages/tratamento";
 import ComoFunciona from "./pages/comoFunciona";
 import QuemSomos from "./pages/quemSomos";
-import { lazy, Suspense } from "react";
 import Loader from "./components/loader";
+
+// eslint-disable-next-line react-refresh/only-export-components
 const NotFound = lazy(() => import("./pages/notFound"));
 
-const AppRoutes = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/QuemSomos" element={<QuemSomos />} />
-      <Route path="/Tratamento" element={<Tratamento />} />
-      <Route path="/ComoFunciona" element={<ComoFunciona />} />
-      <Route
-        path="*"
-        element={
+const routes = [
+  {
+    path: "/",
+    Component: Layout,
+    children: [
+      { index: true, Component: Home },
+      { path: "QuemSomos", Component: QuemSomos },
+      { path: "Tratamento", Component: Tratamento },
+      { path: "ComoFunciona", Component: ComoFunciona },
+      {
+        path: "*",
+        element: (
           <Suspense fallback={<Loader />}>
             <NotFound />
           </Suspense>
-        }
-      />
-    </Routes>
-  );
-};
+        ),
+      },
+    ],
+  },
+];
 
-export default AppRoutes;
+export default routes;
