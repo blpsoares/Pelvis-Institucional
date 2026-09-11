@@ -12,6 +12,7 @@ import CtaAcc from "../../components/ctaAcc";
 import CtaCard from "../../components/ctaCard";
 import SpecCard from "../../components/specCard";
 import LocationBlock from "../../components/locationBlock";
+import LeadParagraph from "../../components/leadParagraph";
 
 import heroImg from "../../assets/img/webp/bgTratamentosDesktop.webp";
 import juliana from "../../assets/img/webp/juliana.webp";
@@ -163,9 +164,15 @@ const MassagemEDrenagemLinfatica = () => {
           <BoxAnimation animation="opacity" key={servico.title}>
             <div className="massagemBloco">
               <h3>{servico.title}</h3>
-              {servico.paragraphs.map((paragrafo) => (
-                <p key={paragrafo.slice(0, 40)}>{paragrafo}</p>
-              ))}
+              {servico.paragraphs.map((paragrafo, indice) =>
+                indice === 0 ? (
+                  <LeadParagraph key={paragrafo.slice(0, 40)}>
+                    {paragrafo}
+                  </LeadParagraph>
+                ) : (
+                  <p key={paragrafo.slice(0, 40)}>{paragrafo}</p>
+                )
+              )}
               <p>
                 <b>{servico.beneficiosLabel}</b>
               </p>

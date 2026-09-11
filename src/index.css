@@ -50,7 +50,12 @@ html {
 }
 
 body {
-  overflow-x: hidden;
+  /* `clip` em vez de `hidden`: recorta o transbordo horizontal exatamente igual,
+     mas NÃO transforma o body num contêiner de rolagem. Com `hidden`, qualquer
+     `position: sticky` dentro da página passava a grudar no body — que nunca
+     rola — e simplesmente subia junto com o conteúdo (o índice da F5.3 não
+     grudava). Medido no Chrome antes e depois. */
+  overflow-x: clip;
   scroll-behavior: smooth;
 }
 
@@ -330,3 +335,36 @@ button:hover {
   }
 }
 
+
+/* ---------------------------------------------------------------------------
+   F5.3 — Legibilidade do texto longo nas 4 landing pages novas
+   Tokens compartilhados. Nenhuma destas regras casa com alguma marcação das
+   4 páginas antigas (Home, QuemSomos, Tratamento, ComoFunciona): `--medida` só
+   é consumida pelos styles.css das páginas novas e a classe `.leadSentence` só
+   existe nelas.
+--------------------------------------------------------------------------- */
+:root {
+  /* Medida de linha do texto corrido. Em `ch` para acompanhar o corpo do
+     próprio parágrafo, inclusive quando o html cai para 56% abaixo de 1300px.
+     O valor foi calibrado medindo caractere a caractere no Chrome, não no
+     olho: 1ch (a largura do "0") é mais largo que a letra média do texto em
+     português, então 58ch entrega ~63 caracteres na linha típica e ~70 na mais
+     cheia — dentro da faixa de 60–75 pedida. Com 66ch a linha mais cheia dava
+     80 caracteres. */
+  --medida: 58ch;
+  /* Folga para as âncoras não pararem embaixo do header fixo (que mede ~10.8rem
+     em qualquer largura, já que o padding dele também é em rem). Medido no
+     Chrome: com 11rem sobravam 2px de respiro, apertado demais. */
+  --ancoraOffset: 13rem;
+}
+
+/* Lead tipográfico: a primeira frase de cada bloco em corpo maior e na serifada
+   Taviraj (a mesma dos h2/h3), criando o degrau de leitura entre o título e o
+   texto corrido. É só apresentação — o texto não muda. */
+.leadSentence {
+  font-family: var(--taviraj);
+  font-size: 1.9rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--cinza2);
+}
