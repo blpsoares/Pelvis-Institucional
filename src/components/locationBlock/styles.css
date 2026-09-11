@@ -1,0 +1,69 @@
+.googleMaps {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.googleMaps span {
+	color: var(--cinza);
+	font-family: var(--taviraj);
+}
+.googleMaps > h3 {
+	font-weight: 400;
+	color: var(--roxo4);
+	line-height: 0.9;
+	margin-bottom: 4rem;
+	text-align: center;
+}
+.adressMaps {
+	display: flex;
+	width: 100%;
+	gap: 10rem;
+	margin-top: 6rem;
+	justify-content: space-around;
+}
+.adressText {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+.adressText h3,
+.phoneMaps h3 {
+	color: var(--roxo6);
+}
+.adressText a,
+.phoneMaps a {
+	font-size: 2rem;
+	position: relative;
+	transition: color 0.1s ease-in-out;
+	text-decoration: underline;
+}
+.adressMaps a:hover {
+	color: var(--roxo4);
+}
+.adressText .ctaBtn2 {
+	margin-top: 1.5rem;
+	padding: 0.8rem 2.4rem;
+	font-size: 1.6rem;
+	text-decoration: none;
+}
+
+@media (max-width: 800px) {
+	.googleMaps > h3 {
+		font-size: 2.7rem;
+	}
+
+	.adressMaps {
+		flex-direction: column;
+		gap: 4rem;
+	}
+
+	.adressText h3,
+	.phoneMaps h3 {
+		font-size: 2.8rem;
+	}
+
+	.adressText a,
+	.phoneMaps a {
+		font-size: 1.7rem;
+	}
+}

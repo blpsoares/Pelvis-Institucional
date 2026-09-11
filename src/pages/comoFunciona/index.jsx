@@ -2,6 +2,10 @@
 // Estilos
 import "./styles.css";
 
+// Head/SEO
+import { Head } from "vite-react-ssg";
+import MedicalBusinessSchema from "../../components/medicalBusinessSchema";
+
 //Componentes
 import Container from "../../components/container";
 import BoxAnimation from "../../components/boxAnimation";
@@ -27,6 +31,20 @@ import check from "../../assets/img/svgs/check.svg";
 const ComoFunciona = () => {
   return (
     <>
+      {/* Placeholder — valor definitivo é escopo de F4.1 */}
+      <Head>
+        <title>Como Funciona | PELVIE Fisioterapia Pélvica</title>
+        <meta
+          name="description"
+          content="Entenda como funciona o atendimento na PELVIE, da avaliação inicial ao plano de tratamento personalizado, no Brooklin, São Paulo."
+        />
+        <link
+          rel="canonical"
+          href="https://www.pelviefisioterapia.com.br/ComoFunciona"
+        />
+      </Head>
+      <MedicalBusinessSchema />
+
       <Container sectionClass="bgHeroComoFunciona" />
       <Container mainClass="stepsAtendimento">
         <BoxAnimation animation="opacity">

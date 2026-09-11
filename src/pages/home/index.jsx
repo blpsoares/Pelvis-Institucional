@@ -6,6 +6,10 @@
 // Estilos
 import "./styles.css";
 
+// Head/SEO
+import { Head } from "vite-react-ssg";
+import MedicalBusinessSchema from "../../components/medicalBusinessSchema";
+
 // Components
 import HeroCarrossel from "../../components/HeroCarrossel";
 import EspecialidadesCard from "../../components/EspecialidadesCard";
@@ -16,6 +20,7 @@ import Loader from "../../components/loader";
 import CardHome from "../../components/card";
 import GoogleCard from "../../components/googleCard";
 import CtaCard from "../../components/ctaCard";
+import LocationBlock from "../../components/locationBlock";
 
 // Hooks
 import { NavLink } from "react-router-dom";
@@ -39,12 +44,21 @@ import notaMaxima from "../../assets/img/svgs/notaMaxima.svg";
 import whats from "../../assets/img/svgs/whatsappBranco.svg";
 
 // Lazy imports
-const Maps = lazy(() => import("../../components/maps"));
 const Carrossel = lazy(() => import("../../components/slider"));
 
 const Home = () => {
 	return (
 		<>
+			<Head>
+				<title>PELVIE Fisioterapia Pélvica</title>
+				<meta
+					name="description"
+					content="Fisioterapia Pélvica - Acupuntura - Pilates. Acompanhamento na gestação e pós-parto. Tratamento da diástase abdominal, incontinência urinária e fecal, vaginismo, endometriose. Profissionais especializadas. Atendimento individualizado. Ambiente acolhedor."
+				/>
+				<link rel="canonical" href="https://www.pelviefisioterapia.com.br/" />
+			</Head>
+			<MedicalBusinessSchema />
+
 			<HeroCarrossel />
 
 			<Container mainClass="bgTitleCardsHome">
@@ -325,31 +339,11 @@ const Home = () => {
 				</a>
 			</Container>
 
-			<Container mainClass="googleMaps">
-				<span className="spanLabel">Localização acessível</span>
-				<h3>Venha nos fazer uma visita!</h3>
-				<Suspense fallback={<Loader />}>
-					<Maps />
-				</Suspense>
+			<LocationBlock>
+				Rua James Watt 142, sala 42 – Brooklin - São Paulo - SP
+			</LocationBlock>
 
-				<div className="adressMaps">
-					<div className="adressText">
-						<h3>Endereço</h3>
-						<a
-							href="https://www.google.com/maps?ll=-23.613567,-46.69575&z=16&t=m&hl=pt-BR&gl=BR&mapclient=embed&cid=17403131375481056319"
-							target="noreferrer"
-						>
-							Rua James Watt 142, sala 42 – Brooklin - São Paulo - SP
-						</a>
-					</div>
-					<div className="phoneMaps">
-						<h3>Telefone</h3>
-						<a href="tel:+5511913112992" target="noreferrer">
-							(11) 91311-2992
-						</a>
-					</div>
-				</div>
-
+			<Container>
 				<CtaCard
 					animationBtnUm="right"
 					animationBtnDois="left"
