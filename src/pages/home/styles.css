@@ -145,6 +145,15 @@
 	grid-column: 3;
 }
 
+/* Landing pages novas (fisioterapia pélvica, pilates, acupuntura, massagem e
+   drenagem): elas têm um CTA logo depois do grid, e o nome da profissional
+   (.doctorName do SpecCard) é position:absolute, ficando ~38px abaixo do card
+   sem entrar na altura da linha do grid. Sem reservar esse espaço o botão sobe
+   por cima do nome. A Home não usa esta classe e continua idêntica. */
+.ourTeamCards.ourTeamCardsLanding {
+	padding-bottom: 5rem;
+}
+
 .ourSpace > .mainContent {
 	padding: 5rem 0;
 }

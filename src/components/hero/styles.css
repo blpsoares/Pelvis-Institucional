@@ -126,3 +126,64 @@
     font-size: 1.6rem;
   }
 }
+
+/* Overlay opcional do hero (via prop bgClass do componente Hero).
+   Usado apenas pelas landing pages novas, que reaproveitam uma imagem de fundo
+   clara: sem overlay o texto em --cinza/--roxo1 e o header branco somem sobre a
+   foto. Tudo aqui vive atrás de min-width 1001px porque abaixo disso o
+   .bgHero::after original já resolve a legibilidade. */
+@media (min-width: 1001px) {
+  .bgHeroOverlay {
+    position: relative;
+    z-index: 0;
+  }
+
+  .bgHeroOverlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      180deg,
+      rgba(40, 12, 58, 0.72) 0%,
+      rgba(40, 12, 58, 0.58) 38%,
+      rgba(40, 12, 58, 0.62) 70%,
+      rgba(40, 12, 58, 0.66) 100%
+    );
+  }
+
+  .bgHeroOverlay .hero {
+    grid-template-columns: 1fr;
+    place-items: center;
+    align-content: center;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .bgHeroOverlay .hero > div {
+    height: auto;
+    top: 0;
+    align-items: center;
+    max-width: 82rem;
+  }
+
+  .bgHeroOverlay .hero h1,
+  .bgHeroOverlay .hero p,
+  .bgHeroOverlay .hero div > span {
+    color: var(--branco) !important;
+  }
+
+  .bgHeroOverlay .hero h1 span {
+    color: var(--verde1) !important;
+  }
+
+  .bgHeroOverlay .hero p {
+    margin-top: 1.5rem;
+    font-size: 1.7rem;
+    line-height: 1.6;
+  }
+
+  .bgHeroOverlay .heroCta {
+    margin-top: 0;
+  }
+}

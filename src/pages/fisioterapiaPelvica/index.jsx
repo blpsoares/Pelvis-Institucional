@@ -200,6 +200,7 @@ const FisioterapiaPelvica = () => {
         titleSpan="em São Paulo"
         pText="O que é fisioterapia pélvica? É a área da fisioterapia que cuida do assoalho pélvico. Quando esses músculos perdem força ou coordenação, o corpo avisa: escape de urina ao tossir, rir ou treinar (incontinência urinária), dor na relação sexual, a barriga que não volta depois da gestação (diástase abdominal), sensação de peso ou de bola na vagina (prolapso), intestino preso e dores pélvicas que ninguém consegue explicar. A fisioterapia pélvica também prepara o corpo para o parto e organiza a recuperação no pós-parto. O tratamento é individual e tudo começa com uma avaliação detalhada. São utilizados exercícios específicos, terapias manuais e recursos como biofeedback e eletroestimulação. O tratamento é conduzido por fisioterapeutas especializadas na área. A avaliação é o momento mais importante pois é quando entenderemos o seu caso antes de propor qualquer conduta. Após a avaliação, você recebe seu Plano de Tratamento personalizado."
         imgBg={heroImg}
+        bgClass="bgHeroOverlay"
       >
         <a href={WHATSAPP_HREF} className="ctaBtnZap heroCta" target="noreferrer">
           Agendar avaliação pelo WhatsApp
@@ -273,7 +274,7 @@ const FisioterapiaPelvica = () => {
           Atendimento empático e escuta ativa
         </span>
         <h2>Conheça nossa equipe</h2>
-        <div className="ourTeamCards">
+        <div className="ourTeamCards ourTeamCardsLanding">
           <BoxAnimation animation="top">
             <SpecCard
               h3="Juliana de Sá"

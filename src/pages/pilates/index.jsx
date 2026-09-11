@@ -127,6 +127,7 @@ const Pilates = () => {
         titleSpan="em São Paulo"
         pText="O que é o Pilates na PELVIE? É um método de exercícios desenvolvido por Joseph Pilates na década de 1920, que trabalha a conexão entre mente e corpo como uma unidade, melhorando a consciência corporal, a força e a mobilidade. Aqui, as aulas são conduzidas por fisioterapeuta especialista e pensadas especialmente para gestantes e mulheres no pós-parto — incluindo quem está lidando com diástase abdominal. Cada aula é individual, respeitando o momento, as queixas e os limites do corpo de cada paciente, com exercícios que aliviam dores, preparam para o parto e ajudam na recuperação depois dele."
         imgBg={heroImg}
+        bgClass="bgHeroOverlay"
       >
         <a href={WHATSAPP_HREF} className="ctaBtnZap heroCta" target="noreferrer">
           Agendar aula experimental pelo WhatsApp
@@ -197,7 +198,7 @@ const Pilates = () => {
           Atendimento empático e escuta ativa
         </span>
         <h2>Conheça nossa equipe</h2>
-        <div className="ourTeamCards">
+        <div className="ourTeamCards ourTeamCardsLanding">
           <BoxAnimation animation="top">
             <SpecCard
               h3="Juliana de Sá"
