@@ -24,10 +24,6 @@
   border-bottom: 1px solid var(--cinza5);
 }
 
-.fisioCondicao:last-of-type {
-  border-bottom: none;
-}
-
 .fisioCondicao h3 {
   color: var(--roxo4);
   font-size: 2.2rem;
@@ -93,10 +89,6 @@
   border-bottom: 1px solid var(--cinza5);
 }
 
-.faqItem:last-of-type {
-  border-bottom: none;
-}
-
 .faqItem h3 {
   font-size: 2rem;
   color: var(--cinza2);
@@ -115,4 +107,167 @@
   .ctaLocalizacao {
     padding: 2rem;
   }
+}
+
+/* ---------------------------------------------------------------------------
+   F5.3 — Legibilidade do texto longo
+--------------------------------------------------------------------------- */
+
+/* (1) Medida de linha + entrelinha. Antes a linha corria de ponta a ponta do
+   container (~130 caracteres); `--medida` (src/index.css) traz para a faixa de
+   60–75, com alvo em ~65. O bloco inteiro recebe a mesma largura do texto para
+   o h3 e os parágrafos fecharem no mesmo eixo à direita. */
+.fisioCondicao,
+.faqItem {
+  /* `--medida` está em `ch`, que resolve contra a fonte do PRÓPRIO elemento.
+     Declarar a fonte aqui garante que o bloco e os parágrafos meçam igual — sem
+     isto o `ch` do bloco cairia na fonte padrão (serifada) do body. */
+  font-family: var(--sourceSans);
+  font-size: 1.6rem;
+  max-width: var(--medida);
+}
+
+.fisioCondicao p,
+.faqItem p {
+  line-height: 1.75;
+}
+
+/* (3) Lead tipográfico — a regra `.leadSentence` está em src/index.css, porque é
+   compartilhada pelas 4 páginas. Aqui fica só o respiro do parágrafo dela. */
+.fisioCondicao p:first-of-type {
+  margin-bottom: 0.6rem;
+}
+
+/* (2) Índice com âncoras. Só HTML + CSS: `href="#id"` + `position: sticky`.
+   Nenhum texto some — o índice é navegação paralela ao conteúdo, que continua
+   inteiro e sempre visível ao lado, sem depender de JavaScript. */
+.fisioLayout {
+  display: block;
+  font-family: var(--sourceSans);
+  font-size: 1.6rem;
+}
+
+.fisioIndice {
+  border: 1px solid var(--cinza5);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  background-color: var(--branco2);
+}
+
+.fisioIndiceTitulo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  color: var(--roxo4);
+  margin-bottom: 1.5rem;
+}
+
+.fisioIndiceGrupo + .fisioIndiceGrupo {
+  margin-top: 1.6rem;
+}
+
+/* Rótulo de família em <p>, não em heading: o agrupamento é navegação, e um
+   heading aqui rebaixaria as 17 condições de h3 para h4. */
+.fisioIndiceFamilia {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--cinza2);
+  margin-bottom: 0.4rem;
+}
+
+.fisioIndice li {
+  line-height: 1.35;
+}
+
+.fisioIndice li + li {
+  margin-top: 0.4rem;
+}
+
+.fisioIndice a {
+  font-family: var(--sourceSans);
+  font-size: 1.4rem;
+  color: var(--cinza);
+  display: block;
+  border-left: 2px solid transparent;
+  padding-left: 0.8rem;
+  transition: 0.2s;
+}
+
+.fisioIndice a:hover,
+.fisioIndice a:focus-visible {
+  color: var(--roxo6);
+  border-left-color: var(--verde1);
+}
+
+/* Folga para a âncora não parar embaixo do header fixo. */
+.fisioCondicao {
+  scroll-margin-top: var(--ancoraOffset);
+}
+
+@media (min-width: 1001px) {
+  .fisioLayout {
+    display: grid;
+    grid-template-columns: minmax(0, 26rem) minmax(0, var(--medida));
+    justify-content: center;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .fisioIndice {
+    position: sticky;
+    top: calc(var(--ancoraOffset) - 1rem);
+    max-height: calc(100vh - var(--ancoraOffset) - 2rem);
+    overflow-y: auto;
+  }
+}
+
+/* Empilhado (≤1000px): o índice vai para o topo da seção, não é escondido. Numa
+   tela estreita, rolar ~1 tela de índice é muito mais rápido do que rolar 17
+   blocos densos até achar a condição procurada — e ele ainda funciona como
+   panorama do que a clínica trata. */
+@media (max-width: 1000px) {
+  .fisioIndice {
+    margin-bottom: 2rem;
+  }
+
+  .fisioIndiceGrupo {
+    break-inside: avoid;
+  }
+
+  .fisioIndice a {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1000px) {
+  .fisioIndiceGrupos {
+    columns: 2;
+    column-gap: 3rem;
+  }
+
+  /* Sem a coluna lateral, a medida de linha deixaria metade da largura vazia à
+     direita. Centralizar mantém o texto no mesmo eixo do h2 e do índice. */
+  .fisioCondicoes {
+    max-width: var(--medida);
+    margin: 0 auto;
+  }
+}
+
+/* O h2 do FAQ corria até ~1100px enquanto as respostas paravam na medida de
+   linha, deixando dois terços da largura vazios à direita. Limitar a seção
+   inteira (rótulo, h2 e itens partilham a mesma margem esquerda) devolve o
+   equilíbrio sem centralizar texto corrido. */
+.faqSection {
+  max-width: 90rem;
+}
+
+/* Separador entre blocos. A regra antiga (`.BLOCO:last-of-type`) nunca surtia
+   efeito no sentido pretendido: cada bloco é o único <div> dentro do seu
+   <span class="boxAnimation">, então TODOS casavam com :last-of-type e a página
+   acabava sem separador nenhum. O seletor abaixo mira o último <span> da seção
+   (o CTA que fecha a lista é <div>, não entra na conta de :last-of-type). */
+.fisioCondicoes > .boxAnimation:last-child .fisioCondicao,
+.faqSection > .boxAnimation:last-of-type .faqItem {
+  border-bottom: none;
 }

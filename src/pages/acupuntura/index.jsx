@@ -112,8 +112,11 @@ const Acupuntura = () => {
           <div className="acupunturaBloco">
             <h3>O que a acupuntura trata</h3>
             <p>
-              É uma especialidade da Medicina Tradicional Chinesa que tem foco
-              no tratamento de problemas relacionados à saúde. Quando voltada
+              <span className="leadSentence">
+                É uma especialidade da Medicina Tradicional Chinesa que tem foco
+                no tratamento de problemas relacionados à saúde.
+              </span>{" "}
+              Quando voltada
               à saúde da mulher, busca o reequilíbrio de desarmonias em suas
               diferentes fases da vida, como no período menstrual, na
               menopausa, na gestação, no pré e pós-parto, entre outras fases
@@ -141,9 +144,12 @@ const Acupuntura = () => {
           <div className="acupunturaBloco">
             <h3>Estímulo à fertilidade e Protocolo de Paulus</h3>
             <p>
-              A acupuntura é um importante recurso de estímulo à fertilidade,
-              atuando no reequilíbrio hormonal e na melhora do fluxo sanguíneo
-              da região pélvica. Na PELVIE, realizamos o Protocolo de Paulus —
+              <span className="leadSentence">
+                A acupuntura é um importante recurso de estímulo à fertilidade,
+                atuando no reequilíbrio hormonal e na melhora do fluxo sanguíneo
+                da região pélvica.
+              </span>{" "}
+              Na PELVIE, realizamos o Protocolo de Paulus —
               aplicado antes e depois da transferência embrionária em
               tratamentos de Fertilização In Vitro (FIV) — com o objetivo de
               favorecer a receptividade uterina e apoiar o processo de
@@ -156,9 +162,11 @@ const Acupuntura = () => {
           <div className="acupunturaBloco">
             <h3>Gestação e preparo para o parto</h3>
             <p>
-              A acupuntura acompanha a mulher também na gestação, favorecendo
-              o início do trabalho de parto de forma espontânea e ajudando a
-              aliviar sintomas comuns desse período, como:
+              <span className="leadSentence">
+                A acupuntura acompanha a mulher também na gestação, favorecendo
+                o início do trabalho de parto de forma espontânea e ajudando a
+                aliviar sintomas comuns desse período, como:
+              </span>
             </p>
             <ul>
               <li>Enjoos e vômitos;</li>
@@ -181,9 +189,11 @@ const Acupuntura = () => {
           <div className="acupunturaBloco">
             <h3>Técnicas utilizadas na sessão</h3>
             <p>
-              Dentro da sessão de acupuntura, pode-se utilizar diferentes
-              técnicas e instrumentos da Medicina Tradicional Chinesa e da
-              Medicina Complementar:
+              <span className="leadSentence">
+                Dentro da sessão de acupuntura, pode-se utilizar diferentes
+                técnicas e instrumentos da Medicina Tradicional Chinesa e da
+                Medicina Complementar:
+              </span>
             </p>
             <ul>
               <li>

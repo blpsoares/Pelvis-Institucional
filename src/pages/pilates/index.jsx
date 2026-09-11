@@ -12,6 +12,7 @@ import CtaAcc from "../../components/ctaAcc";
 import CtaCard from "../../components/ctaCard";
 import SpecCard from "../../components/specCard";
 import LocationBlock from "../../components/locationBlock";
+import LeadParagraph from "../../components/leadParagraph";
 
 import heroImg from "../../assets/img/webp/bgTratamentosDesktop.webp";
 import juliana from "../../assets/img/webp/juliana.webp";
@@ -149,9 +150,15 @@ const Pilates = () => {
           <BoxAnimation animation="opacity" key={topico.title}>
             <div className="pilatesTopico">
               <h3>{topico.title}</h3>
-              {topico.paragraphs.map((paragrafo) => (
-                <p key={paragrafo.slice(0, 40)}>{paragrafo}</p>
-              ))}
+              {topico.paragraphs.map((paragrafo, indice) =>
+                indice === 0 ? (
+                  <LeadParagraph key={paragrafo.slice(0, 40)}>
+                    {paragrafo}
+                  </LeadParagraph>
+                ) : (
+                  <p key={paragrafo.slice(0, 40)}>{paragrafo}</p>
+                )
+              )}
             </div>
           </BoxAnimation>
         ))}

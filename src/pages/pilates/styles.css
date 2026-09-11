@@ -24,10 +24,6 @@
   border-bottom: 1px solid var(--cinza5);
 }
 
-.pilatesTopico:last-of-type {
-  border-bottom: none;
-}
-
 .pilatesTopico h3 {
   color: var(--roxo4);
   font-size: 2.2rem;
@@ -93,10 +89,6 @@
   border-bottom: 1px solid var(--cinza5);
 }
 
-.faqItem:last-of-type {
-  border-bottom: none;
-}
-
 .faqItem h3 {
   font-size: 2rem;
   color: var(--cinza2);
@@ -115,4 +107,59 @@
   .ctaLocalizacao {
     padding: 2rem;
   }
+}
+
+/* ---------------------------------------------------------------------------
+   F5.3 — Legibilidade do texto longo
+
+   (1) Medida de linha + entrelinha. Antes a linha corria de ponta a ponta do
+       container (~130 caracteres); `--medida` (src/index.css) traz para a faixa
+       de 60–75, com alvo em ~65. O bloco inteiro recebe a mesma largura do
+       texto para o h3 e os parágrafos fecharem no mesmo eixo à direita.
+   (3) Lead tipográfico: a regra `.leadSentence` está em src/index.css, porque é
+       compartilhada pelas 4 páginas. Aqui fica só o respiro do parágrafo dela.
+--------------------------------------------------------------------------- */
+.pilatesTopico {
+  /* O h2 desta seção é centralizado; com a medida de linha aplicada, deixar os
+     blocos colados à esquerda abriria dois terços de vazio à direita. Centralizar
+     a coluna mantém o texto alinhado à esquerda dentro dela. */
+  margin-inline: auto;
+}
+
+.pilatesTopico,
+.faqItem {
+  /* `--medida` está em `ch`, que resolve contra a fonte do PRÓPRIO elemento.
+     Declarar a fonte aqui garante que o bloco e os parágrafos meçam igual —
+     sem isto o `ch` do bloco cairia na fonte padrão (serifada) do body. */
+  font-family: var(--sourceSans);
+  font-size: 1.6rem;
+  max-width: var(--medida);
+}
+
+.pilatesTopico p,
+.pilatesTopico li,
+.faqItem p {
+  line-height: 1.75;
+}
+
+.pilatesTopico p:first-of-type {
+  margin-bottom: 0.6rem;
+}
+
+/* O h2 do FAQ corria até ~1100px enquanto as respostas paravam na medida de
+   linha, deixando dois terços da largura vazios à direita. Limitar a seção
+   inteira (rótulo, h2 e itens partilham a mesma margem esquerda) devolve o
+   equilíbrio sem centralizar texto corrido. */
+.faqSection {
+  max-width: 90rem;
+}
+
+/* Separador entre blocos. A regra antiga (`.BLOCO:last-of-type`) nunca surtia
+   efeito no sentido pretendido: cada bloco é o único <div> dentro do seu
+   <span class="boxAnimation">, então TODOS casavam com :last-of-type e a página
+   acabava sem separador nenhum. O seletor abaixo mira o último <span> da seção
+   (o CTA que fecha a lista é <div>, não entra na conta de :last-of-type). */
+.pilatesContent > .boxAnimation:last-of-type .pilatesTopico,
+.faqSection > .boxAnimation:last-of-type .faqItem {
+  border-bottom: none;
 }
