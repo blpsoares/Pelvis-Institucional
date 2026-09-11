@@ -23,7 +23,8 @@
   }
 }
 .header,
-.headerClosed {
+.headerClosed,
+.headerClosedInitial {
   position: fixed;
   top: 0;
   left: 0;
@@ -121,6 +122,14 @@
   }
   .headerClosed {
     animation: menuClose 1s forwards;
+  }
+  /* Estado fechado "de nascença" (nunca foi aberto): já entra no layout
+     final de .menuClose, sem tocar a animação — evita o flash de 1s do
+     menu full-screen no carregamento da página em mobile (afetava LCP). */
+  .headerClosedInitial {
+    height: 0;
+    top: -100%;
+    opacity: 0;
   }
   .headerContent {
     flex-direction: column;
