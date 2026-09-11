@@ -6,6 +6,10 @@
 // Estilos
 import "./styles.css";
 
+// Head/SEO
+import { Head } from "vite-react-ssg";
+import MedicalBusinessSchema from "../../components/medicalBusinessSchema";
+
 // Components
 import HeroCarrossel from "../../components/HeroCarrossel";
 import EspecialidadesCard from "../../components/EspecialidadesCard";
@@ -45,6 +49,16 @@ const Carrossel = lazy(() => import("../../components/slider"));
 const Home = () => {
 	return (
 		<>
+			<Head>
+				<title>PELVIE Fisioterapia Pélvica</title>
+				<meta
+					name="description"
+					content="Fisioterapia Pélvica - Acupuntura - Pilates. Acompanhamento na gestação e pós-parto. Tratamento da diástase abdominal, incontinência urinária e fecal, vaginismo, endometriose. Profissionais especializadas. Atendimento individualizado. Ambiente acolhedor."
+				/>
+				<link rel="canonical" href="https://www.pelviefisioterapia.com.br/" />
+			</Head>
+			<MedicalBusinessSchema />
+
 			<HeroCarrossel />
 
 			<Container mainClass="bgTitleCardsHome">

@@ -4,6 +4,10 @@
 //Estilos
 import "./styles.css";
 
+// Head/SEO
+import { Head } from "vite-react-ssg";
+import MedicalBusinessSchema from "../../components/medicalBusinessSchema";
+
 //Components
 import Container from "../../components/container";
 import Accordion from "../../components/accordion";
@@ -28,6 +32,20 @@ import { NavLink } from "react-router-dom";
 const Tratamento = () => {
 	return (
 		<>
+			{/* Placeholder — valor definitivo é escopo de F4.1 */}
+			<Head>
+				<title>Tratamentos | PELVIE Fisioterapia Pélvica</title>
+				<meta
+					name="description"
+					content="Veja os tratamentos oferecidos pela PELVIE: fisioterapia pélvica, acupuntura e pilates, com fisioterapeutas especializadas no Brooklin, São Paulo."
+				/>
+				<link
+					rel="canonical"
+					href="https://www.pelviefisioterapia.com.br/Tratamento"
+				/>
+			</Head>
+			<MedicalBusinessSchema />
+
 			<Container sectionClass="bgHeroTratamentos" />
 
 			<Container mainClass="acc">
