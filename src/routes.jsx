@@ -7,6 +7,7 @@ import QuemSomos from "./pages/quemSomos";
 import FisioterapiaPelvica from "./pages/fisioterapiaPelvica";
 import Acupuntura from "./pages/acupuntura";
 import Pilates from "./pages/pilates";
+import MassagemEDrenagemLinfatica from "./pages/massagemEDrenagemLinfatica";
 import Loader from "./components/loader";
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -24,6 +25,10 @@ const routes = [
       { path: "fisioterapia-pelvica", Component: FisioterapiaPelvica },
       { path: "acupuntura", Component: Acupuntura },
       { path: "pilates", Component: Pilates },
+      {
+        path: "massagem-e-drenagem-linfatica",
+        Component: MassagemEDrenagemLinfatica,
+      },
       {
         path: "*",
         element: (
