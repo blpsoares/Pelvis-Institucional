@@ -96,11 +96,15 @@ const Menu = ({ openMenu, setOpenMenu }) => {
             <div className="textFooterMenu">
               <div>
                 <h3>Atendimento</h3>
-                <p>Seg à Sex - 8h às 18h</p>
+                <p>
+                  Seg à Sex - 7h às 20h30
+                  <br />
+                  Sáb - 8h às 14h
+                </p>
               </div>
               <div>
                 <h3>Endereço</h3>
-                <p>Rua James Watt, 142 - Sala 42 Cidade Monções, São Paulo</p>
+                <p>Rua James Watt, 142 - Sala 42, Brooklin, São Paulo</p>
               </div>
             </div>
           </div>

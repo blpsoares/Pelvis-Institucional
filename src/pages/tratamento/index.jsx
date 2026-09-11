@@ -32,12 +32,11 @@ import { NavLink } from "react-router-dom";
 const Tratamento = () => {
 	return (
 		<>
-			{/* Placeholder — valor definitivo é escopo de F4.1 */}
 			<Head>
-				<title>Tratamentos | PELVIE Fisioterapia Pélvica</title>
+				<title>Tratamentos: Fisioterapia, Acupuntura e Pilates | PELVIE</title>
 				<meta
 					name="description"
-					content="Veja os tratamentos oferecidos pela PELVIE: fisioterapia pélvica, acupuntura e pilates, com fisioterapeutas especializadas no Brooklin, São Paulo."
+					content="Conheça os tratamentos da PELVIE: fisioterapia pélvica, acupuntura e pilates com especialistas no Brooklin, São Paulo. Agende sua avaliação."
 				/>
 				<link
 					rel="canonical"
@@ -47,6 +46,14 @@ const Tratamento = () => {
 			<MedicalBusinessSchema />
 
 			<Container sectionClass="bgHeroTratamentos" />
+			<Container mainClass="accTitle">
+				<h1>Tratamentos de Fisioterapia Pélvica, Acupuntura e Pilates</h1>
+				<span>
+					Cuidado especializado da avaliação ao plano de tratamento, com
+					fisioterapeutas dedicadas à saúde pélvica, à fertilidade e ao
+					bem-estar.
+				</span>
+			</Container>
 
 			<Container mainClass="acc">
 				<BoxAnimation>

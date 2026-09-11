@@ -49,7 +49,7 @@ const Footer = () => {
           <div className="horarioFooter">
             <h3>Horário de funcionamento</h3>
             <p>
-              Segunda a Sexta das 7h às 21h
+              Segunda a Sexta das 7h às 20h30
               <br />
               Sábados das 8h às 14h.
             </p>

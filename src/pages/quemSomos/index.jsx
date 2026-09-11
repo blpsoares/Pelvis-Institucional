@@ -33,9 +33,8 @@ import peopleIcon from "../../assets/img/svgs/peopleIcon.svg";
 const QuemSomos = () => {
 	return (
 		<>
-			{/* Placeholder — valor definitivo é escopo de F4.1 */}
 			<Head>
-				<title>Quem Somos | PELVIE Fisioterapia Pélvica</title>
+				<title>Quem Somos | PELVIE Fisioterapia Pélvica no Brooklin</title>
 				<meta
 					name="description"
 					content="Conheça a equipe de fisioterapeutas especializadas da PELVIE, clínica de fisioterapia pélvica funcional no Brooklin, São Paulo."
@@ -51,6 +50,9 @@ const QuemSomos = () => {
 				sectionClass="bgHeroQuemSomos"
 				mainClass="heroQuemSomosContent"
 			>
+				<h1 className="heroQuemSomosTitle">
+					Quem Somos: Nossa Equipe de Fisioterapeutas Especializadas
+				</h1>
 				<div className="quemSomosCards">
 					<div className="heroCard">
 						<h2>Nossa Missão</h2>
