@@ -1,19 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+import { ViteReactSSG } from "vite-react-ssg";
 import "./index.css";
-// eslint-disable-next-line react-refresh/only-export-components
-const App = React.lazy(() => import("./App.jsx"));
-import AppRoutes from "./routes.jsx";
-import { BrowserRouter } from "react-router-dom";
-import Loader from "./components/loader/index.jsx";
+import routes from "./routes.jsx";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <React.Suspense fallback={<Loader />}>
-      <BrowserRouter>
-        <AppRoutes />
-        <App />
-      </BrowserRouter>
-    </React.Suspense>
-  </React.StrictMode>
-);
+// Saída flat do SSG serve cada rota como "/Pagina.html". Enquanto o rewrite de
+// URL limpa do .htaccess não existe (F1.3), normaliza a URL antes do router
+// inicializar, senão o pathname com ".html" não bate com a rota renderizada
+// no servidor e a hidratação falha (React recupera renderizando a rota "*").
+if (typeof window !== "undefined") {
+  const { pathname, search, hash } = window.location;
+  if (pathname.endsWith(".html")) {
+    const clean = pathname === "/index.html" ? "/" : pathname.replace(/\.html$/, "");
+    window.history.replaceState(null, "", clean + search + hash);
+  }
+}
+
+export const createRoot = ViteReactSSG({ routes });
