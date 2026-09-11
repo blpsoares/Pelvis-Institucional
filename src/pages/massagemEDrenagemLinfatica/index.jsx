@@ -141,6 +141,7 @@ const MassagemEDrenagemLinfatica = () => {
         titleSpan="em São Paulo"
         pText="Massagem relaxante e drenagem linfática são duas técnicas manuais com objetivos diferentes, mas que se completam: uma cuida do corpo e da mente através do relaxamento muscular e do alívio do estresse; a outra estimula o sistema linfático para reduzir inchaço, retenção de líquidos e apoiar a recuperação em situações como pós-operatório e gestação. As duas são realizadas por fisioterapeutas especializadas, com técnicas seguras e ajustadas ao momento de cada paciente. Se você busca aliviar tensões do dia a dia, se recuperar de uma cirurgia ou cuidar do inchaço na gestação, a avaliação inicial define a abordagem mais indicada e a frequência de sessões ideal para o seu caso."
         imgBg={heroImg}
+        bgClass="bgHeroOverlay"
       >
         <a href={WHATSAPP_HREF} className="ctaBtnZap heroCta" target="noreferrer">
           Agendar horário pelo WhatsApp
@@ -224,7 +225,7 @@ const MassagemEDrenagemLinfatica = () => {
           Atendimento empático e escuta ativa
         </span>
         <h2>Conheça nossa equipe</h2>
-        <div className="ourTeamCards">
+        <div className="ourTeamCards ourTeamCardsLanding">
           <BoxAnimation animation="top">
             <SpecCard
               h3="Juliana de Sá"

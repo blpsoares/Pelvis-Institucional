@@ -89,6 +89,7 @@ const Acupuntura = () => {
         titleSpan="em São Paulo"
         pText="O que é acupuntura? É uma especialidade da Medicina Tradicional Chinesa que atua no reequilíbrio do organismo através da estimulação de pontos específicos do corpo. Quando voltada à saúde da mulher, busca o reequilíbrio de desarmonias em suas diferentes fases da vida — no período menstrual, na menopausa, na gestação, no pré e pós-parto — sempre de forma individualizada. Na PELVIE, a acupuntura também é utilizada como recurso de estímulo à fertilidade, inclusive através do Protocolo de Paulus, aplicado antes e depois da transferência embrionária em tratamentos de Fertilização In Vitro (FIV), e no preparo do corpo para o parto, favorecendo o início do trabalho de parto de forma espontânea. O tratamento é conduzido por fisioterapeuta especializada em Acupuntura, com avaliação individual antes de qualquer sessão."
         imgBg={heroImg}
+        bgClass="bgHeroOverlay"
       >
         <a href={WHATSAPP_HREF} className="ctaBtnZap heroCta" target="noreferrer">
           Agendar sessão pelo WhatsApp
@@ -295,7 +296,7 @@ const Acupuntura = () => {
           Ferrari, fisioterapeuta acupunturista especializada em Saúde da
           Mulher e Gestantes. Conheça também o restante da nossa equipe:
         </p>
-        <div className="ourTeamCards">
+        <div className="ourTeamCards ourTeamCardsLanding">
           <BoxAnimation animation="top">
             <SpecCard
               h3="Cibele Ferrari"
