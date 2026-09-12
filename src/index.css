@@ -433,7 +433,12 @@ button:hover {
     0 8px 24px -16px rgba(94, 29, 138, 0.18);
 }
 
+/* Caixa alta e peso 700 vêm da regra-base de `.fisioIndiceTitulo`, que o
+   redesenho da F5.3 sobrescreveu só em parte — sem eles o título daqui saía
+   diferente do da /fisioterapia-pelvica. */
 .landingIndiceTitulo {
+  font-weight: 700;
+  text-transform: uppercase;
   font-size: 1.15rem;
   letter-spacing: 0.14rem;
   color: var(--roxo2);
@@ -709,11 +714,15 @@ body:has(.landingBloco:target)
     border-width: 2px;
   }
 
+  /* O fundo volta ao da pílula (`branco2`), não ao `transparent` da regra de
+     desktop acima — sem isto a primeira pílula ficava sem fundo, diferente das
+     outras, depois de clicar qualquer item. */
   body:has(.landingBloco:target)
     .landingLayoutAbas
     .landingIndice
     li:first-child
     a:not(:hover):not(:focus-visible) {
+    background-color: var(--branco2);
     border-color: var(--cinza5);
     border-width: 1px;
   }
@@ -733,55 +742,61 @@ body:has(.landingBloco:target)
    fica limpa e o `:target` sobrevive.
 
    Os três conjuntos convivem num seletor só porque os ids são únicos por
-   página: só os da página aberta existem no documento. */
+   página: só os da página aberta existem no documento.
+
+   Todas as regras passam por `.landingLayoutAbas`, pelo mesmo motivo do estado
+   padrão acima: sem modo aba (/massagem-e-drenagem-linfatica) os dois blocos
+   estão visíveis, e marcar o último item clicado seria um "você está aqui" que
+   fica errado assim que a pessoa rola a página. Os slugs da /massagem ficam na
+   lista para que ligar o modo aba lá continue sendo só acrescentar a classe. */
 /* /pilates */
-body:has(#o-que-e-o-metodo-pilates:target) .landingIndice a[href="#o-que-e-o-metodo-pilates"],
-body:has(#pilates-especializado-em-gestacao-e-pos-parto:target) .landingIndice a[href="#pilates-especializado-em-gestacao-e-pos-parto"],
-body:has(#beneficios-do-pilates-para-gestantes-e-no-pos-parto:target) .landingIndice a[href="#beneficios-do-pilates-para-gestantes-e-no-pos-parto"],
-body:has(#como-sao-as-aulas-de-pilates-na-pelvie:target) .landingIndice a[href="#como-sao-as-aulas-de-pilates-na-pelvie"],
-body:has(#o-que-esperar-da-primeira-aula:target) .landingIndice a[href="#o-que-esperar-da-primeira-aula"],
+body:has(#o-que-e-o-metodo-pilates:target) .landingLayoutAbas .landingIndice a[href="#o-que-e-o-metodo-pilates"],
+body:has(#pilates-especializado-em-gestacao-e-pos-parto:target) .landingLayoutAbas .landingIndice a[href="#pilates-especializado-em-gestacao-e-pos-parto"],
+body:has(#beneficios-do-pilates-para-gestantes-e-no-pos-parto:target) .landingLayoutAbas .landingIndice a[href="#beneficios-do-pilates-para-gestantes-e-no-pos-parto"],
+body:has(#como-sao-as-aulas-de-pilates-na-pelvie:target) .landingLayoutAbas .landingIndice a[href="#como-sao-as-aulas-de-pilates-na-pelvie"],
+body:has(#o-que-esperar-da-primeira-aula:target) .landingLayoutAbas .landingIndice a[href="#o-que-esperar-da-primeira-aula"],
 /* /acupuntura */
-body:has(#o-que-a-acupuntura-trata:target) .landingIndice a[href="#o-que-a-acupuntura-trata"],
-body:has(#estimulo-a-fertilidade-e-protocolo-de-paulus:target) .landingIndice a[href="#estimulo-a-fertilidade-e-protocolo-de-paulus"],
-body:has(#gestacao-e-preparo-para-o-parto:target) .landingIndice a[href="#gestacao-e-preparo-para-o-parto"],
-body:has(#tecnicas-utilizadas-na-sessao:target) .landingIndice a[href="#tecnicas-utilizadas-na-sessao"],
+body:has(#o-que-a-acupuntura-trata:target) .landingLayoutAbas .landingIndice a[href="#o-que-a-acupuntura-trata"],
+body:has(#estimulo-a-fertilidade-e-protocolo-de-paulus:target) .landingLayoutAbas .landingIndice a[href="#estimulo-a-fertilidade-e-protocolo-de-paulus"],
+body:has(#gestacao-e-preparo-para-o-parto:target) .landingLayoutAbas .landingIndice a[href="#gestacao-e-preparo-para-o-parto"],
+body:has(#tecnicas-utilizadas-na-sessao:target) .landingLayoutAbas .landingIndice a[href="#tecnicas-utilizadas-na-sessao"],
 /* /massagem-e-drenagem-linfatica */
-body:has(#massagem-relaxante:target) .landingIndice a[href="#massagem-relaxante"],
-body:has(#drenagem-linfatica:target) .landingIndice a[href="#drenagem-linfatica"] {
+body:has(#massagem-relaxante:target) .landingLayoutAbas .landingIndice a[href="#massagem-relaxante"],
+body:has(#drenagem-linfatica:target) .landingLayoutAbas .landingIndice a[href="#drenagem-linfatica"] {
   background-color: var(--rosa1);
   color: var(--roxo6);
   font-weight: 600;
   box-shadow: inset 3px 0 0 0 var(--verde3);
 }
 
-body:has(#o-que-e-o-metodo-pilates:target) .landingIndice a[href="#o-que-e-o-metodo-pilates"]::before,
-body:has(#pilates-especializado-em-gestacao-e-pos-parto:target) .landingIndice a[href="#pilates-especializado-em-gestacao-e-pos-parto"]::before,
-body:has(#beneficios-do-pilates-para-gestantes-e-no-pos-parto:target) .landingIndice a[href="#beneficios-do-pilates-para-gestantes-e-no-pos-parto"]::before,
-body:has(#como-sao-as-aulas-de-pilates-na-pelvie:target) .landingIndice a[href="#como-sao-as-aulas-de-pilates-na-pelvie"]::before,
-body:has(#o-que-esperar-da-primeira-aula:target) .landingIndice a[href="#o-que-esperar-da-primeira-aula"]::before,
-body:has(#o-que-a-acupuntura-trata:target) .landingIndice a[href="#o-que-a-acupuntura-trata"]::before,
-body:has(#estimulo-a-fertilidade-e-protocolo-de-paulus:target) .landingIndice a[href="#estimulo-a-fertilidade-e-protocolo-de-paulus"]::before,
-body:has(#gestacao-e-preparo-para-o-parto:target) .landingIndice a[href="#gestacao-e-preparo-para-o-parto"]::before,
-body:has(#tecnicas-utilizadas-na-sessao:target) .landingIndice a[href="#tecnicas-utilizadas-na-sessao"]::before,
-body:has(#massagem-relaxante:target) .landingIndice a[href="#massagem-relaxante"]::before,
-body:has(#drenagem-linfatica:target) .landingIndice a[href="#drenagem-linfatica"]::before {
+body:has(#o-que-e-o-metodo-pilates:target) .landingLayoutAbas .landingIndice a[href="#o-que-e-o-metodo-pilates"]::before,
+body:has(#pilates-especializado-em-gestacao-e-pos-parto:target) .landingLayoutAbas .landingIndice a[href="#pilates-especializado-em-gestacao-e-pos-parto"]::before,
+body:has(#beneficios-do-pilates-para-gestantes-e-no-pos-parto:target) .landingLayoutAbas .landingIndice a[href="#beneficios-do-pilates-para-gestantes-e-no-pos-parto"]::before,
+body:has(#como-sao-as-aulas-de-pilates-na-pelvie:target) .landingLayoutAbas .landingIndice a[href="#como-sao-as-aulas-de-pilates-na-pelvie"]::before,
+body:has(#o-que-esperar-da-primeira-aula:target) .landingLayoutAbas .landingIndice a[href="#o-que-esperar-da-primeira-aula"]::before,
+body:has(#o-que-a-acupuntura-trata:target) .landingLayoutAbas .landingIndice a[href="#o-que-a-acupuntura-trata"]::before,
+body:has(#estimulo-a-fertilidade-e-protocolo-de-paulus:target) .landingLayoutAbas .landingIndice a[href="#estimulo-a-fertilidade-e-protocolo-de-paulus"]::before,
+body:has(#gestacao-e-preparo-para-o-parto:target) .landingLayoutAbas .landingIndice a[href="#gestacao-e-preparo-para-o-parto"]::before,
+body:has(#tecnicas-utilizadas-na-sessao:target) .landingLayoutAbas .landingIndice a[href="#tecnicas-utilizadas-na-sessao"]::before,
+body:has(#massagem-relaxante:target) .landingLayoutAbas .landingIndice a[href="#massagem-relaxante"]::before,
+body:has(#drenagem-linfatica:target) .landingLayoutAbas .landingIndice a[href="#drenagem-linfatica"]::before {
   background: var(--verde3);
   transform: scale(1.8);
 }
 
 @media (max-width: 1000px) {
   /* Na pílula a barra lateral não cabe: o ativo fica com borda roxa cheia. */
-body:has(#o-que-e-o-metodo-pilates:target) .landingIndice a[href="#o-que-e-o-metodo-pilates"],
-body:has(#pilates-especializado-em-gestacao-e-pos-parto:target) .landingIndice a[href="#pilates-especializado-em-gestacao-e-pos-parto"],
-body:has(#beneficios-do-pilates-para-gestantes-e-no-pos-parto:target) .landingIndice a[href="#beneficios-do-pilates-para-gestantes-e-no-pos-parto"],
-body:has(#como-sao-as-aulas-de-pilates-na-pelvie:target) .landingIndice a[href="#como-sao-as-aulas-de-pilates-na-pelvie"],
-body:has(#o-que-esperar-da-primeira-aula:target) .landingIndice a[href="#o-que-esperar-da-primeira-aula"],
-body:has(#o-que-a-acupuntura-trata:target) .landingIndice a[href="#o-que-a-acupuntura-trata"],
-body:has(#estimulo-a-fertilidade-e-protocolo-de-paulus:target) .landingIndice a[href="#estimulo-a-fertilidade-e-protocolo-de-paulus"],
-body:has(#gestacao-e-preparo-para-o-parto:target) .landingIndice a[href="#gestacao-e-preparo-para-o-parto"],
-body:has(#tecnicas-utilizadas-na-sessao:target) .landingIndice a[href="#tecnicas-utilizadas-na-sessao"],
-body:has(#massagem-relaxante:target) .landingIndice a[href="#massagem-relaxante"],
-body:has(#drenagem-linfatica:target) .landingIndice a[href="#drenagem-linfatica"] {
+body:has(#o-que-e-o-metodo-pilates:target) .landingLayoutAbas .landingIndice a[href="#o-que-e-o-metodo-pilates"],
+body:has(#pilates-especializado-em-gestacao-e-pos-parto:target) .landingLayoutAbas .landingIndice a[href="#pilates-especializado-em-gestacao-e-pos-parto"],
+body:has(#beneficios-do-pilates-para-gestantes-e-no-pos-parto:target) .landingLayoutAbas .landingIndice a[href="#beneficios-do-pilates-para-gestantes-e-no-pos-parto"],
+body:has(#como-sao-as-aulas-de-pilates-na-pelvie:target) .landingLayoutAbas .landingIndice a[href="#como-sao-as-aulas-de-pilates-na-pelvie"],
+body:has(#o-que-esperar-da-primeira-aula:target) .landingLayoutAbas .landingIndice a[href="#o-que-esperar-da-primeira-aula"],
+body:has(#o-que-a-acupuntura-trata:target) .landingLayoutAbas .landingIndice a[href="#o-que-a-acupuntura-trata"],
+body:has(#estimulo-a-fertilidade-e-protocolo-de-paulus:target) .landingLayoutAbas .landingIndice a[href="#estimulo-a-fertilidade-e-protocolo-de-paulus"],
+body:has(#gestacao-e-preparo-para-o-parto:target) .landingLayoutAbas .landingIndice a[href="#gestacao-e-preparo-para-o-parto"],
+body:has(#tecnicas-utilizadas-na-sessao:target) .landingLayoutAbas .landingIndice a[href="#tecnicas-utilizadas-na-sessao"],
+body:has(#massagem-relaxante:target) .landingLayoutAbas .landingIndice a[href="#massagem-relaxante"],
+body:has(#drenagem-linfatica:target) .landingLayoutAbas .landingIndice a[href="#drenagem-linfatica"] {
     box-shadow: none;
     border-color: var(--roxo4);
     border-width: 2px;
