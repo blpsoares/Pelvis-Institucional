@@ -14,6 +14,8 @@ import SpecCard from "../../components/specCard";
 import LocationBlock from "../../components/locationBlock";
 import LeadParagraph from "../../components/leadParagraph";
 
+import slugAncora from "../../utils/slugAncora";
+
 import heroImg from "../../assets/img/webp/bgTratamentosDesktop.webp";
 import juliana from "../../assets/img/webp/juliana.webp";
 import thipphane from "../../assets/img/webp/thipphane.webp";
@@ -66,6 +68,23 @@ const TOPICOS = [
     ],
   },
 ];
+
+// Rótulo curto SÓ no índice. Quatro dos cinco títulos repetem "Pilates" e, numa
+// coluna de 27rem, "Benefícios do Pilates para gestantes e no pós-parto"
+// quebrava em três linhas. Na lista o assunto da página já está dado, então
+// "Benefícios" basta. O <h3> de cada bloco no corpo continua com o título
+// completo e o texto não muda — isto é rótulo de navegação, não conteúdo.
+const ROTULO_CURTO = {
+  "O que é o Método Pilates": "O que é o Método",
+  "Pilates especializado em gestação e pós-parto": "Gestação e pós-parto",
+  "Benefícios do Pilates para gestantes e no pós-parto": "Benefícios",
+  "Como são as aulas de Pilates na PELVIE": "Como são as aulas",
+  "O que esperar da primeira aula": "A primeira aula",
+};
+
+// SEM agrupamento por família, ao contrário da /fisioterapia-pelvica: lá são 17
+// condições e as famílias são o que torna a lista varrível. Cinco itens não têm
+// o que agrupar — um rótulo de família por item viraria ruído.
 
 // FAQ PROVISÓRIA — as 6 perguntas/respostas reais ainda não foram entregues
 // pela cliente (subtask DEP s-f48de7337a, bloqueada). Os temas abaixo vêm de
@@ -146,22 +165,49 @@ const Pilates = () => {
         <BoxAnimation animation="opacity">
           <h2>Pilates com fisioterapeuta na PELVIE</h2>
         </BoxAnimation>
-        {TOPICOS.map((topico) => (
-          <BoxAnimation animation="opacity" key={topico.title}>
-            <div className="pilatesTopico">
-              <h3>{topico.title}</h3>
-              {topico.paragraphs.map((paragrafo, indice) =>
-                indice === 0 ? (
-                  <LeadParagraph key={paragrafo.slice(0, 40)}>
-                    {paragrafo}
-                  </LeadParagraph>
-                ) : (
-                  <p key={paragrafo.slice(0, 40)}>{paragrafo}</p>
-                )
-              )}
-            </div>
-          </BoxAnimation>
-        ))}
+        <div className="landingLayout landingLayoutAbas">
+          {/* Índice de navegação: só HTML + CSS (href="#id" + :target), sem
+              JavaScript. Os cinco tópicos continuam inteiros no HTML servido.
+              As regras estão em src/index.css, compartilhadas com /acupuntura e
+              /massagem-e-drenagem-linfatica. */}
+          <nav
+            className="landingIndice"
+            aria-label="Índice dos tópicos sobre Pilates"
+          >
+            <p className="landingIndiceTitulo">Ir direto para</p>
+            <ul>
+              {TOPICOS.map((topico) => (
+                <li key={topico.title}>
+                  <a href={`#${slugAncora(topico.title)}`}>
+                    {ROTULO_CURTO[topico.title] ?? topico.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="landingBlocos">
+            {TOPICOS.map((topico) => (
+              <BoxAnimation animation="opacity" key={topico.title}>
+                <div
+                  className="pilatesTopico landingBloco"
+                  id={slugAncora(topico.title)}
+                >
+                  <h3>{topico.title}</h3>
+                  {topico.paragraphs.map((paragrafo, indice) =>
+                    indice === 0 ? (
+                      <LeadParagraph key={paragrafo.slice(0, 40)}>
+                        {paragrafo}
+                      </LeadParagraph>
+                    ) : (
+                      <p key={paragrafo.slice(0, 40)}>{paragrafo}</p>
+                    )
+                  )}
+                </div>
+              </BoxAnimation>
+            ))}
+          </div>
+        </div>
 
         <CtaAcc
           aText="Agendar Pilates"

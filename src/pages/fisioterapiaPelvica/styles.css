@@ -691,7 +691,8 @@ body:has(.fisioCondicao:target)
 /* --- Item ativo: a condição apontada pela âncora ---------------------------
    Uma regra por condição, porque o CSS não tem um seletor "link cujo href
    aponta para o :target". Os 17 seletores foram GERADOS a partir do array
-   CONDICOES, com a mesma normalização de slugCondicao — não digitados à mão.
+   CONDICOES, com a mesma normalização de src/utils/slugAncora.js — não digitados
+   à mão.
    Se um título mudar, regenere: um slug desencontrado aqui falha em silêncio,
    e uma vírgula perdida invalida o bloco inteiro sem erro nenhum.
    Não tente gerar isto em runtime num <style> do React: quebra a hidratação e

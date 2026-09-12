@@ -13,6 +13,8 @@ import CtaCard from "../../components/ctaCard";
 import SpecCard from "../../components/specCard";
 import LocationBlock from "../../components/locationBlock";
 
+import slugAncora from "../../utils/slugAncora";
+
 import heroImg from "../../assets/img/webp/bgTratamentosDesktop.webp";
 import cibele from "../../assets/img/webp/cibele.webp";
 import juliana from "../../assets/img/webp/juliana.webp";
@@ -27,6 +29,41 @@ import whatsappBranco from "../../assets/img/svgs/whatsappBranco.svg";
 const WHATSAPP_MESSAGE =
   "Olá! Gostaria de agendar uma sessão de Acupuntura. Estou buscando a clínica porque…";
 const WHATSAPP_HREF = `https://wa.me/+5511913112992?text=${WHATSAPP_MESSAGE}`;
+
+// Títulos, âncoras e rótulos dos blocos da seção principal, num lugar só.
+// Diferente de /pilates e /massagem-e-drenagem-linfatica, aqui os blocos não
+// vêm de um array: a marcação de cada um é própria (listas longas, parágrafo de
+// fecho), e transformá-la em dados exigiria um mini-formato de conteúdo só para
+// esta página. O que precisa de fonte única é a tríade título/âncora/rótulo —
+// é ela que o índice e o corpo têm de enxergar igual —, e é só ela que mora
+// aqui. O <h3> de cada bloco lê o título daqui; o id, a âncora derivada dele.
+const BLOCOS = [
+  { chave: "trata", titulo: "O que a acupuntura trata", rotulo: "O que trata" },
+  {
+    chave: "fertilidade",
+    titulo: "Estímulo à fertilidade e Protocolo de Paulus",
+    // O título inteiro ocupa três linhas numa coluna de 27rem. O Protocolo de
+    // Paulus é aplicado justamente em FIV, e é esse o termo que a paciente
+    // procura.
+    rotulo: "Fertilidade e FIV",
+  },
+  {
+    chave: "gestacao",
+    titulo: "Gestação e preparo para o parto",
+    rotulo: "Gestação e parto",
+  },
+  {
+    chave: "tecnicas",
+    titulo: "Técnicas utilizadas na sessão",
+    rotulo: "Técnicas da sessão",
+  },
+];
+
+const bloco = Object.fromEntries(BLOCOS.map((b) => [b.chave, b]));
+
+// SEM agrupamento por família, ao contrário da /fisioterapia-pelvica: lá são 17
+// condições e as famílias são o que torna a lista varrível. Quatro itens não
+// têm o que agrupar.
 
 // FAQ PROVISÓRIA — as 6 perguntas/respostas ainda não foram entregues pela
 // cliente (subtask DEP s-f48de7337a, bloqueada). Os temas abaixo vêm de
@@ -108,156 +145,190 @@ const Acupuntura = () => {
           <h2>Acupuntura na saúde da mulher</h2>
         </BoxAnimation>
 
-        <BoxAnimation animation="opacity">
-          <div className="acupunturaBloco">
-            <h3>O que a acupuntura trata</h3>
-            <p>
-              <span className="leadSentence">
-                É uma especialidade da Medicina Tradicional Chinesa que tem foco
-                no tratamento de problemas relacionados à saúde.
-              </span>{" "}
-              Quando voltada
-              à saúde da mulher, busca o reequilíbrio de desarmonias em suas
-              diferentes fases da vida, como no período menstrual, na
-              menopausa, na gestação, no pré e pós-parto, entre outras fases
-              que serão sempre cuidadas de forma individualizada. Diversas
-              alterações e patologias podem ser tratadas com acupuntura como:
-            </p>
+        <div className="landingLayout landingLayoutAbas">
+          {/* Índice de navegação: só HTML + CSS (href="#id" + :target), sem
+              JavaScript. Os quatro blocos continuam inteiros no HTML servido.
+              As regras estão em src/index.css, compartilhadas com /pilates e
+              /massagem-e-drenagem-linfatica. */}
+          <nav
+            className="landingIndice"
+            aria-label="Índice dos tópicos sobre acupuntura"
+          >
+            <p className="landingIndiceTitulo">Ir direto para</p>
             <ul>
-              <li>Dores pélvicas e osteoarticulares;</li>
-              <li>Cólicas/irregularidades menstruais;</li>
-              <li>TPM;</li>
-              <li>Baixa libido;</li>
-              <li>Estímulo à fertilidade;</li>
-              <li>Preparo para gestação;</li>
-              <li>
-                Questões emocionais, como ansiedade, depressão, síndrome do
-                pânico;
-              </li>
-              <li>Incontinência urinária;</li>
-              <li>Alterações da menopausa.</li>
+              {BLOCOS.map((item) => (
+                <li key={item.chave}>
+                  <a href={`#${slugAncora(item.titulo)}`}>{item.rotulo}</a>
+                </li>
+              ))}
             </ul>
-          </div>
-        </BoxAnimation>
+          </nav>
 
-        <BoxAnimation animation="opacity">
-          <div className="acupunturaBloco">
-            <h3>Estímulo à fertilidade e Protocolo de Paulus</h3>
-            <p>
-              <span className="leadSentence">
-                A acupuntura é um importante recurso de estímulo à fertilidade,
-                atuando no reequilíbrio hormonal e na melhora do fluxo sanguíneo
-                da região pélvica.
-              </span>{" "}
-              Na PELVIE, realizamos o Protocolo de Paulus —
-              aplicado antes e depois da transferência embrionária em
-              tratamentos de Fertilização In Vitro (FIV) — com o objetivo de
-              favorecer a receptividade uterina e apoiar o processo de
-              reprodução assistida.
-            </p>
-          </div>
-        </BoxAnimation>
+          <div className="landingBlocos">
+            <BoxAnimation animation="opacity">
+              <div
+                className="acupunturaBloco landingBloco"
+                id={slugAncora(bloco.trata.titulo)}
+              >
+                <h3>{bloco.trata.titulo}</h3>
+                <p>
+                  <span className="leadSentence">
+                    É uma especialidade da Medicina Tradicional Chinesa que tem foco
+                    no tratamento de problemas relacionados à saúde.
+                  </span>{" "}
+                  Quando voltada
+                  à saúde da mulher, busca o reequilíbrio de desarmonias em suas
+                  diferentes fases da vida, como no período menstrual, na
+                  menopausa, na gestação, no pré e pós-parto, entre outras fases
+                  que serão sempre cuidadas de forma individualizada. Diversas
+                  alterações e patologias podem ser tratadas com acupuntura como:
+                </p>
+                <ul>
+                  <li>Dores pélvicas e osteoarticulares;</li>
+                  <li>Cólicas/irregularidades menstruais;</li>
+                  <li>TPM;</li>
+                  <li>Baixa libido;</li>
+                  <li>Estímulo à fertilidade;</li>
+                  <li>Preparo para gestação;</li>
+                  <li>
+                    Questões emocionais, como ansiedade, depressão, síndrome do
+                    pânico;
+                  </li>
+                  <li>Incontinência urinária;</li>
+                  <li>Alterações da menopausa.</li>
+                </ul>
+              </div>
+            </BoxAnimation>
 
-        <BoxAnimation animation="opacity">
-          <div className="acupunturaBloco">
-            <h3>Gestação e preparo para o parto</h3>
-            <p>
-              <span className="leadSentence">
-                A acupuntura acompanha a mulher também na gestação, favorecendo
-                o início do trabalho de parto de forma espontânea e ajudando a
-                aliviar sintomas comuns desse período, como:
-              </span>
-            </p>
-            <ul>
-              <li>Enjoos e vômitos;</li>
-              <li>Constipação;</li>
-              <li>Insônia;</li>
-              <li>Dores no geral;</li>
-              <li>Enxaqueca;</li>
-              <li>Diabetes gestacional;</li>
-              <li>
-                &quot;Virar o bebê&quot; (para ficar em apresentação cefálica,
-                facilitando o parto normal);
-              </li>
-              <li>Preparo para o parto;</li>
-              <li>Alterações no pós-parto.</li>
-            </ul>
-          </div>
-        </BoxAnimation>
+            <BoxAnimation animation="opacity">
+              <div
+                className="acupunturaBloco landingBloco"
+                id={slugAncora(bloco.fertilidade.titulo)}
+              >
+                <h3>{bloco.fertilidade.titulo}</h3>
+                <p>
+                  <span className="leadSentence">
+                    A acupuntura é um importante recurso de estímulo à fertilidade,
+                    atuando no reequilíbrio hormonal e na melhora do fluxo sanguíneo
+                    da região pélvica.
+                  </span>{" "}
+                  Na PELVIE, realizamos o Protocolo de Paulus —
+                  aplicado antes e depois da transferência embrionária em
+                  tratamentos de Fertilização In Vitro (FIV) — com o objetivo de
+                  favorecer a receptividade uterina e apoiar o processo de
+                  reprodução assistida.
+                </p>
+              </div>
+            </BoxAnimation>
 
-        <BoxAnimation animation="opacity">
-          <div className="acupunturaBloco">
-            <h3>Técnicas utilizadas na sessão</h3>
-            <p>
-              <span className="leadSentence">
-                Dentro da sessão de acupuntura, pode-se utilizar diferentes
-                técnicas e instrumentos da Medicina Tradicional Chinesa e da
-                Medicina Complementar:
-              </span>
-            </p>
-            <ul>
-              <li>
-                Agulhas: são de diferentes calibres e comprimentos, variando
-                de acordo com o ponto, o paciente e a função desejada. As
-                agulhas são sempre estéreis e de uso único. A aplicação quase
-                não causa dor. Não é colocado nenhum tipo de remédio;
-              </li>
-              <li>
-                Auriculoterapia: conhecida também como auriculopuntura, é uma
-                técnica que utiliza pontos na orelha para tratar todo o corpo,
-                como uma zona reflexa. Para realizar o estímulo, pode-se
-                utilizar sementes, cristais, esferas de prata e ouro e
-                agulhas próprias para aurículo. Normalmente a paciente fica
-                com os pontos por um período de 5 a 7 dias;
-              </li>
-              <li>
-                Moxabustão: conhecida como moxa, é um método que esquenta os
-                pontos de acupuntura ou de uma determinada região com o uso de
-                um bastão de Artemísia. O aquecimento remove bloqueios de
-                energia que obstruem o seu fluxo através dos meridianos
-                (canais de energia), eliminando a umidade e o frio que
-                promovem disfunções no organismo;
-              </li>
-              <li>
-                Ventosa: são cúpulas de vidro, silicone ou plástico que
-                realizam uma sucção da pele, para ajudar a desfazer tensões
-                musculares, promover relaxamento da fáscia muscular e levar
-                mais nutrientes para a região de aplicação, através do
-                aumento da circulação sanguínea;
-              </li>
-              <li>
-                Estimulação elétrica: é um aparelho que emite uma onda
-                elétrica pelas agulhas, otimizando o resultado da acupuntura;
-              </li>
-              <li>
-                Laseracupuntura: o laser é uma terapia à base de luz que
-                penetra em profundidade no corpo. A terapia à laser pode ter
-                as mesmas funções de um tratamento de acupuntura, com a
-                diferença que deve-se fazer um ponto de cada vez. A técnica
-                não causa nenhuma dor ou desconforto, sendo um método ideal
-                para crianças ou pessoas sensíveis a agulhas. Pode ser feito
-                com ou sem o uso das agulhas. Além das funções clássicas, o
-                laser permite também funções analgésica, regenerativa e de
-                relaxante muscular;
-              </li>
-              <li>
-                Fitoacupuntura: é uma técnica de tratamento que utiliza o
-                efeito das plantas nos pontos de acupuntura. As partes das
-                plantas são coladas diretamente na pele para atuarem nos
-                pontos, meridianos e órgãos, gerando o equilíbrio da energia;
-              </li>
-              <li>
-                Aromaterapia: uso dos óleos essenciais para estimular
-                diferentes partes do cérebro para o tratamento de doenças
-                físicas e emocionais.
-              </li>
-            </ul>
-            <p>
-              A escolha das técnicas a serem utilizadas na sessão é feita
-              após avaliação detalhada da paciente.
-            </p>
+            <BoxAnimation animation="opacity">
+              <div
+                className="acupunturaBloco landingBloco"
+                id={slugAncora(bloco.gestacao.titulo)}
+              >
+                <h3>{bloco.gestacao.titulo}</h3>
+                <p>
+                  <span className="leadSentence">
+                    A acupuntura acompanha a mulher também na gestação, favorecendo
+                    o início do trabalho de parto de forma espontânea e ajudando a
+                    aliviar sintomas comuns desse período, como:
+                  </span>
+                </p>
+                <ul>
+                  <li>Enjoos e vômitos;</li>
+                  <li>Constipação;</li>
+                  <li>Insônia;</li>
+                  <li>Dores no geral;</li>
+                  <li>Enxaqueca;</li>
+                  <li>Diabetes gestacional;</li>
+                  <li>
+                    &quot;Virar o bebê&quot; (para ficar em apresentação cefálica,
+                    facilitando o parto normal);
+                  </li>
+                  <li>Preparo para o parto;</li>
+                  <li>Alterações no pós-parto.</li>
+                </ul>
+              </div>
+            </BoxAnimation>
+
+            <BoxAnimation animation="opacity">
+              <div
+                className="acupunturaBloco landingBloco"
+                id={slugAncora(bloco.tecnicas.titulo)}
+              >
+                <h3>{bloco.tecnicas.titulo}</h3>
+                <p>
+                  <span className="leadSentence">
+                    Dentro da sessão de acupuntura, pode-se utilizar diferentes
+                    técnicas e instrumentos da Medicina Tradicional Chinesa e da
+                    Medicina Complementar:
+                  </span>
+                </p>
+                <ul>
+                  <li>
+                    Agulhas: são de diferentes calibres e comprimentos, variando
+                    de acordo com o ponto, o paciente e a função desejada. As
+                    agulhas são sempre estéreis e de uso único. A aplicação quase
+                    não causa dor. Não é colocado nenhum tipo de remédio;
+                  </li>
+                  <li>
+                    Auriculoterapia: conhecida também como auriculopuntura, é uma
+                    técnica que utiliza pontos na orelha para tratar todo o corpo,
+                    como uma zona reflexa. Para realizar o estímulo, pode-se
+                    utilizar sementes, cristais, esferas de prata e ouro e
+                    agulhas próprias para aurículo. Normalmente a paciente fica
+                    com os pontos por um período de 5 a 7 dias;
+                  </li>
+                  <li>
+                    Moxabustão: conhecida como moxa, é um método que esquenta os
+                    pontos de acupuntura ou de uma determinada região com o uso de
+                    um bastão de Artemísia. O aquecimento remove bloqueios de
+                    energia que obstruem o seu fluxo através dos meridianos
+                    (canais de energia), eliminando a umidade e o frio que
+                    promovem disfunções no organismo;
+                  </li>
+                  <li>
+                    Ventosa: são cúpulas de vidro, silicone ou plástico que
+                    realizam uma sucção da pele, para ajudar a desfazer tensões
+                    musculares, promover relaxamento da fáscia muscular e levar
+                    mais nutrientes para a região de aplicação, através do
+                    aumento da circulação sanguínea;
+                  </li>
+                  <li>
+                    Estimulação elétrica: é um aparelho que emite uma onda
+                    elétrica pelas agulhas, otimizando o resultado da acupuntura;
+                  </li>
+                  <li>
+                    Laseracupuntura: o laser é uma terapia à base de luz que
+                    penetra em profundidade no corpo. A terapia à laser pode ter
+                    as mesmas funções de um tratamento de acupuntura, com a
+                    diferença que deve-se fazer um ponto de cada vez. A técnica
+                    não causa nenhuma dor ou desconforto, sendo um método ideal
+                    para crianças ou pessoas sensíveis a agulhas. Pode ser feito
+                    com ou sem o uso das agulhas. Além das funções clássicas, o
+                    laser permite também funções analgésica, regenerativa e de
+                    relaxante muscular;
+                  </li>
+                  <li>
+                    Fitoacupuntura: é uma técnica de tratamento que utiliza o
+                    efeito das plantas nos pontos de acupuntura. As partes das
+                    plantas são coladas diretamente na pele para atuarem nos
+                    pontos, meridianos e órgãos, gerando o equilíbrio da energia;
+                  </li>
+                  <li>
+                    Aromaterapia: uso dos óleos essenciais para estimular
+                    diferentes partes do cérebro para o tratamento de doenças
+                    físicas e emocionais.
+                  </li>
+                </ul>
+                <p>
+                  A escolha das técnicas a serem utilizadas na sessão é feita
+                  após avaliação detalhada da paciente.
+                </p>
+              </div>
+            </BoxAnimation>
           </div>
-        </BoxAnimation>
+        </div>
 
         <CtaAcc
           aText="Agendar Acupuntura"

@@ -284,12 +284,15 @@
   }
 }
 
-/* Separador entre blocos. A regra antiga (`.BLOCO:last-of-type`) nunca surtia
+/* Separador entre blocos. O primeiro seletor mira o último <span> DENTRO de
+   `.landingBlocos` — na F5.4 os blocos ganharam esse container, e o seletor
+   antigo, ancorado no container da seção, deixou de alcançá-los.
+   A regra ainda mais antiga (`.BLOCO:last-of-type`) nunca surtia
    efeito no sentido pretendido: cada bloco é o único <div> dentro do seu
    <span class="boxAnimation">, então TODOS casavam com :last-of-type e a página
    acabava sem separador nenhum. O seletor abaixo mira o último <span> da seção
    (o CTA que fecha a lista é <div>, não entra na conta de :last-of-type). */
-.pilatesContent > .boxAnimation:last-of-type .pilatesTopico,
+.landingBlocos > .boxAnimation:last-child .pilatesTopico,
 .faqSection > .boxAnimation:last-of-type .faqItem {
   border-bottom: none;
 }

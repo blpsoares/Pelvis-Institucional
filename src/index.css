@@ -391,3 +391,399 @@ button:hover {
   line-height: 1.5;
   color: var(--cinza2);
 }
+
+/* ===========================================================================
+   F5.4 — Índice de navegação nas landing pages novas
+
+   Leva para /acupuntura, /pilates e /massagem-e-drenagem-linfatica o índice que
+   a F5.3 entregou em /fisioterapia-pelvica. Pedido do usuário: as três também
+   estavam com "o conteúdo jogado".
+
+   POR QUE AQUI E NÃO NOS styles.css DAS PÁGINAS: os CSS das páginas não são
+   escopados — todos declaram no escopo global e o último importado vence, seja
+   qual for a página aberta. Replicar este bloco nos três arquivos (como foi
+   preciso fazer com `.faqSection`) significaria três cópias saindo de sincronia
+   em silêncio. src/index.css é importado uma vez só, em src/main.jsx, antes de
+   qualquer styles.css de página, então não há concorrência.
+
+   As classes começam com `landing` e não existem nas 4 páginas antigas (Home,
+   QuemSomos, Tratamento, ComoFunciona): nenhuma regra daqui casa com elas.
+
+   /fisioterapia-pelvica NÃO usa este bloco. Ela continua com `.fisioIndice` no
+   próprio styles.css, com o agrupamento por família que só a marcação dela tem
+   (17 condições em 6 famílias). Aqui são 2 a 5 blocos por página: não há o que
+   agrupar, a lista é plana e sem rótulo de família.
+   =========================================================================== */
+
+.landingLayout {
+  display: block;
+  font-family: var(--sourceSans);
+  font-size: var(--corpoTexto);
+}
+
+/* --- Índice: mesmo cartão branco de borda fina da /fisioterapia-pelvica ----- */
+.landingIndice {
+  /* Cinza levemente arroxeado, para a borda conversar com a paleta em vez de
+     cortar o cartão com um cinza neutro. Não existe token para este tom. */
+  border: 1px solid #e9e2ee;
+  border-radius: 1.6rem;
+  padding: 1.8rem 1.6rem 1.6rem;
+  background-color: var(--branco);
+  box-shadow: 0 1px 2px rgba(94, 29, 138, 0.04),
+    0 8px 24px -16px rgba(94, 29, 138, 0.18);
+}
+
+.landingIndiceTitulo {
+  font-size: 1.15rem;
+  letter-spacing: 0.14rem;
+  color: var(--roxo2);
+  padding-left: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.landingIndice li + li {
+  margin-top: 0.1rem;
+}
+
+.landingIndice a {
+  position: relative;
+  display: block;
+  font-family: var(--sourceSans);
+  font-size: 1.45rem;
+  line-height: 1.3;
+  color: var(--cinza2);
+  border-radius: 0.8rem;
+  padding: 0.48rem 1rem 0.48rem 2.2rem;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+/* Marcador que acende no hover e no item ativo: diz "isto é um destino" sem
+   poluir a lista parada. */
+.landingIndice a::before {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  top: 1.05rem;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--roxo9);
+  transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+.landingIndice a:hover,
+.landingIndice a:focus-visible {
+  background-color: var(--rosa1);
+  color: var(--roxo6);
+}
+
+.landingIndice a:hover::before,
+.landingIndice a:focus-visible::before {
+  background: var(--verde3);
+  transform: scale(1.8);
+}
+
+/* Folga para a âncora não parar embaixo do header fixo. O modo aba sobrescreve
+   este valor mais abaixo, onde a parada é outra. */
+.landingBloco {
+  scroll-margin-top: var(--ancoraOffset);
+}
+
+@media (min-width: 1001px) {
+  .landingLayout {
+    display: grid;
+    grid-template-columns: minmax(0, 27rem) minmax(0, var(--medida));
+    justify-content: center;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  /* SEM `position: sticky`, SEM `max-height` e SEM rolagem interna — os três
+     foram retirados do índice da /fisioterapia-pelvica na F5.3 e não voltam
+     aqui. O sticky só gruda enquanto o container PAI atravessa a viewport; com
+     o modo aba o pai encolhe para a altura do próprio índice e não sobra
+     trilho. O `max-height` só existia para o índice não ser cortado enquanto
+     grudado, e era ele, sozinho, que produzia a barra de rolagem própria em
+     tela baixa — que o usuário reprovou explicitamente. */
+}
+
+/* --- Empilhado (≤1000px): a lista vertical vira fluxo de pílulas ----------- */
+@media (max-width: 1000px) {
+  .landingIndice {
+    padding: 2rem 1.6rem;
+    margin-bottom: 2rem;
+  }
+
+  .landingIndice ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+  }
+
+  .landingIndice a {
+    display: inline-block;
+    background-color: var(--branco2);
+    border: 1px solid var(--cinza5);
+    border-radius: 100px;
+    padding: 0.8rem 1.4rem;
+    font-size: 1.4rem;
+  }
+
+  .landingIndice a::before {
+    content: none;
+  }
+
+  .landingIndice a:hover,
+  .landingIndice a:focus-visible {
+    background-color: var(--rosa1);
+    border-color: var(--roxo1);
+  }
+
+  .landingIndiceTitulo {
+    padding-left: 0;
+  }
+
+  .landingIndice li + li {
+    margin-top: 0;
+  }
+
+  /* Sem a coluna lateral, a medida de linha deixaria metade da largura vazia à
+     direita. Centralizar mantém o texto no mesmo eixo do h2 e do índice. */
+  .landingBlocos {
+    max-width: var(--medida);
+    margin-inline: auto;
+  }
+}
+
+/* ===========================================================================
+   MODO ABA VIA :target — sem JavaScript
+
+   REGISTRO: isto é o padrão que a R6 e a seção 10 do briefing proíbem no
+   conteúdo principal. Os blocos continuam inteiros no HTML servido, mas a
+   pessoa passa a ver UM por vez. A decisão é do usuário, tomada na F5.3 para a
+   /fisioterapia-pelvica depois de ser avisado de que o Google Ads avalia o que
+   se vê e não o que está no HTML; estender o mesmo padrão às outras páginas é
+   continuação dela. Palavras visíveis medidas com o modo aba ligado estão no
+   comentário da F5.4 na task.
+
+   SÓ VALE ONDE `.landingLayoutAbas` estiver presente. /massagem-e-drenagem-
+   linfatica tem o índice mas NÃO tem esta classe: com 2 blocos, o modo aba
+   esconderia metade do texto da seção (400 → ~195 palavras) para poupar menos
+   de uma tela de rolagem, e um sumário de 2 itens não é sumário — é um par de
+   botões de aba, sem a contrapartida de navegação que justificou a exceção nas
+   17 condições da /fisioterapia-pelvica. Ligar lá é acrescentar a classe no
+   JSX; nada além disto precisa mudar.
+
+   Todo o bloco vive dentro de @supports selector(:has(*)): num navegador sem
+   `:has()` as regras de revelação seriam descartadas e os blocos seguintes
+   ficariam permanentemente escondidos. Com o @supports, esse navegador cai no
+   comportamento anterior — todos visíveis em sequência.
+   =========================================================================== */
+@supports selector(:has(*)) {
+  /* O observer de animação (src/components/boxAnimation) não roda em elemento
+     display:none, então a aba revelada apareceria em branco sem forçar o estado
+     final aqui. */
+  .landingLayoutAbas .landingBlocos [data-anime] {
+    opacity: 1 !important;
+    transform: none !important;
+    scale: 1 !important;
+  }
+
+  /* Estado inicial: o primeiro bloco aparece, a página nunca abre vazia. */
+  .landingLayoutAbas .landingBlocos > span {
+    display: none;
+  }
+
+  .landingLayoutAbas .landingBlocos > span:first-of-type {
+    display: block;
+  }
+
+  /* Havendo âncora, só o bloco alvo fica visível. As duas regras abaixo têm a
+     mesma especificidade de propósito — quem decide é a ordem, e a de baixo
+     precisa vir depois. */
+  .landingLayoutAbas .landingBlocos:has(.landingBloco:target) > span {
+    display: none;
+  }
+
+  .landingLayoutAbas .landingBlocos > span:has(> .landingBloco:target) {
+    display: block;
+  }
+
+  /* Onde a rolagem para. Como só um bloco aparece por vez, a parada é idêntica
+     para qualquer item do índice: o alvo é deixar o h2 da seção logo abaixo do
+     header fixo, com o índice inteiro visível. */
+  @media (min-width: 1001px) {
+    .landingLayoutAbas .landingBloco {
+      scroll-margin-top: 24rem;
+    }
+  }
+
+  /* No empilhado o índice de pílulas fica acima do bloco e os dois não cabem
+     juntos numa tela de celular, então a rolagem leva ao título do bloco com
+     folga apenas para o header. */
+  @media (max-width: 1000px) {
+    .landingLayoutAbas .landingBloco {
+      scroll-margin-top: 9rem;
+    }
+  }
+}
+
+/* --- Sem JavaScript, os blocos precisam aparecer --------------------------- */
+/* `src/components/boxAnimation/styles.css` deixa todo `[data-anime]` em
+   `opacity: 0` e só a classe `.animate`, adicionada por JavaScript no evento de
+   rolagem, o traz para 1. Com JavaScript desligado nada recebe `.animate` e o
+   conteúdo fica invisível — em TODAS as 8 páginas do site, muito antes desta
+   subtask. No modo aba a regra acima já resolve isso de lado (ela força o
+   estado final porque o observer não roda em elemento `display: none`), mas
+   /massagem-e-drenagem-linfatica não tem modo aba e continuaria em branco.
+
+   `@media (scripting: none)` casa só quando o navegador realmente está sem
+   scripting: com JavaScript ligado esta regra não existe e a animação de
+   entrada dos blocos continua igual. Navegador que não conheça a media query
+   descarta o bloco inteiro, ou seja, cai no comportamento de hoje.
+
+   Isto cobre só `.landingBlocos`, que é o escopo desta subtask. O resto do site
+   segue com o mesmo problema — está registrado no comentário da F5.4 na task. */
+@media (scripting: none) {
+  .landingBlocos [data-anime] {
+    opacity: 1;
+    transform: none;
+    scale: 1;
+  }
+}
+
+/* --- Item ativo: estado padrão (nenhuma âncora clicada) -------------------- */
+/* Só no modo aba: onde todos os blocos estão visíveis não há "aba aberta" para
+   destacar, e marcar o primeiro item seria mentira. */
+.landingLayoutAbas .landingIndice li:first-child a {
+  background-color: var(--rosa1);
+  color: var(--roxo6);
+  font-weight: 600;
+  box-shadow: inset 3px 0 0 0 var(--verde3);
+}
+
+.landingLayoutAbas .landingIndice li:first-child a::before {
+  background: var(--verde3);
+  transform: scale(1.8);
+}
+
+/* Clicada qualquer âncora, o destaque padrão sai e vai para o item alvo.
+   A regra está partida em duas de propósito, porque ela é bem mais específica
+   que `.landingIndice a:hover` e por isso decide o que o primeiro item faz sob
+   o cursor:
+   - a barra verde e o peso 600 são os sinais de "esta aba está aberta" e saem
+     SEMPRE, inclusive no hover — senão passar o mouse no primeiro item o faria
+     parecer aberto, que é exatamente a confusão que se quis eliminar;
+   - o fundo, a cor e o ponto saem só quando o cursor NÃO está em cima, para o
+     primeiro item continuar respondendo ao hover igual aos demais. */
+body:has(.landingBloco:target) .landingLayoutAbas .landingIndice li:first-child a {
+  font-weight: 400;
+  box-shadow: none;
+}
+
+body:has(.landingBloco:target)
+  .landingLayoutAbas
+  .landingIndice
+  li:first-child
+  a:not(:hover):not(:focus-visible) {
+  background-color: transparent;
+  color: var(--cinza2);
+}
+
+body:has(.landingBloco:target)
+  .landingLayoutAbas
+  .landingIndice
+  li:first-child
+  a:not(:hover):not(:focus-visible)::before {
+  background: var(--roxo9);
+  transform: none;
+}
+
+@media (max-width: 1000px) {
+  /* Na pílula a barra lateral não cabe: o ativo fica com borda roxa cheia. O
+     hover NÃO tem borda roxa, e é essa diferença que separa "esta aba está
+     aberta" de "o cursor está passando por cima". */
+  .landingLayoutAbas .landingIndice li:first-child a {
+    box-shadow: none;
+    border-color: var(--roxo4);
+    border-width: 2px;
+  }
+
+  body:has(.landingBloco:target)
+    .landingLayoutAbas
+    .landingIndice
+    li:first-child
+    a:not(:hover):not(:focus-visible) {
+    border-color: var(--cinza5);
+    border-width: 1px;
+  }
+}
+
+/* --- Item ativo: o bloco apontado pela âncora ------------------------------
+   Uma regra por bloco, porque o CSS não tem um seletor "link cujo href aponta
+   para o :target". Os slugs abaixo foram GERADOS com src/utils/slugAncora.js a
+   partir dos títulos dos blocos — não digitados à mão. Se um título mudar,
+   regenere: um slug desencontrado aqui falha em silêncio, e uma vírgula perdida
+   invalida o bloco inteiro sem erro nenhum.
+
+   NÃO tente gerar isto em runtime num <style> do React. Medido na F5.3: o
+   <style> renderizado pelo React quebra a hidratação (erros #418/#425), o React
+   descarta o HTML do servidor e recria os nós, e o `:target` do navegador — que
+   aponta para o nó ORIGINAL — deixa de casar. Com o CSS estático a hidratação
+   fica limpa e o `:target` sobrevive.
+
+   Os três conjuntos convivem num seletor só porque os ids são únicos por
+   página: só os da página aberta existem no documento. */
+/* /pilates */
+body:has(#o-que-e-o-metodo-pilates:target) .landingIndice a[href="#o-que-e-o-metodo-pilates"],
+body:has(#pilates-especializado-em-gestacao-e-pos-parto:target) .landingIndice a[href="#pilates-especializado-em-gestacao-e-pos-parto"],
+body:has(#beneficios-do-pilates-para-gestantes-e-no-pos-parto:target) .landingIndice a[href="#beneficios-do-pilates-para-gestantes-e-no-pos-parto"],
+body:has(#como-sao-as-aulas-de-pilates-na-pelvie:target) .landingIndice a[href="#como-sao-as-aulas-de-pilates-na-pelvie"],
+body:has(#o-que-esperar-da-primeira-aula:target) .landingIndice a[href="#o-que-esperar-da-primeira-aula"],
+/* /acupuntura */
+body:has(#o-que-a-acupuntura-trata:target) .landingIndice a[href="#o-que-a-acupuntura-trata"],
+body:has(#estimulo-a-fertilidade-e-protocolo-de-paulus:target) .landingIndice a[href="#estimulo-a-fertilidade-e-protocolo-de-paulus"],
+body:has(#gestacao-e-preparo-para-o-parto:target) .landingIndice a[href="#gestacao-e-preparo-para-o-parto"],
+body:has(#tecnicas-utilizadas-na-sessao:target) .landingIndice a[href="#tecnicas-utilizadas-na-sessao"],
+/* /massagem-e-drenagem-linfatica */
+body:has(#massagem-relaxante:target) .landingIndice a[href="#massagem-relaxante"],
+body:has(#drenagem-linfatica:target) .landingIndice a[href="#drenagem-linfatica"] {
+  background-color: var(--rosa1);
+  color: var(--roxo6);
+  font-weight: 600;
+  box-shadow: inset 3px 0 0 0 var(--verde3);
+}
+
+body:has(#o-que-e-o-metodo-pilates:target) .landingIndice a[href="#o-que-e-o-metodo-pilates"]::before,
+body:has(#pilates-especializado-em-gestacao-e-pos-parto:target) .landingIndice a[href="#pilates-especializado-em-gestacao-e-pos-parto"]::before,
+body:has(#beneficios-do-pilates-para-gestantes-e-no-pos-parto:target) .landingIndice a[href="#beneficios-do-pilates-para-gestantes-e-no-pos-parto"]::before,
+body:has(#como-sao-as-aulas-de-pilates-na-pelvie:target) .landingIndice a[href="#como-sao-as-aulas-de-pilates-na-pelvie"]::before,
+body:has(#o-que-esperar-da-primeira-aula:target) .landingIndice a[href="#o-que-esperar-da-primeira-aula"]::before,
+body:has(#o-que-a-acupuntura-trata:target) .landingIndice a[href="#o-que-a-acupuntura-trata"]::before,
+body:has(#estimulo-a-fertilidade-e-protocolo-de-paulus:target) .landingIndice a[href="#estimulo-a-fertilidade-e-protocolo-de-paulus"]::before,
+body:has(#gestacao-e-preparo-para-o-parto:target) .landingIndice a[href="#gestacao-e-preparo-para-o-parto"]::before,
+body:has(#tecnicas-utilizadas-na-sessao:target) .landingIndice a[href="#tecnicas-utilizadas-na-sessao"]::before,
+body:has(#massagem-relaxante:target) .landingIndice a[href="#massagem-relaxante"]::before,
+body:has(#drenagem-linfatica:target) .landingIndice a[href="#drenagem-linfatica"]::before {
+  background: var(--verde3);
+  transform: scale(1.8);
+}
+
+@media (max-width: 1000px) {
+  /* Na pílula a barra lateral não cabe: o ativo fica com borda roxa cheia. */
+body:has(#o-que-e-o-metodo-pilates:target) .landingIndice a[href="#o-que-e-o-metodo-pilates"],
+body:has(#pilates-especializado-em-gestacao-e-pos-parto:target) .landingIndice a[href="#pilates-especializado-em-gestacao-e-pos-parto"],
+body:has(#beneficios-do-pilates-para-gestantes-e-no-pos-parto:target) .landingIndice a[href="#beneficios-do-pilates-para-gestantes-e-no-pos-parto"],
+body:has(#como-sao-as-aulas-de-pilates-na-pelvie:target) .landingIndice a[href="#como-sao-as-aulas-de-pilates-na-pelvie"],
+body:has(#o-que-esperar-da-primeira-aula:target) .landingIndice a[href="#o-que-esperar-da-primeira-aula"],
+body:has(#o-que-a-acupuntura-trata:target) .landingIndice a[href="#o-que-a-acupuntura-trata"],
+body:has(#estimulo-a-fertilidade-e-protocolo-de-paulus:target) .landingIndice a[href="#estimulo-a-fertilidade-e-protocolo-de-paulus"],
+body:has(#gestacao-e-preparo-para-o-parto:target) .landingIndice a[href="#gestacao-e-preparo-para-o-parto"],
+body:has(#tecnicas-utilizadas-na-sessao:target) .landingIndice a[href="#tecnicas-utilizadas-na-sessao"],
+body:has(#massagem-relaxante:target) .landingIndice a[href="#massagem-relaxante"],
+body:has(#drenagem-linfatica:target) .landingIndice a[href="#drenagem-linfatica"] {
+    box-shadow: none;
+    border-color: var(--roxo4);
+    border-width: 2px;
+  }
+}
