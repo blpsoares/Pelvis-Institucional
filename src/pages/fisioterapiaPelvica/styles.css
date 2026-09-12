@@ -218,12 +218,9 @@
     align-items: start;
   }
 
-  .fisioIndice {
-    position: sticky;
-    top: calc(var(--ancoraOffset) - 1rem);
-    max-height: calc(100vh - var(--ancoraOffset) - 2rem);
-    overflow-y: auto;
-  }
+  /* Sem `position: sticky` — ver a explicação no bloco do modo aba, mais
+     abaixo. Com uma condição visível por vez o container pai encolheu para a
+     altura do próprio índice e não sobrou trilho para grudar. */
 }
 
 /* Empilhado (≤1000px): o índice vai para o topo da seção, não é escondido. Numa
@@ -488,21 +485,21 @@
 }
 
 @media (min-width: 1001px) {
-  /* Com os itens compactados e os rótulos curtos o índice mede 750px e cabe
-     inteiro numa tela de 900px de altura — nessas a barra de rolagem própria
-     NÃO aparece, que era o ponto do redesenho (o painel com scroll interno era
-     parte do que parecia improvisado).
+  /* SEM sticky, SEM max-height e SEM scroll interno — os três foram retirados
+     juntos porque o mecanismo inteiro perdeu a função quando o modo aba entrou.
 
-     O `max-height` fica porque em tela baixa a alternativa é pior: medido a
-     1366x768 (tamanho citado no checklist de aceite), sem ele o índice era
-     cortado 222px abaixo da viewport e os dois últimos itens ficavam
-     INALCANÇÁVEIS depois que o sticky grudava. Assim a barra só aparece onde
-     sem ela haveria item perdido. */
-  .fisioIndice {
-    top: 12rem;
-    max-height: calc(100vh - 14rem);
-    overflow-y: auto;
-  }
+     `position: sticky` só gruda enquanto o container PAI atravessa a viewport.
+     Antes das abas, `.fisioLayout` tinha ~7500px (as 17 condições empilhadas) e
+     havia trilho de sobra. Com uma condição visível por vez o pai encolheu para
+     ~750px, exatamente a altura do índice: sem trilho, não há o que grudar.
+     Medido — o índice rola junto com a página.
+
+     O `max-height` só existia para o índice não ser cortado enquanto grudado, e
+     era ele, sozinho, que produzia a barra de rolagem própria em tela baixa. Sem
+     sticky, a página rolando já revela o índice inteiro em qualquer altura, e a
+     barra não tem mais razão de existir. Conferido em 1024x700, 1280x720,
+     1366x768, 1440x900, 1536x864 e 1920x1080: nenhuma barra própria e o último
+     item alcançável e clicável em todas. */
 
   .fisioLayout {
     grid-template-columns: minmax(0, 27rem) minmax(0, var(--medida));
