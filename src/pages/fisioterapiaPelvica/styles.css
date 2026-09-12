@@ -679,10 +679,14 @@ body:has(.fisioCondicao:target)
     border-width: 2px;
   }
 
+  /* O fundo volta ao da pílula (`branco2`), não ao `transparent` da regra de
+     desktop acima — sem isto a primeira pílula ficava sem fundo, diferente das
+     outras, depois de clicar qualquer condição. */
   body:has(.fisioCondicao:target)
     .fisioIndiceGrupo:first-child
     li:first-child
     a:not(:hover):not(:focus-visible) {
+    background-color: var(--branco2);
     border-color: var(--cinza5);
     border-width: 1px;
   }
@@ -691,7 +695,8 @@ body:has(.fisioCondicao:target)
 /* --- Item ativo: a condição apontada pela âncora ---------------------------
    Uma regra por condição, porque o CSS não tem um seletor "link cujo href
    aponta para o :target". Os 17 seletores foram GERADOS a partir do array
-   CONDICOES, com a mesma normalização de slugCondicao — não digitados à mão.
+   CONDICOES, com a mesma normalização de src/utils/slugAncora.js — não digitados
+   à mão.
    Se um título mudar, regenere: um slug desencontrado aqui falha em silêncio,
    e uma vírgula perdida invalida o bloco inteiro sem erro nenhum.
    Não tente gerar isto em runtime num <style> do React: quebra a hidratação e

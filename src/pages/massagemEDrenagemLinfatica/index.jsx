@@ -14,6 +14,8 @@ import SpecCard from "../../components/specCard";
 import LocationBlock from "../../components/locationBlock";
 import LeadParagraph from "../../components/leadParagraph";
 
+import slugAncora from "../../utils/slugAncora";
+
 import heroImg from "../../assets/img/webp/bgTratamentosDesktop.webp";
 import juliana from "../../assets/img/webp/juliana.webp";
 import laura from "../../assets/img/webp/laura.webp";
@@ -76,6 +78,9 @@ const SERVICOS = [
     ],
   },
 ];
+
+// SEM rótulo curto e SEM agrupamento por família: os dois títulos já são curtos
+// e a lista tem dois itens.
 
 // FAQ PROVISÓRIA — as 6 perguntas/respostas ainda não foram entregues pela
 // cliente (subtask DEP s-f48de7337a, seguia bloqueada até o momento desta
@@ -160,33 +165,69 @@ const MassagemEDrenagemLinfatica = () => {
         <BoxAnimation animation="opacity">
           <h2>Massagem Relaxante e Drenagem Linfática</h2>
         </BoxAnimation>
-        {SERVICOS.map((servico) => (
-          <BoxAnimation animation="opacity" key={servico.title}>
-            <div className="massagemBloco">
-              <h3>{servico.title}</h3>
-              {servico.paragraphs.map((paragrafo, indice) =>
-                indice === 0 ? (
-                  <LeadParagraph key={paragrafo.slice(0, 40)}>
-                    {paragrafo}
-                  </LeadParagraph>
-                ) : (
-                  <p key={paragrafo.slice(0, 40)}>{paragrafo}</p>
-                )
-              )}
-              <p>
-                <b>{servico.beneficiosLabel}</b>
-              </p>
-              <ul>
-                {servico.beneficios.map((beneficio) => (
-                  <li key={beneficio.slice(0, 40)}>{beneficio}</li>
-                ))}
-              </ul>
-              {servico.paragraphsAfter.map((paragrafo) => (
-                <p key={paragrafo.slice(0, 40)}>{paragrafo}</p>
+        <div className="landingLayout">
+          {/* Índice de navegação em HTML + CSS puro, sem JavaScript. As regras
+              estão em src/index.css, compartilhadas com /pilates e /acupuntura.
+
+              SEM `landingLayoutAbas`, ao contrário das outras duas: aqui o modo
+              aba NÃO está ligado, e os dois blocos continuam inteiros e
+              visíveis. Com 2 blocos ele esconderia metade do texto da seção
+              (400 → ~195 palavras visíveis) para poupar ~950px de rolagem —
+              menos de uma tela em 1440x900 — e um sumário de dois itens não
+              funciona como sumário: ninguém precisa de índice para descobrir
+              que existe um segundo bloco logo abaixo. O que a queixa do usuário
+              ("conteúdo jogado") pede aqui é a outra metade do padrão: o atalho
+              e as duas colunas, que estreitam a medida de linha e alinham o
+              texto no mesmo eixo das outras três páginas. Ligar o modo aba, se
+              o usuário mudar de ideia, é acrescentar `landingLayoutAbas` na
+              linha acima — nada mais muda. */}
+          <nav
+            className="landingIndice"
+            aria-label="Índice dos serviços de massagem e drenagem"
+          >
+            <p className="landingIndiceTitulo">Ir direto para</p>
+            <ul>
+              {SERVICOS.map((servico) => (
+                <li key={servico.title}>
+                  <a href={`#${slugAncora(servico.title)}`}>{servico.title}</a>
+                </li>
               ))}
-            </div>
-          </BoxAnimation>
-        ))}
+            </ul>
+          </nav>
+
+          <div className="landingBlocos">
+            {SERVICOS.map((servico) => (
+              <BoxAnimation animation="opacity" key={servico.title}>
+                <div
+                  className="massagemBloco landingBloco"
+                  id={slugAncora(servico.title)}
+                >
+                  <h3>{servico.title}</h3>
+                  {servico.paragraphs.map((paragrafo, indice) =>
+                    indice === 0 ? (
+                      <LeadParagraph key={paragrafo.slice(0, 40)}>
+                        {paragrafo}
+                      </LeadParagraph>
+                    ) : (
+                      <p key={paragrafo.slice(0, 40)}>{paragrafo}</p>
+                    )
+                  )}
+                  <p>
+                    <b>{servico.beneficiosLabel}</b>
+                  </p>
+                  <ul>
+                    {servico.beneficios.map((beneficio) => (
+                      <li key={beneficio.slice(0, 40)}>{beneficio}</li>
+                    ))}
+                  </ul>
+                  {servico.paragraphsAfter.map((paragrafo) => (
+                    <p key={paragrafo.slice(0, 40)}>{paragrafo}</p>
+                  ))}
+                </div>
+              </BoxAnimation>
+            ))}
+          </div>
+        </div>
 
         <CtaAcc
           aText="Agendar Massagem ou Drenagem Linfática"
