@@ -181,10 +181,45 @@ const slugCondicao = (title) =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
 
+// Rótulo curto SÓ no índice. Quatro itens seguidos começavam com "Incontinência
+// Urinária de…" e quebravam em duas linhas cada; sob a família "Perdas
+// urinárias" o contexto já está dado e "De esforço" basta. O <h3> de cada bloco
+// no corpo continua com o nome clínico completo e o texto não muda — isto é
+// rótulo de navegação, não conteúdo.
+const ROTULO_CURTO = {
+  "Gestação e Pós-Parto": "Gestação e pós-parto",
+  "Diástase Abdominal": "Diástase abdominal",
+  "Incontinência Urinária de Esforço": "De esforço",
+  "Incontinência Urinária de Urgência": "De urgência",
+  "Incontinência Urinária Mista": "Mista",
+  "Incontinência Pós-Prostatectomia": "Pós-prostatectomia",
+  "Bexiga Hiperativa / Hiperatividade do Detrusor": "Bexiga hiperativa",
+  "Síndrome da Bexiga Dolorosa / Cistite Intersticial": "Bexiga dolorosa",
+  "Prolapsos de Órgãos Pélvicos (“Bexiga caída”)": "Prolapsos",
+  "Flatos Vaginais / Flacidez Vaginal": "Flatos e flacidez",
+  Vaginismo: "Vaginismo",
+  Vulvodínia: "Vulvodínia",
+  "Dor Pélvica Crônica / Endometriose": "Dor crônica e endometriose",
+  "Dismenorréia / Cólica menstrual": "Cólica menstrual",
+  "Incontinência Anal (fezes ou flatos)": "Incontinência anal",
+  "Constipação Intestinal / Anismo": "Constipação e anismo",
+  "Redesignação sexual": "Redesignação sexual",
+};
+
 const INDICE = FAMILIAS.map((familia) => ({
   familia,
   condicoes: CONDICOES.filter((condicao) => condicao.familia === familia),
 }));
+
+// O destaque do item ativo do índice mora em styles.css, com um seletor por
+// condição. Tentei gerar essas regras aqui a partir de CONDICOES e injetá-las
+// num <style> — parecia melhor, porque tira 17 slugs escritos à mão. Não dá:
+// o <style> renderizado pelo React quebra a hidratação (erros #418/#425), o
+// React descarta o HTML do servidor e recria os nós, e aí o `:target` do
+// navegador — que aponta para o nó ORIGINAL — deixa de casar. Resultado
+// medido: abrir /fisioterapia-pelvica#vaginismo direto mostrava a primeira
+// condição em vez de Vaginismo. Com o CSS estático a hidratação fica limpa e o
+// `:target` sobrevive. Não reintroduza a geração em runtime.
 
 // FAQ PROVISÓRIA — as 6 perguntas/respostas ainda não foram entregues pela
 // cliente (subtask DEP s-f48de7337a, bloqueada). Os temas abaixo vêm de
@@ -280,7 +315,7 @@ const FisioterapiaPelvica = () => {
                     {grupo.condicoes.map((condicao) => (
                       <li key={condicao.title}>
                         <a href={`#${slugCondicao(condicao.title)}`}>
-                          {condicao.title}
+                          {ROTULO_CURTO[condicao.title] ?? condicao.title}
                         </a>
                       </li>
                     ))}

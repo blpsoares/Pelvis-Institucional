@@ -119,6 +119,11 @@
 	justify-content: center;
 	width: 100%;
 }
+/* O h2 entrou junto: a Home usa h3 nesta seção, mas as 4 landing pages usam h2
+   (lá a equipe é seção de nível 2). Como não existe cor global para h2, o
+   título "Conheça nossa equipe" caía no preto padrão nas 4 páginas novas desde
+   a F1.5. A Home não tem h2 aqui, então nada muda nela. */
+.ourTeam > h2,
 .ourTeam > h3 {
 	color: var(--roxo4);
 	font-weight: 400;
@@ -267,7 +272,11 @@
 		margin-bottom: 0 !important;
 	}
 
+	/* Mesmo motivo da regra de cor acima: sem o h2 aqui, no mobile o título da
+	   equipe das landing pages ficava com o tamanho global de h2 (4rem) e sem o
+	   alinhamento central desta seção. */
 	.especialidadesMain > h3,
+	.ourTeam > h2,
 	.ourTeam > h3 {
 		font-size: 2.3rem;
 		text-align: center;
