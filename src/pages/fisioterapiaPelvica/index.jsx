@@ -14,6 +14,8 @@ import SpecCard from "../../components/specCard";
 import LocationBlock from "../../components/locationBlock";
 import LeadParagraph from "../../components/leadParagraph";
 
+import slugAncora from "../../utils/slugAncora";
+
 import heroImg from "../../assets/img/webp/bgTratamentosDesktop.webp";
 import juliana from "../../assets/img/webp/juliana.webp";
 import laura from "../../assets/img/webp/laura.webp";
@@ -171,16 +173,6 @@ const FAMILIAS = [
   "Intestino e outros",
 ];
 
-// Âncora derivada do próprio título, para o id do bloco e o href do índice não
-// poderem divergir. Roda na renderização (SSG), então os ids já saem no HTML.
-const slugCondicao = (title) =>
-  title
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-|-$/g, "");
-
 // Rótulo curto SÓ no índice. Quatro itens seguidos começavam com "Incontinência
 // Urinária de…" e quebravam em duas linhas cada; sob a família "Perdas
 // urinárias" o contexto já está dado e "De esforço" basta. O <h3> de cada bloco
@@ -314,7 +306,7 @@ const FisioterapiaPelvica = () => {
                   <ul>
                     {grupo.condicoes.map((condicao) => (
                       <li key={condicao.title}>
-                        <a href={`#${slugCondicao(condicao.title)}`}>
+                        <a href={`#${slugAncora(condicao.title)}`}>
                           {ROTULO_CURTO[condicao.title] ?? condicao.title}
                         </a>
                       </li>
@@ -330,7 +322,7 @@ const FisioterapiaPelvica = () => {
               <BoxAnimation animation="opacity" key={condicao.title}>
                 <div
                   className="fisioCondicao"
-                  id={slugCondicao(condicao.title)}
+                  id={slugAncora(condicao.title)}
                 >
                   <h3>{condicao.title}</h3>
                   {condicao.paragraphs.map((paragrafo, indice) =>

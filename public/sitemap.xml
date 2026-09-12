@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  As <loc> abaixo espelham exatamente o <link rel="canonical"> de cada página
+  (src/pages/*/index.jsx) e as rotas declaradas em src/routes.jsx.
+  Ao adicionar, remover ou renomear uma rota, atualize os três lugares juntos.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.pelviefisioterapia.com.br/</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.pelviefisioterapia.com.br/QuemSomos</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.pelviefisioterapia.com.br/Tratamento</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.pelviefisioterapia.com.br/ComoFunciona</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.pelviefisioterapia.com.br/fisioterapia-pelvica</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.pelviefisioterapia.com.br/acupuntura</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.pelviefisioterapia.com.br/pilates</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.pelviefisioterapia.com.br/massagem-e-drenagem-linfatica</loc>
+    <lastmod>2026-09-11</lastmod>
+  </url>
+</urlset>
