@@ -24,10 +24,6 @@
   border-bottom: 1px solid var(--cinza5);
 }
 
-.fisioCondicao:last-of-type {
-  border-bottom: none;
-}
-
 .fisioCondicao h3 {
   color: var(--roxo4);
   font-size: 2.2rem;
@@ -93,10 +89,6 @@
   border-bottom: 1px solid var(--cinza5);
 }
 
-.faqItem:last-of-type {
-  border-bottom: none;
-}
-
 .faqItem h3 {
   font-size: 2rem;
   color: var(--cinza2);
@@ -114,5 +106,661 @@
   .faqSection,
   .ctaLocalizacao {
     padding: 2rem;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   F5.3 — Legibilidade do texto longo
+--------------------------------------------------------------------------- */
+
+/* (1) Medida de linha + entrelinha. Antes a linha corria de ponta a ponta do
+   container (~130 caracteres); `--medida` (src/index.css) traz para a faixa de
+   60–75, com alvo em ~65. O bloco inteiro recebe a mesma largura do texto para
+   o h3 e os parágrafos fecharem no mesmo eixo à direita. */
+.fisioCondicao,
+.faqItem {
+  font-family: var(--sourceSans);
+  /* O corpo fica no container além do <p> para que qualquer texto solto dentro
+     do bloco acompanhe a mesma escala. */
+  font-size: var(--corpoTexto);
+  max-width: var(--medida);
+}
+
+.fisioCondicao p,
+.faqItem p {
+  /* Vence a regra original (`.fisioCondicao p { font-size: 1.6rem }`) por vir
+     depois no mesmo arquivo — as duas têm a mesma especificidade. Foi por isso
+     que pôr esta regra em src/index.css não funcionou: lá ela empatava e
+     perdia na ordem do bundle. */
+  font-size: var(--corpoTexto);
+  line-height: 1.75;
+}
+
+/* (3) Lead tipográfico — a regra `.leadSentence` está em src/index.css, porque é
+   compartilhada pelas 4 páginas. Aqui fica só o respiro do parágrafo dela. */
+.fisioCondicao p:first-of-type {
+  margin-bottom: 0.6rem;
+}
+
+/* (2) Índice com âncoras. Só HTML + CSS: `href="#id"` + `position: sticky`.
+   Nenhum texto some — o índice é navegação paralela ao conteúdo, que continua
+   inteiro e sempre visível ao lado, sem depender de JavaScript. */
+.fisioLayout {
+  display: block;
+  font-family: var(--sourceSans);
+  font-size: var(--corpoTexto);
+}
+
+.fisioIndice {
+  border: 1px solid var(--cinza5);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  background-color: var(--branco2);
+}
+
+.fisioIndiceTitulo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  color: var(--roxo4);
+  margin-bottom: 1.5rem;
+}
+
+.fisioIndiceGrupo + .fisioIndiceGrupo {
+  margin-top: 1.6rem;
+}
+
+/* Rótulo de família em <p>, não em heading: o agrupamento é navegação, e um
+   heading aqui rebaixaria as 17 condições de h3 para h4. */
+.fisioIndiceFamilia {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--cinza2);
+  margin-bottom: 0.4rem;
+}
+
+.fisioIndice li {
+  line-height: 1.35;
+}
+
+.fisioIndice li + li {
+  margin-top: 0.4rem;
+}
+
+.fisioIndice a {
+  font-family: var(--sourceSans);
+  font-size: 1.4rem;
+  color: var(--cinza);
+  display: block;
+  border-left: 2px solid transparent;
+  padding-left: 0.8rem;
+  transition: 0.2s;
+}
+
+.fisioIndice a:hover,
+.fisioIndice a:focus-visible {
+  color: var(--roxo6);
+  border-left-color: var(--verde1);
+}
+
+/* Folga para a âncora não parar embaixo do header fixo. */
+.fisioCondicao {
+  scroll-margin-top: var(--ancoraOffset);
+}
+
+@media (min-width: 1001px) {
+  .fisioLayout {
+    display: grid;
+    grid-template-columns: minmax(0, 26rem) minmax(0, var(--medida));
+    justify-content: center;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  /* Sem `position: sticky` — ver a explicação no bloco do modo aba, mais
+     abaixo. Com uma condição visível por vez o container pai encolheu para a
+     altura do próprio índice e não sobrou trilho para grudar. */
+}
+
+/* Empilhado (≤1000px): o índice vai para o topo da seção, não é escondido. Numa
+   tela estreita, rolar ~1 tela de índice é muito mais rápido do que rolar 17
+   blocos densos até achar a condição procurada — e ele ainda funciona como
+   panorama do que a clínica trata. */
+@media (max-width: 1000px) {
+  .fisioIndice {
+    margin-bottom: 2rem;
+  }
+
+  .fisioIndiceGrupo {
+    break-inside: avoid;
+  }
+
+  .fisioIndice a {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1000px) {
+  .fisioIndiceGrupos {
+    columns: 2;
+    column-gap: 3rem;
+  }
+
+  /* Sem a coluna lateral, a medida de linha deixaria metade da largura vazia à
+     direita. Centralizar mantém o texto no mesmo eixo do h2 e do índice. */
+  .fisioCondicoes {
+    max-width: var(--medida);
+    margin: 0 auto;
+  }
+}
+
+/* ===========================================================================
+   FAQ — opção B (aprovada pelo usuário)
+   Linha roxa acima e abaixo, marcador roxo, sem caixa e SEM toggle: todo o
+   texto segue visível. A spec cita o FAQ nominalmente (seção 7: "cada resposta
+   um <p> sempre visível, sem toggle"), então aqui o accordion não entra.
+
+   ESTE BLOCO ESTÁ REPLICADO NOS 4 styles.css DE PROPÓSITO. Os CSS das páginas
+   não são escopados: todos declaram `.faqSection` no escopo global e entram no
+   mesmo bundle, então quem é importado por último vence, seja qual for a página
+   aberta. Se este bloco existisse em um arquivo só, as regras `.faqSection` das
+   outras três o sobrescreveriam. Mexeu aqui, mexa nos quatro.
+   =========================================================================== */
+.faqSection {
+  max-width: 78rem;
+  margin-inline: auto;
+  padding-block: 7rem;
+}
+
+.faqSection .spanLabel {
+  align-self: flex-start;
+}
+
+.faqSection h2 {
+  font-size: 3.2rem;
+  line-height: 1.2;
+  max-width: 56rem;
+  margin-bottom: 4rem;
+  text-wrap: balance;
+}
+
+.faqSection .faqItem {
+  position: relative;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  padding: 2.8rem 0 3rem;
+  max-width: none;
+  /* Grid em vez de padding-left: com padding a resposta desalinha da pergunta
+     quando a pergunta quebra em duas linhas — o caso de 3 das 6. */
+  display: grid;
+  grid-template-columns: 2.6rem minmax(0, 1fr);
+  column-gap: 1.6rem;
+}
+
+/* A linha nasce saturada à esquerda e desvanece: um traço cheio de ponta a
+   ponta pesa e compete com o texto. */
+.faqSection .faqItem::before,
+.faqSection > .boxAnimation:last-of-type .faqItem::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--roxo4) 0%,
+    var(--roxo4) 12%,
+    var(--roxo1) 42%,
+    rgba(150, 104, 168, 0.22) 100%
+  );
+}
+
+.faqSection .faqItem::before {
+  top: 0;
+}
+
+.faqSection > .boxAnimation:last-of-type .faqItem::after {
+  bottom: 0;
+}
+
+/* Marcador em losango, não "+": um "+" anuncia que abre alguma coisa, e aqui
+   nada abre — seria um botão quebrado em cada pergunta. */
+.faqSection .faqItem h3::before {
+  content: "";
+  position: absolute;
+  left: 0.55rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  margin-top: 1rem;
+  background: var(--roxo4);
+  transform: rotate(45deg);
+  border-radius: 0.15rem;
+}
+
+.faqSection .faqItem h3 {
+  grid-column: 2;
+  font-family: var(--taviraj);
+  font-size: 2.3rem;
+  font-weight: 500;
+  line-height: 1.32;
+  color: var(--roxo2);
+  margin-bottom: 1.2rem;
+  max-width: 52rem;
+  text-wrap: pretty;
+}
+
+.faqSection .faqItem p {
+  grid-column: 2;
+  color: var(--cinza);
+  line-height: 1.75;
+  /* O `max-width: none` da proposta soltava a resposta na largura inteira da
+     coluna do grid (678px a 19px): medi 80 a 91 caracteres por linha, fora da
+     faixa de 60–75 que é o item 1 desta subtask e que vale para o FAQ também.
+     Com `--medida` volta para ~68, e o eixo direito fica quase no mesmo lugar
+     do h3 (limitado a 52rem), então o desenho aprovado não muda. */
+  max-width: var(--medida);
+}
+
+@media (max-width: 1000px) {
+  .faqSection {
+    padding-block: 4.5rem;
+  }
+
+  .faqSection h2 {
+    font-size: 2.6rem;
+    margin-bottom: 3rem;
+  }
+
+  .faqSection .faqItem {
+    grid-template-columns: 2rem minmax(0, 1fr);
+    column-gap: 1.2rem;
+    padding: 2.2rem 0 2.4rem;
+  }
+
+  .faqSection .faqItem h3 {
+    font-size: 2rem;
+  }
+
+  .faqSection .faqItem h3::before {
+    left: 0.3rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    margin-top: 0.8rem;
+  }
+}
+
+/* Separador entre blocos. A regra antiga (`.BLOCO:last-of-type`) nunca surtia
+   efeito no sentido pretendido: cada bloco é o único <div> dentro do seu
+   <span class="boxAnimation">, então TODOS casavam com :last-of-type e a página
+   acabava sem separador nenhum. O seletor abaixo mira o último <span> da seção
+   (o CTA que fecha a lista é <div>, não entra na conta de :last-of-type). */
+.fisioCondicoes > .boxAnimation:last-child .fisioCondicao,
+.faqSection > .boxAnimation:last-of-type .faqItem {
+  border-bottom: none;
+}
+
+/* ===========================================================================
+   F5.3 v3 — redesenho do índice + modo aba
+   =========================================================================== */
+
+/* --- Índice: cartão branco com borda fina no lugar do cinza chapado -------- */
+.fisioIndice {
+  /* Cinza levemente arroxeado, para a borda conversar com a paleta em vez de
+     cortar o cartão com um cinza neutro. Não existe token para este tom. */
+  border: 1px solid #e9e2ee;
+  border-radius: 1.6rem;
+  padding: 1.8rem 1.6rem 1.6rem;
+  background-color: var(--branco);
+  box-shadow: 0 1px 2px rgba(94, 29, 138, 0.04),
+    0 8px 24px -16px rgba(94, 29, 138, 0.18);
+}
+
+.fisioIndiceTitulo {
+  font-size: 1.15rem;
+  letter-spacing: 0.14rem;
+  color: var(--roxo2);
+  padding-left: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+/* Rótulo de família discreto: antes tinha praticamente o mesmo peso dos itens e
+   competia com eles, deixando difícil enxergar o que era clicável. */
+.fisioIndiceFamilia {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.09rem;
+  text-transform: uppercase;
+  color: var(--roxo9);
+  margin-bottom: 0.6rem;
+  padding-left: 1rem;
+}
+
+.fisioIndiceGrupo + .fisioIndiceGrupo {
+  margin-top: 1.25rem;
+}
+
+/* --- Itens: alvo maior e afordância explícita de clique -------------------- */
+.fisioIndice li + li {
+  margin-top: 0.1rem;
+}
+
+.fisioIndice a {
+  position: relative;
+  font-size: 1.45rem;
+  line-height: 1.3;
+  color: var(--cinza2);
+  border-left: 0;
+  border-radius: 0.8rem;
+  padding: 0.48rem 1rem 0.48rem 2.2rem;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+/* Marcador que acende no hover e no item ativo: diz "isto é um destino" sem
+   poluir a lista parada. */
+.fisioIndice a::before {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  top: 1.05rem;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--roxo9);
+  transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+.fisioIndice a:hover,
+.fisioIndice a:focus-visible {
+  background-color: var(--rosa1);
+  color: var(--roxo6);
+  border-left-color: transparent;
+}
+
+.fisioIndice a:hover::before,
+.fisioIndice a:focus-visible::before {
+  background: var(--verde3);
+  transform: scale(1.8);
+}
+
+@media (min-width: 1001px) {
+  /* SEM sticky, SEM max-height e SEM scroll interno — os três foram retirados
+     juntos porque o mecanismo inteiro perdeu a função quando o modo aba entrou.
+
+     `position: sticky` só gruda enquanto o container PAI atravessa a viewport.
+     Antes das abas, `.fisioLayout` tinha ~7500px (as 17 condições empilhadas) e
+     havia trilho de sobra. Com uma condição visível por vez o pai encolheu para
+     ~750px, exatamente a altura do índice: sem trilho, não há o que grudar.
+     Medido — o índice rola junto com a página.
+
+     O `max-height` só existia para o índice não ser cortado enquanto grudado, e
+     era ele, sozinho, que produzia a barra de rolagem própria em tela baixa. Sem
+     sticky, a página rolando já revela o índice inteiro em qualquer altura, e a
+     barra não tem mais razão de existir. Conferido em 1024x700, 1280x720,
+     1366x768, 1440x900, 1536x864 e 1920x1080: nenhuma barra própria e o último
+     item alcançável e clicável em todas. */
+
+  .fisioLayout {
+    grid-template-columns: minmax(0, 27rem) minmax(0, var(--medida));
+  }
+}
+
+/* --- Empilhado: a lista vertical vira fluxo de pílulas --------------------- */
+@media (max-width: 1000px) {
+  .fisioIndice {
+    padding: 2rem 1.6rem;
+  }
+
+  .fisioIndice ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+  }
+
+  .fisioIndice a {
+    display: inline-block;
+    background-color: var(--branco2);
+    border: 1px solid var(--cinza5);
+    border-radius: 100px;
+    padding: 0.8rem 1.4rem;
+    font-size: 1.4rem;
+  }
+
+  .fisioIndice a::before {
+    content: none;
+  }
+
+  .fisioIndice a:hover,
+  .fisioIndice a:focus-visible {
+    background-color: var(--rosa1);
+    border-color: var(--roxo1);
+  }
+
+  .fisioIndiceFamilia,
+  .fisioIndiceTitulo {
+    padding-left: 0;
+  }
+
+  .fisioIndice li + li {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1000px) {
+  /* O fluxo de pílulas já aproveita a largura sozinho; dividir em 2 colunas
+     cortava grupos ao meio. */
+  .fisioIndiceGrupos {
+    columns: auto;
+  }
+}
+
+/* ===========================================================================
+   MODO ABA VIA :target — sem JavaScript
+
+   REGISTRO: isto é o padrão que a R6 e a seção 10 do briefing proíbem no
+   conteúdo principal. As 17 condições continuam inteiras no HTML servido, mas
+   a pessoa passa a ver UMA por vez. Decisão explícita do usuário na v3, tomada
+   depois de ser avisado de que o Google Ads avalia o que se vê e não o que está
+   no HTML, e de que é o mesmo padrão da /Tratamento que originou a nota
+   "Abaixo da média". Registrado também no comentário da task.
+
+   Todo o bloco vive dentro de @supports selector(:has(*)): num navegador sem
+   `:has()` as regras de revelação seriam descartadas e 16 condições ficariam
+   permanentemente escondidas. Com o @supports, esse navegador cai no
+   comportamento anterior — as 17 visíveis em sequência.
+   =========================================================================== */
+@supports selector(:has(*)) {
+  /* O observer de animação não roda em elemento display:none, então a aba
+     revelada apareceria em branco sem forçar o estado final aqui. */
+  .fisioCondicoes [data-anime] {
+    opacity: 1 !important;
+    transform: none !important;
+    scale: 1 !important;
+  }
+
+  /* Estado inicial: a primeira condição aparece, a página nunca abre vazia. */
+  .fisioCondicoes > span {
+    display: none;
+  }
+
+  .fisioCondicoes > span:first-of-type {
+    display: block;
+  }
+
+  /* Havendo âncora, só a condição alvo fica visível. As duas regras abaixo têm
+     a mesma especificidade de propósito — quem decide é a ordem, e a de baixo
+     precisa vir depois. */
+  .fisioCondicoes:has(.fisioCondicao:target) > span {
+    display: none;
+  }
+
+  .fisioCondicoes > span:has(> .fisioCondicao:target) {
+    display: block;
+  }
+
+  /* Onde a rolagem para. Medido: o h2 da seção fica 98px acima do bloco e o
+     header fixo ocupa 108px, então 24rem deixa o título da seção logo abaixo do
+     header e o índice inteiro visível. Como só uma condição aparece por vez, a
+     parada é idêntica para qualquer item do índice. */
+  @media (min-width: 1001px) {
+    .fisioCondicao {
+      scroll-margin-top: 24rem;
+    }
+  }
+
+  /* No empilhado o índice de pílulas fica ~877px acima do bloco e os dois não
+     cabem juntos em 844px de altura, então a rolagem leva ao título da condição
+     com folga apenas para o header. */
+  @media (max-width: 1000px) {
+    .fisioCondicao {
+      scroll-margin-top: 9rem;
+    }
+  }
+}
+
+/* --- Item ativo: estado padrão (nenhuma âncora clicada) -------------------- */
+/* O destaque das 17 condições-alvo é gerado no próprio componente, a partir do
+   array CONDICOES (ver CSS_ITEM_ATIVO em index.jsx): são 17 seletores que não
+   dá para escrever à mão sem risco de vírgula perdida ou slug desencontrado.
+   Aqui fica só o estado inicial, que não depende de slug nenhum. */
+.fisioIndiceGrupo:first-child li:first-child a {
+  background-color: var(--rosa1);
+  color: var(--roxo6);
+  font-weight: 600;
+  box-shadow: inset 3px 0 0 0 var(--verde3);
+}
+
+.fisioIndiceGrupo:first-child li:first-child a::before {
+  background: var(--verde3);
+  transform: scale(1.8);
+}
+
+/* Clicada qualquer âncora, o destaque padrão sai e vai para o item alvo.
+   A regra está partida em duas de propósito, porque ela é bem mais específica
+   que `.fisioIndice a:hover` e por isso decide o que o primeiro item faz sob o
+   cursor:
+   - a barra verde e o peso 600 são os sinais de "esta aba está aberta" e saem
+     SEMPRE, inclusive no hover — senão passar o mouse no primeiro item o faria
+     parecer aberto, que é exatamente a confusão que se quis eliminar;
+   - o fundo, a cor e o ponto saem só quando o cursor NÃO está em cima, para o
+     primeiro item continuar respondendo ao hover igual aos outros 16. */
+body:has(.fisioCondicao:target)
+  .fisioIndiceGrupo:first-child
+  li:first-child
+  a {
+  font-weight: 400;
+  box-shadow: none;
+}
+
+body:has(.fisioCondicao:target)
+  .fisioIndiceGrupo:first-child
+  li:first-child
+  a:not(:hover):not(:focus-visible) {
+  background-color: transparent;
+  color: var(--cinza2);
+}
+
+body:has(.fisioCondicao:target)
+  .fisioIndiceGrupo:first-child
+  li:first-child
+  a:not(:hover):not(:focus-visible)::before {
+  background: var(--roxo9);
+  transform: none;
+}
+
+@media (max-width: 1000px) {
+  /* Na pílula a barra lateral não cabe: o ativo fica com borda roxa cheia. O
+     hover NÃO tem borda roxa, e é essa diferença que separa "esta aba está
+     aberta" de "o cursor está passando por cima". */
+  .fisioIndiceGrupo:first-child li:first-child a {
+    box-shadow: none;
+    border-color: var(--roxo4);
+    border-width: 2px;
+  }
+
+  body:has(.fisioCondicao:target)
+    .fisioIndiceGrupo:first-child
+    li:first-child
+    a:not(:hover):not(:focus-visible) {
+    border-color: var(--cinza5);
+    border-width: 1px;
+  }
+}
+
+/* --- Item ativo: a condição apontada pela âncora ---------------------------
+   Uma regra por condição, porque o CSS não tem um seletor "link cujo href
+   aponta para o :target". Os 17 seletores foram GERADOS a partir do array
+   CONDICOES, com a mesma normalização de slugCondicao — não digitados à mão.
+   Se um título mudar, regenere: um slug desencontrado aqui falha em silêncio,
+   e uma vírgula perdida invalida o bloco inteiro sem erro nenhum.
+   Não tente gerar isto em runtime num <style> do React: quebra a hidratação e
+   mata o :target. Ver o comentário em index.jsx. */
+body:has(#gestacao-e-pos-parto:target) .fisioIndice a[href="#gestacao-e-pos-parto"],
+body:has(#diastase-abdominal:target) .fisioIndice a[href="#diastase-abdominal"],
+body:has(#incontinencia-urinaria-de-esforco:target) .fisioIndice a[href="#incontinencia-urinaria-de-esforco"],
+body:has(#incontinencia-urinaria-de-urgencia:target) .fisioIndice a[href="#incontinencia-urinaria-de-urgencia"],
+body:has(#incontinencia-urinaria-mista:target) .fisioIndice a[href="#incontinencia-urinaria-mista"],
+body:has(#prolapsos-de-orgaos-pelvicos-bexiga-caida:target) .fisioIndice a[href="#prolapsos-de-orgaos-pelvicos-bexiga-caida"],
+body:has(#bexiga-hiperativa-hiperatividade-do-detrusor:target) .fisioIndice a[href="#bexiga-hiperativa-hiperatividade-do-detrusor"],
+body:has(#incontinencia-pos-prostatectomia:target) .fisioIndice a[href="#incontinencia-pos-prostatectomia"],
+body:has(#sindrome-da-bexiga-dolorosa-cistite-intersticial:target) .fisioIndice a[href="#sindrome-da-bexiga-dolorosa-cistite-intersticial"],
+body:has(#vaginismo:target) .fisioIndice a[href="#vaginismo"],
+body:has(#vulvodinia:target) .fisioIndice a[href="#vulvodinia"],
+body:has(#flatos-vaginais-flacidez-vaginal:target) .fisioIndice a[href="#flatos-vaginais-flacidez-vaginal"],
+body:has(#incontinencia-anal-fezes-ou-flatos:target) .fisioIndice a[href="#incontinencia-anal-fezes-ou-flatos"],
+body:has(#constipacao-intestinal-anismo:target) .fisioIndice a[href="#constipacao-intestinal-anismo"],
+body:has(#dor-pelvica-cronica-endometriose:target) .fisioIndice a[href="#dor-pelvica-cronica-endometriose"],
+body:has(#dismenorreia-colica-menstrual:target) .fisioIndice a[href="#dismenorreia-colica-menstrual"],
+body:has(#redesignacao-sexual:target) .fisioIndice a[href="#redesignacao-sexual"] {
+  background-color: var(--rosa1);
+  color: var(--roxo6);
+  font-weight: 600;
+  box-shadow: inset 3px 0 0 0 var(--verde3);
+}
+
+body:has(#gestacao-e-pos-parto:target) .fisioIndice a[href="#gestacao-e-pos-parto"]::before,
+body:has(#diastase-abdominal:target) .fisioIndice a[href="#diastase-abdominal"]::before,
+body:has(#incontinencia-urinaria-de-esforco:target) .fisioIndice a[href="#incontinencia-urinaria-de-esforco"]::before,
+body:has(#incontinencia-urinaria-de-urgencia:target) .fisioIndice a[href="#incontinencia-urinaria-de-urgencia"]::before,
+body:has(#incontinencia-urinaria-mista:target) .fisioIndice a[href="#incontinencia-urinaria-mista"]::before,
+body:has(#prolapsos-de-orgaos-pelvicos-bexiga-caida:target) .fisioIndice a[href="#prolapsos-de-orgaos-pelvicos-bexiga-caida"]::before,
+body:has(#bexiga-hiperativa-hiperatividade-do-detrusor:target) .fisioIndice a[href="#bexiga-hiperativa-hiperatividade-do-detrusor"]::before,
+body:has(#incontinencia-pos-prostatectomia:target) .fisioIndice a[href="#incontinencia-pos-prostatectomia"]::before,
+body:has(#sindrome-da-bexiga-dolorosa-cistite-intersticial:target) .fisioIndice a[href="#sindrome-da-bexiga-dolorosa-cistite-intersticial"]::before,
+body:has(#vaginismo:target) .fisioIndice a[href="#vaginismo"]::before,
+body:has(#vulvodinia:target) .fisioIndice a[href="#vulvodinia"]::before,
+body:has(#flatos-vaginais-flacidez-vaginal:target) .fisioIndice a[href="#flatos-vaginais-flacidez-vaginal"]::before,
+body:has(#incontinencia-anal-fezes-ou-flatos:target) .fisioIndice a[href="#incontinencia-anal-fezes-ou-flatos"]::before,
+body:has(#constipacao-intestinal-anismo:target) .fisioIndice a[href="#constipacao-intestinal-anismo"]::before,
+body:has(#dor-pelvica-cronica-endometriose:target) .fisioIndice a[href="#dor-pelvica-cronica-endometriose"]::before,
+body:has(#dismenorreia-colica-menstrual:target) .fisioIndice a[href="#dismenorreia-colica-menstrual"]::before,
+body:has(#redesignacao-sexual:target) .fisioIndice a[href="#redesignacao-sexual"]::before {
+  background: var(--verde3);
+  transform: scale(1.8);
+}
+
+@media (max-width: 1000px) {
+  /* Na pílula a barra lateral não cabe: o ativo fica com borda roxa cheia. */
+body:has(#gestacao-e-pos-parto:target) .fisioIndice a[href="#gestacao-e-pos-parto"],
+body:has(#diastase-abdominal:target) .fisioIndice a[href="#diastase-abdominal"],
+body:has(#incontinencia-urinaria-de-esforco:target) .fisioIndice a[href="#incontinencia-urinaria-de-esforco"],
+body:has(#incontinencia-urinaria-de-urgencia:target) .fisioIndice a[href="#incontinencia-urinaria-de-urgencia"],
+body:has(#incontinencia-urinaria-mista:target) .fisioIndice a[href="#incontinencia-urinaria-mista"],
+body:has(#prolapsos-de-orgaos-pelvicos-bexiga-caida:target) .fisioIndice a[href="#prolapsos-de-orgaos-pelvicos-bexiga-caida"],
+body:has(#bexiga-hiperativa-hiperatividade-do-detrusor:target) .fisioIndice a[href="#bexiga-hiperativa-hiperatividade-do-detrusor"],
+body:has(#incontinencia-pos-prostatectomia:target) .fisioIndice a[href="#incontinencia-pos-prostatectomia"],
+body:has(#sindrome-da-bexiga-dolorosa-cistite-intersticial:target) .fisioIndice a[href="#sindrome-da-bexiga-dolorosa-cistite-intersticial"],
+body:has(#vaginismo:target) .fisioIndice a[href="#vaginismo"],
+body:has(#vulvodinia:target) .fisioIndice a[href="#vulvodinia"],
+body:has(#flatos-vaginais-flacidez-vaginal:target) .fisioIndice a[href="#flatos-vaginais-flacidez-vaginal"],
+body:has(#incontinencia-anal-fezes-ou-flatos:target) .fisioIndice a[href="#incontinencia-anal-fezes-ou-flatos"],
+body:has(#constipacao-intestinal-anismo:target) .fisioIndice a[href="#constipacao-intestinal-anismo"],
+body:has(#dor-pelvica-cronica-endometriose:target) .fisioIndice a[href="#dor-pelvica-cronica-endometriose"],
+body:has(#dismenorreia-colica-menstrual:target) .fisioIndice a[href="#dismenorreia-colica-menstrual"],
+body:has(#redesignacao-sexual:target) .fisioIndice a[href="#redesignacao-sexual"] {
+    box-shadow: none;
+    border-color: var(--roxo4);
+    border-width: 2px;
   }
 }

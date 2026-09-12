@@ -47,11 +47,26 @@ button {
 html {
   font-size: 62.5%;
   overflow-x: hidden;
+  /* Estava só no `body`, onde nunca surtiu efeito: quem rola é o `html` (o
+     `overflow-x` acima é o que faz dele o contêiner de rolagem). Isso valia
+     para TODAS as âncoras do site, não só as da F5.3 — todas iam secas. */
+  scroll-behavior: smooth;
+}
+
+/* Quem pediu menos movimento no sistema não deve receber rolagem animada. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
-  overflow-x: hidden;
-  scroll-behavior: smooth;
+  /* `clip` em vez de `hidden`: recorta o transbordo horizontal exatamente igual,
+     mas NÃO transforma o body num contêiner de rolagem. Com `hidden`, qualquer
+     `position: sticky` dentro da página passava a grudar no body — que nunca
+     rola — e simplesmente subia junto com o conteúdo (o índice da F5.3 não
+     grudava). Medido no Chrome antes e depois. */
+  overflow-x: clip;
 }
 
 p,
@@ -330,3 +345,49 @@ button:hover {
   }
 }
 
+
+/* ---------------------------------------------------------------------------
+   F5.3 — Legibilidade do texto longo nas 4 landing pages novas
+   Tokens compartilhados. Nenhuma destas regras casa com alguma marcação das
+   4 páginas antigas (Home, QuemSomos, Tratamento, ComoFunciona): `--medida` só
+   é consumida pelos styles.css das páginas novas e a classe `.leadSentence` só
+   existe nelas.
+--------------------------------------------------------------------------- */
+:root {
+  /* Medida de linha do texto corrido. Calibrado contando caractere a caractere
+     na linha mais cheia no Chrome, não no olho: 55rem entrega 62 a 69
+     caracteres nas 4 páginas, dentro da faixa de 60–75 pedida.
+
+     Estava em `ch` e teve de sair: `ch` resolve contra a fonte do elemento em
+     que o `max-width` é aplicado — o CONTAINER do bloco, não o parágrafo. Ao
+     subir o corpo para `--corpoTexto`, o container continuava em 1.6rem, a
+     coluna travava em 461px e a contagem caía para ~50 caracteres, pior do que
+     antes. Dá para consertar declarando a fonte no container, mas é uma
+     dependência invisível que já me pegou duas vezes; em `rem` a largura não
+     depende de onde a fonte foi declarada. */
+  --medida: 55rem;
+  /* Corpo do texto corrido das 4 páginas novas. A medida em caracteres já
+     estava certa com 1.6rem, mas o corpo pequeno fazia a coluna ocupar só
+     461px físicos num viewport de 1440 — sobrava vazio demais dos dois lados e
+     o bloco parecia espremido. Subir o corpo alarga a coluna em pixels SEM
+     mexer na medida em caracteres, que é o que a legibilidade pede. */
+  --corpoTexto: 1.9rem;
+  /* Folga para as âncoras não pararem embaixo do header fixo (que mede ~10.8rem
+     em qualquer largura, já que o padding dele também é em rem). Medido no
+     Chrome: com 11rem sobravam 2px de respiro, apertado demais. */
+  --ancoraOffset: 13rem;
+}
+
+/* Lead tipográfico: a primeira frase de cada bloco em corpo maior e na serifada
+   Taviraj (a mesma dos h2/h3), criando o degrau de leitura entre o título e o
+   texto corrido. É só apresentação — o texto não muda. */
+.leadSentence {
+  font-family: var(--taviraj);
+  /* Acompanha `--corpoTexto` na mesma proporção de antes (1.9/1.6). Se ficasse
+     em 1.9rem depois do corpo subir para 1.9rem, o degrau de leitura sumiria —
+     a primeira frase só se distinguiria pela serifa. */
+  font-size: 2.3rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--cinza2);
+}

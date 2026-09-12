@@ -24,10 +24,6 @@
   border-bottom: 1px solid var(--cinza5);
 }
 
-.pilatesTopico:last-of-type {
-  border-bottom: none;
-}
-
 .pilatesTopico h3 {
   color: var(--roxo4);
   font-size: 2.2rem;
@@ -93,10 +89,6 @@
   border-bottom: 1px solid var(--cinza5);
 }
 
-.faqItem:last-of-type {
-  border-bottom: none;
-}
-
 .faqItem h3 {
   font-size: 2rem;
   color: var(--cinza2);
@@ -115,4 +107,189 @@
   .ctaLocalizacao {
     padding: 2rem;
   }
+}
+
+/* ---------------------------------------------------------------------------
+   F5.3 — Legibilidade do texto longo
+
+   (1) Medida de linha + entrelinha. Antes a linha corria de ponta a ponta do
+       container (~130 caracteres); `--medida` (src/index.css) traz para a faixa
+       de 60–75, com alvo em ~65. O bloco inteiro recebe a mesma largura do
+       texto para o h3 e os parágrafos fecharem no mesmo eixo à direita.
+   (3) Lead tipográfico: a regra `.leadSentence` está em src/index.css, porque é
+       compartilhada pelas 4 páginas. Aqui fica só o respiro do parágrafo dela.
+--------------------------------------------------------------------------- */
+.pilatesTopico {
+  /* O h2 desta seção é centralizado; com a medida de linha aplicada, deixar os
+     blocos colados à esquerda abriria dois terços de vazio à direita. Centralizar
+     a coluna mantém o texto alinhado à esquerda dentro dela. */
+  margin-inline: auto;
+}
+
+.pilatesTopico,
+.faqItem {
+  font-family: var(--sourceSans);
+  /* O corpo fica no container além do <p> para que qualquer texto solto dentro
+     do bloco acompanhe a mesma escala. */
+  font-size: var(--corpoTexto);
+  max-width: var(--medida);
+}
+
+.pilatesTopico p,
+.pilatesTopico li,
+.faqItem p {
+  /* Vence a regra original (`.pilatesTopico p { font-size: 1.6rem }`) por vir
+     depois no mesmo arquivo — as duas têm a mesma especificidade. */
+  font-size: var(--corpoTexto);
+  line-height: 1.75;
+}
+
+.pilatesTopico p:first-of-type {
+  margin-bottom: 0.6rem;
+}
+
+/* ===========================================================================
+   FAQ — opção B (aprovada pelo usuário)
+   Linha roxa acima e abaixo, marcador roxo, sem caixa e SEM toggle: todo o
+   texto segue visível. A spec cita o FAQ nominalmente (seção 7: "cada resposta
+   um <p> sempre visível, sem toggle"), então aqui o accordion não entra.
+
+   ESTE BLOCO ESTÁ REPLICADO NOS 4 styles.css DE PROPÓSITO. Os CSS das páginas
+   não são escopados: todos declaram `.faqSection` no escopo global e entram no
+   mesmo bundle, então quem é importado por último vence, seja qual for a página
+   aberta. Se este bloco existisse em um arquivo só, as regras `.faqSection` das
+   outras três o sobrescreveriam. Mexeu aqui, mexa nos quatro.
+   =========================================================================== */
+.faqSection {
+  max-width: 78rem;
+  margin-inline: auto;
+  padding-block: 7rem;
+}
+
+.faqSection .spanLabel {
+  align-self: flex-start;
+}
+
+.faqSection h2 {
+  font-size: 3.2rem;
+  line-height: 1.2;
+  max-width: 56rem;
+  margin-bottom: 4rem;
+  text-wrap: balance;
+}
+
+.faqSection .faqItem {
+  position: relative;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  padding: 2.8rem 0 3rem;
+  max-width: none;
+  /* Grid em vez de padding-left: com padding a resposta desalinha da pergunta
+     quando a pergunta quebra em duas linhas — o caso de 3 das 6. */
+  display: grid;
+  grid-template-columns: 2.6rem minmax(0, 1fr);
+  column-gap: 1.6rem;
+}
+
+/* A linha nasce saturada à esquerda e desvanece: um traço cheio de ponta a
+   ponta pesa e compete com o texto. */
+.faqSection .faqItem::before,
+.faqSection > .boxAnimation:last-of-type .faqItem::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--roxo4) 0%,
+    var(--roxo4) 12%,
+    var(--roxo1) 42%,
+    rgba(150, 104, 168, 0.22) 100%
+  );
+}
+
+.faqSection .faqItem::before {
+  top: 0;
+}
+
+.faqSection > .boxAnimation:last-of-type .faqItem::after {
+  bottom: 0;
+}
+
+/* Marcador em losango, não "+": um "+" anuncia que abre alguma coisa, e aqui
+   nada abre — seria um botão quebrado em cada pergunta. */
+.faqSection .faqItem h3::before {
+  content: "";
+  position: absolute;
+  left: 0.55rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  margin-top: 1rem;
+  background: var(--roxo4);
+  transform: rotate(45deg);
+  border-radius: 0.15rem;
+}
+
+.faqSection .faqItem h3 {
+  grid-column: 2;
+  font-family: var(--taviraj);
+  font-size: 2.3rem;
+  font-weight: 500;
+  line-height: 1.32;
+  color: var(--roxo2);
+  margin-bottom: 1.2rem;
+  max-width: 52rem;
+  text-wrap: pretty;
+}
+
+.faqSection .faqItem p {
+  grid-column: 2;
+  color: var(--cinza);
+  line-height: 1.75;
+  /* O `max-width: none` da proposta soltava a resposta na largura inteira da
+     coluna do grid (678px a 19px): medi 80 a 91 caracteres por linha, fora da
+     faixa de 60–75 que é o item 1 desta subtask e que vale para o FAQ também.
+     Com `--medida` volta para ~68, e o eixo direito fica quase no mesmo lugar
+     do h3 (limitado a 52rem), então o desenho aprovado não muda. */
+  max-width: var(--medida);
+}
+
+@media (max-width: 1000px) {
+  .faqSection {
+    padding-block: 4.5rem;
+  }
+
+  .faqSection h2 {
+    font-size: 2.6rem;
+    margin-bottom: 3rem;
+  }
+
+  .faqSection .faqItem {
+    grid-template-columns: 2rem minmax(0, 1fr);
+    column-gap: 1.2rem;
+    padding: 2.2rem 0 2.4rem;
+  }
+
+  .faqSection .faqItem h3 {
+    font-size: 2rem;
+  }
+
+  .faqSection .faqItem h3::before {
+    left: 0.3rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    margin-top: 0.8rem;
+  }
+}
+
+/* Separador entre blocos. A regra antiga (`.BLOCO:last-of-type`) nunca surtia
+   efeito no sentido pretendido: cada bloco é o único <div> dentro do seu
+   <span class="boxAnimation">, então TODOS casavam com :last-of-type e a página
+   acabava sem separador nenhum. O seletor abaixo mira o último <span> da seção
+   (o CTA que fecha a lista é <div>, não entra na conta de :last-of-type). */
+.pilatesContent > .boxAnimation:last-of-type .pilatesTopico,
+.faqSection > .boxAnimation:last-of-type .faqItem {
+  border-bottom: none;
 }

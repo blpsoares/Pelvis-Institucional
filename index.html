@@ -21,6 +21,24 @@
   <link rel="shortcut icon" href="./src/assets/img/ico/ico.ico" type="image/x-icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- title/meta description/canonical/JSON-LD são injetados por rota via <Head> (vite-react-ssg) -->
+
+  <!--
+    Sem JavaScript, o conteúdo estava no HTML mas ficava INVISÍVEL: as
+    microanimações de entrada (src/components/boxAnimation) partem de
+    `[data-anime] { opacity: 0 }` e só recebem a classe `.animate` pelo listener
+    de scroll, que exige JS. Isso valia para as 8 páginas e contrariava o item de
+    aceite "conteúdo presente no HTML sem JS". Este <noscript> só é aplicado
+    quando o JS está desligado — com JS ligado a renderização é idêntica.
+  -->
+  <noscript>
+    <style>
+      [data-anime] {
+        opacity: 1 !important;
+        scale: 1 !important;
+        transform: none !important;
+      }
+    </style>
+  </noscript>
 </head>
 
 <body>
