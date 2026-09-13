@@ -18,6 +18,8 @@ import LocationBlock from "../../components/locationBlock";
 import fisioPelvica from "../../assets/img/webp/especialidadeMobile1.webp";
 import acupuntura from "../../assets/img/webp/especialidadeMobile2.webp";
 import pilates from "../../assets/img/webp/especialidadeMobile3.webp";
+import heroDesktop from "../../assets/img/webp/bgComoFuncionaDesktop.webp";
+import heroMobile from "../../assets/img/webp/bgComoFuncionaMobile.webp";
 
 //Icones
 import prancheta from "../../assets/img/svgs/prancheta.svg";
@@ -41,6 +43,28 @@ const ComoFunciona = () => {
         <link
           rel="canonical"
           href="https://www.pelviefisioterapia.com.br/como-funciona"
+        />
+        {/* F6.2 — hero é background-image em CSS externo (styles.css), então
+            só é descoberto depois do CSS baixar; preload com a mesma condição
+            de media query do styles.css (max-width:700px) adianta a descoberta
+            sem baixar as duas imagens à toa. Página tinha o pior LCP medido
+            (10,3s, outlier) nas auditorias de aceite — testado aqui como parte
+            da investigação do item 4 da F6.2, medido antes/depois. */}
+        <link
+          rel="preload"
+          as="image"
+          // eslint-disable-next-line react/no-unknown-property -- ver nota igual nas 4 landing pages
+          fetchpriority="high"
+          href={heroMobile}
+          media="(max-width: 700px)"
+        />
+        <link
+          rel="preload"
+          as="image"
+          // eslint-disable-next-line react/no-unknown-property -- ver nota igual nas 4 landing pages
+          fetchpriority="high"
+          href={heroDesktop}
+          media="(min-width: 701px)"
         />
       </Head>
       <MedicalBusinessSchema />

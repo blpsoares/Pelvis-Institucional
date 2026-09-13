@@ -23,6 +23,30 @@
   <!-- title/meta description/canonical/JSON-LD são injetados por rota via <Head> (vite-react-ssg) -->
 
   <!--
+    F6.2 — Performance: fontes. Trocado o @import de src/index.css (render-
+    blocking e só descoberto depois do CSS da app já ter baixado) por
+    preconnect + <link> aqui no <head>, que o preload scanner lê assim que o
+    HTML chega. preconnect abre a conexão (DNS+TLS) com fonts.googleapis.com
+    (serve o CSS) e fonts.gstatic.com (serve os .woff2) em paralelo; os 2
+    preloads abaixo adiantam o download dos únicos 2 arquivos que o hero e o
+    header usam acima da dobra nas 8 páginas (Source Sans 3 regular/variável
+    — cobre 400/500/600/700 no mesmo arquivo — e Taviraj 600, peso que os
+    h1/h2/h3 já resolviam por vizinhança antes desta mudança, sem 700 real
+    carregado). O <link rel=stylesheet> troca o peso pedido: de 21
+    combinações (11 Source Sans + 10 Taviraj, herdadas do @import antigo)
+    para as 8 realmente usadas no código (grep por font-weight/font-style
+    nas 8 páginas + componentes compartilhados).
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="https://fonts.gstatic.com/s/sourcesans3/v19/nwpStKy2OAdR1K-IwhWudF-R3w8aZejf5Hc.woff2" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="https://fonts.gstatic.com/s/taviraj/v15/ahccv8Cj3ylylTXzRDYPR-5RgGa6q0o.woff2" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,700&family=Taviraj:wght@400;500;600&display=swap" />
+
+  <!--
     Sem JavaScript, o conteúdo estava no HTML mas ficava INVISÍVEL: as
     microanimações de entrada (src/components/boxAnimation) partem de
     `[data-anime] { opacity: 0 }` e só recebem a classe `.animate` pelo listener
