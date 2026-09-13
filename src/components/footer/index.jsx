@@ -22,9 +22,9 @@ const Footer = () => {
             <NavLink to="/" end>
               Página Inicial
             </NavLink>
-            <NavLink to="/QuemSomos">Quem Somos</NavLink>
-            <NavLink to="/Tratamento">Tratamentos</NavLink>
-            <NavLink to="/ComoFunciona">Como Funciona</NavLink>
+            <NavLink to="/quem-somos">Quem Somos</NavLink>
+            <NavLink to="/tratamento">Tratamentos</NavLink>
+            <NavLink to="/como-funciona">Como Funciona</NavLink>
           </nav>
         </div>
 

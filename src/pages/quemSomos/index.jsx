@@ -42,7 +42,7 @@ const QuemSomos = () => {
 				/>
 				<link
 					rel="canonical"
-					href="https://www.pelviefisioterapia.com.br/QuemSomos"
+					href="https://www.pelviefisioterapia.com.br/quem-somos"
 				/>
 			</Head>
 			<MedicalBusinessSchema />

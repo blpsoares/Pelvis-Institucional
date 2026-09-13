@@ -228,7 +228,7 @@ const Pilates = () => {
             o seu momento. Agendamentos garantem tempo suficiente para um
             atendimento cuidadoso, do início ao fim do acompanhamento.
           </p>
-          <NavLink to="/ComoFunciona" className="ctaBtn2">
+          <NavLink to="/como-funciona" className="ctaBtn2">
             Veja como funciona o atendimento
           </NavLink>
         </BoxAnimation>
@@ -307,7 +307,7 @@ const Pilates = () => {
             />
           </BoxAnimation>
         </div>
-        <NavLink to="/QuemSomos" className="ctaBtn2 pilatesEquipeCta">
+        <NavLink to="/quem-somos" className="ctaBtn2 pilatesEquipeCta">
           Saiba mais sobre a PELVIE
         </NavLink>
       </Container>

@@ -120,7 +120,7 @@
 }
 /* Encosta o gatilho no rótulo sem sobrepor: o <a> herda position:relative de
    .navMenu a, então qualquer sobreposição deixa o link por cima do botão e a
-   borda do ícone passa a navegar para /Tratamento em vez de abrir a lista. */
+   borda do ícone passa a navegar para /tratamento em vez de abrir a lista. */
 .navDropdownTrigger > a {
   padding-right: 0.5rem;
 }

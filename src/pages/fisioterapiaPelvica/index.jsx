@@ -362,7 +362,7 @@ const FisioterapiaPelvica = () => {
             um atendimento cuidadoso e resolutivo, do início ao fim do
             tratamento.
           </p>
-          <NavLink to="/ComoFunciona" className="ctaBtn2">
+          <NavLink to="/como-funciona" className="ctaBtn2">
             Veja como funciona o atendimento
           </NavLink>
         </BoxAnimation>
@@ -441,7 +441,7 @@ const FisioterapiaPelvica = () => {
             />
           </BoxAnimation>
         </div>
-        <NavLink to="/QuemSomos" className="ctaBtn2 fisioEquipeCta">
+        <NavLink to="/quem-somos" className="ctaBtn2 fisioEquipeCta">
           Saiba mais sobre a PELVIE
         </NavLink>
       </Container>
