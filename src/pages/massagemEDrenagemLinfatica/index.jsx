@@ -17,6 +17,7 @@ import LeadParagraph from "../../components/leadParagraph";
 import slugAncora from "../../utils/slugAncora";
 
 import heroImg from "../../assets/img/webp/bgTratamentosDesktop.webp";
+import heroImgMobile from "../../assets/img/webp/bgHeroTratamentoMobile.webp";
 import juliana from "../../assets/img/webp/juliana.webp";
 import laura from "../../assets/img/webp/laura.webp";
 import leila from "../../assets/img/webp/leila.webp";
@@ -140,11 +141,17 @@ const MassagemEDrenagemLinfatica = () => {
         />
         {/* F6.2 — imagem do hero é background-image (ver src/components/hero),
             então não herda fetchpriority de <img>; preload adianta a
-            descoberta pelo preload scanner. */}
+            descoberta pelo preload scanner.
+            F6.4 — o hero mobile agora usa uma imagem retrato diferente
+            (ver src/components/hero/styles.css); preload por media query
+            para o navegador buscar só a imagem que o breakpoint atual vai
+            realmente pintar, senão o LCP mobile piora com 2 downloads. */}
         {/* eslint-disable-next-line react/no-unknown-property -- fetchpriority (minúsculo) é o
             atributo HTML real; React 18.2 já repassa props desconhecidas em minúsculo verbatim
             para o DOM, o plugin do eslint é que ainda não conhece o atributo. */}
-        <link rel="preload" as="image" fetchpriority="high" href={heroImg} />
+        <link rel="preload" as="image" fetchpriority="high" href={heroImg} media="(min-width: 1001px)" />
+        {/* eslint-disable-next-line react/no-unknown-property -- ver acima */}
+        <link rel="preload" as="image" fetchpriority="high" href={heroImgMobile} media="(max-width: 1000px)" />
       </Head>
       <MedicalBusinessSchema />
       <FaqPageSchema faqs={FAQS} />
@@ -154,6 +161,7 @@ const MassagemEDrenagemLinfatica = () => {
         titleSpan="em São Paulo"
         pText="Massagem relaxante e drenagem linfática são duas técnicas manuais com objetivos diferentes, mas que se completam: uma cuida do corpo e da mente através do relaxamento muscular e do alívio do estresse; a outra estimula o sistema linfático para reduzir inchaço, retenção de líquidos e apoiar a recuperação em situações como pós-operatório e gestação. As duas são realizadas por fisioterapeutas especializadas, com técnicas seguras e ajustadas ao momento de cada paciente. Se você busca aliviar tensões do dia a dia, se recuperar de uma cirurgia ou cuidar do inchaço na gestação, a avaliação inicial define a abordagem mais indicada e a frequência de sessões ideal para o seu caso."
         imgBg={heroImg}
+        imgBgMobile={heroImgMobile}
         bgClass="bgHeroOverlay"
       >
         <a href={WHATSAPP_HREF} className="ctaBtnZap heroCta" target="noreferrer">
