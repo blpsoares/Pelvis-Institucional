@@ -138,6 +138,14 @@ const Pilates = () => {
           rel="canonical"
           href="https://www.pelviefisioterapia.com.br/pilates"
         />
+        {/* F6.2 — imagem do hero é background-image (ver src/components/hero),
+            então não herda fetchpriority de <img>; preload adianta a
+            descoberta pelo preload scanner, que é o gargalo medido (~4s de
+            atraso na auditoria de aceite desta página). */}
+        {/* eslint-disable-next-line react/no-unknown-property -- fetchpriority (minúsculo) é o
+            atributo HTML real; React 18.2 já repassa props desconhecidas em minúsculo verbatim
+            para o DOM, o plugin do eslint é que ainda não conhece o atributo. */}
+        <link rel="preload" as="image" fetchpriority="high" href={heroImg} />
       </Head>
       <MedicalBusinessSchema />
       <FaqPageSchema faqs={FAQS} />

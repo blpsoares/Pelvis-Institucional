@@ -1,4 +1,59 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,800&family=Taviraj:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap");
+/* F6.2 — Performance: fontes
+   O @import daqui saiu (bloqueava o CSSOM e só era descoberto depois do
+   index.css já ter sido baixado e parseado, atrasando a folha de fontes do
+   Google em relação ao preload scanner). A folha em si (preconnect + <link>)
+   agora vem de index.html, que o preload scanner lê no primeiro byte do HTML.
+   Peso pedido também caiu: Source Sans 3 (fonte variável no Google Fonts —
+   todo weight não-itálico já resolvia para o MESMO arquivo, então cortar a
+   lista não muda bytes baixados, só documenta o que é usado de verdade:
+   400/500/600/700 + itálico 700, os únicos combos referenciados no código)
+   e Taviraj (fonte estática — aqui cortar pesa de verdade: de 10 arquivos
+   possíveis (200/300/400/500/600 × normal/itálico) para os 3 realmente
+   usados: 400/500/600 normal, sem itálico).
+
+   Fallback com métrica ajustada (size-adjust/ascent-override/descent-
+   override/line-gap-override), calculados a partir das métricas OS/2 reais
+   dos arquivos .woff2 (extraídas com fontTools), para a troca de fonte
+   (`display: swap`) reduzir menos a página em vez de reflowar o texto
+   quando a fonte real chega — a causa confirmada do CLS em /quem-somos e
+   /pilates nas auditorias de aceite. Duas camadas de fallback: a primeira
+   mira o Android real (Roboto/Noto Serif, os genéricos sans-serif/serif do
+   Chrome mobile, que é o alvo dos testes Lighthouse desta task); a segunda
+   mira DejaVu Sans/Serif porque é o que este sandbox Linux realmente resolve
+   para sans-serif/serif (fc-match), permitindo medir o efeito aqui mesmo.
+   Nenhuma das duas é usada se a fonte real já carregou. */
+@font-face {
+  font-family: "Source Sans 3 Fallback";
+  src: local("Roboto");
+  ascent-override: 108.82%;
+  descent-override: 42.51%;
+  line-gap-override: 0%;
+  size-adjust: 94.1%;
+}
+@font-face {
+  font-family: "Source Sans 3 Fallback Linux";
+  src: local("DejaVu Sans");
+  ascent-override: 105.27%;
+  descent-override: 41.12%;
+  line-gap-override: 0%;
+  size-adjust: 97.27%;
+}
+@font-face {
+  font-family: "Taviraj Fallback";
+  src: local("Noto Serif");
+  ascent-override: 68.23%;
+  descent-override: 22.74%;
+  line-gap-override: 18.19%;
+  size-adjust: 109.93%;
+}
+@font-face {
+  font-family: "Taviraj Fallback Linux";
+  src: local("DejaVu Serif");
+  ascent-override: 65.51%;
+  descent-override: 21.84%;
+  line-gap-override: 17.47%;
+  size-adjust: 114.49%;
+}
 :root {
   --pad: 3rem;
   --gap: 3rem;
@@ -26,8 +81,9 @@
   --cinza4: #3a39394a;
   --cinza5: #e4e4e4;
   --preto: #000;
-  --taviraj: "Taviraj", serif;
-  --sourceSans: "Source Sans 3", sans-serif;
+  --taviraj: "Taviraj", "Taviraj Fallback", "Taviraj Fallback Linux", serif;
+  --sourceSans: "Source Sans 3", "Source Sans 3 Fallback",
+    "Source Sans 3 Fallback Linux", sans-serif;
 }
 *,
 *::after,
