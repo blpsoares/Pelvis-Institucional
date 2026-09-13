@@ -27,9 +27,9 @@ import cibele from "../../assets/img/webp/cibele.webp";
 import whatsappGreen from "../../assets/img/svgs/wppGreen.svg";
 import whatsappBranco from "../../assets/img/svgs/whatsappBranco.svg";
 
-const WHATSAPP_MESSAGE =
+export const WHATSAPP_MESSAGE =
   "Olá! Gostaria de agendar uma aula experimental de Pilates. Estou buscando a clínica porque…";
-const WHATSAPP_HREF = `https://wa.me/+5511913112992?text=${WHATSAPP_MESSAGE}`;
+export const WHATSAPP_HREF = `https://wa.me/+5511913112992?text=${WHATSAPP_MESSAGE}`;
 
 // Texto-base reaproveitado de src/pages/tratamento/index.jsx (bloco "Pilates",
 // hoje dentro de um Accordion) + docs/seo-landing-pages/dados-por-pagina.md
@@ -132,7 +132,7 @@ const Pilates = () => {
         <title>Pilates para Gestantes e Pós-Parto | PELVIE Brooklin SP</title>
         <meta
           name="description"
-          content="Pilates conduzido por fisioterapeuta, em grupos reduzidos. Para gestantes, pós-parto e diástase abdominal. Brooklin, São Paulo. Agende sua aula experimental."
+          content="Pilates com fisioterapeuta, em grupos reduzidos. Para gestantes, pós-parto e diástase abdominal. Brooklin, São Paulo. Agende sua aula experimental."
         />
         <link
           rel="canonical"

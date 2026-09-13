@@ -27,9 +27,9 @@ import thipphane from "../../assets/img/webp/thipphane.webp";
 import whatsappGreen from "../../assets/img/svgs/wppGreen.svg";
 import whatsappBranco from "../../assets/img/svgs/whatsappBranco.svg";
 
-const WHATSAPP_MESSAGE =
+export const WHATSAPP_MESSAGE =
   "Olá! Gostaria de agendar uma avaliação de Fisioterapia Pélvica. Estou buscando a clínica porque…";
-const WHATSAPP_HREF = `https://wa.me/+5511913112992?text=${WHATSAPP_MESSAGE}`;
+export const WHATSAPP_HREF = `https://wa.me/+5511913112992?text=${WHATSAPP_MESSAGE}`;
 
 // Condições reaproveitadas de src/pages/tratamento/index.jsx (bloco "Fisioterapia
 // Pélvica", hoje dentro de um Accordion) — aqui desacordeonizadas, sempre visíveis.

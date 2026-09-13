@@ -116,7 +116,7 @@ páginas novas; a correção do que já está no ar é escopo de F4.1/G-series, 
 |---|---|
 | **URL** | `/pilates` |
 | **Title** (54 car.) | Pilates para Gestantes e Pós-Parto \| PELVIE Brooklin SP |
-| **Meta description** (155 car.) | Pilates conduzido por fisioterapeuta, em grupos reduzidos. Para gestantes, pós-parto e diástase abdominal. Brooklin, São Paulo. Agende sua aula experimental. |
+| **Meta description** (147 car.) | Pilates com fisioterapeuta, em grupos reduzidos. Para gestantes, pós-parto e diástase abdominal. Brooklin, São Paulo. Agende sua aula experimental. |
 | **H1** | Pilates em São Paulo |
 | **Mensagem WhatsApp** (todos os CTAs da página) | `Olá! Gostaria de agendar uma aula experimental de Pilates. Estou buscando a clínica porque…` |
 
