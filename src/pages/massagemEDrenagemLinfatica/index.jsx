@@ -27,9 +27,9 @@ import thipphane from "../../assets/img/webp/thipphane.webp";
 import whatsappGreen from "../../assets/img/svgs/wppGreen.svg";
 import whatsappBranco from "../../assets/img/svgs/whatsappBranco.svg";
 
-const WHATSAPP_MESSAGE =
+export const WHATSAPP_MESSAGE =
   "Olá! Gostaria de agendar um horário de Massagem ou Drenagem Linfática. Estou buscando a clínica porque…";
-const WHATSAPP_HREF = `https://wa.me/+5511913112992?text=${WHATSAPP_MESSAGE}`;
+export const WHATSAPP_HREF = `https://wa.me/+5511913112992?text=${WHATSAPP_MESSAGE}`;
 
 // Texto-base de docs/seo-landing-pages/dados-por-pagina.md (seção 4, pronto,
 // briefing 6.4), desacordeonizado a partir do bloco "Massagem Relaxante e

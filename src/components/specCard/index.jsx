@@ -17,7 +17,7 @@ const SpecCard = ({ h3, p, img, span, id }) => {
         <div className="specCard">
           <img
             src={img}
-            alt="foto da dra.michelle"
+            alt={`foto da dra. ${h3}`}
             width="270"
             height="435"
             style={{

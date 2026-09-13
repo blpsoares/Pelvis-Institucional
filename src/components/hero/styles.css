@@ -55,15 +55,43 @@
 }
 @media (max-width: 1000px) {
   .hero {
-    grid-template-columns: 1fr 30%;
-    align-content: start;
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  /* .bgHero não tem mais max-height fixo (ver abaixo), então sua altura
+     passa a seguir o conteúdo de .hero. Sem isso, min-height:100vh do
+     .hero (regra base, acima) estourava a altura de .bgHero e deixava
+     texto branco fora da área com o overlay roxo — invisível sobre fundo
+     branco. O `display:contents` promove span/h1/p a itens diretos de
+     .hero para poder intercalar o CTA (heroCta, irmão do div) entre o H1
+     e o parágrafo via `order`: com 90–130 palavras no parágrafo, o CTA
+     não cabe na primeira dobra a 390x844 se vier depois do texto (R12). */
+  .hero > div {
+    display: contents;
+  }
+
+  .hero > div > span {
+    order: 1;
+  }
+
+  .hero > div > h1 {
+    order: 2;
+  }
+
+  .heroCta {
+    order: 3;
+  }
+
+  .hero > div > p {
+    order: 4;
   }
 
   .bgHero {
     position: relative;
     z-index: 0;
-    min-height: 70vh !important;
-    max-height: 70vh !important;
+    min-height: 70vh;
   }
 
   .bgHero::after {
@@ -87,10 +115,6 @@
     font-size: 1.8rem;
   }
 
-  .hero div {
-    margin: 0 auto;
-  }
-
   .hero h1 {
     color: var(--branco) !important;
   }
@@ -105,14 +129,8 @@
   }
 }
 @media (max-width: 520px) {
-  .hero {
-    display: flex;
-    align-items: start;
-  }
-
   .bgHero {
-    min-height: 45vh !important;
-    max-height: 45vh !important;
+    min-height: 45vh;
   }
 
   .hero div > span {
