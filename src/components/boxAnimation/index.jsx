@@ -18,6 +18,12 @@ const BoxAnimation = ({ animation, addClass, children }) => {
       });
     };
 
+    // F6.4: sem isso, um item que já nasce dentro da dobra (ex.: o H2 logo
+    // abaixo do hero curto da /pilates) ficava opacity:0 para sempre até o
+    // usuário rolar a página — animeScroll só rodava no evento "scroll",
+    // nunca na carga. Isso criava um vão em branco (o elemento ocupa espaço
+    // no layout, só não aparece) entre o hero e o próximo conteúdo visível.
+    animeScroll();
     window.addEventListener("scroll", animeScroll);
 
     // Remova o listener de scroll quando o componente for desmontado

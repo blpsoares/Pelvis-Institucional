@@ -85,6 +85,26 @@
     order: 3;
   }
 
+  /* F6.4 — o botão usava width:max-content (definido no styles.css de cada
+     página, mesma especificidade de classe) para caber numa única linha.
+     Com o texto mais longo da /pilates ("Agendar aula experimental pelo
+     WhatsApp"), o max-content passa da largura da tela: o botão ficava
+     centralizado e maior que o viewport, sangrando pros dois lados — sem
+     gerar scroll horizontal (html tem overflow-x:hidden), por isso a
+     medição de overflow não pegava, mas visualmente colava nas duas bordas
+     e cortava os cantos arredondados. `.hero > .heroCta` (especificidade
+     maior que o `.heroCta` da página, então vence não importa a ordem de
+     import) faz o botão ocupar exatamente a mesma faixa (mesmo respiro
+     lateral) que o rótulo/H1/parágrafo — filhos do mesmo .hero, com o
+     mesmo padding herdado do .container — em vez de depender do texto
+     caber numa largura arbitrária; o texto quebra em 2 linhas centralizadas
+     se precisar, mas nunca 4 (o bug original da F6.1) nem sangra pra fora. */
+  .hero > .heroCta {
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+
   .hero > div > p {
     order: 4;
   }
@@ -108,14 +128,26 @@
      mesmo no pixel mais claro da foto (o jaleco branco, ~rgb(219,215,211)) —
      sem esse piso o parágrafo, que se estende por baixo de boa parte da
      imagem em páginas com texto mais longo, perdia contraste (medido 1.6:1
-     em alguns trechos). */
+     em alguns trechos).
+     Os últimos dois stops (80%->100%) são a correção da emenda visível: a
+     1ª versão terminava em rgba(40,12,58,0.55) — um roxo acinzentado
+     translúcido bem diferente do --roxo2 opaco usado como fundo sólido
+     logo abaixo, criando um corte seco exatamente onde a imagem acaba
+     (em páginas com parágrafo longo, isso caía no meio de uma frase).
+     Agora o stop de 100% é rgba(135,78,157,1) — --roxo2 já opaco, byte a
+     byte igual ao background-color abaixo — e o CSS interpola cor+alpha
+     linearmente entre 80% e 100%; contraste medido nessa faixa fica entre
+     5,2:1 e 6,3:1 (nunca cai), então a transição physical dissolve a foto
+     no fundo sólido sem nenhuma emenda visível E sem violar o piso de
+     legibilidade. */
   .bgHero {
     min-height: 70vh;
     background-image: linear-gradient(
         180deg,
         rgba(40, 12, 58, 0.62) 0%,
-        rgba(40, 12, 58, 0.55) 60%,
-        rgba(40, 12, 58, 0.55) 100%
+        rgba(40, 12, 58, 0.55) 55%,
+        rgba(40, 12, 58, 0.55) 80%,
+        rgba(135, 78, 157, 1) 100%
       ),
       var(--hero-bg-mobile, var(--hero-bg));
     background-size: 100% auto, 100% auto;
