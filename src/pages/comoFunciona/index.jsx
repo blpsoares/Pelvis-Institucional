@@ -12,6 +12,7 @@ import BoxAnimation from "../../components/boxAnimation";
 
 import CtaCard from "../../components/ctaCard";
 import EspecialidadesCard from "../../components/EspecialidadesCard";
+import LocationBlock from "../../components/locationBlock";
 
 //Fotos
 import fisioPelvica from "../../assets/img/webp/especialidadeMobile1.webp";
@@ -35,7 +36,7 @@ const ComoFunciona = () => {
         <title>Como Funciona o Atendimento | PELVIE Fisioterapia Pélvica</title>
         <meta
           name="description"
-          content="Entenda como funciona o atendimento na PELVIE, da avaliação inicial ao plano de tratamento personalizado, no Brooklin, São Paulo."
+          content="Entenda como funciona o atendimento na PELVIE, da avaliação inicial ao plano de tratamento personalizado, no Brooklin, São Paulo. Agende sua avaliação."
         />
         <link
           rel="canonical"
@@ -266,6 +267,10 @@ const ComoFunciona = () => {
           </BoxAnimation>
         </div>
       </Container>
+      <LocationBlock>
+        Rua James Watt, 142, Sala 42, Brooklin, São Paulo - SP CEP 04576-050
+      </LocationBlock>
+
       <Container>
         <CtaCard
           googleBtn={true}

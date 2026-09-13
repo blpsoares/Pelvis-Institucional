@@ -4,8 +4,10 @@ import { useState } from "react";
 
 const Header = () => {
   const [openMenu, setOpenMenu] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
 
   function handleClick() {
+    setHasInteracted(true);
     setOpenMenu((value) => !value);
   }
 
@@ -16,7 +18,7 @@ const Header = () => {
         type="checkbox"
         checked={openMenu}
         className="btnMenu"
-        onClick={handleClick}
+        onChange={handleClick}
         id="menuMobile"
       />
 
@@ -26,7 +28,11 @@ const Header = () => {
         <span className="line"></span>
       </div>
 
-      <Menu openMenu={openMenu} setOpenMenu={setOpenMenu} />
+      <Menu
+        openMenu={openMenu}
+        setOpenMenu={setOpenMenu}
+        hasInteracted={hasInteracted}
+      />
     </>
   );
 };

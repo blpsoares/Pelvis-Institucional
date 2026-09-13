@@ -21,7 +21,7 @@ const tratamentosLinks = [
   },
 ];
 
-const Menu = ({ openMenu, setOpenMenu }) => {
+const Menu = ({ openMenu, setOpenMenu, hasInteracted }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
   function closeMenu() {
     setOpenMenu(false);
@@ -138,7 +138,9 @@ const Menu = ({ openMenu, setOpenMenu }) => {
       style={{
         background: scrollPosition === 0 ? "var(--roxo5)" : "var(--roxo7)",
       }}
-      className={`${openMenu ? "header" : "headerClosed"}`}
+      className={`${
+        openMenu ? "header" : hasInteracted ? "headerClosed" : "headerClosedInitial"
+      }`}
     >
       <div className="headerContent mainContent">
         <img
