@@ -10,6 +10,7 @@ const Hero = ({
   titleSpan,
   pText,
   imgBg,
+  imgBgMobile,
   bgClass = "",
   children,
 }) => {
@@ -18,7 +19,11 @@ const Hero = ({
       mainClass="hero"
       sectionClass={`bgHero ${bgClass}`}
       style={{
-        backgroundImage: `url(${imgBg})`,
+        // F6.4: --hero-bg-mobile só existe quando a página passa imgBgMobile;
+        // o CSS troca para ela abaixo de 1001px (ver styles.css), com fallback
+        // para a mesma imagem do desktop se a página não passar uma versão mobile.
+        "--hero-bg": `url(${imgBg})`,
+        ...(imgBgMobile ? { "--hero-bg-mobile": `url(${imgBgMobile})` } : {}),
       }}
     >
       <div>
