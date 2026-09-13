@@ -21,6 +21,35 @@ RewriteRule ^QuemSomos/?$ https://www.pelviefisioterapia.com.br/quem-somos [R=30
 RewriteRule ^Tratamento/?$ https://www.pelviefisioterapia.com.br/tratamento [R=301,L]
 RewriteRule ^ComoFunciona/?$ https://www.pelviefisioterapia.com.br/como-funciona [R=301,L]
 
+# HTTPS + host canonico (F6.3). TEM DE vir antes das regras -f/-d e de URL
+# limpa abaixo: elas terminam em [L] e o Apache para nelas para toda / , toda
+# pagina/arquivo real e todo arquivo estatico, entao o redirect nunca era
+# alcancado (so uma URL inexistente chegava nele) e o site inteiro era servido
+# em HTTP puro. So fica depois das 3 regras kebab-case acima de proposito: elas
+# ja mandam direto para o host/caminho https final em 1 salto (URL antiga ->
+# https), e so entram nessa ordem geral quem nao bateu em nenhuma delas.
+#
+# Duas regras, nesta ordem, para nunca encadear 2 saltos:
+#  1) host diferente de www -> destino fixo https://www... (cobre tanto HTTP
+#     quanto HTTPS no apex sem www, mandando direto pro destino final em 1
+#     salto so, sem passar por um HTTPS-sem-www intermediario).
+#  2) host ja e www mas a porta e 80 -> so falta trocar HTTP por HTTPS.
+# Uma request HTTP sem www cai so na regra 1 (que ja entrega https+www),
+# nunca cai tambem na regra 2 -- por isso nao ha cadeia.
+#
+# A condicao usa %{SERVER_PORT} 80 (e NAO %{HTTPS} off) de proposito: e o que
+# hoje distingue corretamente HTTP de HTTPS atras do nginx deste servidor --
+# comprovado em producao (HTTPS responde 200 sem redirecionar). Se o nginx
+# um dia passar a terminar TLS e repassar ao Apache por HTTP, SERVER_PORT
+# tambem apareceria 80 nas requisicoes que chegaram em HTTPS, e isso viraria
+# loop infinito. NAO trocar essa condicao sem provar antes que a alternativa
+# funciona atras deste nginx especifico.
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.*)$ https://www.pelviefisioterapia.com.br/$1 [R=301,L]
+
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://www.pelviefisioterapia.com.br/$1 [R=301,L]
+
 # Arquivos e diretorios que existem fisicamente (assets/*, *.html gerados, etc.) passam direto.
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
@@ -31,7 +60,4 @@ RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.*?)/?$ $1.html [L]
 
 # Nao existe arquivo nem URL limpa correspondente: sem rewrite, cai no 404 real acima.
-
-RewriteCond %{SERVER_PORT} 80
-RewriteRule ^(.*)$ https://www.pelviefisioterapia.com.br/$1 [R=301,L]
 ##### LOCAWEB - NAO REMOVER #####
