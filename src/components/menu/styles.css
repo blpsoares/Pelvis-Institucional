@@ -110,6 +110,96 @@
   left: -2px;
   top: 45%;
 }
+/* --- Submenu "Tratamentos" (desktop) --- */
+.navDropdown {
+  position: relative;
+}
+.navDropdownTrigger {
+  display: flex;
+  align-items: center;
+}
+/* Encosta o gatilho no rótulo sem sobrepor: o <a> herda position:relative de
+   .navMenu a, então qualquer sobreposição deixa o link por cima do botão e a
+   borda do ícone passa a navegar para /Tratamento em vez de abrir a lista. */
+.navDropdownTrigger > a {
+  padding-right: 0.5rem;
+}
+/* Sobrescreve o `button` global de index.css (fundo roxo + border-radius 3rem),
+   incluindo o :hover, que tem especificidade maior que uma classe sozinha. */
+.navDropdownToggle,
+.navDropdownToggle:hover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+  color: var(--branco);
+  padding: 3rem 1.2rem;
+  /* Alvo em px, não rem: a raiz encolhe com a viewport e o alvo de toque não
+     deve encolher junto. */
+  min-width: 32px;
+}
+/* index.css tem um `span { color: var(--cinza) }` global, e regra direta vence a
+   herança do botão — sem isto a seta fica cinza escuro, quase invisível sobre o
+   roxo do menu mobile. */
+.navDropdownChevron {
+  color: var(--branco);
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 0.2s ease-in-out;
+}
+.navDropdownOpen .navDropdownChevron {
+  transform: translateY(2px) rotate(-135deg);
+}
+.navDropdownPanel {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 27rem;
+  padding: 1rem 0;
+  background-color: var(--roxo2);
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  z-index: 120;
+}
+.navDropdownPanel[hidden] {
+  display: none;
+}
+.navMenu .navDropdownPanel a {
+  display: block;
+  width: 100%;
+  padding: 1.2rem 2.5rem;
+  font-size: 1.5rem;
+  color: var(--branco);
+  white-space: nowrap;
+  transition: background-color 0.2s ease-in-out;
+}
+/* O marcador redondo de .navMenu a e a linha divisória do mobile não fazem
+   sentido dentro do painel. */
+.navDropdownPanel a::before,
+.navDropdownPanel a::after {
+  content: none !important;
+}
+.navMenu .navDropdownPanel a:hover,
+.navMenu .navDropdownPanel a.active {
+  background-color: var(--roxo1);
+  color: var(--branco);
+}
+.navDropdownToggle:focus-visible,
+.navDropdownPanel a:focus-visible,
+.navMenu a:focus-visible {
+  outline: 2px solid var(--verde1);
+  outline-offset: -2px;
+}
+
 @media (max-width: 1000px) {
   .header,
   .headerContent {
@@ -137,6 +227,9 @@
     gap: 2rem;
     height: 100%;
     background-color: var(--roxo2);
+    /* Com o submenu "Tratamentos" aberto o painel passa de 667px de altura
+       (iPhone SE/8) e o bloco de atendimento/endereço ficava inalcançável. */
+    overflow-y: auto;
   }
   .navMenu {
     flex-direction: column;
@@ -247,6 +340,41 @@
     left: -10px;
     top: 38%;
   }
+
+  /* --- Submenu "Tratamentos" (menu mobile) --- */
+  .navDropdown {
+    position: static;
+    width: 70%;
+  }
+  .navDropdownTrigger > a {
+    flex: 1;
+    width: 100% !important;
+  }
+  .navDropdownToggle {
+    /* Alvo de toque de 44px, o mínimo recomendado — cabe na altura que a linha
+       do item já tem, então não muda o ritmo da lista. */
+    padding: 1rem;
+    min-width: 44px;
+    min-height: 44px;
+    flex-shrink: 0;
+  }
+  .navDropdownPanel {
+    position: static;
+    min-width: 0;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    background-color: transparent;
+    border-left: 1px solid var(--roxo1);
+    border-radius: 0;
+    box-shadow: none;
+    margin-left: 1rem;
+  }
+  .navMenu .navDropdownPanel a {
+    width: 100%;
+    padding: 0.9rem 1rem !important;
+    font-size: 1.4rem;
+    white-space: normal;
+    border-radius: 0.5rem;
+  }
 }
 @media (max-width: 600px) {
   .navMenu a {
@@ -293,5 +421,13 @@
   }
   .buttonsFooterMenu a {
     font-size: 1.3rem;
+  }
+
+  .navDropdown {
+    width: 100%;
+  }
+  .navMenu .navDropdownPanel a {
+    padding: 1.1rem 1rem !important;
+    font-size: 1.5rem;
   }
 }

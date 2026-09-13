@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import Container from "../container";
 import "./styles.css";
@@ -9,12 +10,13 @@ const Hero = ({
   titleSpan,
   pText,
   imgBg,
+  bgClass = "",
   children,
 }) => {
   return (
     <Container
       mainClass="hero"
-      sectionClass="bgHero"
+      sectionClass={`bgHero ${bgClass}`}
       style={{
         backgroundImage: `url(${imgBg})`,
       }}
