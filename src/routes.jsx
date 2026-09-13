@@ -19,9 +19,9 @@ const routes = [
     Component: Layout,
     children: [
       { index: true, Component: Home },
-      { path: "QuemSomos", Component: QuemSomos },
-      { path: "Tratamento", Component: Tratamento },
-      { path: "ComoFunciona", Component: ComoFunciona },
+      { path: "quem-somos", Component: QuemSomos },
+      { path: "tratamento", Component: Tratamento },
+      { path: "como-funciona", Component: ComoFunciona },
       { path: "fisioterapia-pelvica", Component: FisioterapiaPelvica },
       { path: "acupuntura", Component: Acupuntura },
       { path: "pilates", Component: Pilates },

@@ -349,7 +349,7 @@ const Acupuntura = () => {
             sessões individual, ajustado conforme sua evolução e seus
             objetivos ao longo do tratamento.
           </p>
-          <NavLink to="/ComoFunciona" className="ctaBtn2">
+          <NavLink to="/como-funciona" className="ctaBtn2">
             Veja como funciona o atendimento
           </NavLink>
         </BoxAnimation>
@@ -433,7 +433,7 @@ const Acupuntura = () => {
             />
           </BoxAnimation>
         </div>
-        <NavLink to="/QuemSomos" className="ctaBtn2 acupunturaEquipeCta">
+        <NavLink to="/quem-somos" className="ctaBtn2 acupunturaEquipeCta">
           Saiba mais sobre a PELVIE
         </NavLink>
       </Container>

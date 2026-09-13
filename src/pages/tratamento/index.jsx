@@ -13,6 +13,7 @@ import Container from "../../components/container";
 import Accordion from "../../components/accordion";
 import BoxAnimation from "../../components/boxAnimation";
 import CtaCard from "../../components/ctaCard";
+import LocationBlock from "../../components/locationBlock";
 
 //Fotos
 import michele from "../../assets/img/webp/michelle.webp";
@@ -40,7 +41,7 @@ const Tratamento = () => {
 				/>
 				<link
 					rel="canonical"
-					href="https://www.pelviefisioterapia.com.br/Tratamento"
+					href="https://www.pelviefisioterapia.com.br/tratamento"
 				/>
 			</Head>
 			<MedicalBusinessSchema />
@@ -871,10 +872,14 @@ const Tratamento = () => {
 						/>
 					</BoxAnimation>
 				</div>
-				<NavLink to="/QuemSomos" className="ctaBtn2 tratamentosCta">
+				<NavLink to="/quem-somos" className="ctaBtn2 tratamentosCta">
 					Saiba mais sobre a PELVIE
 				</NavLink>
 			</Container>
+
+			<LocationBlock>
+				Rua James Watt, 142, Sala 42, Brooklin, São Paulo - SP CEP 04576-050
+			</LocationBlock>
 
 			<Container>
 				<CtaCard

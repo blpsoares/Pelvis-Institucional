@@ -12,6 +12,7 @@ import BoxAnimation from "../../components/boxAnimation";
 
 import CtaCard from "../../components/ctaCard";
 import EspecialidadesCard from "../../components/EspecialidadesCard";
+import LocationBlock from "../../components/locationBlock";
 
 //Fotos
 import fisioPelvica from "../../assets/img/webp/especialidadeMobile1.webp";
@@ -35,11 +36,11 @@ const ComoFunciona = () => {
         <title>Como Funciona o Atendimento | PELVIE Fisioterapia Pélvica</title>
         <meta
           name="description"
-          content="Entenda como funciona o atendimento na PELVIE, da avaliação inicial ao plano de tratamento personalizado, no Brooklin, São Paulo."
+          content="Entenda como funciona o atendimento na PELVIE, da avaliação inicial ao plano de tratamento personalizado, no Brooklin, São Paulo. Agende sua avaliação."
         />
         <link
           rel="canonical"
-          href="https://www.pelviefisioterapia.com.br/ComoFunciona"
+          href="https://www.pelviefisioterapia.com.br/como-funciona"
         />
       </Head>
       <MedicalBusinessSchema />
@@ -217,7 +218,7 @@ const ComoFunciona = () => {
               aText="Saiba Mais"
               img={fisioPelvica}
               altImg={"Foto da Dra. Juliana com uma paciente"}
-              href="/Tratamento"
+              href="/tratamento"
             >
               <p>
                 É uma especialidade da fisioterapia que busca tratar e prevenir
@@ -235,7 +236,7 @@ const ComoFunciona = () => {
               aText="Saiba Mais"
               img={acupuntura}
               altImg={"Foto mostrando o acupunturismo"}
-              href="/Tratamento"
+              href="/tratamento"
             >
               <p>
                 É uma especialidade da Medicina Tradicional Chinesa que tem foco
@@ -252,7 +253,7 @@ const ComoFunciona = () => {
               aText="Saiba Mais"
               img={pilates}
               altImg={"Foto da Dra. Juliana dando aula de pilates"}
-              href="/Tratamento"
+              href="/tratamento"
             >
               <p>
                 É um método de exercícios que visa trabalhar a conexão entre
@@ -266,6 +267,10 @@ const ComoFunciona = () => {
           </BoxAnimation>
         </div>
       </Container>
+      <LocationBlock>
+        Rua James Watt, 142, Sala 42, Brooklin, São Paulo - SP CEP 04576-050
+      </LocationBlock>
+
       <Container>
         <CtaCard
           googleBtn={true}

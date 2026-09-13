@@ -130,7 +130,7 @@ const Home = () => {
 							aText="Saiba Mais"
 							img={fisioPelvica}
 							altImg={"Foto da Dra. Juliana com uma paciente"}
-							href="/Tratamento"
+							href="/tratamento"
 						>
 							<p>
 								É uma especialidade da fisioterapia que busca tratar e prevenir
@@ -148,7 +148,7 @@ const Home = () => {
 							aText="Saiba Mais"
 							img={acupuntura}
 							altImg={"Foto mostrando o acupunturismo"}
-							href="/Tratamento"
+							href="/tratamento"
 						>
 							<p>
 								É uma especialidade da Medicina Tradicional Chinesa que tem foco
@@ -165,7 +165,7 @@ const Home = () => {
 							aText="Saiba Mais"
 							img={pilates}
 							altImg={"Foto da Dra. Juliana dando aula de pilates"}
-							href="/Tratamento"
+							href="/tratamento"
 						>
 							<p>
 								É um método de exercícios que visa trabalhar a conexão entre

@@ -14,6 +14,7 @@ import Card from "../../components/card";
 import BoxAnimation from "../../components/boxAnimation";
 import Curriculum from "../../components/curriculum";
 import CtaCard from "../../components/ctaCard";
+import LocationBlock from "../../components/locationBlock";
 
 // Hooks
 import { lazy, Suspense } from "react";
@@ -37,11 +38,11 @@ const QuemSomos = () => {
 				<title>Quem Somos | PELVIE Fisioterapia Pélvica no Brooklin</title>
 				<meta
 					name="description"
-					content="Conheça a equipe de fisioterapeutas especializadas da PELVIE, clínica de fisioterapia pélvica funcional no Brooklin, São Paulo."
+					content="Conheça a equipe de fisioterapeutas especializadas da PELVIE, clínica de fisioterapia pélvica funcional no Brooklin, São Paulo. Agende sua avaliação."
 				/>
 				<link
 					rel="canonical"
-					href="https://www.pelviefisioterapia.com.br/QuemSomos"
+					href="https://www.pelviefisioterapia.com.br/quem-somos"
 				/>
 			</Head>
 			<MedicalBusinessSchema />
@@ -360,6 +361,10 @@ const QuemSomos = () => {
 					</div>
 				</Curriculum>
 			</Container>
+			<LocationBlock>
+				Rua James Watt, 142, Sala 42, Brooklin, São Paulo - SP CEP 04576-050
+			</LocationBlock>
+
 			<Container>
 				<CtaCard
 					googleBtn={true}

@@ -9,7 +9,7 @@ import insta from "../../assets/img/svgs/instagram.svg";
 import whats from "../../assets/img/svgs/whatsapp.svg";
 
 // Landing pages de serviço (F1.x–F3.x). "Tratamentos" continua sendo um link real
-// para /Tratamento (página guarda-chuva institucional, R24) — a seta ao lado é o
+// para /tratamento (página guarda-chuva institucional, R24) — a seta ao lado é o
 // único controle que abre/fecha esta lista.
 const tratamentosLinks = [
   { to: "/fisioterapia-pelvica", label: "Fisioterapia Pélvica" },
@@ -21,7 +21,7 @@ const tratamentosLinks = [
   },
 ];
 
-const Menu = ({ openMenu, setOpenMenu }) => {
+const Menu = ({ openMenu, setOpenMenu, hasInteracted }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
   function closeMenu() {
     setOpenMenu(false);
@@ -138,7 +138,9 @@ const Menu = ({ openMenu, setOpenMenu }) => {
       style={{
         background: scrollPosition === 0 ? "var(--roxo5)" : "var(--roxo7)",
       }}
-      className={`${openMenu ? "header" : "headerClosed"}`}
+      className={`${
+        openMenu ? "header" : hasInteracted ? "headerClosed" : "headerClosedInitial"
+      }`}
     >
       <div className="headerContent mainContent">
         <img
@@ -158,7 +160,7 @@ const Menu = ({ openMenu, setOpenMenu }) => {
           <NavLink to="/" end onClick={closeMenu}>
             Página Inicial
           </NavLink>
-          <NavLink to="QuemSomos" onClick={closeMenu}>
+          <NavLink to="quem-somos" onClick={closeMenu}>
             Quem Somos
           </NavLink>
           <div
@@ -170,7 +172,7 @@ const Menu = ({ openMenu, setOpenMenu }) => {
           >
             <div className="navDropdownTrigger">
               <NavLink
-                to="/Tratamento"
+                to="/tratamento"
                 className={({ isActive }) =>
                   isActive || hasActiveChild ? "active" : ""
                 }
@@ -210,7 +212,7 @@ const Menu = ({ openMenu, setOpenMenu }) => {
               ))}
             </ul>
           </div>
-          <NavLink to="ComoFunciona" onClick={closeMenu}>
+          <NavLink to="como-funciona" onClick={closeMenu}>
             Como Funciona
           </NavLink>
         </nav>
