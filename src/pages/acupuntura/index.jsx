@@ -26,9 +26,9 @@ import thipphane from "../../assets/img/webp/thipphane.webp";
 import whatsappGreen from "../../assets/img/svgs/wppGreen.svg";
 import whatsappBranco from "../../assets/img/svgs/whatsappBranco.svg";
 
-const WHATSAPP_MESSAGE =
+export const WHATSAPP_MESSAGE =
   "Olá! Gostaria de agendar uma sessão de Acupuntura. Estou buscando a clínica porque…";
-const WHATSAPP_HREF = `https://wa.me/+5511913112992?text=${WHATSAPP_MESSAGE}`;
+export const WHATSAPP_HREF = `https://wa.me/+5511913112992?text=${WHATSAPP_MESSAGE}`;
 
 // Títulos, âncoras e rótulos dos blocos da seção principal, num lugar só.
 // Diferente de /pilates e /massagem-e-drenagem-linfatica, aqui os blocos não
