@@ -562,7 +562,7 @@
    conteúdo principal. As 17 condições continuam inteiras no HTML servido, mas
    a pessoa passa a ver UMA por vez. Decisão explícita do usuário na v3, tomada
    depois de ser avisado de que o Google Ads avalia o que se vê e não o que está
-   no HTML, e de que é o mesmo padrão da /Tratamento que originou a nota
+   no HTML, e de que é o mesmo padrão da /tratamento que originou a nota
    "Abaixo da média". Registrado também no comentário da task.
 
    Todo o bloco vive dentro de @supports selector(:has(*)): num navegador sem

@@ -41,7 +41,7 @@ const Tratamento = () => {
 				/>
 				<link
 					rel="canonical"
-					href="https://www.pelviefisioterapia.com.br/Tratamento"
+					href="https://www.pelviefisioterapia.com.br/tratamento"
 				/>
 			</Head>
 			<MedicalBusinessSchema />
@@ -872,7 +872,7 @@ const Tratamento = () => {
 						/>
 					</BoxAnimation>
 				</div>
-				<NavLink to="/QuemSomos" className="ctaBtn2 tratamentosCta">
+				<NavLink to="/quem-somos" className="ctaBtn2 tratamentosCta">
 					Saiba mais sobre a PELVIE
 				</NavLink>
 			</Container>

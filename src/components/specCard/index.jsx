@@ -53,7 +53,7 @@ const SpecCard = ({ h3, p, img, span, id }) => {
           </button>
         </div>
         {!openCard && (
-          <NavLink to={`/QuemSomos#${id}`}>
+          <NavLink to={`/quem-somos#${id}`}>
             <div className="doctorName">
               <h3>
                 <span>Dra. </span>

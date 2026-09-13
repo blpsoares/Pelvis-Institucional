@@ -250,7 +250,7 @@ const MassagemEDrenagemLinfatica = () => {
             gestação. Cada sessão é realizada em ambiente calmo e reservado,
             com atenção individual do início ao fim do atendimento.
           </p>
-          <NavLink to="/ComoFunciona" className="ctaBtn2">
+          <NavLink to="/como-funciona" className="ctaBtn2">
             Veja como funciona o atendimento
           </NavLink>
         </BoxAnimation>
@@ -329,7 +329,7 @@ const MassagemEDrenagemLinfatica = () => {
             />
           </BoxAnimation>
         </div>
-        <NavLink to="/QuemSomos" className="ctaBtn2 massagemEquipeCta">
+        <NavLink to="/quem-somos" className="ctaBtn2 massagemEquipeCta">
           Saiba mais sobre a PELVIE
         </NavLink>
       </Container>

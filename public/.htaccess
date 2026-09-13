@@ -8,12 +8,25 @@ RewriteBase /
 # preservando o status HTTP 404 (Apache mantém o status original ao usar ErrorDocument).
 ErrorDocument 404 /404.html
 
+# 301: rotas institucionais renomeadas de camelCase para kebab-case (F4.2).
+# Precisa vir antes da regra de URL limpa abaixo, senao a URL antiga cairia
+# direto no 404 real (o build SSG agora gera quem-somos.html / tratamento.html /
+# como-funciona.html, nao mais QuemSomos.html / Tratamento.html / ComoFunciona.html).
+# Redireciona direto para o host https final (evita 2 saltos com o redirect
+# HTTP->HTTPS mais abaixo). Apache no Linux e case-sensitive: so cobre a
+# grafia exata que estava indexada/linkada (a do sitemap antigo), sem [NC] --
+# variacoes de caixa nunca usadas (ex.: /quemsomos) nao foram registradas em
+# lugar nenhum e nao geram 301 aqui.
+RewriteRule ^QuemSomos/?$ https://www.pelviefisioterapia.com.br/quem-somos [R=301,L]
+RewriteRule ^Tratamento/?$ https://www.pelviefisioterapia.com.br/tratamento [R=301,L]
+RewriteRule ^ComoFunciona/?$ https://www.pelviefisioterapia.com.br/como-funciona [R=301,L]
+
 # Arquivos e diretorios que existem fisicamente (assets/*, *.html gerados, etc.) passam direto.
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# URL limpa -> arquivo .html gerado pelo build SSG (ex: /Tratamento -> /Tratamento.html)
+# URL limpa -> arquivo .html gerado pelo build SSG (ex: /tratamento -> /tratamento.html)
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.*?)/?$ $1.html [L]
 

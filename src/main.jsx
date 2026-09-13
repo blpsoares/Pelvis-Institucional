@@ -8,7 +8,7 @@ import routes from "./routes.jsx";
 // não bate com a rota renderizada no servidor e quebra a hidratação (React
 // recupera trocando a página inteira pela rota "*"). Confirmado que ainda
 // reproduz mesmo com o .htaccess funcionando (testado sem este trecho via
-// Apache real: /Tratamento.html sozinho troca pra "Não foi possível encontrar a
+// Apache real: /tratamento.html sozinho troca pra "Não foi possível encontrar a
 // página" pouco depois do JS carregar). Mantido como rede de segurança para essa
 // entrada direta; a navegação via NavLink já usa só URL limpa.
 if (typeof window !== "undefined") {
