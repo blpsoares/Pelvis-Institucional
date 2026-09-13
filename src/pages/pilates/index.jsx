@@ -17,6 +17,7 @@ import LeadParagraph from "../../components/leadParagraph";
 import slugAncora from "../../utils/slugAncora";
 
 import heroImg from "../../assets/img/webp/bgTratamentosDesktop.webp";
+import heroImgMobile from "../../assets/img/webp/bgHeroTratamentoMobile.webp";
 import juliana from "../../assets/img/webp/juliana.webp";
 import thipphane from "../../assets/img/webp/thipphane.webp";
 import isadora from "../../assets/img/webp/isadora.webp";
@@ -141,11 +142,17 @@ const Pilates = () => {
         {/* F6.2 — imagem do hero é background-image (ver src/components/hero),
             então não herda fetchpriority de <img>; preload adianta a
             descoberta pelo preload scanner, que é o gargalo medido (~4s de
-            atraso na auditoria de aceite desta página). */}
+            atraso na auditoria de aceite desta página).
+            F6.4 — o hero mobile agora usa uma imagem retrato diferente
+            (ver src/components/hero/styles.css); preload por media query
+            para o navegador buscar só a imagem que o breakpoint atual vai
+            realmente pintar, senão o LCP mobile piora com 2 downloads. */}
         {/* eslint-disable-next-line react/no-unknown-property -- fetchpriority (minúsculo) é o
             atributo HTML real; React 18.2 já repassa props desconhecidas em minúsculo verbatim
             para o DOM, o plugin do eslint é que ainda não conhece o atributo. */}
-        <link rel="preload" as="image" fetchpriority="high" href={heroImg} />
+        <link rel="preload" as="image" fetchpriority="high" href={heroImg} media="(min-width: 1001px)" />
+        {/* eslint-disable-next-line react/no-unknown-property -- ver acima */}
+        <link rel="preload" as="image" fetchpriority="high" href={heroImgMobile} media="(max-width: 1000px)" />
       </Head>
       <MedicalBusinessSchema />
       <FaqPageSchema faqs={FAQS} />
@@ -155,6 +162,7 @@ const Pilates = () => {
         titleSpan="em São Paulo"
         pText="O que é o Pilates na PELVIE? É um método de exercícios desenvolvido por Joseph Pilates na década de 1920, que trabalha a conexão entre mente e corpo como uma unidade, melhorando a consciência corporal, a força e a mobilidade. Aqui, as aulas são conduzidas por fisioterapeuta especialista e pensadas especialmente para gestantes e mulheres no pós-parto — incluindo quem está lidando com diástase abdominal. Cada aula é individual, respeitando o momento, as queixas e os limites do corpo de cada paciente, com exercícios que aliviam dores, preparam para o parto e ajudam na recuperação depois dele."
         imgBg={heroImg}
+        imgBgMobile={heroImgMobile}
         bgClass="bgHeroOverlay"
       >
         <a href={WHATSAPP_HREF} className="ctaBtnZap heroCta" target="noreferrer">

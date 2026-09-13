@@ -16,6 +16,7 @@ import LocationBlock from "../../components/locationBlock";
 import slugAncora from "../../utils/slugAncora";
 
 import heroImg from "../../assets/img/webp/bgTratamentosDesktop.webp";
+import heroImgMobile from "../../assets/img/webp/bgHeroTratamentoMobile.webp";
 import cibele from "../../assets/img/webp/cibele.webp";
 import juliana from "../../assets/img/webp/juliana.webp";
 import laura from "../../assets/img/webp/laura.webp";
@@ -119,11 +120,17 @@ const Acupuntura = () => {
         />
         {/* F6.2 — imagem do hero é background-image (ver src/components/hero),
             então não herda fetchpriority de <img>; preload adianta a
-            descoberta pelo preload scanner. */}
+            descoberta pelo preload scanner.
+            F6.4 — o hero mobile agora usa uma imagem retrato diferente
+            (ver src/components/hero/styles.css); preload por media query
+            para o navegador buscar só a imagem que o breakpoint atual vai
+            realmente pintar, senão o LCP mobile piora com 2 downloads. */}
         {/* eslint-disable-next-line react/no-unknown-property -- fetchpriority (minúsculo) é o
             atributo HTML real; React 18.2 já repassa props desconhecidas em minúsculo verbatim
             para o DOM, o plugin do eslint é que ainda não conhece o atributo. */}
-        <link rel="preload" as="image" fetchpriority="high" href={heroImg} />
+        <link rel="preload" as="image" fetchpriority="high" href={heroImg} media="(min-width: 1001px)" />
+        {/* eslint-disable-next-line react/no-unknown-property -- ver acima */}
+        <link rel="preload" as="image" fetchpriority="high" href={heroImgMobile} media="(max-width: 1000px)" />
       </Head>
       <MedicalBusinessSchema />
       <FaqPageSchema faqs={FAQS} />
@@ -133,6 +140,7 @@ const Acupuntura = () => {
         titleSpan="em São Paulo"
         pText="O que é acupuntura? É uma especialidade da Medicina Tradicional Chinesa que atua no reequilíbrio do organismo através da estimulação de pontos específicos do corpo. Quando voltada à saúde da mulher, busca o reequilíbrio de desarmonias em suas diferentes fases da vida — no período menstrual, na menopausa, na gestação, no pré e pós-parto — sempre de forma individualizada. Na PELVIE, a acupuntura também é utilizada como recurso de estímulo à fertilidade, inclusive através do Protocolo de Paulus, aplicado antes e depois da transferência embrionária em tratamentos de Fertilização In Vitro (FIV), e no preparo do corpo para o parto, favorecendo o início do trabalho de parto de forma espontânea. O tratamento é conduzido por fisioterapeuta especializada em Acupuntura, com avaliação individual antes de qualquer sessão."
         imgBg={heroImg}
+        imgBgMobile={heroImgMobile}
         bgClass="bgHeroOverlay"
       >
         <a href={WHATSAPP_HREF} className="ctaBtnZap heroCta" target="noreferrer">
