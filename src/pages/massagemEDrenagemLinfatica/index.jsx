@@ -55,14 +55,14 @@ const SERVICOS = [
       "Sensação profunda de bem-estar e relaxamento.",
     ],
     paragraphsAfter: [
-      "A sessão é realizada por uma fisioterapeuta especializada, em um ambiente calmo, confortável e seguro.",
+      "A sessão é realizada por uma fisioterapeuta especializada, em um ambiente calmo, confortável e seguro. Permita-se esse cuidado!",
       "Muitas pacientes buscam a massagem relaxante perto de casa, no Brooklin, como uma pausa na rotina corrida de São Paulo — seja para aliviar a tensão acumulada no trabalho, seja para relaxar durante a gestação (respeitando as adaptações necessárias para gestantes), seja simplesmente para reservar um momento de autocuidado. Antes da primeira sessão, a fisioterapeuta faz uma breve avaliação — queixas, pontos de tensão e contraindicações — e ajusta a pressão e a técnica ao que faz sentido para o seu corpo naquele dia.",
     ],
   },
   {
     title: "Drenagem Linfática",
     paragraphs: [
-      "A drenagem linfática é uma técnica manual suave, indicada para estimular o sistema linfático — responsável por eliminar toxinas, líquidos retidos e resíduos metabólicos do corpo. Muito bem indicada para gestantes e outras situações clínicas.",
+      "A drenagem linfática é uma técnica manual suave, indicada para estimular o sistema linfático — responsável por eliminar toxinas, líquidos retidos e resíduos metabólicos do corpo. A drenagem linfática é muito bem indicada para gestantes e outras situações clínicas.",
     ],
     beneficiosLabel: "Benefícios da drenagem linfática:",
     beneficios: [
@@ -74,7 +74,7 @@ const SERVICOS = [
       "Relaxamento corporal e redução do estresse.",
     ],
     paragraphsAfter: [
-      "Aliada em casos de linfedema, celulite, TPM, gestação (com liberação médica) e outros quadros de acúmulo de líquidos ou inflamação leve. Realizada por fisioterapeuta especializada.",
+      "Além disso, a drenagem linfática é uma grande aliada em casos de linfedema, celulite, TPM, gestação (com liberação médica) e outros quadros que envolvem acúmulo de líquidos ou inflamação leve dos tecidos. Essa técnica é realizada por fisioterapeuta especializada, garantindo segurança, conforto e resultados reais.",
       "É comum buscar drenagem linfática pós-operatório logo após cirurgias plásticas (como lipoaspiração e abdominoplastia) para acelerar a recuperação e reduzir o inchaço, sempre com liberação do cirurgião responsável. Gestantes também recorrem à técnica — com liberação médica — para aliviar o inchaço nas pernas e nos pés, comum principalmente no fim da gestação. Na avaliação inicial, a fisioterapeuta identifica a causa do inchaço ou da retenção de líquido e define a frequência de sessões mais indicada para o seu caso, podendo combinar a drenagem com outras técnicas manuais conforme a evolução do tratamento.",
     ],
   },
