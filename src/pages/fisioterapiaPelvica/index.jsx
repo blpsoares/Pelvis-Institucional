@@ -443,7 +443,7 @@ const FisioterapiaPelvica = () => {
               img={thipphane}
               p="Fisioterapeuta e Massoterapeuta"
               span="CREFITO-3/439481-F"
-              id="Dra. Thipphane Yuka"
+              id="DraThipphane"
             />
           </BoxAnimation>
           <BoxAnimation animation="top">
@@ -452,7 +452,7 @@ const FisioterapiaPelvica = () => {
               img={isadora}
               p="Fisioterapeuta especializada em Saúde Pélvica e Obstétrica"
               span="CREFITO-3/402185-F"
-              id="Dra. Isadora Savi"
+              id="DraIsadora"
             />
           </BoxAnimation>
         </div>
