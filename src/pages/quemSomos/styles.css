@@ -179,6 +179,11 @@
   font-weight: 500;
 }
 
+/* Folga para a âncora #equipe não parar embaixo do header fixo (F6.5). */
+#equipe {
+  scroll-margin-top: var(--ancoraOffset);
+}
+
 .bgCurriculumNoPic,
 .bgCurriculum {
   min-height: 100vh;

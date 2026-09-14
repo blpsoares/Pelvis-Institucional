@@ -164,7 +164,7 @@ const QuemSomos = () => {
 			<Container sectionClass="bgTeam" />
 			<Container mainClass="professionalDescription">
 				<span className="spanLabel">Profissionais sempre atualizadas</span>
-				<h2>Conheça a nossa equipe</h2>
+				<h2 id="equipe">Conheça a nossa equipe</h2>
 			</Container>
 			<Container sectionClass="bgCurriculumNoPic" id="DraJuliana">
 				<Curriculum

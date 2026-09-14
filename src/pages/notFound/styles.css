@@ -37,7 +37,7 @@
   margin-bottom: 2rem;
 }
 
-.notFoundMessage h2 {
+.notFoundMessage h1 {
   color: var(--roxo4);
   line-height: 1;
   margin-bottom: 2rem;
@@ -151,7 +151,7 @@
 }
 
 @media (max-width: 500px) {
-  .notFoundMessage h2 {
+  .notFoundMessage h1 {
     font-size: 3.6rem;
   }
   .notFoundMessage > p {

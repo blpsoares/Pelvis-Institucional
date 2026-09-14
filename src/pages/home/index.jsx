@@ -50,10 +50,10 @@ const Home = () => {
 	return (
 		<>
 			<Head>
-				<title>PELVIE Fisioterapia Pélvica</title>
+				<title>PELVIE - Fisioterapia Pélvica Funcional | Brooklin, SP</title>
 				<meta
 					name="description"
-					content="Fisioterapia Pélvica - Acupuntura - Pilates. Acompanhamento na gestação e pós-parto. Tratamento da diástase abdominal, incontinência urinária e fecal, vaginismo, endometriose. Profissionais especializadas. Atendimento individualizado. Ambiente acolhedor."
+					content="Fisioterapia pélvica, acupuntura e pilates para incontinência, diástase, vaginismo e endometriose. Clínica no Brooklin, São Paulo. Agende sua avaliação."
 				/>
 				<link rel="canonical" href="https://www.pelviefisioterapia.com.br/" />
 			</Head>
@@ -230,7 +230,7 @@ const Home = () => {
 							img={thipphane}
 							p="Fisioterapeuta e Massoterapeuta"
 							span="CREFITO-3/439481-F"
-							id="Dra. Thipphane Yuka"
+							id="DraThipphane"
 						/>
 					</BoxAnimation>
 
@@ -240,7 +240,7 @@ const Home = () => {
 							img={isadora}
 							p="Fisioterapeuta especializada em Saúde Pélvica e Obstétrica"
 							span="CREFITO-3/402185-F"
-							id="Dra. Isadora Savi"
+							id="DraIsadora"
 						/>
 					</BoxAnimation>
 				</div>
@@ -254,7 +254,7 @@ const Home = () => {
 					</div>
 					<div className="titleCarrosselLinks">
 						<BoxAnimation animation="left">
-							<NavLink to="/equipe" className="ctaBtn1">
+							<NavLink to="/quem-somos#equipe" className="ctaBtn1">
 								Mais sobre a equipe
 							</NavLink>
 						</BoxAnimation>
