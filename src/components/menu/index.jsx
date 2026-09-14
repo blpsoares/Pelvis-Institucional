@@ -7,6 +7,10 @@ import setaBtn from "../../assets/img/svgs/setaIconMenu.svg";
 import { useEffect, useRef, useState } from "react";
 import insta from "../../assets/img/svgs/instagram.svg";
 import whats from "../../assets/img/svgs/whatsapp.svg";
+import LANDING_PAGE_WHATSAPP_HREF from "../../utils/whatsappPorRota";
+
+const DEFAULT_WHATSAPP_HREF =
+  "https://wa.me/+5511913112992?text=Olá! Gostaria de mais informações. Estou buscando a clínica porque…";
 
 // Landing pages de serviço (F1.x–F3.x). "Tratamentos" continua sendo um link real
 // para /tratamento (página guarda-chuva institucional, R24) — a seta ao lado é o
@@ -120,6 +124,8 @@ const Menu = ({ openMenu, setOpenMenu, hasInteracted }) => {
   }
 
   const hasActiveChild = tratamentosLinks.some((link) => link.to === pathname);
+  const whatsappHref =
+    LANDING_PAGE_WHATSAPP_HREF[pathname] ?? DEFAULT_WHATSAPP_HREF;
 
   useEffect(() => {
     function handleScroll() {
@@ -148,10 +154,11 @@ const Menu = ({ openMenu, setOpenMenu, hasInteracted }) => {
           src={logoBranca}
           alt="logo pelvie"
           width="150"
+          height="81"
         />
         {openMenu && (
           <div className="navigationTextMenu">
-            <img src={logoBranca} alt="logo pelvie" width="150" />
+            <img src={logoBranca} alt="logo pelvie" width="150" height="81" />
             <span>Navegação</span>
             <h3>O que você deseja fazer?</h3>
           </div>
@@ -224,20 +231,14 @@ const Menu = ({ openMenu, setOpenMenu, hasInteracted }) => {
           >
             <img src={insta} alt="logo do instagram" width="43" height="42" />
           </a>
-          <a
-            href="https://wa.me/+5511913112992?text=Olá! Gostaria de mais informações. Estou buscando a clínica porque…"
-            target="noreferrer"
-          >
+          <a href={whatsappHref} target="noreferrer">
             <img src={whats} alt="logo do whatsapp" width="43" height="42" />
           </a>
         </div>
         {openMenu && (
           <div className="footerMenuMobile">
             <div className="buttonsFooterMenu">
-              <a
-                href="https://wa.me/+5511913112992?text=Olá! Gostaria de mais informações. Estou buscando a clínica porque…"
-                target="noreferrer"
-              >
+              <a href={whatsappHref} target="noreferrer">
                 Fale Conosco
                 <img src={setaBtn} width="20" alt="seta com fundo branco" />
               </a>
