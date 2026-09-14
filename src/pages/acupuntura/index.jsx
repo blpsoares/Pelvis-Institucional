@@ -203,8 +203,15 @@ const Acupuntura = () => {
                   <li>Cólicas/irregularidades menstruais;</li>
                   <li>TPM;</li>
                   <li>Baixa libido;</li>
-                  <li>Estímulo à fertilidade;</li>
-                  <li>Preparo para gestação;</li>
+                  <li>
+                    Estímulo à fertilidade e realização do Protocolo de Paulus
+                    - aplicado antes e depois da transferência embrionária em
+                    FIV (Fertilização In Vitro);
+                  </li>
+                  <li>
+                    Gestação e preparo para o parto (favorece o início do
+                    trabalho de parto de forma espontânea);
+                  </li>
                   <li>
                     Questões emocionais, como ansiedade, depressão, síndrome do
                     pânico;
