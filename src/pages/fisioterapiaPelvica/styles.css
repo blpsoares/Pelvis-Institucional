@@ -71,6 +71,15 @@
 
 .ctaLocalizacao {
   padding: 2rem var(--pad) 4rem var(--pad);
+  text-align: center;
+}
+
+.localizacaoIntro {
+  max-width: 90rem;
+  margin: 0 auto 1.5rem auto;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: var(--cinza);
 }
 
 .faqSection {
