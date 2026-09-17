@@ -32,6 +32,10 @@ export const WHATSAPP_MESSAGE =
   "Olá! Gostaria de agendar um horário de Massagem ou Drenagem Linfática. Estou buscando a clínica porque…";
 export const WHATSAPP_HREF = `https://wa.me/+5511913112992?text=${WHATSAPP_MESSAGE}`;
 
+export const PRECO_WHATSAPP_MESSAGE =
+  "Olá! Vim pelo site e gostaria de saber os valores da Massagem e Drenagem Linfática.";
+export const PRECO_WHATSAPP_HREF = `https://wa.me/+5511913112992?text=${PRECO_WHATSAPP_MESSAGE}`;
+
 // Texto-base de docs/seo-landing-pages/dados-por-pagina.md (seção 4, pronto,
 // briefing 6.4), desacordeonizado a partir do bloco "Massagem Relaxante e
 // Drenagem Linfática" hoje em src/pages/tratamento/index.jsx (linhas
@@ -83,46 +87,41 @@ const SERVICOS = [
 // SEM rótulo curto e SEM agrupamento por família: os dois títulos já são curtos
 // e a lista tem dois itens.
 
-// FAQ PROVISÓRIA — as 6 perguntas/respostas ainda não foram entregues pela
-// cliente (subtask DEP s-f48de7337a, seguia bloqueada até o momento desta
-// subtask). Os temas abaixo vêm de docs/seo-landing-pages/dados-por-pagina.md
-// (seção 4); o texto de pergunta/resposta é um provisório razoável para não
-// travar a publicação da página, e deve ser substituído pelo texto real
-// assim que a cliente entregar (mesmo array alimenta o h3/p visível e o
-// JSON-LD FaqPageSchema).
+// FAQ OFICIAL da cliente (anexo PELVIE — Perguntas Frequentes, 11/09/2026).
+// Texto literal, palavra por palavra — não editar sem novo anexo da cliente.
+// O mesmo array alimenta o h3/p visível e o JSON-LD do FaqPageSchema (R17: o
+// texto do schema precisa ser idêntico ao renderizado).
 const FAQS = [
   {
     pergunta: "Qual a diferença entre massagem relaxante e drenagem linfática?",
     resposta:
-      "A massagem relaxante usa movimentos rítmicos e técnicas suaves para aliviar tensão muscular, estresse e ansiedade, promovendo bem-estar. Já a drenagem linfática é uma técnica manual mais específica, voltada para estimular o sistema linfático e reduzir inchaço, retenção de líquidos e apoiar a recuperação pós-operatória. As duas podem ser combinadas na mesma sessão, dependendo do seu objetivo.",
+      "A massagem relaxante trabalha a musculatura: usa movimentos mais amplos e rítmicos para soltar tensão, aliviar dor muscular e reduzir estresse e ansiedade. A drenagem linfática é um toque suave e superficial, que segue o caminho do sistema linfático para mobilizar líquido retido — indicada para inchaço, pós-operatório e retenção de líquido na gestação. A fisioterapeuta indica qual das duas faz sentido para o seu caso; às vezes, as duas.",
   },
   {
-    pergunta: "Drenagem linfática é indicada durante a gestação?",
+    pergunta: "Grávida pode fazer drenagem linfática?",
     resposta:
-      "Sim, com liberação médica. A drenagem linfática é uma aliada comum no fim da gestação, quando o inchaço nas pernas e nos pés costuma aumentar. A sessão é adaptada à fase gestacional e realizada por fisioterapeuta especializada, com técnica segura para gestantes.",
+      "Com certeza, mas é interessante que haja liberação do obstetra. O inchaço nas pernas e nos pés é uma das queixas mais comuns da gestação, principalmente no terceiro trimestre, e a drenagem alivia a sensação de peso e melhora o conforto para dormir. O posicionamento é adaptado à barriga, com apoios, e a técnica é conduzida por fisioterapeuta especializada. Pressão alta, pré-eclâmpsia ou histórico de trombose precisam ser informados antes da sessão.",
   },
   {
-    pergunta: "A drenagem linfática ajuda no pós-operatório de quais cirurgias?",
+    pergunta: "Quando posso fazer drenagem linfática depois de uma cirurgia?",
     resposta:
-      "É indicada no pós-operatório de cirurgias plásticas (como lipoaspiração e abdominoplastia) e ortopédicas, sempre com liberação do cirurgião responsável. A técnica ajuda a reduzir o inchaço e apoia uma recuperação mais confortável.",
+      "Em muitos casos a liberação vem já nos primeiros dias após o procedimento, porque a drenagem precoce ajuda a controlar o edema e o desconforto. Traga a orientação do seu médico e, se houver, o número de sessões recomendado. A técnica é adaptada à fase da cicatrização e às áreas operadas, e é realizada por fisioterapeuta.",
   },
   {
-    pergunta:
-      "Quantas sessões são necessárias para reduzir inchaço ou retenção de líquido?",
+    pergunta: "A drenagem linfática dói? Precisa apertar forte para funcionar?",
     resposta:
-      "Depende da causa do inchaço e do objetivo de cada paciente. Na avaliação inicial, a fisioterapeuta identifica o quadro e propõe a frequência de sessões mais adequada, ajustando o plano conforme a evolução.",
+      'Não. Essa é a confusão mais comum: a drenagem linfática é um toque leve e superficial, porque os vasos linfáticos ficam logo abaixo da pele. Pressão forte atrapalha justamente o que se quer estimular, além de causar desconforto ou até mesmo hematomas. O que muita gente conhece como "drenagem que dói" costuma ser massagem modeladora, que é outra técnica. Aqui a drenagem é feita na pressão correta, por fisioterapeuta.',
   },
   {
-    pergunta:
-      "Existem contraindicações para massagem relaxante ou drenagem linfática?",
+    pergunta: "Quantas sessões de drenagem linfática são necessárias?",
     resposta:
-      "Sim, algumas situações exigem avaliação prévia ou liberação médica, como infecções, tromboses, alguns quadros clínicos e determinadas fases da gestação. Por isso a sessão sempre começa com uma breve avaliação, feita por fisioterapeuta especializada, para garantir segurança.",
+      "Depende do objetivo. Para inchaço na gestação ou retenção de líquido, uma sessão por semana costuma dar conta, e o alívio é percebido já nas primeiras. No pós-operatório as sessões são mais frequentes no começo — com a frequência definida pelo seu cirurgião — e vão sendo espaçadas conforme o edema cede. Para a massagem relaxante não há número mínimo ou máximo. Temos pacientes que marcam semanalmente, outras quinzenalmente, de acordo com a necessidade.",
   },
   {
-    pergunta:
-      "Quem realiza as sessões de massagem e drenagem linfática na PELVIE?",
+    pergunta: "Quanto custa a sessão e quanto tempo dura?",
     resposta:
-      "As sessões são realizadas por fisioterapeutas especializadas, em ambiente calmo, confortável e seguro, na nossa clínica no Brooklin, São Paulo. O agendamento é feito pelo WhatsApp — é só clicar em um dos botões desta página para conversar com a nossa equipe.",
+      "Cada sessão dura uma hora e é sempre realizada por fisioterapeuta — não por esteticista. O atendimento é particular, em sessão avulsa ou dentro de um Plano de Tratamento. Para saber os valores da massagem relaxante e da drenagem é só chamar no WhatsApp, que a nossa equipe responde na hora. Caso haja encaminhamento médico com CID, emitimos nota fiscal com os dados que a sua operadora costuma exigir para o pedido de reembolso, além do relatório da fisioterapeuta.",
+    precoCta: true,
   },
 ];
 
@@ -271,18 +270,6 @@ const MassagemEDrenagemLinfatica = () => {
         </BoxAnimation>
       </Container>
 
-      <LocationBlock>
-        Rua James Watt, 142, Sala 42 — Brooklin, São Paulo/SP — CEP 04576-050
-      </LocationBlock>
-
-      <Container mainClass="ctaLocalizacao">
-        <CtaAcc
-          aText="Agendar horário pelo WhatsApp"
-          href={WHATSAPP_HREF}
-          img={whatsappGreen}
-        />
-      </Container>
-
       <Container sectionClass="bgOurTeam" mainClass="ourTeam" id="equipe">
         <span className="spanLabelLeaked">
           Atendimento empático e escuta ativa
@@ -351,16 +338,37 @@ const MassagemEDrenagemLinfatica = () => {
 
       <Container mainClass="faqSection" id="faq">
         <span className="spanLabel">Tire suas dúvidas</span>
-        <h2>Perguntas frequentes sobre massagem e drenagem linfática</h2>
+        <h2>Perguntas frequentes</h2>
         {FAQS.map((faq) => (
           <BoxAnimation animation="opacity" key={faq.pergunta}>
             <div className="faqItem">
               <h3>{faq.pergunta}</h3>
               <p>{faq.resposta}</p>
+              {faq.precoCta && (
+                <div className="faqPrecoCta">
+                  <CtaAcc
+                    aText="Consultar valores pelo WhatsApp"
+                    href={PRECO_WHATSAPP_HREF}
+                    img={whatsappGreen}
+                  />
+                </div>
+              )}
             </div>
           </BoxAnimation>
         ))}
       </Container>
+
+      <Container mainClass="ctaLocalizacao">
+        <CtaAcc
+          aText="Agendar horário pelo WhatsApp"
+          href={WHATSAPP_HREF}
+          img={whatsappGreen}
+        />
+      </Container>
+
+      <LocationBlock>
+        Rua James Watt, 142, Sala 42 — Brooklin, São Paulo/SP — CEP 04576-050
+      </LocationBlock>
 
       <Container>
         <CtaCard googleBtn={true} url={WHATSAPP_HREF}>

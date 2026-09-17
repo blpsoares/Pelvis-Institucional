@@ -32,6 +32,10 @@ export const WHATSAPP_MESSAGE =
   "Olá! Gostaria de agendar uma aula experimental de Pilates. Estou buscando a clínica porque…";
 export const WHATSAPP_HREF = `https://wa.me/+5511913112992?text=${WHATSAPP_MESSAGE}`;
 
+export const PRECO_WHATSAPP_MESSAGE =
+  "Olá! Vim pelo site e gostaria de saber os valores do Pilates.";
+export const PRECO_WHATSAPP_HREF = `https://wa.me/+5511913112992?text=${PRECO_WHATSAPP_MESSAGE}`;
+
 // Texto-base reaproveitado de src/pages/tratamento/index.jsx (bloco "Pilates",
 // hoje dentro de um Accordion) + docs/seo-landing-pages/dados-por-pagina.md
 // (seção 3) — aqui desacordeonizado, sempre visível, e complementado com
@@ -87,42 +91,41 @@ const ROTULO_CURTO = {
 // condições e as famílias são o que torna a lista varrível. Cinco itens não têm
 // o que agrupar — um rótulo de família por item viraria ruído.
 
-// FAQ PROVISÓRIA — as 6 perguntas/respostas reais ainda não foram entregues
-// pela cliente (subtask DEP s-f48de7337a, bloqueada). Os temas abaixo vêm de
-// docs/seo-landing-pages/dados-por-pagina.md; o texto de pergunta/resposta é
-// um provisório razoável para não travar a publicação da página, e deve ser
-// substituído pelo texto real assim que a cliente entregar (mesmo padrão da
-// F1.5 em /fisioterapia-pelvica).
+// FAQ OFICIAL da cliente (anexo PELVIE — Perguntas Frequentes, 11/09/2026).
+// Texto literal, palavra por palavra — não editar sem novo anexo da cliente.
+// O mesmo array alimenta o h3/p visível e o JSON-LD do FaqPageSchema (R17: o
+// texto do schema precisa ser idêntico ao renderizado).
 const FAQS = [
   {
-    pergunta: "O Pilates é seguro durante a gravidez?",
+    pergunta: "As aulas de Pilates são individuais ou em grupo?",
     resposta:
-      "Sim. Quando conduzido por fisioterapeuta especialista, o Pilates é seguro em praticamente toda a gestação, com os exercícios adaptados a cada trimestre e às queixas da paciente. A avaliação inicial ajuda a identificar contraindicações específicas antes de começar.",
+      "Todas as aulas de Pilates na PELVIE são individuais. Você fica sozinha na sala com a fisioterapeuta durante toda a aula, e o exercício é montado para o seu corpo naquela semana — o que muda bastante na gestação e no pós-parto. Não trabalhamos com turmas nem com aulas em grupo reduzido.",
   },
   {
-    pergunta: "Qual a diferença entre o Pilates comum e o Pilates com fisioterapeuta?",
+    pergunta: "Posso fazer Pilates grávida?",
     resposta:
-      "No Pilates com fisioterapeuta, os exercícios são prescritos e conduzidos por uma profissional de saúde, que avalia sua condição física, suas queixas e o momento da gestação ou do pós-parto antes de montar o plano de aula — permitindo trabalhar também questões específicas, como diástase abdominal e assoalho pélvico.",
+      "Sim. O Pilates na gestação é justamente o foco do nosso trabalho. Ele ajuda a aliviar e prevenir dores, manter a mobilidade, preparar o corpo para o parto e acompanhar as mudanças em cada trimestre. O Pilates pode ser realizado durante as diferentes fases da gestação, inclusive nos três trimestres, desde que a gestação esteja evoluindo bem, não existam contraindicações médicas e os exercícios sejam adaptados à fase gestacional e às necessidades de cada mulher.",
   },
   {
-    pergunta: "O Pilates ajuda na diástase abdominal pós-parto?",
+    pergunta: "Quando posso voltar ao Pilates depois do parto?",
     resposta:
-      "Sim. O Pilates conduzido por fisioterapeuta trabalha o fortalecimento progressivo da musculatura abdominal e do assoalho pélvico, contribuindo para a recuperação da diástase abdominal no pós-parto, sempre respeitando o tempo de cicatrização e a evolução de cada paciente.",
+      "Em geral, a partir da liberação do obstetra, o que costuma acontecer entre 30 e 45 dias após o parto. Antes disso, é válido começar pela fisioterapia pélvica, para que você possa ser avaliada e possamos iniciar o trabalho com foco na respiração, assoalho pélvico e parede abdominal. O retorno é sempre gradual e desenhado de acordo com seus objetivos e disponibilidade. Um detalhe importante: aqui na PELVIE, seu bebê é sempre bem-vindo. Somos um local que acolhe mães e crianças.",
   },
   {
-    pergunta: "Como são as aulas de Pilates na PELVIE?",
+    pergunta: "O Pilates ajuda na diástase abdominal?",
     resposta:
-      "As aulas são individuais, conduzidas por fisioterapeuta especialista, e podem ser feitas em solo (mat pilates) ou com o apoio de acessórios como bola de pilates, faixas elásticas e halteres, sempre adaptados à fase da gestação ou do pós-parto de cada paciente.",
+      "Ajuda, desde que os exercícios sejam escolhidos com critério. Na diástase, alguns movimentos abdominais clássicos aumentam a pressão sobre a linha alba e podem piorar o quadro — por isso a aula é individual e conduzida por fisioterapeuta. O trabalho parte da respiração e da ativação do transverso do abdômen e do assoalho pélvico, e só depois progride para exercícios mais avançados. Em muitos casos, o Pilates entra combinado com a fisioterapia pélvica, dentro do mesmo plano.",
   },
   {
-    pergunta: "Preciso de liberação médica para começar o Pilates?",
+    pergunta: "Nunca fiz Pilates e estou sem preparo físico. Posso começar?",
     resposta:
-      "Recomendamos conversar com seu obstetra antes de iniciar, principalmente em gestações de risco. Na avaliação inicial com a fisioterapeuta, também levantamos seu histórico de saúde para garantir que os exercícios sejam seguros para o seu caso.",
+      "Pode. A maior parte das nossas alunas chega exatamente assim — grávida ou no pós-parto, há muito tempo sem se exercitar e com receio de fazer errado. Como a aula é individual, o ponto de partida é o seu: a fisioterapeuta ajusta carga, amplitude e número de repetições à sua condição naquele dia. Não é preciso experiência anterior nem condicionamento prévio.",
   },
   {
-    pergunta: "Quando posso começar o Pilates no pós-parto?",
+    pergunta: "Quanto custa a aula de Pilates e qual a frequência recomendada?",
     resposta:
-      "O momento ideal varia conforme o tipo de parto (normal ou cesárea) e a recuperação de cada paciente. Em geral, o retorno é avaliado a partir da liberação médica; a fisioterapeuta ajusta a intensidade dos exercícios conforme sua evolução no pós-parto.",
+      "A aula é individual, dura 55 minutos e é conduzida por fisioterapeutas especializadas em saúde da mulher, com formação completa no método Pilates. A frequência mais indicada é de uma a duas aulas por semana — o suficiente para gerar adaptação sem sobrecarregar, e o que a maior parte das gestantes consegue manter até o fim da gestação. O atendimento é particular e trabalhamos com planos que se adequam à frequência das aulas e o número de meses de treinamento. Para os valores, é só chamar no WhatsApp: a nossa equipe passa todas as informações junto com os horários disponíveis.",
+    precoCta: true,
   },
 ];
 
@@ -133,7 +136,7 @@ const Pilates = () => {
         <title>Pilates para Gestantes e Pós-Parto | PELVIE Brooklin SP</title>
         <meta
           name="description"
-          content="Pilates com fisioterapeuta, em grupos reduzidos. Para gestantes, pós-parto e diástase abdominal. Brooklin, São Paulo. Agende sua aula experimental."
+          content="Pilates individual com fisioterapeuta, para gestantes, pós-parto e diástase abdominal. Aula exclusiva no Brooklin, São Paulo. Agende sua aula."
         />
         <link
           rel="canonical"
@@ -250,18 +253,6 @@ const Pilates = () => {
         </BoxAnimation>
       </Container>
 
-      <LocationBlock>
-        Rua James Watt, 142, Sala 42 — Brooklin, São Paulo/SP — CEP 04576-050
-      </LocationBlock>
-
-      <Container mainClass="ctaLocalizacao">
-        <CtaAcc
-          aText="Agendar aula experimental pelo WhatsApp"
-          href={WHATSAPP_HREF}
-          img={whatsappGreen}
-        />
-      </Container>
-
       <Container sectionClass="bgOurTeam" mainClass="ourTeam" id="equipe">
         <span className="spanLabelLeaked">
           Atendimento empático e escuta ativa
@@ -330,16 +321,37 @@ const Pilates = () => {
 
       <Container mainClass="faqSection" id="faq">
         <span className="spanLabel">Tire suas dúvidas</span>
-        <h2>Perguntas frequentes sobre Pilates</h2>
+        <h2>Perguntas frequentes</h2>
         {FAQS.map((faq) => (
           <BoxAnimation animation="opacity" key={faq.pergunta}>
             <div className="faqItem">
               <h3>{faq.pergunta}</h3>
               <p>{faq.resposta}</p>
+              {faq.precoCta && (
+                <div className="faqPrecoCta">
+                  <CtaAcc
+                    aText="Consultar valores pelo WhatsApp"
+                    href={PRECO_WHATSAPP_HREF}
+                    img={whatsappGreen}
+                  />
+                </div>
+              )}
             </div>
           </BoxAnimation>
         ))}
       </Container>
+
+      <Container mainClass="ctaLocalizacao">
+        <CtaAcc
+          aText="Agendar aula experimental pelo WhatsApp"
+          href={WHATSAPP_HREF}
+          img={whatsappGreen}
+        />
+      </Container>
+
+      <LocationBlock>
+        Rua James Watt, 142, Sala 42 — Brooklin, São Paulo/SP — CEP 04576-050
+      </LocationBlock>
 
       <Container>
         <CtaCard googleBtn={true} url={WHATSAPP_HREF}>

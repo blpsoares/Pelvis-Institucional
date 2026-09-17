@@ -32,6 +32,10 @@ export const WHATSAPP_MESSAGE =
   "Olá! Gostaria de agendar uma avaliação de Fisioterapia Pélvica. Estou buscando a clínica porque…";
 export const WHATSAPP_HREF = `https://wa.me/+5511913112992?text=${WHATSAPP_MESSAGE}`;
 
+export const PRECO_WHATSAPP_MESSAGE =
+  "Olá! Vim pelo site e gostaria de saber os valores da Fisioterapia Pélvica.";
+export const PRECO_WHATSAPP_HREF = `https://wa.me/+5511913112992?text=${PRECO_WHATSAPP_MESSAGE}`;
+
 // Condições reaproveitadas de src/pages/tratamento/index.jsx (bloco "Fisioterapia
 // Pélvica", hoje dentro de um Accordion) — aqui desacordeonizadas, sempre visíveis.
 const CONDICOES = [
@@ -214,43 +218,46 @@ const INDICE = FAMILIAS.map((familia) => ({
 // condição em vez de Vaginismo. Com o CSS estático a hidratação fica limpa e o
 // `:target` sobrevive. Não reintroduza a geração em runtime.
 
-// FAQ PROVISÓRIA — as 6 perguntas/respostas ainda não foram entregues pela
-// cliente (subtask DEP s-f48de7337a, bloqueada). Os temas abaixo vêm de
-// docs/seo-landing-pages/dados-por-pagina.md; o texto de pergunta/resposta é
-// um provisório razoável para não travar a publicação da página, e deve ser
-// substituído pelo texto real assim que a cliente entregar.
+// FAQ OFICIAL da cliente (anexo PELVIE — Perguntas Frequentes, 11/09/2026).
+// Texto literal, palavra por palavra — não editar sem novo anexo da cliente.
+// O mesmo array alimenta o h3/p visível e o JSON-LD do FaqPageSchema (R17: o
+// texto do schema precisa ser idêntico ao renderizado).
 const FAQS = [
   {
-    pergunta: "O que é fisioterapia pélvica e para quem ela é indicada?",
+    pergunta: "Como é feita a fisioterapia pélvica? O atendimento é invasivo?",
     resposta:
-      "É a área da fisioterapia que cuida do assoalho pélvico. É indicada para quem apresenta escape de urina ao tossir ou se exercitar, dor na relação sexual, diástase abdominal, sensação de peso ou bola na vagina, intestino preso ou dores pélvicas sem explicação — além de gestantes e mulheres no pós-parto.",
+      "Tudo começa pela avaliação. A fisioterapeuta conversa com você sobre a sua queixa, avalia postura, respiração e a musculatura abdominal, e examina o assoalho pélvico. É necessário avaliar a musculatura internamente para que possamos entender o tônus, grau de força, coordenação e pontos dolorosos na região. Essa avaliação é explicada antes e só acontece com a sua autorização e no seu ritmo — você pode pedir para interromper a qualquer momento. A avaliação fisioterapêutica é imprescindível pois somente com uma avaliação detalhada é que podemos montar o melhor Plano de Tratamento para você. Nas sessões seguintes são usados exercícios específicos, terapias manuais e recursos como biofeedback e eletroestimulação. O atendimento é sempre individual, com total privacidade, com uma fisioterapeuta especializada na área. Vamos progredindo e ajustando o tratamento de acordo com a evolução.",
   },
   {
-    pergunta:
-      "Quais sinais indicam que uma avaliação de fisioterapia pélvica é necessária?",
+    pergunta: "A fisioterapia pélvica dói?",
     resposta:
-      "Escape de urina ao tossir, rir ou treinar, dor durante a relação sexual, sensação de peso ou bola na vagina (prolapso), intestino preso e dores pélvicas persistentes são os principais sinais. Se algum desses sintomas está presente, o ideal é passar por uma avaliação detalhada antes de qualquer tratamento.",
+      "Não deve doer. Boa parte das mulheres que chegam até a PELVIE vem justamente por causa de dor — dor na relação sexual, vaginismo, dor pélvica crônica, endometriose. Nesses casos o tratamento começa devagar, com técnicas de dessensibilização e liberação da musculatura, e cada etapa avança no ritmo que você definir. Se algum movimento incomodar, é só avisar: a conduta é ajustada na hora. Um desconforto em algumas técnicas manuais pode acontecer; dor, não.",
   },
   {
-    pergunta: "Como funciona a primeira consulta/avaliação?",
+    pergunta: "Quantas sessões de fisioterapia pélvica são necessárias?",
     resposta:
-      "A avaliação é o momento mais importante do tratamento: entrevista inicial, exame físico e entendimento completo do seu caso antes de propor qualquer conduta. Ao final, você recebe um Plano de Tratamento personalizado, com exercícios específicos, terapias manuais e recursos como biofeedback e eletroestimulação.",
+      "Depende do seu caso, e é exatamente isso que a avaliação responde. Na prática, a maior parte dos tratamentos aqui fica entre 8 e 12 sessões, podendo ser uma ou duas vezes por semana. Gestantes costumam fazer de 6 a 15 sessões, porque o plano acompanha as semanas de gestação até o parto e a frequência depende das queixas e objetivos, podendo ser mais espaçadas no começo e intensificando mais no final. Após a avaliação você recebe o seu Plano de Tratamento personalizado, por escrito, detalhando sua jornada, com número de sessões e o tempo previsto.",
   },
   {
-    pergunta: "Quantas sessões são necessárias e qual a duração do tratamento?",
+    pergunta: "Quanto custa a fisioterapia pélvica?",
     resposta:
-      "Varia de acordo com o diagnóstico de cada paciente. Depois da avaliação inicial, a fisioterapeuta estima a duração do tratamento e a frequência das sessões mais adequadas ao seu caso, reajustando o plano conforme sua evolução.",
+      "O valor depende de quantas sessões o seu caso precisa, e é exatamente isso que a avaliação define. Nela a fisioterapeuta examina o seu caso e monta o seu Plano de Tratamento. Você receberá por escrito o número de sessões e o tempo previsto, bem como o valor fechado do plano e as condições de pagamento, antes de decidir qualquer coisa. Nada é cobrado por fora e não há surpresas depois. E se você quiser os valores agora, antes mesmo de agendar, é só chamar no WhatsApp: a nossa equipe passa a referência completa na hora, sem enrolação.",
+    precoCta: true,
   },
   {
-    pergunta: "A fisioterapia pélvica atende gestantes e mulheres no pós-parto?",
+    pergunta: "A PELVIE atende convênio?",
     resposta:
-      "Sim. Durante a gestação, o trabalho ajuda a prevenir dores na coluna, diástase abdominal e incontinência urinária, além de preparar o corpo para o parto normal. No pós-parto, favorece a recuperação do assoalho pélvico e da musculatura abdominal.",
+      "O atendimento é particular e não somos credenciadas a convênios. O que fazemos é dar todo o suporte ao pedido de reembolso: emitimos nota fiscal com os dados que a operadora exige, fornecemos relatório da fisioterapeuta e já somos devidamente cadastradas no CNES (Cadastro Nacional de Estabelecimentos de Saúde). Orientamos em todas as etapas. Quanto cada plano devolve varia de contrato para contrato — quem define isso é a sua operadora, não a clínica. Antes de agendar, podemos explicar quais documentos você vai precisar reunir e é possível solicitar uma prévia do reembolso, basta pedir um orçamento.",
   },
   {
-    pergunta:
-      "Onde fica a clínica e como agendar uma avaliação de fisioterapia pélvica perto de mim, no Brooklin, São Paulo?",
+    pergunta: "Preciso de encaminhamento médico para fazer fisioterapia pélvica?",
     resposta:
-      "A PELVIE fica na Rua James Watt, 142, Sala 42, no Brooklin, São Paulo/SP. O agendamento é feito pelo WhatsApp — é só clicar em um dos botões desta página para conversar com a nossa equipe.",
+      "Não. A fisioterapia tem acesso direto: você pode agendar a sua avaliação sem passar por um médico antes. O encaminhamento com CID só é necessário se você quiser pedir reembolso ao convênio — nesse caso, vale pedir ao seu ginecologista, urologista, proctologista ou obstetra. Se você já tem exames, laudos ou um ultrassom recente, traga na avaliação: ajudam, mas não são obrigatórios.",
+  },
+  {
+    pergunta: "A Fisioterapia Pélvica é somente para quem quer parto normal?",
+    resposta:
+      "Não. A Fisioterapia Pélvica é muito importante durante toda a gestação, independentemente da via de parto escolhida ou indicada. Mesmo quando a cesárea está planejada, a gestação continua provocando alterações no assoalho pélvico, no abdômen, na postura e na dinâmica da pelve. A fisioterapia atua no controle de sintomas como perda de urina ou dores na lombar/pelve além de garantir o acompanhamento no pós parto, orientando a mulher sobre movimentos, respiração, cuidados com o corpo e estratégias para o retorno seguro aos exercícios físicos após o nascimento do bebê.",
   },
 ];
 
@@ -383,18 +390,6 @@ const FisioterapiaPelvica = () => {
         </BoxAnimation>
       </Container>
 
-      <LocationBlock>
-        Rua James Watt, 142, Sala 42 — Brooklin, São Paulo/SP — CEP 04576-050
-      </LocationBlock>
-
-      <Container mainClass="ctaLocalizacao">
-        <CtaAcc
-          aText="Agendar avaliação pelo WhatsApp"
-          href={WHATSAPP_HREF}
-          img={whatsappGreen}
-        />
-      </Container>
-
       <Container sectionClass="bgOurTeam" mainClass="ourTeam" id="equipe">
         <span className="spanLabelLeaked">
           Atendimento empático e escuta ativa
@@ -463,16 +458,37 @@ const FisioterapiaPelvica = () => {
 
       <Container mainClass="faqSection" id="faq">
         <span className="spanLabel">Tire suas dúvidas</span>
-        <h2>Perguntas frequentes sobre fisioterapia pélvica</h2>
+        <h2>Perguntas frequentes</h2>
         {FAQS.map((faq) => (
           <BoxAnimation animation="opacity" key={faq.pergunta}>
             <div className="faqItem">
               <h3>{faq.pergunta}</h3>
               <p>{faq.resposta}</p>
+              {faq.precoCta && (
+                <div className="faqPrecoCta">
+                  <CtaAcc
+                    aText="Consultar valores pelo WhatsApp"
+                    href={PRECO_WHATSAPP_HREF}
+                    img={whatsappGreen}
+                  />
+                </div>
+              )}
             </div>
           </BoxAnimation>
         ))}
       </Container>
+
+      <Container mainClass="ctaLocalizacao">
+        <CtaAcc
+          aText="Agendar avaliação pelo WhatsApp"
+          href={WHATSAPP_HREF}
+          img={whatsappGreen}
+        />
+      </Container>
+
+      <LocationBlock>
+        Rua James Watt, 142, Sala 42 — Brooklin, São Paulo/SP — CEP 04576-050
+      </LocationBlock>
 
       <Container>
         <CtaCard googleBtn={true} url={WHATSAPP_HREF}>
