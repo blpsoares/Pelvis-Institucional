@@ -6,9 +6,17 @@ import icoInsta from "../../assets/img/svgs/iconInstagram.svg";
 import icoWhats from "../../assets/img/svgs/iconWhatsapp.svg";
 
 import "./styles.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import LANDING_PAGE_WHATSAPP_HREF from "../../utils/whatsappPorRota";
+
+const DEFAULT_WHATSAPP_HREF =
+  "https://wa.me/+5511913112992?text=Olá! Gostaria de mais informações. Estou buscando a clínica porque…";
 
 const Footer = () => {
+  const { pathname } = useLocation();
+  const whatsappHref =
+    LANDING_PAGE_WHATSAPP_HREF[pathname] ?? DEFAULT_WHATSAPP_HREF;
+
   return (
     <footer>
       <div className="footerItems">
@@ -68,10 +76,7 @@ const Footer = () => {
                   height="40"
                 />
               </a>
-              <a
-                href="https://wa.me/+5511913112992?text=Olá! Gostaria de mais informações. Estou buscando a clínica porque…"
-                target="noreferrer"
-              >
+              <a href={whatsappHref} target="noreferrer">
                 <img
                   src={icoWhats}
                   alt="icone do whatsapp"
