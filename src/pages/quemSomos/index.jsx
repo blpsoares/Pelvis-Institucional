@@ -319,7 +319,7 @@ const QuemSomos = () => {
 								Mackenzie;
 							</li>
 							<li>
-								Cursando pós-graduação em Saúde da Mulher e do Homem pela
+								Pós Graduada em Saúde da Mulher e do Homem pela
 								FCMSCSP;
 							</li>
 							<li>

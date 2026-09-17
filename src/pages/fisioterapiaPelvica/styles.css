@@ -363,6 +363,18 @@
   max-width: var(--medida);
 }
 
+/* Botão de WhatsApp da pergunta "Quanto custa": mesma coluna da resposta
+   (grid-column: 2), alinhado à esquerda — o CtaAcc padrão centraliza, o que
+   destoaria do texto corrido do FAQ. */
+.faqSection .faqItem .faqPrecoCta {
+  grid-column: 2;
+  margin-top: 1.6rem;
+}
+
+.faqSection .faqItem .faqPrecoCta .ctaAcc {
+  align-items: flex-start;
+}
+
 @media (max-width: 1000px) {
   .faqSection {
     padding-block: 4.5rem;

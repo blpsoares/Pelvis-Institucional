@@ -31,6 +31,10 @@ export const WHATSAPP_MESSAGE =
   "Olá! Gostaria de agendar uma sessão de Acupuntura. Estou buscando a clínica porque…";
 export const WHATSAPP_HREF = `https://wa.me/+5511913112992?text=${WHATSAPP_MESSAGE}`;
 
+export const PRECO_WHATSAPP_MESSAGE =
+  "Olá! Vim pelo site e gostaria de saber os valores da Acupuntura.";
+export const PRECO_WHATSAPP_HREF = `https://wa.me/+5511913112992?text=${PRECO_WHATSAPP_MESSAGE}`;
+
 // Títulos, âncoras e rótulos dos blocos da seção principal, num lugar só.
 // Diferente de /pilates e /massagem-e-drenagem-linfatica, aqui os blocos não
 // vêm de um array: a marcação de cada um é própria (listas longas, parágrafo de
@@ -66,42 +70,41 @@ const bloco = Object.fromEntries(BLOCOS.map((b) => [b.chave, b]));
 // condições e as famílias são o que torna a lista varrível. Quatro itens não
 // têm o que agrupar.
 
-// FAQ PROVISÓRIA — as 6 perguntas/respostas ainda não foram entregues pela
-// cliente (subtask DEP s-f48de7337a, bloqueada). Os temas abaixo vêm de
-// docs/seo-landing-pages/dados-por-pagina.md (seção 2, /acupuntura); o texto
-// de pergunta/resposta é um provisório razoável para não travar a publicação
-// da página (mesmo padrão adotado em F1.5/fisioterapia-pelvica), e deve ser
-// substituído pelo texto real assim que a cliente entregar.
+// FAQ OFICIAL da cliente (anexo PELVIE — Perguntas Frequentes, 11/09/2026).
+// Texto literal, palavra por palavra — não editar sem novo anexo da cliente.
+// O mesmo array alimenta o h3/p visível e o JSON-LD do FaqPageSchema (R17: o
+// texto do schema precisa ser idêntico ao renderizado).
 const FAQS = [
   {
-    pergunta: "O que a acupuntura trata na saúde da mulher?",
+    pergunta: "A acupuntura ajuda a engravidar?",
     resposta:
-      "Voltada à saúde da mulher, a acupuntura busca o reequilíbrio de desarmonias nas diferentes fases da vida: dores pélvicas e osteoarticulares, cólicas e irregularidades menstruais, TPM, baixa libido, incontinência urinária, alterações da menopausa, além de questões emocionais como ansiedade e síndrome do pânico.",
+      "A acupuntura é usada como tratamento complementar em casos de dificuldade para engravidar. Ela atua sobre fatores que influenciam a fertilidade — estresse, qualidade do sono, regulação do ciclo e circulação na região pélvica. Na PELVIE também realizamos o Protocolo de Paulus, aplicado antes e depois da transferência embrionária em ciclos de Fertilização In Vitro (FIV). A acupuntura caminha lado a lado do tratamento de fertilidade.",
   },
   {
-    pergunta: "Como funciona a acupuntura para fertilidade e o Protocolo de Paulus?",
+    pergunta: "Posso fazer acupuntura grávida?",
     resposta:
-      "A acupuntura é utilizada como recurso de estímulo à fertilidade, inclusive através do Protocolo de Paulus — um protocolo de aplicação de agulhas antes e depois da transferência embrionária em tratamentos de Fertilização In Vitro (FIV), com o objetivo de favorecer a receptividade uterina.",
+      "Com toda certeza! É uma das indicações mais procuradas aqui. Durante a gestação a acupuntura é usada para enjoo, azia, dor lombar e pélvica, ansiedade, insônia e inchaço — queixas comuns e que costumam limitar o uso de medicamentos. A partir do terceiro trimestre ela também entra no preparo para o parto, favorecendo o início do trabalho de parto de forma espontânea. Os pontos utilizados na gestação são selecionados especificamente para essa fase, por fisioterapeuta acupunturista especializada em gestantes.",
   },
   {
-    pergunta: "A acupuntura é segura durante a gestação?",
+    pergunta: "A acupuntura dói? As agulhas machucam?",
     resposta:
-      "Sim, quando realizada por profissional especializada. Na gestação, a acupuntura ajuda a aliviar enjoos, vômitos, constipação, insônia, dores no geral e enxaqueca, além de auxiliar no preparo do corpo para o parto, favorecendo o início do trabalho de parto de forma espontânea.",
+      "As agulhas de acupuntura são finíssimas — muito mais finas do que a de uma injeção — e a maioria das pacientes sente apenas um toque leve na aplicação. Depois, é comum sentir um peso, um formigamento ou um calor no local: isso é esperado e passa. Usamos agulhas descartáveis, de uso único, abertas na frente da paciente. Se em algum ponto o incômodo for maior, é só avisar: a agulha é reposicionada na hora.",
   },
   {
-    pergunta: "A aplicação das agulhas dói?",
+    pergunta: "Quantas sessões de acupuntura são necessárias e com que frequência?",
     resposta:
-      "As agulhas utilizadas são estéreis, de uso único e de calibre muito fino, variando de acordo com o ponto e a função desejada. A aplicação quase não causa dor, e nenhum tipo de remédio é injetado junto com a agulha.",
+      "Depende da queixa. Em quadros agudos, algumas pacientes já percebem diferença nas primeiras sessões; em quadros crônicos — dor pélvica, enxaqueca, ansiedade — o efeito costuma se construir ao longo de algumas semanas. A frequência mais comum é de uma sessão por semana, e a fisioterapeuta acupunturista define o número de sessões na primeira consulta, depois de ouvir o seu histórico. No Protocolo de Paulus para FIV, o calendário segue as datas da transferência embrionária.",
   },
   {
-    pergunta: "Quantas sessões são necessárias e com que frequência?",
+    pergunta: "Quanto custa a sessão de acupuntura?",
     resposta:
-      "Varia de acordo com o objetivo do tratamento e o diagnóstico de cada paciente. A escolha das técnicas e a frequência das sessões são definidas após uma avaliação detalhada, sempre de forma individualizada.",
+      "Cada sessão dura cerca de uma hora e o atendimento é particular. Para saber o valor, é só chamar no WhatsApp. O número de sessões varia com a sua queixa, e quem define isso é a fisioterapeuta acupunturista na primeira consulta. Quando a acupuntura entra num plano combinado com a fisioterapia pélvica, o que é comum na gestação, ela é apresentada dentro de um plano único, com o valor fechado, após a avaliação. Emitimos nota fiscal com os dados necessários para quem for solicitar reembolso ao plano de saúde.",
+    precoCta: true,
   },
   {
-    pergunta: "Quem realiza as sessões de acupuntura na PELVIE?",
+    pergunta: "Quem aplica a acupuntura na PELVIE? Preciso de encaminhamento médico?",
     resposta:
-      "As sessões são conduzidas pela Dra. Cibele Ferrari, fisioterapeuta especializada em Acupuntura, Saúde da Mulher e Gestantes (CREFITO-3/111858-F).",
+      "A acupuntura é aplicada pela Dra. Cibele Ferrari, fisioterapeuta acupunturista especializada em saúde da mulher e gestantes (CREFITO-3/111858-F). Não é preciso encaminhamento médico para agendar — o encaminhamento com CID só é necessário para pedir reembolso ao convênio. Se você estiver em tratamento de fertilidade ou em acompanhamento pré-natal, traga os seus exames e as datas do seu ciclo: eles orientam o plano de sessões.",
   },
 ];
 
@@ -377,18 +380,6 @@ const Acupuntura = () => {
         </BoxAnimation>
       </Container>
 
-      <LocationBlock>
-        Rua James Watt, 142, Sala 42 — Brooklin, São Paulo/SP — CEP 04576-050
-      </LocationBlock>
-
-      <Container mainClass="ctaLocalizacao">
-        <CtaAcc
-          aText="Agendar sessão pelo WhatsApp"
-          href={WHATSAPP_HREF}
-          img={whatsappGreen}
-        />
-      </Container>
-
       <Container sectionClass="bgOurTeam" mainClass="ourTeam" id="equipe">
         <span className="spanLabelLeaked">
           Atendimento empático e escuta ativa
@@ -462,16 +453,37 @@ const Acupuntura = () => {
 
       <Container mainClass="faqSection" id="faq">
         <span className="spanLabel">Tire suas dúvidas</span>
-        <h2>Perguntas frequentes sobre acupuntura</h2>
+        <h2>Perguntas frequentes</h2>
         {FAQS.map((faq) => (
           <BoxAnimation animation="opacity" key={faq.pergunta}>
             <div className="faqItem">
               <h3>{faq.pergunta}</h3>
               <p>{faq.resposta}</p>
+              {faq.precoCta && (
+                <div className="faqPrecoCta">
+                  <CtaAcc
+                    aText="Consultar valores pelo WhatsApp"
+                    href={PRECO_WHATSAPP_HREF}
+                    img={whatsappGreen}
+                  />
+                </div>
+              )}
             </div>
           </BoxAnimation>
         ))}
       </Container>
+
+      <Container mainClass="ctaLocalizacao">
+        <CtaAcc
+          aText="Agendar sessão pelo WhatsApp"
+          href={WHATSAPP_HREF}
+          img={whatsappGreen}
+        />
+      </Container>
+
+      <LocationBlock>
+        Rua James Watt, 142, Sala 42 — Brooklin, São Paulo/SP — CEP 04576-050
+      </LocationBlock>
 
       <Container>
         <CtaCard googleBtn={true} url={WHATSAPP_HREF}>
