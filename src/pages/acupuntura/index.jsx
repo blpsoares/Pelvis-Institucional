@@ -163,11 +163,12 @@ const Acupuntura = () => {
           <h2>Acupuntura na saúde da mulher</h2>
           <p className="acupunturaIntro">
             <span className="leadSentence">
-              Duas das buscas mais comuns por aqui são acupuntura para
-              engravidar e acupuntura gestante.
+              Muitas mulheres chegam à PELVIE procurando acupuntura para
+              engravidar ou acupuntura para gestante.
             </span>{" "}
-            A seguir você entende como a técnica atua em cada uma dessas
-            fases, além dos demais quadros que tratamos.
+            São dois dos motivos mais frequentes de atendimento aqui — e
+            abaixo você vê como a técnica atua em cada fase, além dos demais
+            quadros que tratamos.
           </p>
         </BoxAnimation>
 
