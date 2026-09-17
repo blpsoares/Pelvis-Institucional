@@ -41,13 +41,13 @@ const TOPICOS = [
   {
     title: "O que é o Método Pilates",
     paragraphs: [
-      "É um método de exercícios desenvolvido por Joseph Pilates na década de 1920 que visa trabalhar a conexão entre mente e corpo, como uma unidade, de modo a melhorar a consciência corporal. Pode ser feito com equipamentos (studio) ou em solo, com o apoio de acessórios como bola de pilates, faixas elásticas e halteres. Sua prática traz diversos benefícios, como melhora da flexibilidade e da mobilidade, ganho de força muscular e alívio de dores.",
+      "É um método de exercícios desenvolvido por Joseph Pilates na década de 1920 que visa trabalhar a conexão entre mente e corpo, como uma unidade, de modo a melhorar a consciência corporal. Pode ser feito com equipamentos (studio) ou em solo. Utiliza-se acessórios como a bola de pilates, faixas elásticas e halteres. Sua prática traz diversos benefícios, como melhora da flexibilidade e da mobilidade, ganho de força muscular e alívio de dores.",
     ],
   },
   {
     title: "Pilates especializado em gestação e pós-parto",
     paragraphs: [
-      "Aqui na PELVIE oferecemos aulas de Pilates conduzidas por fisioterapeuta especialista. As aulas são individuais e totalmente focadas em gestantes e mulheres no pós-parto, contribuindo para a manutenção da qualidade de vida nesse período, aliviando dores e preparando a mulher para lidar com todas as alterações corporais dessa fase. O acompanhamento também é indicado para quem está com diástase abdominal, auxiliando na reeducação da musculatura abdominal junto com o restante do corpo.",
+      "Aqui na PELVIE oferecemos aulas de Pilates com fisioterapeuta especialista. As aulas são individuais e totalmente focadas em gestantes e mulheres no pós-parto, contribuindo para a manutenção da qualidade de vida nesse período, aliviando dores e preparando a mulher para lidar com todas as alterações corporais desse período. O acompanhamento também é indicado para quem está com diástase abdominal, auxiliando na reeducação da musculatura abdominal junto com o restante do corpo.",
     ],
   },
   {
