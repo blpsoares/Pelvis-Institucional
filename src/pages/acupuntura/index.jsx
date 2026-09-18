@@ -161,6 +161,15 @@ const Acupuntura = () => {
       <Container mainClass="acupunturaContent">
         <BoxAnimation animation="opacity">
           <h2>Acupuntura na saúde da mulher</h2>
+          <p className="acupunturaIntro">
+            <span className="leadSentence">
+              Muitas mulheres chegam à PELVIE procurando acupuntura para
+              engravidar ou acupuntura para gestante.
+            </span>{" "}
+            São dois dos motivos mais frequentes de atendimento aqui — e
+            abaixo você vê como a técnica atua em cada fase, além dos demais
+            quadros que tratamos.
+          </p>
         </BoxAnimation>
 
         <div className="landingLayout landingLayoutAbas">

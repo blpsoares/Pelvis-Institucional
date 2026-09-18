@@ -314,6 +314,11 @@ const FisioterapiaPelvica = () => {
       <Container mainClass="fisioContent">
         <BoxAnimation animation="opacity">
           <h2>Condições tratadas pela fisioterapia pélvica</h2>
+          <LeadParagraph>
+            Da fisioterapia para gestante ao acompanhamento no pós-parto, cada
+            atendimento começa com uma avaliação individual. Veja abaixo os
+            quadros que tratamos com mais frequência.
+          </LeadParagraph>
         </BoxAnimation>
         <div className="fisioLayout">
           {/* Índice de navegação: só HTML + CSS (href="#id" e position: sticky).
@@ -479,6 +484,11 @@ const FisioterapiaPelvica = () => {
       </Container>
 
       <Container mainClass="ctaLocalizacao">
+        <p className="localizacaoIntro">
+          Se você chegou até aqui procurando “fisioterapia pélvica perto de
+          mim”, estamos no Brooklin, em São Paulo — confira o endereço
+          completo, o mapa e o link “Como chegar” logo abaixo.
+        </p>
         <CtaAcc
           aText="Agendar avaliação pelo WhatsApp"
           href={WHATSAPP_HREF}

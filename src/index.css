@@ -1,27 +1,95 @@
-/* F6.2 — Performance: fontes
-   O @import daqui saiu (bloqueava o CSSOM e só era descoberto depois do
-   index.css já ter sido baixado e parseado, atrasando a folha de fontes do
-   Google em relação ao preload scanner). A folha em si (preconnect + <link>)
-   agora vem de index.html, que o preload scanner lê no primeiro byte do HTML.
-   Peso pedido também caiu: Source Sans 3 (fonte variável no Google Fonts —
-   todo weight não-itálico já resolvia para o MESMO arquivo, então cortar a
-   lista não muda bytes baixados, só documenta o que é usado de verdade:
-   400/500/600/700 + itálico 700, os únicos combos referenciados no código)
-   e Taviraj (fonte estática — aqui cortar pesa de verdade: de 10 arquivos
-   possíveis (200/300/400/500/600 × normal/itálico) para os 3 realmente
-   usados: 400/500/600 normal, sem itálico).
+/* F6.9 — CLS de fontes (troca de fonte causando reflow)
+   F6.2 já tinha ajustado ascent-override/descent-override/size-adjust do
+   fallback com as métricas OS/2 reais dos .woff2 — e mesmo assim
+   /fisioterapia-pelvica media CLS 0,200 e /pilates 0,085 (limite do Google:
+   0,1), sempre entre 3,1s e 3,4s, exatamente quando a folha do Google
+   terminava de carregar.
 
-   Fallback com métrica ajustada (size-adjust/ascent-override/descent-
-   override/line-gap-override), calculados a partir das métricas OS/2 reais
-   dos arquivos .woff2 (extraídas com fontTools), para a troca de fonte
-   (`display: swap`) reduzir menos a página em vez de reflowar o texto
-   quando a fonte real chega — a causa confirmada do CLS em /quem-somos e
-   /pilates nas auditorias de aceite. Duas camadas de fallback: a primeira
-   mira o Android real (Roboto/Noto Serif, os genéricos sans-serif/serif do
-   Chrome mobile, que é o alvo dos testes Lighthouse desta task); a segunda
-   mira DejaVu Sans/Serif porque é o que este sandbox Linux realmente resolve
-   para sans-serif/serif (fc-match), permitindo medir o efeito aqui mesmo.
-   Nenhuma das duas é usada se a fonte real já carregou. */
+   INVESTIGADO (medido no Chrome, CPU 4x + rede 1,6Mbps/150ms, 390×844):
+   bloquear fonts.googleapis.com/fonts.gstatic.com derruba o CLS a 0,000 nas
+   mesmas condições — confirma que é troca de fonte, não imagem/menu. Só que
+   a causa NÃO é a métrica do fallback estar errada: comparando o mesmo
+   elemento com a fonte real vs. só fallback, o `line-height: normal`
+   calculado por linha bate igual nos dois casos (ex.: h1 do hero em
+   32.256px nos dois). O que muda é a QUANTIDADE DE LINHAS que o texto
+   quebra — DejaVu Sans/Serif (e Roboto/Noto Serif no Android) têm largura
+   média de caractere próxima da real, mas não idêntica letra a letra; num
+   parágrafo longo (o `<p>` de 441px→378px relatado) ou num título grande
+   (`h1` que vai de 3 linhas de fallback para 2 linhas com a fonte real,
+   ~32px cada = os "~32px que o CTA sobe"), um wrap a mais ou a menos muda a
+   altura em uma linha inteira. Ajuste de size-adjust por largura média
+   aproxima mas não garante quebra IDÊNTICA para qualquer texto real — não
+   dá pra "consertar a métrica" até zerar isso.
+
+   ESCOLHA (as 3 opções do pedido foram medidas, não escolhidas no palpite):
+   (a) só recalibrar métrica de fallback — descartada: o problema acima é de
+       quebra de linha, não de métrica vertical; não zera o CLS.
+   (b) font-display: optional sozinho — resolve o CLS (nunca troca a fonte
+       depois do primeiro parágrafo pintado) mas, vindo de
+       fonts.googleapis.com, o "bloqueio" de ~100ms quase nunca é tempo
+       suficiente pro round-trip cross-origin (DNS+TLS+download) mesmo em
+       rede boa, então a Taviraj/Source Sans 3 real raramente aparece.
+   (c) auto-hospedar os .woff2 no próprio domínio — elimina o DNS+TLS extra
+       para fonts.gstatic.com (o preload deste arquivo já teve que esperar o
+       preconnect abrir e o round-trip da folha CSS do Google só para
+       DESCOBRIR a URL do .woff2; hospedado local, o preload já sabe a URL
+       final e concorre com os outros recursos críticos desde o primeiro
+       byte do HTML).
+
+   Aplicado (b)+(c) juntos: fontes auto-hospedadas (arquivos abaixo, extraídos
+   do subset "latin" do Google Fonts — cobre todos os acentos do português,
+   U+00E3/U+00E7/U+00F5/etc. estão dentro de U+0000-00FF) com
+   font-display: optional. Em rede boa, o preload local costuma resolver
+   dentro do "período de bloqueio" curto do `optional` e a fonte real aparece
+   sem troca visível. Em rede ruim (o cenário auditado), o `optional` garante
+   que a página nunca troca de fonte DEPOIS do primeiro paint — CLS = 0
+   independente de quantas linhas cada fonte quebraria, porque a quebra
+   nunca muda no meio do carregamento.
+
+   O fallback com métrica ajustada (ascent-override/descent-override/
+   size-adjust) da F6.2 continua abaixo: com `optional` ele deixou de ser a
+   defesa contra CLS, mas ainda aproxima a APARÊNCIA (altura de linha,
+   largura do texto) de quem cair no fallback por já ter estourado o período
+   de bloqueio — sem ele o salto visual (não de CLS) seria maior. Duas
+   camadas: a primeira mira o Android real (Roboto/Noto Serif, os genéricos
+   sans-serif/serif do Chrome mobile); a segunda mira DejaVu Sans/Serif
+   porque é o que este sandbox Linux resolve para sans-serif/serif
+   (fc-match), permitindo medir o efeito aqui mesmo. */
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: optional;
+  src: url("/fonts/source-sans-3-latin-400-700-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: italic;
+  font-weight: 700;
+  font-display: optional;
+  src: url("/fonts/source-sans-3-latin-700-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Taviraj";
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+  src: url("/fonts/taviraj-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Taviraj";
+  font-style: normal;
+  font-weight: 500;
+  font-display: optional;
+  src: url("/fonts/taviraj-latin-500-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Taviraj";
+  font-style: normal;
+  font-weight: 600;
+  font-display: optional;
+  src: url("/fonts/taviraj-latin-600-normal.woff2") format("woff2");
+}
 @font-face {
   font-family: "Source Sans 3 Fallback";
   src: local("Roboto");
