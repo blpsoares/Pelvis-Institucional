@@ -56,6 +56,15 @@ const Menu = ({ openMenu, setOpenMenu, hasInteracted }) => {
     if (!openMenu) setOpen(false);
   }, [openMenu]);
 
+  // Com o menu mobile aberto o botão flutuante do WhatsApp (fixedButton, fora
+  // desta árvore de componentes) não pode cobrir o rodapé do painel — a classe
+  // no body é a forma mais simples de coordenar os dois sem levantar estado
+  // para o Layout. Ver src/components/fixedButton/styles.css.
+  useEffect(() => {
+    document.body.classList.toggle("menuMobileOpen", openMenu);
+    return () => document.body.classList.remove("menuMobileOpen");
+  }, [openMenu]);
+
   useEffect(() => {
     if (!open) return;
 
@@ -219,6 +228,35 @@ const Menu = ({ openMenu, setOpenMenu, hasInteracted }) => {
               ))}
             </ul>
           </div>
+
+          {/* Grade de tratamentos — só existe visualmente no menu mobile
+              (@media max-width: 1000px em styles.css). No desktop o dropdown
+              acima (.navDropdown) continua sendo a única versão renderizada
+              na tela: este bloco fica sempre no DOM (evita divergir do HTML
+              pré-renderizado) mas é display:none fora do mobile. */}
+          <div className="navTratamentosMobile">
+            <NavLink
+              to="/tratamento"
+              className={({ isActive }) =>
+                `navTratamentosMobileLabel${
+                  isActive || hasActiveChild ? " active" : ""
+                }`
+              }
+              onClick={handleDropdownNavigate}
+            >
+              Tratamentos
+            </NavLink>
+            <ul className="navTratamentosGrid">
+              {tratamentosLinks.map((link) => (
+                <li key={link.to}>
+                  <NavLink to={link.to} onClick={handleDropdownNavigate}>
+                    {link.label}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <NavLink to="como-funciona" onClick={closeMenu}>
             Como Funciona
           </NavLink>

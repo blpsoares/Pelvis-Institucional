@@ -5,3 +5,14 @@
   z-index: 10001;
   width: 70px;
 }
+
+/* Enquanto o menu mobile está aberto (classe aplicada no <body> pelo
+   componente Menu, ver src/components/menu/index.jsx) o botão flutuante do
+   WhatsApp cobria o endereço no rodapé do painel. Escondê-lo é a solução mais
+   simples: ele só existe para navegação rápida fora do menu, e o próprio
+   rodapé do menu já tem um CTA de WhatsApp equivalente. */
+@media (max-width: 1000px) {
+  body.menuMobileOpen .whatsBtn {
+    display: none;
+  }
+}
