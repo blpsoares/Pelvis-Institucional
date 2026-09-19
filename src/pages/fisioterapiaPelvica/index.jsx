@@ -218,6 +218,23 @@ const INDICE = FAMILIAS.map((familia) => ({
 // condição em vez de Vaginismo. Com o CSS estático a hidratação fica limpa e o
 // `:target` sobrevive. Não reintroduza a geração em runtime.
 
+// Rótulo curto SÓ para o índice de perguntas (proposta B, aprovada pelo
+// usuário — ver docs/faq-indice). O <h3> de cada pergunta no corpo continua
+// com o texto completo, idêntico ao anexo; isto é navegação, não conteúdo.
+const ROTULO_CURTO_FAQ = {
+  "Como é feita a fisioterapia pélvica? O atendimento é invasivo?":
+    "Como é feita?",
+  "A fisioterapia pélvica dói?": "Dói?",
+  "Quantas sessões de fisioterapia pélvica são necessárias?":
+    "Quantas sessões?",
+  "Quanto custa a fisioterapia pélvica?": "Quanto custa?",
+  "A PELVIE atende convênio?": "Atende convênio?",
+  "Preciso de encaminhamento médico para fazer fisioterapia pélvica?":
+    "Precisa de encaminhamento?",
+  "A Fisioterapia Pélvica é somente para quem quer parto normal?":
+    "Só para parto normal?",
+};
+
 // FAQ OFICIAL da cliente (anexo PELVIE — Perguntas Frequentes, 11/09/2026).
 // Texto literal, palavra por palavra — não editar sem novo anexo da cliente.
 // O mesmo array alimenta o h3/p visível e o JSON-LD do FaqPageSchema (R17: o
@@ -464,23 +481,39 @@ const FisioterapiaPelvica = () => {
       <Container mainClass="faqSection" id="faq">
         <span className="spanLabel">Tire suas dúvidas</span>
         <h2>Perguntas frequentes</h2>
-        {FAQS.map((faq) => (
-          <BoxAnimation animation="opacity" key={faq.pergunta}>
-            <div className="faqItem">
-              <h3>{faq.pergunta}</h3>
-              <p>{faq.resposta}</p>
-              {faq.precoCta && (
-                <div className="faqPrecoCta">
-                  <CtaAcc
-                    aText="Consultar valores pelo WhatsApp"
-                    href={PRECO_WHATSAPP_HREF}
-                    img={whatsappGreen}
-                  />
-                </div>
-              )}
-            </div>
-          </BoxAnimation>
-        ))}
+        {/* Índice da FAQ: só links âncora, sem esconder nada — as 7
+            perguntas e respostas continuam inteiras e visíveis logo abaixo,
+            no carregamento da página. */}
+        <nav className="faqIndice" aria-label="Índice das perguntas frequentes">
+          <ul>
+            {FAQS.map((faq) => (
+              <li key={faq.pergunta}>
+                <a href={`#${slugAncora(faq.pergunta)}`}>
+                  {ROTULO_CURTO_FAQ[faq.pergunta] ?? faq.pergunta}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <div className="faqItens">
+          {FAQS.map((faq) => (
+            <BoxAnimation animation="opacity" key={faq.pergunta}>
+              <div className="faqItem" id={slugAncora(faq.pergunta)}>
+                <h3>{faq.pergunta}</h3>
+                <p>{faq.resposta}</p>
+                {faq.precoCta && (
+                  <div className="faqPrecoCta">
+                    <CtaAcc
+                      aText="Consultar valores pelo WhatsApp"
+                      href={PRECO_WHATSAPP_HREF}
+                      img={whatsappGreen}
+                    />
+                  </div>
+                )}
+              </div>
+            </BoxAnimation>
+          ))}
+        </div>
       </Container>
 
       <Container mainClass="ctaLocalizacao">
