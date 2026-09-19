@@ -327,6 +327,15 @@
   .faqSection .faqIndice ul {
     margin-bottom: 2.4rem;
   }
+
+  /* No celular a escala em rem encolhe junto com o root: 1.7rem virava 15,2px,
+     menor que o corpo do resto da página (1.9rem / 17px) e pequeno demais para
+     texto clínico lido no celular. Aqui o ganho de altura vem do índice e da
+     entrelinha, não de espremer a fonte. */
+  .faqSection .faqItem p {
+    font-size: 1.85rem;
+    line-height: 1.6;
+  }
 }
 
 /* Separador entre tópicos (F5.4) — o cartão da FAQ já tem borda própria em
