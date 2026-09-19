@@ -179,10 +179,17 @@
 }
 
 /* ===========================================================================
-   FAQ — opção B (aprovada pelo usuário)
-   Linha roxa acima e abaixo, marcador roxo, sem caixa e SEM toggle: todo o
-   texto segue visível. A spec cita o FAQ nominalmente (seção 7: "cada resposta
-   um <p> sempre visível, sem toggle"), então aqui o accordion não entra.
+   FAQ — índice de perguntas (opção B, aprovada pelo usuário)
+   Substitui a opção anterior (lista única, linha roxa, SEM toggle): mesmo sem
+   accordion a seção ficava enorme — 3.221px no celular só na acupuntura,
+   quase 4 telas. A regra de accordion/aba/"leia mais" continua valendo: as 6
+   perguntas e respostas seguem 100% visíveis no carregamento, sem nenhuma
+   interação. O que muda é a forma de achar a pergunta certa — um índice de
+   links âncora acima do corpo, no mesmo padrão visual do índice de tópicos do
+   topo da página (`.landingIndice`, com `slugAncora`) — e a densidade do
+   texto: fonte e entrelinha menores, cartões em duas colunas no desktop em
+   vez de uma lista corrida, divisória discreta (borda fina) no lugar da linha
+   roxa cheia.
 
    ESTE BLOCO ESTÁ REPLICADO NOS 4 styles.css DE PROPÓSITO. Os CSS das páginas
    não são escopados: todos declaram `.faqSection` no escopo global e entram no
@@ -191,7 +198,7 @@
    outras três o sobrescreveriam. Mexeu aqui, mexa nos quatro.
    =========================================================================== */
 .faqSection {
-  max-width: 78rem;
+  max-width: 120rem;
   margin-inline: auto;
   padding-block: 7rem;
 }
@@ -204,93 +211,103 @@
   font-size: 3.2rem;
   line-height: 1.2;
   max-width: 56rem;
-  margin-bottom: 4rem;
+  margin-bottom: 2.4rem;
   text-wrap: balance;
 }
 
-.faqSection .faqItem {
-  position: relative;
-  background: none;
-  border: 0;
-  border-radius: 0;
-  padding: 2.8rem 0 3rem;
-  max-width: none;
-  /* Grid em vez de padding-left: com padding a resposta desalinha da pergunta
-     quando a pergunta quebra em duas linhas — o caso de 3 das 6. */
+/* --- Índice: chips em várias linhas, sempre visíveis, só navegação -------- */
+.faqSection .faqIndice ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 3.2rem;
+}
+
+.faqSection .faqIndice a {
+  display: inline-block;
+  font-family: var(--sourceSans);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--roxo6);
+  background-color: var(--branco2);
+  border: 1px solid var(--cinza5);
+  border-radius: 100px;
+  padding: 0.7rem 1.5rem;
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.faqSection .faqIndice a:hover,
+.faqSection .faqIndice a:focus-visible {
+  background-color: var(--rosa1);
+  border-color: var(--roxo1);
+}
+
+/* --- Corpo: cartões no desktop, lista com divisória fina no celular ------- */
+.faqSection .faqItens {
   display: grid;
-  grid-template-columns: 2.6rem minmax(0, 1fr);
-  column-gap: 1.6rem;
+  grid-template-columns: 1fr;
 }
 
-/* A linha nasce saturada à esquerda e desvanece: um traço cheio de ponta a
-   ponta pesa e compete com o texto. */
-.faqSection .faqItem::before,
-.faqSection > .boxAnimation:last-of-type .faqItem::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    var(--roxo4) 0%,
-    var(--roxo4) 12%,
-    var(--roxo1) 42%,
-    rgba(150, 104, 168, 0.22) 100%
-  );
+.faqSection .faqItem {
+  /* Folga para a âncora do índice não parar embaixo do header fixo — mesmo
+     token do índice de tópicos do topo da página. */
+  scroll-margin-top: var(--ancoraOffset);
+  position: relative;
+  box-sizing: border-box;
+  max-width: none;
+  padding: 1.8rem 0 2rem;
+  /* Divisória discreta (borda fina, cinza levemente arroxeado) no lugar da
+     linha roxa cheia da versão anterior. No celular, sem padding lateral: a
+     tela já é estreita e um cartão com respiro nas laterais custaria
+     caracteres por linha demais (a medida de 60–75 é o item 2 desta
+     subtask). */
+  border-bottom: 1px solid #e9e2ee;
 }
 
-.faqSection .faqItem::before {
-  top: 0;
-}
-
-.faqSection > .boxAnimation:last-of-type .faqItem::after {
-  bottom: 0;
-}
-
-/* Marcador em losango, não "+": um "+" anuncia que abre alguma coisa, e aqui
-   nada abre — seria um botão quebrado em cada pergunta. */
-.faqSection .faqItem h3::before {
-  content: "";
-  position: absolute;
-  left: 0.55rem;
-  width: 0.9rem;
-  height: 0.9rem;
-  margin-top: 1rem;
-  background: var(--roxo4);
-  transform: rotate(45deg);
-  border-radius: 0.15rem;
+.faqSection .faqItens > .boxAnimation:last-child .faqItem {
+  border-bottom: none;
 }
 
 .faqSection .faqItem h3 {
-  grid-column: 2;
   font-family: var(--taviraj);
-  font-size: 2.3rem;
+  font-size: 2rem;
   font-weight: 500;
-  line-height: 1.32;
+  line-height: 1.3;
   color: var(--roxo2);
-  margin-bottom: 1.2rem;
-  max-width: 52rem;
+  margin-bottom: 1rem;
   text-wrap: pretty;
 }
 
-.faqSection .faqItem p {
-  grid-column: 2;
-  color: var(--cinza);
-  line-height: 1.75;
-  /* O `max-width: none` da proposta soltava a resposta na largura inteira da
-     coluna do grid (678px a 19px): medi 80 a 91 caracteres por linha, fora da
-     faixa de 60–75 que é o item 1 desta subtask e que vale para o FAQ também.
-     Com `--medida` volta para ~68, e o eixo direito fica quase no mesmo lugar
-     do h3 (limitado a 52rem), então o desenho aprovado não muda. */
-  max-width: var(--medida);
+/* Marcador em losango, não "+": um "+" anuncia que abre alguma coisa, e aqui
+   nada abre. Em linha com o texto (não mais absoluto): o cartão substituiu a
+   coluna fixa que a versão anterior usava para encaixar o marcador. */
+.faqSection .faqItem h3::before {
+  content: "";
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-right: 0.7rem;
+  background: var(--roxo4);
+  transform: rotate(45deg);
+  border-radius: 0.15rem;
+  vertical-align: middle;
 }
 
-/* Botão de WhatsApp da pergunta "Quanto custa": mesma coluna da resposta
-   (grid-column: 2), alinhado à esquerda — o CtaAcc padrão centraliza, o que
-   destoaria do texto corrido do FAQ. */
+.faqSection .faqItem p {
+  color: var(--cinza);
+  /* Densidade pedida nesta subtask: 17px/1,55 no lugar dos 19px/1,75 da
+     versão anterior. Não reaproveita `--corpoTexto`/1.75 (src/index.css)
+     porque esse token também alimenta o texto dos blocos fora da FAQ, que
+     não muda. Largura do cartão calibrada para a faixa de 60–75 caracteres
+     por linha (medido no Chrome, ver validação da subtask). */
+  font-size: 1.7rem;
+  line-height: 1.55;
+}
+
 .faqSection .faqItem .faqPrecoCta {
-  grid-column: 2;
   margin-top: 1.6rem;
 }
 
@@ -298,43 +315,62 @@
   align-items: flex-start;
 }
 
+@media (min-width: 1001px) {
+  .faqSection .faqItens {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2.4rem;
+    row-gap: 2rem;
+  }
+
+  /* O item do grid é o <span class="boxAnimation"> (display:block) que
+     envolve cada cartão — precisa esticar para a altura da linha para o
+     cartão dentro dele preencher via height:100%, senão as duas colunas
+     ficam com alturas desencontradas quando uma resposta é mais curta que a
+     outra. */
+  .faqSection .faqItens > .boxAnimation {
+    height: 100%;
+  }
+
+  .faqSection .faqItem {
+    height: 100%;
+    background: var(--branco);
+    border: 1px solid #e9e2ee;
+    border-radius: 1.6rem;
+    padding: 2.2rem 2rem 2.4rem;
+  }
+
+  .faqSection .faqItens > .boxAnimation:last-child .faqItem {
+    border-bottom: 1px solid #e9e2ee;
+  }
+}
+
 @media (max-width: 1000px) {
   .faqSection {
+    max-width: 60rem;
     padding-block: 4.5rem;
   }
 
   .faqSection h2 {
     font-size: 2.6rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 
-  .faqSection .faqItem {
-    grid-template-columns: 2rem minmax(0, 1fr);
-    column-gap: 1.2rem;
-    padding: 2.2rem 0 2.4rem;
+  .faqSection .faqIndice ul {
+    margin-bottom: 2.4rem;
   }
 
-  .faqSection .faqItem h3 {
-    font-size: 2rem;
-  }
-
-  .faqSection .faqItem h3::before {
-    left: 0.3rem;
-    width: 0.8rem;
-    height: 0.8rem;
-    margin-top: 0.8rem;
+  /* No celular a escala em rem encolhe junto com o root: 1.7rem virava 15,2px,
+     menor que o corpo do resto da página (1.9rem / 17px) e pequeno demais para
+     texto clínico lido no celular. Aqui o ganho de altura vem do índice e da
+     entrelinha, não de espremer a fonte. */
+  .faqSection .faqItem p {
+    font-size: 1.85rem;
+    line-height: 1.6;
   }
 }
 
-/* Separador entre blocos. O primeiro seletor mira o último <span> DENTRO de
-   `.landingBlocos` — na F5.4 os blocos ganharam esse container, e o seletor
-   antigo, ancorado no container da seção, deixou de alcançá-los.
-   A regra ainda mais antiga (`.BLOCO:last-of-type`) nunca surtia
-   efeito no sentido pretendido: cada bloco é o único <div> dentro do seu
-   <span class="boxAnimation">, então TODOS casavam com :last-of-type e a página
-   acabava sem separador nenhum. O seletor abaixo mira o último <span> da seção
-   (o CTA que fecha a lista é <div>, não entra na conta de :last-of-type). */
-.landingBlocos > .boxAnimation:last-child .acupunturaBloco,
-.faqSection > .boxAnimation:last-of-type .faqItem {
+/* Separador entre blocos (F5.4) — o cartão da FAQ já tem borda própria em
+   todo o perímetro e não precisa mais desta regra. */
+.landingBlocos > .boxAnimation:last-child .acupunturaBloco {
   border-bottom: none;
 }

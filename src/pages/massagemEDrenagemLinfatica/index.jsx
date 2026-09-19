@@ -88,6 +88,22 @@ const SERVICOS = [
 // e a lista tem dois itens.
 
 // FAQ OFICIAL da cliente (anexo PELVIE — Perguntas Frequentes, 11/09/2026).
+// Rótulo curto SÓ para o índice de perguntas (proposta B, aprovada pelo
+// usuário). O <h3> de cada pergunta no corpo continua com o texto completo,
+// idêntico ao anexo; isto é navegação, não conteúdo.
+const ROTULO_CURTO_FAQ = {
+  "Qual a diferença entre massagem relaxante e drenagem linfática?":
+    "Massagem ou drenagem?",
+  "Grávida pode fazer drenagem linfática?": "Grávida pode?",
+  "Quando posso fazer drenagem linfática depois de uma cirurgia?":
+    "Depois de cirurgia?",
+  "A drenagem linfática dói? Precisa apertar forte para funcionar?":
+    "A drenagem dói?",
+  "Quantas sessões de drenagem linfática são necessárias?":
+    "Quantas sessões?",
+  "Quanto custa a sessão e quanto tempo dura?": "Quanto custa e quanto dura?",
+};
+
 // Texto literal, palavra por palavra — não editar sem novo anexo da cliente.
 // O mesmo array alimenta o h3/p visível e o JSON-LD do FaqPageSchema (R17: o
 // texto do schema precisa ser idêntico ao renderizado).
@@ -339,23 +355,39 @@ const MassagemEDrenagemLinfatica = () => {
       <Container mainClass="faqSection" id="faq">
         <span className="spanLabel">Tire suas dúvidas</span>
         <h2>Perguntas frequentes</h2>
-        {FAQS.map((faq) => (
-          <BoxAnimation animation="opacity" key={faq.pergunta}>
-            <div className="faqItem">
-              <h3>{faq.pergunta}</h3>
-              <p>{faq.resposta}</p>
-              {faq.precoCta && (
-                <div className="faqPrecoCta">
-                  <CtaAcc
-                    aText="Consultar valores pelo WhatsApp"
-                    href={PRECO_WHATSAPP_HREF}
-                    img={whatsappGreen}
-                  />
-                </div>
-              )}
-            </div>
-          </BoxAnimation>
-        ))}
+        {/* Índice da FAQ: só links âncora, sem esconder nada — as 6
+            perguntas e respostas continuam inteiras e visíveis logo abaixo,
+            no carregamento da página. */}
+        <nav className="faqIndice" aria-label="Índice das perguntas frequentes">
+          <ul>
+            {FAQS.map((faq) => (
+              <li key={faq.pergunta}>
+                <a href={`#${slugAncora(faq.pergunta)}`}>
+                  {ROTULO_CURTO_FAQ[faq.pergunta] ?? faq.pergunta}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <div className="faqItens">
+          {FAQS.map((faq) => (
+            <BoxAnimation animation="opacity" key={faq.pergunta}>
+              <div className="faqItem" id={slugAncora(faq.pergunta)}>
+                <h3>{faq.pergunta}</h3>
+                <p>{faq.resposta}</p>
+                {faq.precoCta && (
+                  <div className="faqPrecoCta">
+                    <CtaAcc
+                      aText="Consultar valores pelo WhatsApp"
+                      href={PRECO_WHATSAPP_HREF}
+                      img={whatsappGreen}
+                    />
+                  </div>
+                )}
+              </div>
+            </BoxAnimation>
+          ))}
+        </div>
       </Container>
 
       <Container mainClass="ctaLocalizacao">
