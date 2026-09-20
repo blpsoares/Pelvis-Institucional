@@ -229,7 +229,7 @@
 @media (min-width: 1001px) {
   .fisioLayout {
     display: grid;
-    grid-template-columns: minmax(0, 26rem) minmax(0, var(--medida));
+    grid-template-columns: minmax(0, 26rem) minmax(0, 104rem);
     justify-content: center;
     gap: 5rem;
     align-items: start;
@@ -497,7 +497,10 @@
      a barra própria que isso produzia quando o índice ficava com altura
      fixa (ver histórico do commit). */
   .fisioLayout {
-    grid-template-columns: minmax(0, 27rem) minmax(0, var(--medida));
+    /* A coluna de conteúdo não usa mais `--medida` (55rem, calibrada para UMA
+       coluna): com as condições em duas colunas por família, a medida de linha
+       passa a valer por coluna. */
+    grid-template-columns: minmax(0, 27rem) minmax(0, 104rem);
   }
 
   .fisioIndice {
@@ -644,12 +647,105 @@
      avoid` impede que uma condição seja cortada ao meio entre as colunas.
      SEM cartão, SEM borda ao redor, SEM fundo — a divisória continua sendo
      só o `border-bottom` fino de `.fisioCondicao` (linha 22 deste arquivo). */
+  /* Grade, não fluxo em colunas: `columns` preenche a coluna da esquerda
+     inteira antes de passar para a direita, então a numeração lia 1-2-3 de
+     cima a baixo à esquerda e o item 3 aparecia embaixo do 2. Com grid a
+     leitura volta a ser na horizontal (01 02 / 03 04). `align-items: start`
+     mantém cada condição com a altura do próprio texto, sem esticar para
+     acompanhar a vizinha mais alta. */
   .fisioFamiliaCondicoes {
-    columns: 2;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 4rem;
+    align-items: start;
   }
 
-  .fisioCondicao {
-    break-inside: avoid;
+  /* Cada coluna é um fluxo próprio: o item 03 (ímpar, coluna da esquerda)
+     encosta no 01 em vez de esperar a linha do 02, que é mais alto. */
+  .fisioFamiliaColuna {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Com o conteúdo em duas colunas, cada coluna fica em torno de 48rem — metade
+   da largura em que a frase-lead foi calibrada. Mantida em Taviraj para o
+   degrau de leitura, mas no corpo do texto: em 2.3rem numa coluna estreita ela
+   ocupava seis linhas e engolia o começo da resposta. */
+@media (min-width: 1001px) {
+  .fisioCondicao .leadSentence {
+    font-size: 1.9rem;
+    line-height: 1.5;
+  }
+}
+
+/* A coluna de conteúdo herdava `--medida` (55rem), calibrada para UMA coluna de
+   texto. Com duas colunas por família isso dava ~25rem por coluna — 35
+   caracteres por linha, estreito demais. No desktop a medida passa a valer por
+   coluna, não pelo bloco inteiro. */
+@media (min-width: 1001px) {
+  .fisioCondicoes,
+  .fisioFamiliaCondicoes,
+  .fisioFamiliaGrupo {
+    max-width: none;
+  }
+}
+
+/* ===========================================================================
+   FAQ — manchete e texto (variante A)
+
+   O corpo da página já usa "coluna estreita à esquerda + conteúdo à direita"
+   (índice fixo + condições). Repetir essa silhueta na FAQ faria a seção
+   parecer o mesmo componente duas vezes. Aqui o ritmo é outro: a pergunta
+   ocupa a largura inteira, como manchete, e a resposta corre logo abaixo em
+   duas colunas de texto. A leitura passa a ser de cima para baixo, não
+   lateral — e a resposta usa toda a largura, o que corta a altura da seção.
+
+   Continua sem accordion, sem aba e sem cartão: tudo visível no
+   carregamento, separado só por uma divisória fina.
+   =========================================================================== */
+@media (min-width: 1001px) {
+  .faqSection {
+    max-width: 104rem;
+  }
+
+  .faqSection .faqItens {
+    display: block;
+    column-count: auto;
+  }
+
+  .faqSection .faqItens > .boxAnimation {
+    display: block;
+  }
+
+  .faqSection .faqItem {
+    display: block;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid #ece5f1;
+    border-radius: 0;
+    padding: 3.2rem 0 3.6rem;
+    max-width: none;
+  }
+
+  /* Manchete: largura inteira, sem recuo, para o olho bater na pergunta antes
+     do texto. */
+  .faqSection .faqItem h3 {
+    font-size: 2.8rem;
+    line-height: 1.25;
+    margin-bottom: 1.8rem;
+    max-width: 88rem;
+  }
+
+  /* Resposta em duas colunas de texto: cada coluna fica em torno de 50rem, o
+     que mantém a medida de linha na faixa de 60–70 caracteres. */
+  .faqSection .faqItem p {
+    columns: 2;
+    column-gap: 4.4rem;
+    max-width: none;
+  }
+
+  .faqSection .faqItem .faqPrecoCta {
+    margin-top: 2rem;
   }
 }

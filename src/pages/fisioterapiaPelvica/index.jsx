@@ -356,25 +356,44 @@ const FisioterapiaPelvica = () => {
             {INDICE.map((grupo) => (
               <div className="fisioFamiliaGrupo" key={grupo.familia}>
                 <p className="fisioFamiliaRotulo">{grupo.familia}</p>
+                {/* Duas colunas de verdade, não grade nem fluxo de jornal: os
+                    ímpares vão para a coluna da esquerda e os pares para a da
+                    direita. Assim a leitura corre na horizontal (01 02 / 03
+                    04) E o item 03 encosta no 01, sem o vazio que a grade
+                    deixava quando a condição vizinha era mais alta. No
+                    empilhado as colunas viram `display: contents` e o `order`
+                    devolve a sequência original. */}
                 <div className="fisioFamiliaCondicoes">
-                  {grupo.condicoes.map((condicao) => (
-                    <BoxAnimation animation="opacity" key={condicao.title}>
-                      <div
-                        className="fisioCondicao"
-                        id={slugAncora(condicao.title)}
-                      >
-                        <h3>{condicao.title}</h3>
-                        {condicao.paragraphs.map((paragrafo, indice) =>
-                          indice === 0 ? (
-                            <LeadParagraph key={paragrafo.slice(0, 40)}>
-                              {paragrafo}
-                            </LeadParagraph>
-                          ) : (
-                            <p key={paragrafo.slice(0, 40)}>{paragrafo}</p>
-                          )
-                        )}
-                      </div>
-                    </BoxAnimation>
+                  {[0, 1].map((coluna) => (
+                    <div className="fisioFamiliaColuna" key={coluna}>
+                      {grupo.condicoes
+                        .map((condicao, indice) => ({ condicao, indice }))
+                        .filter(({ indice }) => indice % 2 === coluna)
+                        .map(({ condicao, indice }) => (
+                          <BoxAnimation
+                            animation="opacity"
+                            key={condicao.title}
+                            style={{ order: indice }}
+                          >
+                            <div
+                              className="fisioCondicao"
+                              id={slugAncora(condicao.title)}
+                              style={{ "--ordem": indice + 1 }}
+                            >
+                              <h3>{condicao.title}</h3>
+                              {condicao.paragraphs.map((paragrafo, i) =>
+                                i === 0 ? (
+                                  <LeadParagraph key={paragrafo.slice(0, 40)}>
+                                    {paragrafo}
+                                  </LeadParagraph>
+                                ) : (
+                                  <p key={paragrafo.slice(0, 40)}>{paragrafo}</p>
+                                )
+                              )}
+                            </div>
+                          </BoxAnimation>
+                        ))}
+                    </div>
                   ))}
                 </div>
               </div>
