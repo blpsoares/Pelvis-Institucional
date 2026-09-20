@@ -3,6 +3,8 @@ import "./styles.css";
 import { Head } from "vite-react-ssg";
 import { NavLink } from "react-router-dom";
 
+import useIndiceScrollSpy from "../../hooks/useIndiceScrollSpy";
+
 import MedicalBusinessSchema from "../../components/medicalBusinessSchema";
 import FaqPageSchema from "../../components/faqPageSchema";
 import Container from "../../components/container";
@@ -92,22 +94,6 @@ const ROTULO_CURTO = {
 // o que agrupar — um rótulo de família por item viraria ruído.
 
 // FAQ OFICIAL da cliente (anexo PELVIE — Perguntas Frequentes, 11/09/2026).
-// Rótulo curto SÓ para o índice de perguntas (proposta B, aprovada pelo
-// usuário). O <h3> de cada pergunta no corpo continua com o texto completo,
-// idêntico ao anexo; isto é navegação, não conteúdo.
-const ROTULO_CURTO_FAQ = {
-  "As aulas de Pilates são individuais ou em grupo?":
-    "Individual ou em grupo?",
-  "Posso fazer Pilates grávida?": "Posso fazer grávida?",
-  "Quando posso voltar ao Pilates depois do parto?":
-    "Quando voltar após o parto?",
-  "O Pilates ajuda na diástase abdominal?": "Ajuda na diástase?",
-  "Nunca fiz Pilates e estou sem preparo físico. Posso começar?":
-    "Nunca fiz pilates?",
-  "Quanto custa a aula de Pilates e qual a frequência recomendada?":
-    "Quanto custa?",
-};
-
 // Texto literal, palavra por palavra — não editar sem novo anexo da cliente.
 // O mesmo array alimenta o h3/p visível e o JSON-LD do FaqPageSchema (R17: o
 // texto do schema precisa ser idêntico ao renderizado).
@@ -146,6 +132,8 @@ const FAQS = [
 ];
 
 const Pilates = () => {
+  useIndiceScrollSpy(".landingBloco", ".landingIndice a");
+
   return (
     <>
       <Head>
@@ -200,10 +188,12 @@ const Pilates = () => {
         <BoxAnimation animation="opacity">
           <h2>Pilates com fisioterapeuta na PELVIE</h2>
         </BoxAnimation>
-        <div className="landingLayout landingLayoutAbas">
-          {/* Índice de navegação: só HTML + CSS (href="#id" + :target), sem
-              JavaScript. Os cinco tópicos continuam inteiros no HTML servido.
-              As regras estão em src/index.css, compartilhadas com /acupuntura e
+        <div className="landingLayout">
+          {/* Índice de navegação: navegação pura (href="#id"), nada é
+              filtrado — os cinco tópicos continuam inteiros e sempre
+              visíveis logo ao lado. No desktop vira coluna fixa (sticky); o
+              destaque do item atual vem do useIndiceScrollSpy acima. As
+              regras estão em src/index.css, compartilhadas com /acupuntura e
               /massagem-e-drenagem-linfatica. */}
           <nav
             className="landingIndice"
@@ -338,20 +328,10 @@ const Pilates = () => {
       <Container mainClass="faqSection" id="faq">
         <span className="spanLabel">Tire suas dúvidas</span>
         <h2>Perguntas frequentes</h2>
-        {/* Índice da FAQ: só links âncora, sem esconder nada — as 6
-            perguntas e respostas continuam inteiras e visíveis logo abaixo,
-            no carregamento da página. */}
-        <nav className="faqIndice" aria-label="Índice das perguntas frequentes">
-          <ul>
-            {FAQS.map((faq) => (
-              <li key={faq.pergunta}>
-                <a href={`#${slugAncora(faq.pergunta)}`}>
-                  {ROTULO_CURTO_FAQ[faq.pergunta] ?? faq.pergunta}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        {/* Sem índice de chips (repetia o "Ir direto para" do topo) — as 6
+            perguntas e respostas ficam inteiras e visíveis logo abaixo, no
+            carregamento da página, numeradas por CSS (contador, não entra no
+            texto). */}
         <div className="faqItens">
           {FAQS.map((faq) => (
             <BoxAnimation animation="opacity" key={faq.pergunta}>
