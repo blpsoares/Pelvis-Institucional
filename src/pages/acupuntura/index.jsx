@@ -3,6 +3,8 @@ import "./styles.css";
 import { Head } from "vite-react-ssg";
 import { NavLink } from "react-router-dom";
 
+import useIndiceScrollSpy from "../../hooks/useIndiceScrollSpy";
+
 import MedicalBusinessSchema from "../../components/medicalBusinessSchema";
 import FaqPageSchema from "../../components/faqPageSchema";
 import Container from "../../components/container";
@@ -70,20 +72,6 @@ const bloco = Object.fromEntries(BLOCOS.map((b) => [b.chave, b]));
 // condições e as famílias são o que torna a lista varrível. Quatro itens não
 // têm o que agrupar.
 
-// Rótulo curto SÓ para o índice de perguntas (proposta B, aprovada pelo
-// usuário). O <h3> de cada pergunta no corpo continua com o texto completo,
-// idêntico ao anexo; isto é navegação, não conteúdo.
-const ROTULO_CURTO_FAQ = {
-  "A acupuntura ajuda a engravidar?": "Ajuda a engravidar?",
-  "Posso fazer acupuntura grávida?": "Posso fazer grávida?",
-  "A acupuntura dói? As agulhas machucam?": "As agulhas doem?",
-  "Quantas sessões de acupuntura são necessárias e com que frequência?":
-    "Quantas sessões?",
-  "Quanto custa a sessão de acupuntura?": "Quanto custa?",
-  "Quem aplica a acupuntura na PELVIE? Preciso de encaminhamento médico?":
-    "Quem aplica?",
-};
-
 // FAQ OFICIAL da cliente (anexo PELVIE — Perguntas Frequentes, 11/09/2026).
 // Texto literal, palavra por palavra — não editar sem novo anexo da cliente.
 // O mesmo array alimenta o h3/p visível e o JSON-LD do FaqPageSchema (R17: o
@@ -123,6 +111,8 @@ const FAQS = [
 ];
 
 const Acupuntura = () => {
+  useIndiceScrollSpy(".landingBloco", ".landingIndice a");
+
   return (
     <>
       <Head>
@@ -186,10 +176,12 @@ const Acupuntura = () => {
           </p>
         </BoxAnimation>
 
-        <div className="landingLayout landingLayoutAbas">
-          {/* Índice de navegação: só HTML + CSS (href="#id" + :target), sem
-              JavaScript. Os quatro blocos continuam inteiros no HTML servido.
-              As regras estão em src/index.css, compartilhadas com /pilates e
+        <div className="landingLayout">
+          {/* Índice de navegação: navegação pura (href="#id"), nada é
+              filtrado — os quatro blocos continuam inteiros e sempre
+              visíveis logo ao lado. No desktop vira coluna fixa (sticky); o
+              destaque do item atual vem do useIndiceScrollSpy acima. As
+              regras estão em src/index.css, compartilhadas com /pilates e
               /massagem-e-drenagem-linfatica. */}
           <nav
             className="landingIndice"
@@ -477,20 +469,10 @@ const Acupuntura = () => {
       <Container mainClass="faqSection" id="faq">
         <span className="spanLabel">Tire suas dúvidas</span>
         <h2>Perguntas frequentes</h2>
-        {/* Índice da FAQ: só links âncora, sem esconder nada — as 6
-            perguntas e respostas continuam inteiras e visíveis logo abaixo,
-            no carregamento da página. */}
-        <nav className="faqIndice" aria-label="Índice das perguntas frequentes">
-          <ul>
-            {FAQS.map((faq) => (
-              <li key={faq.pergunta}>
-                <a href={`#${slugAncora(faq.pergunta)}`}>
-                  {ROTULO_CURTO_FAQ[faq.pergunta] ?? faq.pergunta}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        {/* Sem índice de chips (repetia o "Ir direto para" do topo) — as 6
+            perguntas e respostas ficam inteiras e visíveis logo abaixo, no
+            carregamento da página, numeradas por CSS (contador, não entra no
+            texto). */}
         <div className="faqItens">
           {FAQS.map((faq) => (
             <BoxAnimation animation="opacity" key={faq.pergunta}>

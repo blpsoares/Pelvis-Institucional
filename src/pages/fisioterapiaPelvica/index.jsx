@@ -3,6 +3,8 @@ import "./styles.css";
 import { Head } from "vite-react-ssg";
 import { NavLink } from "react-router-dom";
 
+import useIndiceScrollSpy from "../../hooks/useIndiceScrollSpy";
+
 import MedicalBusinessSchema from "../../components/medicalBusinessSchema";
 import FaqPageSchema from "../../components/faqPageSchema";
 import Container from "../../components/container";
@@ -163,12 +165,13 @@ const CONDICOES = [
   },
 ];
 
-// Ordem das famílias no índice de navegação (F5.3). O agrupamento existe SÓ no
-// índice: no corpo as 17 condições continuam numa sequência plana, cada uma com
-// seu próprio <h3>. Agrupar no corpo exigiria um heading de família e rebaixaria
-// as condições de <h3> para <h4>, divergindo da spec (docs/seo-landing-pages/
-// template.md manda <h2> na seção e <h3> por condição) e enfraquecendo 17
-// headings em SEO. O índice é navegação, não conteúdo — por isso pode agrupar.
+// Ordem das famílias, usada tanto no índice de navegação quanto no
+// agrupamento do corpo (ver INDICE, abaixo). No corpo, a família vira um
+// rótulo NÃO-heading (<p className="fisioFamiliaRotulo">) acima do grupo de
+// condições — as 17 condições continuam cada uma com seu próprio <h3>, sem
+// pular nível (h2 da seção → h3 por condição). Rebaixar a condição para <h4>
+// foi avaliado e descartado: o rótulo não-heading preserva melhor a
+// hierarquia existente e ainda assim entrega o agrupamento visual pedido.
 const FAMILIAS = [
   "Gestação e pós-parto",
   "Perdas urinárias",
@@ -208,32 +211,12 @@ const INDICE = FAMILIAS.map((familia) => ({
   condicoes: CONDICOES.filter((condicao) => condicao.familia === familia),
 }));
 
-// O destaque do item ativo do índice mora em styles.css, com um seletor por
-// condição. Tentei gerar essas regras aqui a partir de CONDICOES e injetá-las
-// num <style> — parecia melhor, porque tira 17 slugs escritos à mão. Não dá:
-// o <style> renderizado pelo React quebra a hidratação (erros #418/#425), o
-// React descarta o HTML do servidor e recria os nós, e aí o `:target` do
-// navegador — que aponta para o nó ORIGINAL — deixa de casar. Resultado
-// medido: abrir /fisioterapia-pelvica#vaginismo direto mostrava a primeira
-// condição em vez de Vaginismo. Com o CSS estático a hidratação fica limpa e o
-// `:target` sobrevive. Não reintroduza a geração em runtime.
-
-// Rótulo curto SÓ para o índice de perguntas (proposta B, aprovada pelo
-// usuário — ver docs/faq-indice). O <h3> de cada pergunta no corpo continua
-// com o texto completo, idêntico ao anexo; isto é navegação, não conteúdo.
-const ROTULO_CURTO_FAQ = {
-  "Como é feita a fisioterapia pélvica? O atendimento é invasivo?":
-    "Como é feita?",
-  "A fisioterapia pélvica dói?": "Dói?",
-  "Quantas sessões de fisioterapia pélvica são necessárias?":
-    "Quantas sessões?",
-  "Quanto custa a fisioterapia pélvica?": "Quanto custa?",
-  "A PELVIE atende convênio?": "Atende convênio?",
-  "Preciso de encaminhamento médico para fazer fisioterapia pélvica?":
-    "Precisa de encaminhamento?",
-  "A Fisioterapia Pélvica é somente para quem quer parto normal?":
-    "Só para parto normal?",
-};
+// O destaque de "você está aqui" no índice não usa mais `:target`/seletores
+// por condição gerados em runtime (histórico: um <style> injetado pelo React
+// quebrava a hidratação — erros #418/#425 — porque o servidor e o cliente
+// renderizavam nós diferentes). Hoje é só a classe `.indiceAtivo`, alternada
+// depois da hidratação por um IntersectionObserver (useIndiceScrollSpy), sem
+// tocar no HTML nem no estado do React — não há o que quebrar.
 
 // FAQ OFICIAL da cliente (anexo PELVIE — Perguntas Frequentes, 11/09/2026).
 // Texto literal, palavra por palavra — não editar sem novo anexo da cliente.
@@ -279,6 +262,8 @@ const FAQS = [
 ];
 
 const FisioterapiaPelvica = () => {
+  useIndiceScrollSpy(".fisioCondicao", ".fisioIndice a");
+
   return (
     <>
       <Head>
@@ -338,9 +323,10 @@ const FisioterapiaPelvica = () => {
           </LeadParagraph>
         </BoxAnimation>
         <div className="fisioLayout">
-          {/* Índice de navegação: só HTML + CSS (href="#id" e position: sticky).
-              Nenhum conteúdo fica escondido atrás dele — as 17 condições seguem
-              inteiras logo ao lado, sempre visíveis. */}
+          {/* Índice de navegação: navegação pura (href="#id"), nada é
+              filtrado — as 17 condições seguem inteiras logo ao lado, sempre
+              visíveis. No desktop vira coluna fixa (position: sticky); o
+              destaque do item atual vem do useIndiceScrollSpy acima. */}
           <nav className="fisioIndice" aria-label="Índice das condições tratadas">
             <p className="fisioIndiceTitulo">Ir direto para</p>
             <div className="fisioIndiceGrupos">
@@ -361,25 +347,37 @@ const FisioterapiaPelvica = () => {
             </div>
           </nav>
 
+          {/* Corpo agrupado nas mesmas famílias do índice (F5.4). O rótulo de
+              família é um <p>, não um heading — a condição continua em <h3>,
+              logo depois do <h2> da seção, sem pular nível (R5). A numeração
+              (01, 02…) e as duas colunas no desktop são só CSS: contador
+              (não entra no texto) e `columns: 2` em .fisioFamiliaCondicoes. */}
           <div className="fisioCondicoes">
-            {CONDICOES.map((condicao) => (
-              <BoxAnimation animation="opacity" key={condicao.title}>
-                <div
-                  className="fisioCondicao"
-                  id={slugAncora(condicao.title)}
-                >
-                  <h3>{condicao.title}</h3>
-                  {condicao.paragraphs.map((paragrafo, indice) =>
-                    indice === 0 ? (
-                      <LeadParagraph key={paragrafo.slice(0, 40)}>
-                        {paragrafo}
-                      </LeadParagraph>
-                    ) : (
-                      <p key={paragrafo.slice(0, 40)}>{paragrafo}</p>
-                    )
-                  )}
+            {INDICE.map((grupo) => (
+              <div className="fisioFamiliaGrupo" key={grupo.familia}>
+                <p className="fisioFamiliaRotulo">{grupo.familia}</p>
+                <div className="fisioFamiliaCondicoes">
+                  {grupo.condicoes.map((condicao) => (
+                    <BoxAnimation animation="opacity" key={condicao.title}>
+                      <div
+                        className="fisioCondicao"
+                        id={slugAncora(condicao.title)}
+                      >
+                        <h3>{condicao.title}</h3>
+                        {condicao.paragraphs.map((paragrafo, indice) =>
+                          indice === 0 ? (
+                            <LeadParagraph key={paragrafo.slice(0, 40)}>
+                              {paragrafo}
+                            </LeadParagraph>
+                          ) : (
+                            <p key={paragrafo.slice(0, 40)}>{paragrafo}</p>
+                          )
+                        )}
+                      </div>
+                    </BoxAnimation>
+                  ))}
                 </div>
-              </BoxAnimation>
+              </div>
             ))}
           </div>
         </div>
@@ -481,20 +479,10 @@ const FisioterapiaPelvica = () => {
       <Container mainClass="faqSection" id="faq">
         <span className="spanLabel">Tire suas dúvidas</span>
         <h2>Perguntas frequentes</h2>
-        {/* Índice da FAQ: só links âncora, sem esconder nada — as 7
-            perguntas e respostas continuam inteiras e visíveis logo abaixo,
-            no carregamento da página. */}
-        <nav className="faqIndice" aria-label="Índice das perguntas frequentes">
-          <ul>
-            {FAQS.map((faq) => (
-              <li key={faq.pergunta}>
-                <a href={`#${slugAncora(faq.pergunta)}`}>
-                  {ROTULO_CURTO_FAQ[faq.pergunta] ?? faq.pergunta}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        {/* Sem índice de chips (repetia o "Ir direto para" do topo) — as 7
+            perguntas e respostas ficam inteiras e visíveis logo abaixo, no
+            carregamento da página, numeradas por CSS (contador, não entra no
+            texto). */}
         <div className="faqItens">
           {FAQS.map((faq) => (
             <BoxAnimation animation="opacity" key={faq.pergunta}>

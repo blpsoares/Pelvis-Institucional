@@ -149,16 +149,16 @@
 }
 
 /* ===========================================================================
-   FAQ — índice de perguntas (opção B, aprovada pelo usuário)
-   Substitui a opção anterior (lista única, linha roxa, SEM toggle): mesmo sem
-   accordion a seção ficava enorme. A regra de accordion/aba/"leia mais"
-   continua valendo: as 6 perguntas e respostas seguem 100% visíveis no
-   carregamento, sem nenhuma interação. O que muda é a forma de achar a
-   pergunta certa — um índice de links âncora acima do corpo, no mesmo padrão
-   visual do índice de tópicos do topo da página (`.landingIndice`, com
-   `slugAncora`) — e a densidade do texto: fonte e entrelinha menores, cartões
-   em duas colunas no desktop em vez de uma lista corrida, divisória discreta
-   (borda fina) no lugar da linha roxa cheia.
+   FAQ — tudo aberto, sem chips de índice, numeração 01..NN
+
+   Sem índice de chips (o usuário achou que repetia o "Ir direto para" do
+   topo da página) e SEM cartão (o usuário já rejeitou o padrão de cartão
+   duas vezes) — a divisória entre perguntas volta a ser só a borda fina
+   embaixo, igual ao corpo dos tópicos. As 6 perguntas e respostas seguem
+   100% visíveis no carregamento, sem nenhuma interação, em duas colunas no
+   desktop. A identificação da pergunta certa vem da numeração (contador de
+   CSS, não entra no texto) e da densidade do texto: fonte e entrelinha
+   menores que o resto da página.
 
    ESTE BLOCO ESTÁ REPLICADO NOS 4 styles.css DE PROPÓSITO. Os CSS das páginas
    não são escopados: todos declaram `.faqSection` no escopo global e entram no
@@ -184,55 +184,24 @@
   text-wrap: balance;
 }
 
-/* --- Índice: chips em várias linhas, sempre visíveis, só navegação -------- */
-.faqSection .faqIndice ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  margin-bottom: 3.2rem;
-}
-
-.faqSection .faqIndice a {
-  display: inline-block;
-  font-family: var(--sourceSans);
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--roxo6);
-  background-color: var(--branco2);
-  border: 1px solid var(--cinza5);
-  border-radius: 100px;
-  padding: 0.7rem 1.5rem;
-  transition:
-    background-color 0.18s ease,
-    border-color 0.18s ease,
-    color 0.18s ease;
-}
-
-.faqSection .faqIndice a:hover,
-.faqSection .faqIndice a:focus-visible {
-  background-color: var(--rosa1);
-  border-color: var(--roxo1);
-}
-
-/* --- Corpo: cartões no desktop, lista com divisória fina no celular ------- */
+/* --- Corpo: duas colunas no desktop, lista com divisória fina no celular -- */
 .faqSection .faqItens {
   display: grid;
   grid-template-columns: 1fr;
+  counter-reset: faqNum;
 }
 
 .faqSection .faqItem {
-  /* Folga para a âncora do índice não parar embaixo do header fixo — mesmo
-     token do índice de tópicos do topo da página. */
+  counter-increment: faqNum;
+  /* Folga para a âncora não parar embaixo do header fixo — mesmo token do
+     índice de tópicos do topo da página. */
   scroll-margin-top: var(--ancoraOffset);
   position: relative;
   box-sizing: border-box;
   max-width: none;
   padding: 1.8rem 0 2rem;
-  /* Divisória discreta (borda fina, cinza levemente arroxeado) no lugar da
-     linha roxa cheia da versão anterior. No celular, sem padding lateral: a
-     tela já é estreita e um cartão com respiro nas laterais custaria
-     caracteres por linha demais (a medida de 60–75 é o item 2 desta
-     subtask). */
+  /* Divisória discreta (borda fina, cinza levemente arroxeado). SEM cartão:
+     sem fundo, sem borda ao redor, sem border-radius. */
   border-bottom: 1px solid #e9e2ee;
 }
 
@@ -250,18 +219,15 @@
   text-wrap: pretty;
 }
 
-/* Marcador em losango, não "+": um "+" anuncia que abre alguma coisa, e aqui
-   nada abre. Em linha com o texto (não mais absoluto): o cartão substituiu a
-   coluna fixa que a versão anterior usava para encaixar o marcador. */
+/* Numeração discreta (01..NN) no lugar do marcador em losango. */
 .faqSection .faqItem h3::before {
-  content: "";
-  display: inline-block;
-  width: 0.8rem;
-  height: 0.8rem;
-  margin-right: 0.7rem;
-  background: var(--roxo4);
-  transform: rotate(45deg);
-  border-radius: 0.15rem;
+  content: counter(faqNum, decimal-leading-zero) " ";
+  color: var(--roxo9);
+  font-family: var(--sourceSans);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.03rem;
+  margin-right: 0.6rem;
   vertical-align: middle;
 }
 
@@ -270,8 +236,7 @@
   /* Densidade pedida nesta subtask: 17px/1,55 no lugar dos 19px/1,75 da
      versão anterior. Não reaproveita `--corpoTexto`/1.75 (src/index.css)
      porque esse token também alimenta o texto dos tópicos fora da FAQ, que
-     não muda. Largura do cartão calibrada para a faixa de 60–75 caracteres
-     por linha (medido no Chrome, ver validação da subtask). */
+     não muda. */
   font-size: 1.7rem;
   line-height: 1.55;
 }
@@ -288,28 +253,7 @@
   .faqSection .faqItens {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 2.4rem;
-    row-gap: 2rem;
-  }
-
-  /* O item do grid é o <span class="boxAnimation"> (display:block) que
-     envolve cada cartão — precisa esticar para a altura da linha para o
-     cartão dentro dele preencher via height:100%, senão as duas colunas
-     ficam com alturas desencontradas quando uma resposta é mais curta que a
-     outra. */
-  .faqSection .faqItens > .boxAnimation {
-    height: 100%;
-  }
-
-  .faqSection .faqItem {
-    height: 100%;
-    background: var(--branco);
-    border: 1px solid #e9e2ee;
-    border-radius: 1.6rem;
-    padding: 2.2rem 2rem 2.4rem;
-  }
-
-  .faqSection .faqItens > .boxAnimation:last-child .faqItem {
-    border-bottom: 1px solid #e9e2ee;
+    row-gap: 0;
   }
 }
 
@@ -324,14 +268,10 @@
     margin-bottom: 2rem;
   }
 
-  .faqSection .faqIndice ul {
-    margin-bottom: 2.4rem;
-  }
-
   /* No celular a escala em rem encolhe junto com o root: 1.7rem virava 15,2px,
      menor que o corpo do resto da página (1.9rem / 17px) e pequeno demais para
-     texto clínico lido no celular. Aqui o ganho de altura vem do índice e da
-     entrelinha, não de espremer a fonte. */
+     texto clínico lido no celular. Aqui o ganho de altura vem da entrelinha,
+     não de espremer a fonte. */
   .faqSection .faqItem p {
     font-size: 1.85rem;
     line-height: 1.6;
