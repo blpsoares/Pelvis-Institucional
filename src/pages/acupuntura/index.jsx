@@ -79,32 +79,44 @@ const bloco = Object.fromEntries(BLOCOS.map((b) => [b.chave, b]));
 const FAQS = [
   {
     pergunta: "A acupuntura ajuda a engravidar?",
+    zapLabel: "Falar sobre fertilidade",
+    zapMsg: "Olá! Vim pelo site e gostaria de saber como a acupuntura pode ajudar na fertilidade.",
     resposta:
       "A acupuntura é usada como tratamento complementar em casos de dificuldade para engravidar. Ela atua sobre fatores que influenciam a fertilidade — estresse, qualidade do sono, regulação do ciclo e circulação na região pélvica. Na PELVIE também realizamos o Protocolo de Paulus, aplicado antes e depois da transferência embrionária em ciclos de Fertilização In Vitro (FIV). A acupuntura caminha lado a lado do tratamento de fertilidade.",
   },
   {
     pergunta: "Posso fazer acupuntura grávida?",
+    zapLabel: "Perguntar sobre a gestação",
+    zapMsg: "Olá! Vim pelo site e gostaria de saber sobre acupuntura durante a gestação.",
     resposta:
       "Com toda certeza! É uma das indicações mais procuradas aqui. Durante a gestação a acupuntura é usada para enjoo, azia, dor lombar e pélvica, ansiedade, insônia e inchaço — queixas comuns e que costumam limitar o uso de medicamentos. A partir do terceiro trimestre ela também entra no preparo para o parto, favorecendo o início do trabalho de parto de forma espontânea. Os pontos utilizados na gestação são selecionados especificamente para essa fase, por fisioterapeuta acupunturista especializada em gestantes.",
   },
   {
     pergunta: "A acupuntura dói? As agulhas machucam?",
+    zapLabel: "Tirar essa dúvida",
+    zapMsg: "Olá! Vim pelo site e gostaria de tirar uma dúvida sobre as agulhas da acupuntura.",
     resposta:
       "As agulhas de acupuntura são finíssimas — muito mais finas do que a de uma injeção — e a maioria das pacientes sente apenas um toque leve na aplicação. Depois, é comum sentir um peso, um formigamento ou um calor no local: isso é esperado e passa. Usamos agulhas descartáveis, de uso único, abertas na frente da paciente. Se em algum ponto o incômodo for maior, é só avisar: a agulha é reposicionada na hora.",
   },
   {
     pergunta: "Quantas sessões de acupuntura são necessárias e com que frequência?",
+    zapLabel: "Perguntar sobre o meu caso",
+    zapMsg: "Olá! Vim pelo site e gostaria de saber quantas sessões de acupuntura o meu caso pode precisar.",
     resposta:
       "Depende da queixa. Em quadros agudos, algumas pacientes já percebem diferença nas primeiras sessões; em quadros crônicos — dor pélvica, enxaqueca, ansiedade — o efeito costuma se construir ao longo de algumas semanas. A frequência mais comum é de uma sessão por semana, e a fisioterapeuta acupunturista define o número de sessões na primeira consulta, depois de ouvir o seu histórico. No Protocolo de Paulus para FIV, o calendário segue as datas da transferência embrionária.",
   },
   {
     pergunta: "Quanto custa a sessão de acupuntura?",
+    zapLabel: "Consultar valores",
+    zapMsg: "Olá! Vim pelo site e gostaria de saber os valores da Acupuntura.",
     resposta:
       "Cada sessão dura cerca de uma hora e o atendimento é particular. Para saber o valor, é só chamar no WhatsApp. O número de sessões varia com a sua queixa, e quem define isso é a fisioterapeuta acupunturista na primeira consulta. Quando a acupuntura entra num plano combinado com a fisioterapia pélvica, o que é comum na gestação, ela é apresentada dentro de um plano único, com o valor fechado, após a avaliação. Emitimos nota fiscal com os dados necessários para quem for solicitar reembolso ao plano de saúde.",
     precoCta: true,
   },
   {
     pergunta: "Quem aplica a acupuntura na PELVIE? Preciso de encaminhamento médico?",
+    zapLabel: "Agendar com a acupunturista",
+    zapMsg: "Olá! Vim pelo site e gostaria de agendar uma sessão de acupuntura com a fisioterapeuta acupunturista.",
     resposta:
       "A acupuntura é aplicada pela Dra. Cibele Ferrari, fisioterapeuta acupunturista especializada em saúde da mulher e gestantes (CREFITO-3/111858-F). Não é preciso encaminhamento médico para agendar — o encaminhamento com CID só é necessário para pedir reembolso ao convênio. Se você estiver em tratamento de fertilidade ou em acompanhamento pré-natal, traga os seus exames e as datas do seu ciclo: eles orientam o plano de sessões.",
   },
@@ -478,16 +490,19 @@ const Acupuntura = () => {
             <BoxAnimation animation="opacity" key={faq.pergunta}>
               <div className="faqItem" id={slugAncora(faq.pergunta)}>
                 <h3>{faq.pergunta}</h3>
+                {/* Atalho de WhatsApp por pergunta, com mensagem própria: a
+                    pessoa fala da dúvida que acabou de ler e a equipe já sabe
+                    de onde veio o contato (R14). Substitui o botão grande que
+                    só existia na pergunta de preço. */}
+                <a
+                  className="faqZap"
+                  href={`https://wa.me/+5511913112992?text=${faq.zapMsg}`}
+                  target="noreferrer"
+                >
+                  <img src={whatsappGreen} alt="" width="18" height="18" />
+                  {faq.zapLabel} no WhatsApp
+                </a>
                 <p>{faq.resposta}</p>
-                {faq.precoCta && (
-                  <div className="faqPrecoCta">
-                    <CtaAcc
-                      aText="Consultar valores pelo WhatsApp"
-                      href={PRECO_WHATSAPP_HREF}
-                      img={whatsappGreen}
-                    />
-                  </div>
-                )}
               </div>
             </BoxAnimation>
           ))}

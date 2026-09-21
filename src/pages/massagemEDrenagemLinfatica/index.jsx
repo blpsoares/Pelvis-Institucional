@@ -110,31 +110,43 @@ const ROTULO_CURTO_FAQ = {
 const FAQS = [
   {
     pergunta: "Qual a diferença entre massagem relaxante e drenagem linfática?",
+    zapLabel: "Saber qual é indicada",
+    zapMsg: "Olá! Vim pelo site e gostaria de saber qual é indicada para o meu caso: massagem relaxante ou drenagem linfática.",
     resposta:
       "A massagem relaxante trabalha a musculatura: usa movimentos mais amplos e rítmicos para soltar tensão, aliviar dor muscular e reduzir estresse e ansiedade. A drenagem linfática é um toque suave e superficial, que segue o caminho do sistema linfático para mobilizar líquido retido — indicada para inchaço, pós-operatório e retenção de líquido na gestação. A fisioterapeuta indica qual das duas faz sentido para o seu caso; às vezes, as duas.",
   },
   {
     pergunta: "Grávida pode fazer drenagem linfática?",
+    zapLabel: "Perguntar sobre a gestação",
+    zapMsg: "Olá! Vim pelo site e gostaria de saber sobre drenagem linfática na gestação.",
     resposta:
       "Com certeza, mas é interessante que haja liberação do obstetra. O inchaço nas pernas e nos pés é uma das queixas mais comuns da gestação, principalmente no terceiro trimestre, e a drenagem alivia a sensação de peso e melhora o conforto para dormir. O posicionamento é adaptado à barriga, com apoios, e a técnica é conduzida por fisioterapeuta especializada. Pressão alta, pré-eclâmpsia ou histórico de trombose precisam ser informados antes da sessão.",
   },
   {
     pergunta: "Quando posso fazer drenagem linfática depois de uma cirurgia?",
+    zapLabel: "Falar sobre pós-operatório",
+    zapMsg: "Olá! Vim pelo site e gostaria de saber sobre drenagem linfática no pós-operatório.",
     resposta:
       "Em muitos casos a liberação vem já nos primeiros dias após o procedimento, porque a drenagem precoce ajuda a controlar o edema e o desconforto. Traga a orientação do seu médico e, se houver, o número de sessões recomendado. A técnica é adaptada à fase da cicatrização e às áreas operadas, e é realizada por fisioterapeuta.",
   },
   {
     pergunta: "A drenagem linfática dói? Precisa apertar forte para funcionar?",
+    zapLabel: "Tirar essa dúvida",
+    zapMsg: "Olá! Vim pelo site e gostaria de tirar uma dúvida sobre a pressão da drenagem linfática.",
     resposta:
       'Não. Essa é a confusão mais comum: a drenagem linfática é um toque leve e superficial, porque os vasos linfáticos ficam logo abaixo da pele. Pressão forte atrapalha justamente o que se quer estimular, além de causar desconforto ou até mesmo hematomas. O que muita gente conhece como "drenagem que dói" costuma ser massagem modeladora, que é outra técnica. Aqui a drenagem é feita na pressão correta, por fisioterapeuta.',
   },
   {
     pergunta: "Quantas sessões de drenagem linfática são necessárias?",
+    zapLabel: "Perguntar sobre o meu caso",
+    zapMsg: "Olá! Vim pelo site e gostaria de saber quantas sessões de drenagem linfática o meu caso pode precisar.",
     resposta:
       "Depende do objetivo. Para inchaço na gestação ou retenção de líquido, uma sessão por semana costuma dar conta, e o alívio é percebido já nas primeiras. No pós-operatório as sessões são mais frequentes no começo — com a frequência definida pelo seu cirurgião — e vão sendo espaçadas conforme o edema cede. Para a massagem relaxante não há número mínimo ou máximo. Temos pacientes que marcam semanalmente, outras quinzenalmente, de acordo com a necessidade.",
   },
   {
     pergunta: "Quanto custa a sessão e quanto tempo dura?",
+    zapLabel: "Consultar valores",
+    zapMsg: "Olá! Vim pelo site e gostaria de saber os valores da Massagem e da Drenagem Linfática.",
     resposta:
       "Cada sessão dura uma hora e é sempre realizada por fisioterapeuta — não por esteticista. O atendimento é particular, em sessão avulsa ou dentro de um Plano de Tratamento. Para saber os valores da massagem relaxante e da drenagem é só chamar no WhatsApp, que a nossa equipe responde na hora. Caso haja encaminhamento médico com CID, emitimos nota fiscal com os dados que a sua operadora costuma exigir para o pedido de reembolso, além do relatório da fisioterapeuta.",
     precoCta: true,
@@ -374,16 +386,19 @@ const MassagemEDrenagemLinfatica = () => {
             <BoxAnimation animation="opacity" key={faq.pergunta}>
               <div className="faqItem" id={slugAncora(faq.pergunta)}>
                 <h3>{faq.pergunta}</h3>
+                {/* Atalho de WhatsApp por pergunta, com mensagem própria: a
+                    pessoa fala da dúvida que acabou de ler e a equipe já sabe
+                    de onde veio o contato (R14). Substitui o botão grande que
+                    só existia na pergunta de preço. */}
+                <a
+                  className="faqZap"
+                  href={`https://wa.me/+5511913112992?text=${faq.zapMsg}`}
+                  target="noreferrer"
+                >
+                  <img src={whatsappGreen} alt="" width="18" height="18" />
+                  {faq.zapLabel} no WhatsApp
+                </a>
                 <p>{faq.resposta}</p>
-                {faq.precoCta && (
-                  <div className="faqPrecoCta">
-                    <CtaAcc
-                      aText="Consultar valores pelo WhatsApp"
-                      href={PRECO_WHATSAPP_HREF}
-                      img={whatsappGreen}
-                    />
-                  </div>
-                )}
               </div>
             </BoxAnimation>
           ))}

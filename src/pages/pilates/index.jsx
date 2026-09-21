@@ -100,31 +100,43 @@ const ROTULO_CURTO = {
 const FAQS = [
   {
     pergunta: "As aulas de Pilates são individuais ou em grupo?",
+    zapLabel: "Saber como funciona a aula",
+    zapMsg: "Olá! Vim pelo site e gostaria de saber como funcionam as aulas individuais de Pilates.",
     resposta:
       "Todas as aulas de Pilates na PELVIE são individuais. Você fica sozinha na sala com a fisioterapeuta durante toda a aula, e o exercício é montado para o seu corpo naquela semana — o que muda bastante na gestação e no pós-parto. Não trabalhamos com turmas nem com aulas em grupo reduzido.",
   },
   {
     pergunta: "Posso fazer Pilates grávida?",
+    zapLabel: "Perguntar sobre a gestação",
+    zapMsg: "Olá! Vim pelo site e gostaria de saber sobre Pilates na gestação.",
     resposta:
       "Sim. O Pilates na gestação é justamente o foco do nosso trabalho. Ele ajuda a aliviar e prevenir dores, manter a mobilidade, preparar o corpo para o parto e acompanhar as mudanças em cada trimestre. O Pilates pode ser realizado durante as diferentes fases da gestação, inclusive nos três trimestres, desde que a gestação esteja evoluindo bem, não existam contraindicações médicas e os exercícios sejam adaptados à fase gestacional e às necessidades de cada mulher.",
   },
   {
     pergunta: "Quando posso voltar ao Pilates depois do parto?",
+    zapLabel: "Perguntar sobre o pós-parto",
+    zapMsg: "Olá! Vim pelo site e gostaria de saber quando posso voltar ao Pilates depois do parto.",
     resposta:
       "Em geral, a partir da liberação do obstetra, o que costuma acontecer entre 30 e 45 dias após o parto. Antes disso, é válido começar pela fisioterapia pélvica, para que você possa ser avaliada e possamos iniciar o trabalho com foco na respiração, assoalho pélvico e parede abdominal. O retorno é sempre gradual e desenhado de acordo com seus objetivos e disponibilidade. Um detalhe importante: aqui na PELVIE, seu bebê é sempre bem-vindo. Somos um local que acolhe mães e crianças.",
   },
   {
     pergunta: "O Pilates ajuda na diástase abdominal?",
+    zapLabel: "Falar sobre diástase",
+    zapMsg: "Olá! Vim pelo site e gostaria de saber sobre Pilates para diástase abdominal.",
     resposta:
       "Ajuda, desde que os exercícios sejam escolhidos com critério. Na diástase, alguns movimentos abdominais clássicos aumentam a pressão sobre a linha alba e podem piorar o quadro — por isso a aula é individual e conduzida por fisioterapeuta. O trabalho parte da respiração e da ativação do transverso do abdômen e do assoalho pélvico, e só depois progride para exercícios mais avançados. Em muitos casos, o Pilates entra combinado com a fisioterapia pélvica, dentro do mesmo plano.",
   },
   {
     pergunta: "Nunca fiz Pilates e estou sem preparo físico. Posso começar?",
+    zapLabel: "Começar do zero",
+    zapMsg: "Olá! Vim pelo site e gostaria de começar no Pilates, sem experiência anterior.",
     resposta:
       "Pode. A maior parte das nossas alunas chega exatamente assim — grávida ou no pós-parto, há muito tempo sem se exercitar e com receio de fazer errado. Como a aula é individual, o ponto de partida é o seu: a fisioterapeuta ajusta carga, amplitude e número de repetições à sua condição naquele dia. Não é preciso experiência anterior nem condicionamento prévio.",
   },
   {
     pergunta: "Quanto custa a aula de Pilates e qual a frequência recomendada?",
+    zapLabel: "Consultar valores e horários",
+    zapMsg: "Olá! Vim pelo site e gostaria de saber os valores e os horários do Pilates.",
     resposta:
       "A aula é individual, dura 55 minutos e é conduzida por fisioterapeutas especializadas em saúde da mulher, com formação completa no método Pilates. A frequência mais indicada é de uma a duas aulas por semana — o suficiente para gerar adaptação sem sobrecarregar, e o que a maior parte das gestantes consegue manter até o fim da gestação. O atendimento é particular e trabalhamos com planos que se adequam à frequência das aulas e o número de meses de treinamento. Para os valores, é só chamar no WhatsApp: a nossa equipe passa todas as informações junto com os horários disponíveis.",
     precoCta: true,
@@ -337,16 +349,19 @@ const Pilates = () => {
             <BoxAnimation animation="opacity" key={faq.pergunta}>
               <div className="faqItem" id={slugAncora(faq.pergunta)}>
                 <h3>{faq.pergunta}</h3>
+                {/* Atalho de WhatsApp por pergunta, com mensagem própria: a
+                    pessoa fala da dúvida que acabou de ler e a equipe já sabe
+                    de onde veio o contato (R14). Substitui o botão grande que
+                    só existia na pergunta de preço. */}
+                <a
+                  className="faqZap"
+                  href={`https://wa.me/+5511913112992?text=${faq.zapMsg}`}
+                  target="noreferrer"
+                >
+                  <img src={whatsappGreen} alt="" width="18" height="18" />
+                  {faq.zapLabel} no WhatsApp
+                </a>
                 <p>{faq.resposta}</p>
-                {faq.precoCta && (
-                  <div className="faqPrecoCta">
-                    <CtaAcc
-                      aText="Consultar valores pelo WhatsApp"
-                      href={PRECO_WHATSAPP_HREF}
-                      img={whatsappGreen}
-                    />
-                  </div>
-                )}
               </div>
             </BoxAnimation>
           ))}
