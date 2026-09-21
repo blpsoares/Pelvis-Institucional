@@ -749,3 +749,42 @@
     margin-top: 2rem;
   }
 }
+
+/* --- Atalho de WhatsApp por pergunta (FAQ) -------------------------------
+   Link discreto logo abaixo da pergunta, no lugar do botão grande que só
+   existia na de preço: a mensagem já vai escrita com a dúvida daquela
+   pergunta. Fica acima da resposta porque é ali que o olho está depois de
+   ler o título — e não exige rolagem para ser encontrado. */
+.faqSection .faqItem .faqZap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.4rem;
+  font-family: var(--sourceSans);
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.02rem;
+  color: var(--verde3);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.18s ease, color 0.18s ease;
+}
+
+.faqSection .faqItem .faqZap img {
+  flex: none;
+}
+
+.faqSection .faqItem .faqZap:hover,
+.faqSection .faqItem .faqZap:focus-visible {
+  color: var(--roxo6);
+  border-bottom-color: var(--roxo8);
+}
+
+/* Alvo de toque: o link tinha 19px de altura no celular, abaixo dos 44px que
+   um dedo alcança com segurança. O respiro entra como padding, sem mudar o
+   ritmo visual da seção. */
+@media (max-width: 1000px) {
+  .faqSection .faqItem .faqZap {
+    padding-block: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+}

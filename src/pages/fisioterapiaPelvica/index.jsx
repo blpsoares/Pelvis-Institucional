@@ -225,37 +225,51 @@ const INDICE = FAMILIAS.map((familia) => ({
 const FAQS = [
   {
     pergunta: "Como é feita a fisioterapia pélvica? O atendimento é invasivo?",
+    zapLabel: "Tirar essa dúvida",
+    zapMsg: "Olá! Vim pelo site e gostaria de entender como é feita a avaliação de Fisioterapia Pélvica.",
     resposta:
       "Tudo começa pela avaliação. A fisioterapeuta conversa com você sobre a sua queixa, avalia postura, respiração e a musculatura abdominal, e examina o assoalho pélvico. É necessário avaliar a musculatura internamente para que possamos entender o tônus, grau de força, coordenação e pontos dolorosos na região. Essa avaliação é explicada antes e só acontece com a sua autorização e no seu ritmo — você pode pedir para interromper a qualquer momento. A avaliação fisioterapêutica é imprescindível pois somente com uma avaliação detalhada é que podemos montar o melhor Plano de Tratamento para você. Nas sessões seguintes são usados exercícios específicos, terapias manuais e recursos como biofeedback e eletroestimulação. O atendimento é sempre individual, com total privacidade, com uma fisioterapeuta especializada na área. Vamos progredindo e ajustando o tratamento de acordo com a evolução.",
   },
   {
     pergunta: "A fisioterapia pélvica dói?",
+    zapLabel: "Tirar essa dúvida",
+    zapMsg: "Olá! Vim pelo site e gostaria de tirar uma dúvida sobre dor no tratamento de Fisioterapia Pélvica.",
     resposta:
       "Não deve doer. Boa parte das mulheres que chegam até a PELVIE vem justamente por causa de dor — dor na relação sexual, vaginismo, dor pélvica crônica, endometriose. Nesses casos o tratamento começa devagar, com técnicas de dessensibilização e liberação da musculatura, e cada etapa avança no ritmo que você definir. Se algum movimento incomodar, é só avisar: a conduta é ajustada na hora. Um desconforto em algumas técnicas manuais pode acontecer; dor, não.",
   },
   {
     pergunta: "Quantas sessões de fisioterapia pélvica são necessárias?",
+    zapLabel: "Perguntar sobre o meu caso",
+    zapMsg: "Olá! Vim pelo site e gostaria de saber quantas sessões de Fisioterapia Pélvica o meu caso pode precisar.",
     resposta:
       "Depende do seu caso, e é exatamente isso que a avaliação responde. Na prática, a maior parte dos tratamentos aqui fica entre 8 e 12 sessões, podendo ser uma ou duas vezes por semana. Gestantes costumam fazer de 6 a 15 sessões, porque o plano acompanha as semanas de gestação até o parto e a frequência depende das queixas e objetivos, podendo ser mais espaçadas no começo e intensificando mais no final. Após a avaliação você recebe o seu Plano de Tratamento personalizado, por escrito, detalhando sua jornada, com número de sessões e o tempo previsto.",
   },
   {
     pergunta: "Quanto custa a fisioterapia pélvica?",
+    zapLabel: "Consultar valores",
+    zapMsg: "Olá! Vim pelo site e gostaria de saber os valores da Fisioterapia Pélvica.",
     resposta:
       "O valor depende de quantas sessões o seu caso precisa, e é exatamente isso que a avaliação define. Nela a fisioterapeuta examina o seu caso e monta o seu Plano de Tratamento. Você receberá por escrito o número de sessões e o tempo previsto, bem como o valor fechado do plano e as condições de pagamento, antes de decidir qualquer coisa. Nada é cobrado por fora e não há surpresas depois. E se você quiser os valores agora, antes mesmo de agendar, é só chamar no WhatsApp: a nossa equipe passa a referência completa na hora, sem enrolação.",
     precoCta: true,
   },
   {
     pergunta: "A PELVIE atende convênio?",
+    zapLabel: "Falar sobre reembolso",
+    zapMsg: "Olá! Vim pelo site e gostaria de entender como funciona o reembolso pelo meu convênio.",
     resposta:
       "O atendimento é particular e não somos credenciadas a convênios. O que fazemos é dar todo o suporte ao pedido de reembolso: emitimos nota fiscal com os dados que a operadora exige, fornecemos relatório da fisioterapeuta e já somos devidamente cadastradas no CNES (Cadastro Nacional de Estabelecimentos de Saúde). Orientamos em todas as etapas. Quanto cada plano devolve varia de contrato para contrato — quem define isso é a sua operadora, não a clínica. Antes de agendar, podemos explicar quais documentos você vai precisar reunir e é possível solicitar uma prévia do reembolso, basta pedir um orçamento.",
   },
   {
     pergunta: "Preciso de encaminhamento médico para fazer fisioterapia pélvica?",
+    zapLabel: "Tirar essa dúvida",
+    zapMsg: "Olá! Vim pelo site e gostaria de saber se preciso de encaminhamento médico para a avaliação.",
     resposta:
       "Não. A fisioterapia tem acesso direto: você pode agendar a sua avaliação sem passar por um médico antes. O encaminhamento com CID só é necessário se você quiser pedir reembolso ao convênio — nesse caso, vale pedir ao seu ginecologista, urologista, proctologista ou obstetra. Se você já tem exames, laudos ou um ultrassom recente, traga na avaliação: ajudam, mas não são obrigatórios.",
   },
   {
     pergunta: "A Fisioterapia Pélvica é somente para quem quer parto normal?",
+    zapLabel: "Perguntar sobre a gestação",
+    zapMsg: "Olá! Vim pelo site e gostaria de saber sobre Fisioterapia Pélvica na gestação, mesmo com cesárea programada.",
     resposta:
       "Não. A Fisioterapia Pélvica é muito importante durante toda a gestação, independentemente da via de parto escolhida ou indicada. Mesmo quando a cesárea está planejada, a gestação continua provocando alterações no assoalho pélvico, no abdômen, na postura e na dinâmica da pelve. A fisioterapia atua no controle de sintomas como perda de urina ou dores na lombar/pelve além de garantir o acompanhamento no pós parto, orientando a mulher sobre movimentos, respiração, cuidados com o corpo e estratégias para o retorno seguro aos exercícios físicos após o nascimento do bebê.",
   },
@@ -507,16 +521,19 @@ const FisioterapiaPelvica = () => {
             <BoxAnimation animation="opacity" key={faq.pergunta}>
               <div className="faqItem" id={slugAncora(faq.pergunta)}>
                 <h3>{faq.pergunta}</h3>
+                {/* Atalho de WhatsApp por pergunta, com mensagem própria: a
+                    pessoa fala da dúvida que acabou de ler e a equipe já sabe
+                    de onde veio o contato (R14). Substitui o botão grande que
+                    só existia na pergunta de preço. */}
+                <a
+                  className="faqZap"
+                  href={`https://wa.me/+5511913112992?text=${faq.zapMsg}`}
+                  target="noreferrer"
+                >
+                  <img src={whatsappGreen} alt="" width="18" height="18" />
+                  {faq.zapLabel} no WhatsApp
+                </a>
                 <p>{faq.resposta}</p>
-                {faq.precoCta && (
-                  <div className="faqPrecoCta">
-                    <CtaAcc
-                      aText="Consultar valores pelo WhatsApp"
-                      href={PRECO_WHATSAPP_HREF}
-                      img={whatsappGreen}
-                    />
-                  </div>
-                )}
               </div>
             </BoxAnimation>
           ))}
