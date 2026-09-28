@@ -748,3 +748,56 @@ button:hover {
     scale: 1;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Celular: alvos de toque e legibilidade mínima.
+   Auditoria a 360x800 e 390x844: chips do índice com 33px de altura, links do
+   rodapé com 18px, telefone com 22px, botões com 39px e o rótulo das famílias
+   da /fisioterapia-pelvica com 9,9px. O mínimo usado aqui é 44px de altura
+   para qualquer coisa tocável e ~13px para rótulo em caixa alta.
+   `:root` na frente de cada seletor sobe a especificidade para vencer as
+   regras dos styles.css das páginas, que não são escopados e entram depois
+   no bundle — sem precisar replicar este bloco nos quatro arquivos.
+   --------------------------------------------------------------------------- */
+@media (max-width: 1000px) {
+  :root .landingIndice a,
+  :root .fisioIndice a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  /* Rodapé e bloco de localização: cada link numa linha própria (flex, não
+     inline-flex — senão e-mail e telefone grudam na mesma linha) e sem a
+     margem antiga, que somada aos 44px deixava a lista aberta demais. */
+  :root .navFooter nav a,
+  :root .contatoFooter a,
+  :root .phoneMaps a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    margin: 0;
+  }
+
+  :root .ctaBtnZap,
+  :root .ctaBtn1,
+  :root .ctaBtn2 {
+    min-height: 48px;
+  }
+
+  :root .hamburguerLine {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* Seta que vira o card da equipe (foto <-> currículo). */
+  :root .specCard button[name="arrowCard"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  :root .fisioFamiliaRotulo,
+  :root .fisioIndiceFamilia {
+    font-size: 1.7rem;
+  }
+}
