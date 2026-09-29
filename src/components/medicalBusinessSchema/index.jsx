@@ -19,20 +19,23 @@ const clinic = {
   image: `${SITE_URL}${fotoClinica}`,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Rua James Watt, 142, Sala 42 - Brooklin",
+    streetAddress: "Rua James Watt, 142, Sala 42 - Cidade Monções",
     addressLocality: "São Paulo",
     addressRegion: "SP",
     postalCode: "04576-050",
     addressCountry: "BR",
   },
-  // Coordenadas do embed do Google Maps ja usado em src/components/maps.
+  // Coordenadas do pino do Google Meu Negócio (centro do embed ancorado no
+  // place da clínica em src/components/maps) — confirmadas pela cliente em
+  // 29/09/2026 como o local correto.
   geo: {
     "@type": "GeoCoordinates",
     latitude: -23.612182,
     longitude: -46.696897,
   },
-  hasMap:
-    "https://www.google.com/maps/place/PELVIE+-+Fisioterapia+P%C3%A9lvica+Funcional",
+  // Aponta para o cadastro do Google Meu Negócio pelo CID (o mesmo place do
+  // embed em src/components/maps), sem ambiguidade de nome.
+  hasMap: "https://maps.google.com/?cid=17403131375481056319",
   telephone: "+5511913112992",
   email: "secretaria@pelviefisioterapia.com.br",
   sameAs: ["https://www.instagram.com/pelviefisioterapia"],
