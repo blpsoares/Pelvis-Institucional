@@ -67,3 +67,12 @@
 		font-size: 1.7rem;
 	}
 }
+
+/* Referência de proximidade (R9), logo abaixo do endereço e antes do botão
+   "Como chegar". */
+.proximidadeMaps {
+  margin: 1rem 0 1.6rem;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: var(--cinza);
+}

@@ -292,7 +292,7 @@ const ComoFunciona = () => {
         </div>
       </Container>
       <LocationBlock>
-        Rua James Watt, 142, Sala 42, Brooklin, São Paulo - SP CEP 04576-050
+        Rua James Watt, 142, Sala 42 — Cidade Monções (Brooklin), São Paulo/SP — CEP 04576-050
       </LocationBlock>
 
       <Container>

@@ -299,7 +299,7 @@ const Menu = ({ openMenu, setOpenMenu, hasInteracted }) => {
               </div>
               <div>
                 <h3>Endereço</h3>
-                <p>Rua James Watt, 142 - Sala 42, Brooklin, São Paulo</p>
+                <p>Rua James Watt, 142, Sala 42 — Cidade Monções (Brooklin), São Paulo/SP — CEP 04576-050</p>
               </div>
             </div>
           </div>

@@ -46,10 +46,10 @@ const Footer = () => {
             (11) 91311-2992
           </a>
           <a
-            href="https://www.google.com/maps?ll=-23.613567,-46.69575&z=16&t=m&hl=pt-BR&gl=BR&mapclient=embed&cid=17403131375481056319"
+            href="https://www.google.com/maps?ll=-23.612182,-46.696897&z=16&t=m&hl=pt-BR&gl=BR&mapclient=embed&cid=17403131375481056319"
             target="noreferrer"
           >
-            Rua James Watt, 142, Sala 42, Brooklin, São Paulo - SP CEP 04576-050
+            Rua James Watt, 142, Sala 42 — Cidade Monções (Brooklin), São Paulo/SP — CEP 04576-050
           </a>
         </div>
 

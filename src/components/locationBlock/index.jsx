@@ -7,7 +7,7 @@ import "./styles.css";
 const Maps = lazy(() => import("../maps"));
 
 const DEFAULT_ADDRESS_HREF =
-  "https://www.google.com/maps?ll=-23.613567,-46.69575&z=16&t=m&hl=pt-BR&gl=BR&mapclient=embed&cid=17403131375481056319";
+  "https://www.google.com/maps?ll=-23.612182,-46.696897&z=16&t=m&hl=pt-BR&gl=BR&mapclient=embed&cid=17403131375481056319";
 const DEFAULT_PHONE = "(11) 91311-2992";
 const DEFAULT_PHONE_HREF = "tel:+5511913112992";
 
@@ -19,6 +19,9 @@ const LocationBlock = ({
   phone = DEFAULT_PHONE,
   phoneHref = DEFAULT_PHONE_HREF,
   label = "Localização acessível",
+  // Referência informada pela própria clínica (29/09/2026) — é o que as
+  // pacientes usam para chegar, e é o "perto de mim" do R9.
+  proximidade = "A 3 minutos da estação Chucri Zaidan e a 15 minutos da estação Berrini.",
   title = "Venha nos fazer uma visita!",
 }) => {
   return (
@@ -35,6 +38,7 @@ const LocationBlock = ({
           <a href={addressHref} target="noreferrer">
             {children}
           </a>
+          {proximidade && <p className="proximidadeMaps">{proximidade}</p>}
           <a
             href={directionsHref ?? addressHref}
             target="noreferrer"
