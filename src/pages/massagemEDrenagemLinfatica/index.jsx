@@ -1,3 +1,4 @@
+import BuscaConteudo from "../../components/buscaConteudo";
 import "./styles.css";
 
 import { Head } from "vite-react-ssg";
@@ -16,8 +17,8 @@ import LeadParagraph from "../../components/leadParagraph";
 
 import slugAncora from "../../utils/slugAncora";
 
-import heroImg from "../../assets/img/webp/bgTratamentosDesktop.webp";
-import heroImgMobile from "../../assets/img/webp/bgHeroTratamentoMobile.webp";
+import heroImg from "../../assets/img/webp/hero-massagem-desktop.webp";
+import heroImgMobile from "../../assets/img/webp/hero-massagem-mobile.webp";
 import juliana from "../../assets/img/webp/juliana.webp";
 import laura from "../../assets/img/webp/laura.webp";
 import leila from "../../assets/img/webp/leila.webp";
@@ -176,6 +177,8 @@ const MassagemEDrenagemLinfatica = () => {
         pText="Massagem relaxante e drenagem linfática são duas técnicas manuais com objetivos diferentes, mas que se completam: uma cuida do corpo e da mente através do relaxamento muscular e do alívio do estresse; a outra estimula o sistema linfático para reduzir inchaço, retenção de líquidos e apoiar a recuperação em situações como pós-operatório e gestação. As duas são realizadas por fisioterapeutas especializadas, com técnicas seguras e ajustadas ao momento de cada paciente. Se você busca aliviar tensões do dia a dia, se recuperar de uma cirurgia ou cuidar do inchaço na gestação, a avaliação inicial define a abordagem mais indicada e a frequência de sessões ideal para o seu caso."
         imgBg={heroImg}
         imgBgMobile={heroImgMobile}
+        heroPos="center 45%"
+        heroPosMobile="center 62%"
         bgClass="bgHeroOverlay"
       >
         <a href={WHATSAPP_HREF} className="ctaBtnZap heroCta" target="noreferrer">
@@ -214,6 +217,7 @@ const MassagemEDrenagemLinfatica = () => {
             className="landingIndice"
             aria-label="Índice dos serviços de massagem e drenagem"
           >
+            <BuscaConteudo alvo=".landingBlocos" />
             <p className="landingIndiceTitulo">Ir direto para</p>
             <ul>
               {SERVICOS.map((servico) => (

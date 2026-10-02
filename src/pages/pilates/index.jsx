@@ -1,3 +1,4 @@
+import BuscaConteudo from "../../components/buscaConteudo";
 import "./styles.css";
 
 import { Head } from "vite-react-ssg";
@@ -18,8 +19,8 @@ import LeadParagraph from "../../components/leadParagraph";
 
 import slugAncora from "../../utils/slugAncora";
 
-import heroImg from "../../assets/img/webp/bgTratamentosDesktop.webp";
-import heroImgMobile from "../../assets/img/webp/bgHeroTratamentoMobile.webp";
+import heroImg from "../../assets/img/webp/hero-pilates-desktop.webp";
+import heroImgMobile from "../../assets/img/webp/hero-pilates-mobile.webp";
 import juliana from "../../assets/img/webp/juliana.webp";
 import thipphane from "../../assets/img/webp/thipphane.webp";
 import isadora from "../../assets/img/webp/isadora.webp";
@@ -182,6 +183,8 @@ const Pilates = () => {
         pText="O que é o Pilates na PELVIE? É um método de exercícios desenvolvido por Joseph Pilates na década de 1920, que trabalha a conexão entre mente e corpo como uma unidade, melhorando a consciência corporal, a força e a mobilidade. Aqui, as aulas são conduzidas por fisioterapeuta especialista e pensadas especialmente para gestantes e mulheres no pós-parto — incluindo quem está lidando com diástase abdominal. Cada aula é individual, respeitando o momento, as queixas e os limites do corpo de cada paciente, com exercícios que aliviam dores, preparam para o parto e ajudam na recuperação depois dele."
         imgBg={heroImg}
         imgBgMobile={heroImgMobile}
+        heroPos="center 46%"
+        heroPosMobile="center 60%"
         bgClass="bgHeroOverlay"
       >
         <a href={WHATSAPP_HREF} className="ctaBtnZap heroCta" target="noreferrer">
@@ -211,6 +214,7 @@ const Pilates = () => {
             className="landingIndice"
             aria-label="Índice dos tópicos sobre Pilates"
           >
+            <BuscaConteudo alvo=".landingBlocos" />
             <p className="landingIndiceTitulo">Ir direto para</p>
             <ul>
               {TOPICOS.map((topico) => (

@@ -1,3 +1,4 @@
+import BuscaConteudo from "../../components/buscaConteudo";
 import "./styles.css";
 
 import { Head } from "vite-react-ssg";
@@ -18,8 +19,8 @@ import LeadParagraph from "../../components/leadParagraph";
 
 import slugAncora from "../../utils/slugAncora";
 
-import heroImg from "../../assets/img/webp/bgTratamentosDesktop.webp";
-import heroImgMobile from "../../assets/img/webp/bgHeroTratamentoMobile.webp";
+import heroImg from "../../assets/img/webp/hero-fisioterapia-pelvica-desktop.webp";
+import heroImgMobile from "../../assets/img/webp/hero-fisioterapia-pelvica-mobile.webp";
 import juliana from "../../assets/img/webp/juliana.webp";
 import laura from "../../assets/img/webp/laura.webp";
 import leila from "../../assets/img/webp/leila.webp";
@@ -313,6 +314,8 @@ const FisioterapiaPelvica = () => {
         pText="O que é fisioterapia pélvica? É a área da fisioterapia que cuida do assoalho pélvico. Quando esses músculos perdem força ou coordenação, o corpo avisa: escape de urina ao tossir, rir ou treinar (incontinência urinária), dor na relação sexual, a barriga que não volta depois da gestação (diástase abdominal), sensação de peso ou de bola na vagina (prolapso), intestino preso e dores pélvicas que ninguém consegue explicar. A fisioterapia pélvica também prepara o corpo para o parto e organiza a recuperação no pós-parto. O tratamento é individual e tudo começa com uma avaliação detalhada. São utilizados exercícios específicos, terapias manuais e recursos como biofeedback e eletroestimulação. O tratamento é conduzido por fisioterapeutas especializadas na área. A avaliação é o momento mais importante pois é quando entenderemos o seu caso antes de propor qualquer conduta. Após a avaliação, você recebe seu Plano de Tratamento personalizado."
         imgBg={heroImg}
         imgBgMobile={heroImgMobile}
+        heroPos="center 30%"
+        heroPosMobile="center 66%"
         bgClass="bgHeroOverlay"
       >
         <a href={WHATSAPP_HREF} className="ctaBtnZap heroCta" target="noreferrer">
@@ -342,6 +345,7 @@ const FisioterapiaPelvica = () => {
               visíveis. No desktop vira coluna fixa (position: sticky); o
               destaque do item atual vem do useIndiceScrollSpy acima. */}
           <nav className="fisioIndice" aria-label="Índice das condições tratadas">
+            <BuscaConteudo alvo=".fisioCondicoes" />
             <p className="fisioIndiceTitulo">Ir direto para</p>
             <div className="fisioIndiceGrupos">
               {INDICE.map((grupo) => (

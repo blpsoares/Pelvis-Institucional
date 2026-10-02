@@ -66,3 +66,19 @@
     height: 2px;
   }
 }
+
+/* Feedback da cliente (29/09/2026): "nas avaliações do Google, o texto saindo
+   da imagem". O card tinha altura fixa de 290px e o depoimento mais longo
+   passava da borda no desktop. A altura passa a ser mínima — o card cresce com
+   o texto — e o texto deixa de ser justificado: justificado em coluna estreita
+   abria buracos grandes entre as palavras. */
+.googleCard {
+  height: auto;
+  min-height: 290px;
+}
+
+.googleCard p {
+  text-align: left;
+  hyphens: manual;
+  line-height: 1.5;
+}

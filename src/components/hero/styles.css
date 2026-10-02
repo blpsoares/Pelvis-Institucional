@@ -294,3 +294,26 @@
     line-height: 1.6;
   }
 }
+
+/* Fotos próprias por serviço (enviadas pela cliente em 30/09/2026). Cada
+   página informa o ponto focal; sem ele, o comportamento antigo vale. No
+   celular a faixa do hero agora é baixa (até 45% da tela), então a foto passa
+   a cobrir a faixa inteira em vez de ficar só no topo. */
+.bgHero {
+  background-position: var(--hero-pos, top center);
+}
+
+@media (max-width: 1000px) {
+  .bgHeroOverlay {
+    background-size: cover, cover;
+    background-position: var(--hero-pos-mobile, center 30%),
+      var(--hero-pos-mobile, center 30%);
+    background-image: linear-gradient(
+        180deg,
+        rgba(40, 12, 58, 0.62) 0%,
+        rgba(40, 12, 58, 0.5) 50%,
+        rgba(40, 12, 58, 0.66) 100%
+      ),
+      var(--hero-bg-mobile, var(--hero-bg));
+  }
+}
