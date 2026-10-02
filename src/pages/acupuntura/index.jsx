@@ -491,15 +491,31 @@ const Acupuntura = () => {
                     pessoa fala da dúvida que acabou de ler e a equipe já sabe
                     de onde veio o contato (R14). Substitui o botão grande que
                     só existia na pergunta de preço. */}
-                <a
-                  className="faqZap"
-                  href={`https://wa.me/+5511913112992?text=${faq.zapMsg}`}
-                  target="noreferrer"
-                >
-                  <img src={whatsappGreen} alt="" width="18" height="18" />
-                  {faq.zapLabel} no WhatsApp
-                </a>
+                {!faq.precoCta && (
+                  <a
+                    className="faqZap"
+                    href={`https://wa.me/+5511913112992?text=${faq.zapMsg}`}
+                    target="noreferrer"
+                  >
+                    <img src={whatsappGreen} alt="" width="18" height="18" />
+                    {faq.zapLabel} no WhatsApp
+                  </a>
+                )}
                 <p>{faq.resposta}</p>
+                {/* Pergunta de preço: o atalho vem DEPOIS da resposta. É regra
+                    do documento da FAQ da cliente (instrução 8): "toda
+                    pergunta de preço termina em WhatsApp", com o botão
+                    imediatamente abaixo da resposta. */}
+                {faq.precoCta && (
+                  <a
+                    className="faqZap faqZapDepois"
+                    href={`https://wa.me/+5511913112992?text=${faq.zapMsg}`}
+                    target="noreferrer"
+                  >
+                    <img src={whatsappGreen} alt="" width="18" height="18" />
+                    {faq.zapLabel} no WhatsApp
+                  </a>
+                )}
               </div>
             </BoxAnimation>
           ))}
