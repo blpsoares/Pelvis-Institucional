@@ -62,12 +62,15 @@
   font-display: swap;
   src: url("/fonts/source-sans-3-latin-400-700-normal.woff2") format("woff2");
 }
+/* Itálica variável 400–700, igual à que o site em produção carrega pelo
+   Google Fonts. Antes só havia a itálica 700: o texto itálico regular (ex.:
+   o card "Agende sua avaliação…") saía em negrito-itálico. */
 @font-face {
   font-family: "Source Sans 3";
   font-style: italic;
-  font-weight: 700;
+  font-weight: 400 700;
   font-display: swap;
-  src: url("/fonts/source-sans-3-latin-700-italic.woff2") format("woff2");
+  src: url("/fonts/source-sans-3-latin-400-700-italic.woff2") format("woff2");
 }
 @font-face {
   font-family: "Taviraj";

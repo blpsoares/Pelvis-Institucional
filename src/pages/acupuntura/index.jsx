@@ -180,15 +180,6 @@ const Acupuntura = () => {
       <Container mainClass="acupunturaContent">
         <BoxAnimation animation="opacity">
           <h2>Acupuntura na saúde da mulher</h2>
-          <p className="acupunturaIntro">
-            <span className="leadSentence">
-              Muitas mulheres chegam à PELVIE procurando acupuntura para
-              engravidar ou acupuntura para gestante.
-            </span>{" "}
-            São dois dos motivos mais frequentes de atendimento aqui — e
-            abaixo você vê como a técnica atua em cada fase, além dos demais
-            quadros que tratamos.
-          </p>
         </BoxAnimation>
 
         <div className="landingLayout">
@@ -198,20 +189,26 @@ const Acupuntura = () => {
               destaque do item atual vem do useIndiceScrollSpy acima. As
               regras estão em src/index.css, compartilhadas com /pilates e
               /massagem-e-drenagem-linfatica. */}
-          <nav
-            className="landingIndice"
-            aria-label="Índice dos tópicos sobre acupuntura"
-          >
+          <div className="indiceColuna">
+            {/* A busca fica FORA do índice: o índice é mais alto que a tela
+                em notebooks, e perto do fim do conteúdo o sticky dele sobe
+                inteiro — levando a busca junto. Separada, ela fica presa
+                no topo enquanto houver conteúdo ao lado. */}
             <BuscaConteudo alvo=".landingBlocos" />
-            <p className="landingIndiceTitulo">Ir direto para</p>
-            <ul>
-              {BLOCOS.map((item) => (
-                <li key={item.chave}>
-                  <a href={`#${slugAncora(item.titulo)}`}>{item.rotulo}</a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+            <nav
+              className="landingIndice"
+              aria-label="Índice dos tópicos sobre acupuntura"
+            >
+              <p className="landingIndiceTitulo">Ir direto para</p>
+              <ul>
+                {BLOCOS.map((item) => (
+                  <li key={item.chave}>
+                    <a href={`#${slugAncora(item.titulo)}`}>{item.rotulo}</a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
 
           <div className="landingBlocos">
             <BoxAnimation animation="opacity">
@@ -398,12 +395,13 @@ const Acupuntura = () => {
           <h2>Como funciona o atendimento</h2>
           <p>
             O atendimento começa com uma avaliação detalhada, feita pela Dra.
-            Cibele Ferrari, fisioterapeuta especializada em Acupuntura.
-            Nessa consulta inicial, entendemos sua queixa, sua história e
-            definimos as técnicas mais adequadas para o seu caso antes de
-            propor qualquer conduta. A partir disso, você recebe um plano de
-            sessões individual, ajustado conforme sua evolução e seus
-            objetivos ao longo do tratamento.
+            Cibele Ferrari, fisioterapeuta especializada em Acupuntura. Nessa
+            consulta inicial, entendemos sua queixa, sua história e definimos
+            as técnicas mais adequadas para o seu caso antes de propor
+            qualquer conduta. A partir disso, você recebe um Plano de
+            Tratamento personalizado, detalhando a sua jornada terapêutica. O
+            plano pode ser ajustado conforme sua evolução e seus objetivos ao
+            longo do tratamento.
           </p>
           <NavLink to="/como-funciona" className="ctaBtn2">
             Veja como funciona o atendimento
@@ -416,11 +414,6 @@ const Acupuntura = () => {
           Atendimento empático e escuta ativa
         </span>
         <h2>Conheça nossa equipe</h2>
-        <p className="acupunturaEquipeIntro">
-          As sessões de acupuntura na PELVIE são conduzidas pela Dra. Cibele
-          Ferrari, fisioterapeuta acupunturista especializada em Saúde da
-          Mulher e Gestantes. Conheça também o restante da nossa equipe:
-        </p>
         <div className="ourTeamCards ourTeamCardsLanding">
           <BoxAnimation animation="top">
             <SpecCard

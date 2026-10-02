@@ -180,7 +180,7 @@ const Pilates = () => {
       <Hero
         titleTextBe="Pilates"
         titleSpan="em São Paulo"
-        pText="O que é o Pilates na PELVIE? É um método de exercícios desenvolvido por Joseph Pilates na década de 1920, que trabalha a conexão entre mente e corpo como uma unidade, melhorando a consciência corporal, a força e a mobilidade. Aqui, as aulas são conduzidas por fisioterapeuta especialista e pensadas especialmente para gestantes e mulheres no pós-parto — incluindo quem está lidando com diástase abdominal. Cada aula é individual, respeitando o momento, as queixas e os limites do corpo de cada paciente, com exercícios que aliviam dores, preparam para o parto e ajudam na recuperação depois dele."
+        pText="O Pilates é um método de exercícios desenvolvido por Joseph Pilates na década de 1920, que trabalha a conexão entre mente e corpo como uma unidade, melhorando a consciência corporal, a força e a mobilidade. Aqui, as aulas são conduzidas por fisioterapeuta especialista e pensadas especialmente para gestantes e mulheres no pós-parto — incluindo quem está lidando com diástase abdominal. Cada aula é individual, respeitando o momento, as queixas e os limites do corpo de cada paciente, com exercícios que aliviam dores, preparam para o parto e ajudam na recuperação depois dele."
         imgBg={heroImg}
         imgBgMobile={heroImgMobile}
         heroPos="center 46%"
@@ -210,22 +210,28 @@ const Pilates = () => {
               destaque do item atual vem do useIndiceScrollSpy acima. As
               regras estão em src/index.css, compartilhadas com /acupuntura e
               /massagem-e-drenagem-linfatica. */}
-          <nav
-            className="landingIndice"
-            aria-label="Índice dos tópicos sobre Pilates"
-          >
+          <div className="indiceColuna">
+            {/* A busca fica FORA do índice: o índice é mais alto que a tela
+                em notebooks, e perto do fim do conteúdo o sticky dele sobe
+                inteiro — levando a busca junto. Separada, ela fica presa
+                no topo enquanto houver conteúdo ao lado. */}
             <BuscaConteudo alvo=".landingBlocos" />
-            <p className="landingIndiceTitulo">Ir direto para</p>
-            <ul>
-              {TOPICOS.map((topico) => (
-                <li key={topico.title}>
-                  <a href={`#${slugAncora(topico.title)}`}>
-                    {ROTULO_CURTO[topico.title] ?? topico.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+            <nav
+              className="landingIndice"
+              aria-label="Índice dos tópicos sobre Pilates"
+            >
+              <p className="landingIndiceTitulo">Ir direto para</p>
+              <ul>
+                {TOPICOS.map((topico) => (
+                  <li key={topico.title}>
+                    <a href={`#${slugAncora(topico.title)}`}>
+                      {ROTULO_CURTO[topico.title] ?? topico.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
 
           <div className="landingBlocos">
             {TOPICOS.map((topico) => (
@@ -261,13 +267,13 @@ const Pilates = () => {
         <BoxAnimation animation="opacity">
           <h2>Como funciona o atendimento</h2>
           <p>
-            O atendimento começa com uma conversa sobre sua rotina, sua fase
-            (gestação ou pós-parto) e suas queixas, feita por uma
-            fisioterapeuta especializada em saúde pélvica e instrutora do
-            Método Pilates. A partir disso, os exercícios são adaptados
-            individualmente e evoluem ao longo das aulas, sempre respeitando
-            o seu momento. Agendamentos garantem tempo suficiente para um
-            atendimento cuidadoso, do início ao fim do acompanhamento.
+            O atendimento começa com uma conversa para entendermos sua rotina,
+            sua fase (gestação ou pós-parto) e suas queixas. A partir disso, a
+            fisioterapeuta vai conduzir e adaptar os exercícios de maneira
+            individualizada, ao longo das aulas, sempre respeitando o seu
+            momento. Você pode realizar as aulas na frequência que melhor se
+            encaixar na sua rotina. Garantimos um atendimento cuidadoso, do
+            início ao fim do acompanhamento.
           </p>
           <NavLink to="/como-funciona" className="ctaBtn2">
             Veja como funciona o atendimento
