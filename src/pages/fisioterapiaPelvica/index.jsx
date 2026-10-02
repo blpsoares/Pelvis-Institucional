@@ -333,37 +333,38 @@ const FisioterapiaPelvica = () => {
       <Container mainClass="fisioContent">
         <BoxAnimation animation="opacity">
           <h2>Condições tratadas pela fisioterapia pélvica</h2>
-          <LeadParagraph>
-            Da fisioterapia para gestante ao acompanhamento no pós-parto, cada
-            atendimento começa com uma avaliação individual. Veja abaixo os
-            quadros que tratamos com mais frequência.
-          </LeadParagraph>
         </BoxAnimation>
         <div className="fisioLayout">
           {/* Índice de navegação: navegação pura (href="#id"), nada é
               filtrado — as 17 condições seguem inteiras logo ao lado, sempre
               visíveis. No desktop vira coluna fixa (position: sticky); o
               destaque do item atual vem do useIndiceScrollSpy acima. */}
-          <nav className="fisioIndice" aria-label="Índice das condições tratadas">
+          <div className="indiceColuna">
+            {/* A busca fica FORA do índice: o índice é mais alto que a tela
+                em notebooks, e perto do fim do conteúdo o sticky dele sobe
+                inteiro — levando a busca junto. Separada, ela fica presa
+                no topo enquanto houver conteúdo ao lado. */}
             <BuscaConteudo alvo=".fisioCondicoes" />
-            <p className="fisioIndiceTitulo">Ir direto para</p>
-            <div className="fisioIndiceGrupos">
-              {INDICE.map((grupo) => (
-                <div className="fisioIndiceGrupo" key={grupo.familia}>
-                  <p className="fisioIndiceFamilia">{grupo.familia}</p>
-                  <ul>
-                    {grupo.condicoes.map((condicao) => (
-                      <li key={condicao.title}>
-                        <a href={`#${slugAncora(condicao.title)}`}>
-                          {ROTULO_CURTO[condicao.title] ?? condicao.title}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </nav>
+            <nav className="fisioIndice" aria-label="Índice das condições tratadas">
+              <p className="fisioIndiceTitulo">Ir direto para</p>
+              <div className="fisioIndiceGrupos">
+                {INDICE.map((grupo) => (
+                  <div className="fisioIndiceGrupo" key={grupo.familia}>
+                    <p className="fisioIndiceFamilia">{grupo.familia}</p>
+                    <ul>
+                      {grupo.condicoes.map((condicao) => (
+                        <li key={condicao.title}>
+                          <a href={`#${slugAncora(condicao.title)}`}>
+                            {ROTULO_CURTO[condicao.title] ?? condicao.title}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </nav>
+          </div>
 
           {/* Corpo agrupado nas mesmas famílias do índice (F5.4). O rótulo de
               família é um <p>, não um heading — a condição continua em <h3>,
@@ -434,12 +435,9 @@ const FisioterapiaPelvica = () => {
             fisioterapeuta especializada em saúde pélvica. Nessa consulta
             inicial, entendemos sua queixa, sua história e realizamos um exame
             físico completo antes de propor qualquer conduta. A partir disso,
-            você recebe um Plano de Tratamento individual, com exercícios
-            específicos, terapias manuais e recursos como biofeedback e
-            eletroestimulação, ajustado conforme sua evolução ao longo das
-            sessões. Agendamentos de 90 minutos garantem tempo suficiente para
-            um atendimento cuidadoso e resolutivo, do início ao fim do
-            tratamento.
+            você recebe um Plano de Tratamento personalizado, detalhando a sua
+            jornada terapêutica. Garantimos um atendimento cuidadoso e
+            resolutivo, do início ao fim do tratamento.
           </p>
           <NavLink to="/como-funciona" className="ctaBtn2">
             Veja como funciona o atendimento

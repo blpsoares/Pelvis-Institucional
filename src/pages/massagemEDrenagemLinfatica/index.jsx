@@ -213,20 +213,26 @@ const MassagemEDrenagemLinfatica = () => {
               texto no mesmo eixo das outras três páginas. Ligar o modo aba, se
               o usuário mudar de ideia, é acrescentar `landingLayoutAbas` na
               linha acima — nada mais muda. */}
-          <nav
-            className="landingIndice"
-            aria-label="Índice dos serviços de massagem e drenagem"
-          >
+          <div className="indiceColuna">
+            {/* A busca fica FORA do índice: o índice é mais alto que a tela
+                em notebooks, e perto do fim do conteúdo o sticky dele sobe
+                inteiro — levando a busca junto. Separada, ela fica presa
+                no topo enquanto houver conteúdo ao lado. */}
             <BuscaConteudo alvo=".landingBlocos" />
-            <p className="landingIndiceTitulo">Ir direto para</p>
-            <ul>
-              {SERVICOS.map((servico) => (
-                <li key={servico.title}>
-                  <a href={`#${slugAncora(servico.title)}`}>{servico.title}</a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+            <nav
+              className="landingIndice"
+              aria-label="Índice dos serviços de massagem e drenagem"
+            >
+              <p className="landingIndiceTitulo">Ir direto para</p>
+              <ul>
+                {SERVICOS.map((servico) => (
+                  <li key={servico.title}>
+                    <a href={`#${slugAncora(servico.title)}`}>{servico.title}</a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
 
           <div className="landingBlocos">
             {SERVICOS.map((servico) => (

@@ -166,3 +166,25 @@
     height: 4.4rem;
   }
 }
+
+/* Desktop: a coluna do índice estica até o fim do conteúdo (align-self:
+   stretch dentro do grid) e a busca fica presa no topo dela; o índice "Ir
+   direto para" continua sticky logo abaixo. Quando o conteúdo acaba, os dois
+   sobem juntos com a coluna — "volta para o lugar". */
+@media (min-width: 1001px) {
+  .indiceColuna {
+    align-self: stretch;
+  }
+
+  .indiceColuna > .buscaSlot {
+    position: sticky;
+    top: 12rem;
+    z-index: 6;
+    margin-bottom: 1.2rem;
+  }
+
+  :root .indiceColuna > .fisioIndice,
+  :root .indiceColuna > .landingIndice {
+    top: calc(12rem + 44px + 1.2rem);
+  }
+}
