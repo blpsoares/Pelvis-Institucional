@@ -1,3 +1,4 @@
+import BuscaConteudo from "../../components/buscaConteudo";
 import "./styles.css";
 
 import { Head } from "vite-react-ssg";
@@ -17,8 +18,8 @@ import LocationBlock from "../../components/locationBlock";
 
 import slugAncora from "../../utils/slugAncora";
 
-import heroImg from "../../assets/img/webp/bgTratamentosDesktop.webp";
-import heroImgMobile from "../../assets/img/webp/bgHeroTratamentoMobile.webp";
+import heroImg from "../../assets/img/webp/hero-acupuntura-desktop.webp";
+import heroImgMobile from "../../assets/img/webp/hero-acupuntura-mobile.webp";
 import cibele from "../../assets/img/webp/cibele.webp";
 import juliana from "../../assets/img/webp/juliana.webp";
 import laura from "../../assets/img/webp/laura.webp";
@@ -160,6 +161,8 @@ const Acupuntura = () => {
         pText="O que é acupuntura? É uma especialidade da Medicina Tradicional Chinesa que atua no reequilíbrio do organismo através da estimulação de pontos específicos do corpo. Quando voltada à saúde da mulher, busca o reequilíbrio de desarmonias em suas diferentes fases da vida — no período menstrual, na menopausa, na gestação, no pré e pós-parto — sempre de forma individualizada. Na PELVIE, a acupuntura também é utilizada como recurso de estímulo à fertilidade, inclusive através do Protocolo de Paulus, aplicado antes e depois da transferência embrionária em tratamentos de Fertilização In Vitro (FIV), e no preparo do corpo para o parto, favorecendo o início do trabalho de parto de forma espontânea. O tratamento é conduzido por fisioterapeuta especializada em Acupuntura, com avaliação individual antes de qualquer sessão."
         imgBg={heroImg}
         imgBgMobile={heroImgMobile}
+        heroPos="center 35%"
+        heroPosMobile="center 22%"
         bgClass="bgHeroOverlay"
       >
         <a href={WHATSAPP_HREF} className="ctaBtnZap heroCta" target="noreferrer">
@@ -199,6 +202,7 @@ const Acupuntura = () => {
             className="landingIndice"
             aria-label="Índice dos tópicos sobre acupuntura"
           >
+            <BuscaConteudo alvo=".landingBlocos" />
             <p className="landingIndiceTitulo">Ir direto para</p>
             <ul>
               {BLOCOS.map((item) => (

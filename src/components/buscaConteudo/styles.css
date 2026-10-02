@@ -1,0 +1,168 @@
+.buscaSlot {
+  min-height: 44px;
+  margin-bottom: 1.6rem;
+}
+
+/* Campo de busca discreto no topo do índice "Ir direto para". Mesma linguagem
+   do índice: fundo claro, borda fina, roxo nos detalhes. */
+.buscaConteudo {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0 0.4rem 0 1.2rem;
+  min-height: 44px;
+  background: var(--branco);
+  border: 1px solid var(--cinza5);
+  border-radius: 1rem;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.buscaConteudo:focus-within {
+  border-color: var(--roxo8);
+  box-shadow: 0 0 0 3px rgba(166, 107, 255, 0.18);
+}
+
+.buscaRotuloOculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.buscaLupa {
+  flex: none;
+  width: 1.8rem;
+  height: 1.8rem;
+  fill: var(--roxo1);
+}
+
+.buscaConteudo input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-family: var(--sourceSans);
+  font-size: 1.5rem;
+  color: var(--cinza);
+  padding: 1rem 0.4rem;
+}
+
+.buscaConteudo input::placeholder {
+  color: var(--roxo9);
+}
+
+/* O "x" nativo do type=search duplicaria o botão de limpar. */
+.buscaConteudo input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.buscaContador {
+  flex: none;
+  font-family: var(--sourceSans);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--roxo6);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.buscaSeta {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  border: 0;
+  border-radius: 0.8rem;
+  background: transparent;
+  cursor: pointer;
+}
+
+.buscaSeta svg {
+  width: 2rem;
+  height: 2rem;
+  fill: var(--roxo6);
+}
+
+.buscaSeta:hover:not(:disabled),
+.buscaSeta:focus-visible {
+  background: var(--rosa1);
+  outline: none;
+}
+
+.buscaSeta:disabled svg {
+  fill: var(--cinza5);
+}
+
+/* Destaques desenhados pela CSS Custom Highlight API (sem tocar no DOM). */
+::highlight(busca-conteudo) {
+  background-color: #f2e6ff;
+  color: inherit;
+}
+
+::highlight(busca-conteudo-atual) {
+  background-color: #b1ef80;
+  color: #2b2031;
+}
+
+/* Celular: o índice fica acima do conteúdo, então a busca não acompanharia a
+   rolagem. Com uma busca ativa e a pessoa dentro do conteúdo, ela vira uma
+   barra presa embaixo da tela — à esquerda do botão de WhatsApp — e volta ao
+   lugar quando a pessoa sai do bloco. */
+@media (max-width: 1000px) {
+  .buscaSlot,
+  .buscaConteudo {
+    min-height: 48px;
+  }
+
+  .buscaSeta {
+    width: 4.4rem;
+    height: 4.4rem;
+  }
+
+  .buscaFlutuante {
+    position: fixed;
+    left: 1.2rem;
+    right: 9rem;
+    bottom: calc(1.6rem + env(safe-area-inset-bottom, 0px));
+    z-index: 900;
+    margin: 0;
+    box-shadow: 0 6px 24px rgba(48, 14, 73, 0.18);
+  }
+}
+
+/* O site tem regras globais de <button> (largura e padding de botão grande)
+   que entram no mesmo bundle; aqui o tamanho é travado com especificidade
+   maior para a barra não estourar. */
+:root .buscaConteudo .buscaSeta {
+  flex: 0 0 3.2rem;
+  width: 3.2rem;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+}
+
+:root .buscaConteudo .buscaSeta svg {
+  flex: none;
+  width: 2rem;
+  min-width: 2rem;
+  height: 2rem;
+}
+
+:root .buscaConteudo input {
+  flex: 1 1 auto;
+  width: auto;
+  min-width: 6rem;
+}
+
+@media (max-width: 1000px) {
+  :root .buscaConteudo .buscaSeta {
+    flex-basis: 4.4rem;
+    width: 4.4rem;
+    height: 4.4rem;
+  }
+}

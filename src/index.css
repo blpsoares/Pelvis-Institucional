@@ -59,35 +59,35 @@
   font-family: "Source Sans 3";
   font-style: normal;
   font-weight: 400 700;
-  font-display: optional;
+  font-display: swap;
   src: url("/fonts/source-sans-3-latin-400-700-normal.woff2") format("woff2");
 }
 @font-face {
   font-family: "Source Sans 3";
   font-style: italic;
   font-weight: 700;
-  font-display: optional;
+  font-display: swap;
   src: url("/fonts/source-sans-3-latin-700-italic.woff2") format("woff2");
 }
 @font-face {
   font-family: "Taviraj";
   font-style: normal;
   font-weight: 400;
-  font-display: optional;
+  font-display: swap;
   src: url("/fonts/taviraj-latin-400-normal.woff2") format("woff2");
 }
 @font-face {
   font-family: "Taviraj";
   font-style: normal;
   font-weight: 500;
-  font-display: optional;
+  font-display: swap;
   src: url("/fonts/taviraj-latin-500-normal.woff2") format("woff2");
 }
 @font-face {
   font-family: "Taviraj";
   font-style: normal;
   font-weight: 600;
-  font-display: optional;
+  font-display: swap;
   src: url("/fonts/taviraj-latin-600-normal.woff2") format("woff2");
 }
 @font-face {
@@ -799,5 +799,68 @@ button:hover {
   :root .fisioFamiliaRotulo,
   :root .fisioIndiceFamilia {
     font-size: 1.7rem;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Feedback da cliente (29/09/2026): "tem uma primeira frase num tamanho, aí
+   depois vai pra outro parágrafo de outro tamanho, com outra fonte". O lead
+   tipográfico (primeira frase em Taviraj maior, F5.3) lia como troca de fonte.
+   A marcação fica — só o estilo é neutralizado: a primeira frase volta a ser
+   texto corrido, igual ao resto do parágrafo. `:root` vence as regras de
+   página, que entram depois no bundle.
+   --------------------------------------------------------------------------- */
+:root .leadSentence,
+:root .fisioCondicao .leadSentence {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+/* ---------------------------------------------------------------------------
+   Feedback da cliente (29/09/2026): ícone em cada item das listas de conteúdo
+   ("dores pélvicas, cólicas, TPM…" e benefícios), "pra gente saber que é
+   outro tópico". Hoje os itens eram texto solto, sem marcador nenhum
+   (list-style: none global). O ícone é um check num círculo, desenhado por
+   máscara para herdar a cor da paleta; puramente decorativo, não entra no
+   texto nem no que leitor de tela anuncia.
+   --------------------------------------------------------------------------- */
+:root .acupunturaBloco ul,
+:root .massagemBloco ul,
+:root .pilatesTopico ul {
+  padding-left: 0;
+  margin: 1.4rem 0 1.6rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+:root .acupunturaBloco li,
+:root .massagemBloco li,
+:root .pilatesTopico li {
+  display: grid;
+  grid-template-columns: 2.2rem minmax(0, 1fr);
+  column-gap: 1rem;
+  align-items: start;
+  margin: 0;
+}
+
+:root .acupunturaBloco li::before,
+:root .massagemBloco li::before,
+:root .pilatesTopico li::before {
+  content: "";
+  width: 2.2rem;
+  height: 2.2rem;
+  margin-top: 0.15em;
+  background-color: var(--roxo6);
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1.2 14.2-4-4 1.4-1.4 2.6 2.6 5.6-5.6 1.4 1.4-7 7Z'/></svg>") center / contain no-repeat;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1.2 14.2-4-4 1.4-1.4 2.6 2.6 5.6-5.6 1.4 1.4-7 7Z'/></svg>") center / contain no-repeat;
+}
+
+/* Corpo da /fisioterapia-pelvica no celular: estava em 15,2px, menor que as
+   outras três páginas (17px). */
+@media (max-width: 1000px) {
+  :root .fisioCondicao p {
+    font-size: var(--corpoTexto);
+    line-height: 1.6;
   }
 }

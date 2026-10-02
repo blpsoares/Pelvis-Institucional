@@ -12,6 +12,10 @@ const Hero = ({
   imgBg,
   imgBgMobile,
   bgClass = "",
+  // Ponto focal da foto (background-position), por página: cada foto tem o
+  // rosto num lugar diferente e o recorte do hero é bem mais largo que alto.
+  heroPos,
+  heroPosMobile,
   children,
 }) => {
   return (
@@ -24,6 +28,8 @@ const Hero = ({
         // para a mesma imagem do desktop se a página não passar uma versão mobile.
         "--hero-bg": `url(${imgBg})`,
         ...(imgBgMobile ? { "--hero-bg-mobile": `url(${imgBgMobile})` } : {}),
+        ...(heroPos ? { "--hero-pos": heroPos } : {}),
+        ...(heroPosMobile ? { "--hero-pos-mobile": heroPosMobile } : {}),
       }}
     >
       <div>
