@@ -157,7 +157,7 @@ const BuscaConteudo = ({ alvo, placeholder = "Buscar neste conteúdo" }) => {
     ? ""
     : resultados.length
       ? `${atual + 1} de ${resultados.length}`
-      : "Nada encontrado";
+      : "0 de 0";
 
   // O slot guarda a altura da barra: quando ela vira flutuante no celular, o
   // índice não "pula" para cima (sem deslocamento de layout).
