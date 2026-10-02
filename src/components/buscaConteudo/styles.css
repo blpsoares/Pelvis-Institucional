@@ -188,3 +188,20 @@
     top: calc(12rem + 44px + 1.2rem);
   }
 }
+
+/* Coluna do índice é estreita (~27rem): com o termo digitado, o contador e
+   os três botões, o "x" vazava para fora da caixa. O campo pode encolher até
+   zero (o texto rola dentro dele) e a caixa nunca passa da largura da coluna. */
+:root .buscaConteudo {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+:root .buscaConteudo input {
+  min-width: 0;
+}
+
+:root .buscaConteudo .buscaSeta {
+  flex-basis: 2.8rem;
+  width: 2.8rem;
+}
