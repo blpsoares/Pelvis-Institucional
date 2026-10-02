@@ -867,3 +867,9 @@ button:hover {
     line-height: 1.6;
   }
 }
+
+/* Atalho de preço depois da resposta: o respiro vai para cima. */
+:root .faqSection .faqItem .faqZapDepois {
+  margin-top: 1.4rem;
+  margin-bottom: 0;
+}
