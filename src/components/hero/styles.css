@@ -317,3 +317,92 @@
       var(--hero-bg-mobile, var(--hero-bg));
   }
 }
+
+/* Feedback da cliente (02/10/2026), vendo no celular: "ajustar a posição das
+   fotos para aparecer mais os rostos". Na faixa baixa do celular (até 45% da
+   tela, R12) o título e o botão cobriam os rostos. Agora a faixa reserva uma
+   janela no topo, acima do título, onde cada foto é enquadrada para o rosto
+   cair (ponto focal por página em heroPosMobile), e o roxo fica mais leve
+   nessa parte e só escurece atrás do texto, onde o contraste importa. */
+@media (max-width: 1000px) {
+  .bgHeroOverlay .hero {
+    padding-top: 15rem;
+  }
+
+  .bgHeroOverlay .hero > .heroCta {
+    margin-bottom: 2.4rem;
+  }
+
+  .bgHeroOverlay {
+    background-image: linear-gradient(
+        180deg,
+        rgba(40, 12, 58, 0.12) 0%,
+        rgba(40, 12, 58, 0.18) 34%,
+        rgba(40, 12, 58, 0.66) 56%,
+        rgba(40, 12, 58, 0.74) 100%
+      ),
+      var(--hero-bg-mobile, var(--hero-bg));
+  }
+}
+
+/* Celulares estreitos (360px): o título quebra em mais linhas e a faixa
+   passava de 45% da tela. Título um pouco menor só nessa largura. */
+@media (max-width: 380px) {
+  .bgHeroOverlay .hero h1 {
+    font-size: 2.6rem;
+  }
+
+  .bgHeroOverlay .hero {
+    padding-top: 13.5rem;
+  }
+}
+
+/* Enquadramento exato no celular. A seção do hero inclui o parágrafo branco
+   logo abaixo, então "cover" escalava a foto pela altura da seção inteira e
+   cortava as laterais (era isso que escondia os rostos). Agora a foto ocupa a
+   largura da tela (100% auto) e é deslocada para cima até o rosto cair na
+   janela acima do título; o deslocamento vem de cada página em
+   --hero-pos-mobile (calc com vw, então acompanha a largura do aparelho).
+   O degradê é medido em px a partir do topo: leve na janela do rosto, escuro
+   a partir do título, onde o texto branco precisa de contraste. */
+@media (max-width: 1000px) {
+  .bgHeroOverlay {
+    --janela-rosto: 16rem;
+    background-image: linear-gradient(
+        180deg,
+        rgba(40, 12, 58, 0.08) 0,
+        rgba(40, 12, 58, 0.16) calc(var(--janela-rosto) - 4.5rem),
+        rgba(40, 12, 58, 0.7) var(--janela-rosto),
+        rgba(40, 12, 58, 0.78) 100%
+      ),
+      var(--hero-bg-mobile, var(--hero-bg));
+    background-size: 100% 100%, 100% auto;
+    background-position: 0 0, center var(--hero-pos-mobile, 0);
+    background-repeat: no-repeat, no-repeat;
+  }
+}
+
+@media (max-width: 380px) {
+  .bgHeroOverlay {
+    --janela-rosto: 14.5rem;
+  }
+}
+
+/* Desktop: o roxo escuro cobria a foto inteira por igual e os rostos
+   (laterais e topo) ficavam apagados. O véu fica forte só atrás do bloco de
+   texto, no centro, e cai para as bordas, onde estão as pessoas nas fotos. */
+@media (min-width: 1001px) {
+  .bgHeroOverlay::after {
+    background: radial-gradient(
+        ellipse 46% 62% at 50% 52%,
+        rgba(40, 12, 58, 0.78) 0%,
+        rgba(40, 12, 58, 0.66) 55%,
+        rgba(40, 12, 58, 0.32) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(40, 12, 58, 0.5) 0,
+        rgba(40, 12, 58, 0) 9rem
+      );
+  }
+}

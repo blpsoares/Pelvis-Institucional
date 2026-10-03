@@ -178,7 +178,7 @@ const MassagemEDrenagemLinfatica = () => {
         imgBg={heroImg}
         imgBgMobile={heroImgMobile}
         heroPos="center 45%"
-        heroPosMobile="center 62%"
+        heroPosMobile="calc(75px - 83.5vw)"
         bgClass="bgHeroOverlay"
       >
         <a href={WHATSAPP_HREF} className="ctaBtnZap heroCta" target="noreferrer">
