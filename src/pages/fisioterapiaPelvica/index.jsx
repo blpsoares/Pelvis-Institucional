@@ -315,7 +315,7 @@ const FisioterapiaPelvica = () => {
         imgBg={heroImg}
         imgBgMobile={heroImgMobile}
         heroPos="center 30%"
-        heroPosMobile="center 66%"
+        heroPosMobile="calc(75px - 67.5vw)"
         bgClass="bgHeroOverlay"
       >
         <a href={WHATSAPP_HREF} className="ctaBtnZap heroCta" target="noreferrer">

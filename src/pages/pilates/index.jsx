@@ -184,7 +184,7 @@ const Pilates = () => {
         imgBg={heroImg}
         imgBgMobile={heroImgMobile}
         heroPos="center 46%"
-        heroPosMobile="center 60%"
+        heroPosMobile="calc(75px - 61.5vw)"
         bgClass="bgHeroOverlay"
       >
         <a href={WHATSAPP_HREF} className="ctaBtnZap heroCta" target="noreferrer">

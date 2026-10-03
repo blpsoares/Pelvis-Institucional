@@ -162,7 +162,7 @@ const Acupuntura = () => {
         imgBg={heroImg}
         imgBgMobile={heroImgMobile}
         heroPos="center 35%"
-        heroPosMobile="center 22%"
+        heroPosMobile="calc(75px - 54vw)"
         bgClass="bgHeroOverlay"
       >
         <a href={WHATSAPP_HREF} className="ctaBtnZap heroCta" target="noreferrer">
