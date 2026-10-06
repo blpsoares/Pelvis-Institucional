@@ -51,9 +51,6 @@ const QuemSomos = () => {
 				sectionClass="bgHeroQuemSomos"
 				mainClass="heroQuemSomosContent"
 			>
-				<h1 className="heroQuemSomosTitle">
-					Quem Somos: Nossa Equipe de Fisioterapeutas Especializadas
-				</h1>
 				<div className="quemSomosCards">
 					<div className="heroCard">
 						<h2>Nossa Missão</h2>

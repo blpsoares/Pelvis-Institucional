@@ -242,7 +242,7 @@ const ComoFunciona = () => {
               aText="Saiba Mais"
               img={fisioPelvica}
               altImg={"Foto da Dra. Juliana com uma paciente"}
-              href="/tratamento"
+              href="/fisioterapia-pelvica"
             >
               <p>
                 É uma especialidade da fisioterapia que busca tratar e prevenir
@@ -260,7 +260,7 @@ const ComoFunciona = () => {
               aText="Saiba Mais"
               img={acupuntura}
               altImg={"Foto mostrando o acupunturismo"}
-              href="/tratamento"
+              href="/acupuntura"
             >
               <p>
                 É uma especialidade da Medicina Tradicional Chinesa que tem foco
@@ -277,7 +277,7 @@ const ComoFunciona = () => {
               aText="Saiba Mais"
               img={pilates}
               altImg={"Foto da Dra. Juliana dando aula de pilates"}
-              href="/tratamento"
+              href="/pilates"
             >
               <p>
                 É um método de exercícios que visa trabalhar a conexão entre
