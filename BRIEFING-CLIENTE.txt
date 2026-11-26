@@ -1,0 +1,499 @@
+Briefing Técnico
+Páginas de Destino para Google Ads
+PELVIE Fisioterapia Pélvica Funcional
+O que precisamos, em uma frase: remover a página “tratamentos” e criar 4 páginas novas — uma por serviço — porque o Google está classificando a experiência das nossas páginas de destino como "Abaixo da média" em 100% das palavras-chave com dados, o que encarece cada clique que pagamos e nos faz perder 32,25% do inventário de anúncios por classificação insuficiente.
+
+Todos os números vêm da conta Google Ads 342-696-1641, período de 06/07/2026 a 23/08/2026 (49 dias), e de uma auditoria técnica do site feita em 24/08/2026.
+1. Por que estamos pedindo isso
+O Google decide quais anúncios aparecem por meio do Ad Rank, que combina o valor do lance com a qualidade — e um dos três componentes de qualidade é justamente a experiência na página de destino.
+Estamos perdendo quase um terço do inventário disponível não por falta de verba, mas por qualidade. Em números: existem cerca de 15.400 impressões disponíveis para nossas palavras-chave no período; 32,25% delas, ou 4.966 impressões, foram para concorrentes por classificação. À nossa taxa de cliques e de conversão atuais, isso equivale a aproximadamente 62 contatos perdidos a cada 49 dias.
+2. O que já tentamos e por que não funcionou
+Em 04/08/2026 trocamos a URL final de todos os anúncios ativos: saíram da home (/) e passaram a apontar para /tratamento. A hipótese era que uma página específica de tratamentos resolveria a nota.
+Vinte dias depois, a nota não se moveu. E não é defasagem de métrica: o Google oferece uma coluna histórica que mostra a nota vigente durante o próprio período analisado. Ela mostra exatamente o mesmo valor da coluna atual.
+Palavra-chave
+Impressões
+Índice de qualidade
+Exp. página de destino
+IQ (hist.)
+Exp. página (hist.)
+"fisioterapia pélvica"
+5.499
+3/10
+Abaixo da média
+3/10
+Abaixo da média
+"fisioterapia para gestante"
+233
+3/10
+Abaixo da média
+3/10
+Abaixo da média
+"acupuntura para engravidar"
+147
+3/10
+Abaixo da média
+3/10
+Abaixo da média
+"acupuntura gestante"
+130
+3/10
+Abaixo da média
+3/10
+Abaixo da média
+
+
+O Google não avalia se a URL existe — ele avalia o quanto a página é específica em relação ao termo que a pessoa digitou. Uma página que apresenta 4 serviços é, por definição, genérica para os 4. Por isso o pedido agora é de páginas separadas, e não de melhorias na /tratamento.
+
+
+3. Auditoria técnica do site — o que encontramos em 24/08/2026
+Inspecionamos o código das páginas. Os pontos abaixo são objetivos e podem ser reproduzidos por vocês em qualquer navegador.
+3.1 Problemas que afetam o site inteiro
+#
+Achado
+Como verificamos
+A1
+Nenhuma página do site possui tag <h1>. Verificado em /tratamento, /QuemSomos e na página de erro. Zero ocorrências.
+document.querySelectorAll('h1') retorna vazio
+A2
+Todas as páginas compartilham o mesmo <title>: "PELVIE Fisioterapia Pélvica".
+document.title idêntico em todas as rotas
+A3
+Todas as páginas compartilham a mesma meta description.
+meta[name=description] idêntica
+A4
+Nenhuma página tem <link rel="canonical">.
+Seletor retorna null
+A5
+Nenhum schema markup (JSON-LD) no site. Zero scripts application/ld+json.
+Contagem = 0
+A6
+Soft-404: /fisioterapia-pelvica exibe "Não foi possível encontrar a página", mas mantém o mesmo <title> e não sinaliza erro real.
+Acesso direto à URL
+A7
+Padrão de URL inconsistente: /QuemSomos e /ComoFunciona em camelCase convivem com /tratamento em minúsculas.
+Menu do site
+
+
+O item A1 é, isoladamente, o mais grave. O <h1> é o principal sinal que o Google usa para entender do que a página trata e casá-la com o termo buscado. Sem ele, nenhuma página do site consegue demonstrar correspondência — o que explica a nota 3/10 se repetir de forma idêntica em todas as palavras-chave.
+3.2 Problemas específicos da página /tratamento
+#
+Achado
+Medida
+B1
+Sem <h1>
+0 ocorrências
+B2
+Texto visível insuficiente
+1.421 caracteres (~200 palavras)
+B3
+Conteúdo dos serviços colapsado em accordions fechados
+8 elementos de accordion
+B4
+Uma única página cobrindo 4 serviços distintos
+4 blocos no mesmo endereço
+B5
+Imagem de topo ocupa a viewport inteira; o primeiro botão AGENDAR fica abaixo da dobra
+Hero ≈ 100% da altura da tela
+B6
+Não menciona nenhuma das condições que as pacientes buscam (diástase, incontinência, vaginismo, endometriose) no texto visível
+Busca no texto renderizado
+B7
+Carregamento completo em 2,87s
+Aceitável; não é o fator crítico
+
+
+4. O que precisa ser entregue
+Quatro páginas novas, uma por serviço, mais um conjunto de correções globais no site.
+Prioridade
+URL a criar
+Serviço
+Justificativa
+1
+/fisioterapia-pelvica
+Fisioterapia Pélvica
+Responde por 94,7% dos contatos (89 de 94) e 88,5% das impressões da conta
+2
+/acupuntura
+Acupuntura
+Segunda campanha ativa; hoje com custo por contato 3,6x maior que a fisioterapia
+3
+/pilates
+Pilates
+Campanha pausada, prevista para reativação
+4
+/massagem-e-drenagem-linfatica
+Massagem e Drenagem
+Campanha pausada, prevista para reativação
+
+
+5. Requisitos técnicos obrigatórios
+Os requisitos abaixo valem para todas as 4 páginas e são condição de aceite. Cada um responde diretamente a um achado da auditoria.
+Estrutura e semântica
+R1 — Exatamente um <h1> por página, contendo o termo principal do serviço. Este é o requisito mais importante do documento. (corrige A1)
+R2 — <title> único por página, entre 50 e 60 caracteres, começando pelo termo principal. (corrige A2)
+R3 — Meta description única por página, entre 140 e 155 caracteres, mencionando o serviço, as condições tratadas e a localização. (corrige A3)
+R4 — <link rel="canonical"> apontando para a própria URL. (corrige A4)
+R5 — Hierarquia de headings coerente: um H1, seguido de H2 por seção e H3 dentro delas. Sem pular níveis.
+Conteúdo
+R6 — Todo o conteúdo principal visível sem interação. Nenhum texto de tratamento dentro de accordion, aba, carrossel ou "leia mais". O visitante e o robô precisam ver o conteúdo ao carregar a página. (corrige B3 — este foi o erro específico da /tratamento)
+R7 — Mínimo de 600 palavras de texto visível por página. Referência: a /tratamento tem hoje cerca de 200. (corrige B2)
+R8 — O texto deve conter as expressões que as pacientes realmente digitam — a lista real está na seção 6, extraída do relatório de termos de pesquisa da conta. Escrever de forma natural, sem repetição forçada. (corrige B6)
+R9 — Bloco de localização obrigatório em todas as páginas: endereço por extenso, bairro Brooklin, mapa incorporado, link "como chegar" e referências de proximidade. Justificativa: "fisioterapia pélvica perto de mim" é o termo de melhor desempenho da conta — 14,81% de CTR e R$ 33,15 por contato, contra a média de R$ 47,13.
+R10 — Seção de perguntas frequentes com no mínimo 6 perguntas por página, respondendo dúvidas reais (o que é, dói, quantas sessões, atende convênio, quanto custa, precisa de encaminhamento).
+Conversão
+R11 — CTA de WhatsApp acima da dobra, visível sem rolagem em desktop (1366×768) e mobile (390×844). Botão com texto explícito — "Agendar avaliação pelo WhatsApp" — não apenas o ícone. (corrige B5)
+R12 — Altura máxima do hero: 45% da viewport em mobile, para que o CTA e o início do conteúdo apareçam na primeira tela.
+R13 — Botão de WhatsApp fixo (sticky) no rodapé em mobile, presente durante toda a rolagem.
+R14 — Mensagem pré-preenchida diferente por página no link do WhatsApp — por exemplo, "Olá! Vim pelo site e gostaria de agendar uma avaliação de Fisioterapia Pélvica." Isso permite identificar a origem do contato.
+R15 — Repetir o CTA a cada duas seções ao longo da página, no mínimo 4 vezes no total.
+Técnico
+R16 — Renderização no servidor (SSR) ou pré-renderização das 4 páginas. O site é uma SPA; precisamos que o HTML já chegue com o conteúdo, sem depender de JavaScript para exibi-lo.
+R17 — Schema markup JSON-LD em cada página: MedicalBusiness com nome, endereço, telefone, horário, coordenadas e serviço; mais FAQPage na seção de perguntas frequentes. (corrige A5)
+R18 — URLs em minúsculas, sem acento, separadas por hífen. (corrige A7)
+R19 — Eliminar o soft-404: URLs inexistentes devem retornar HTTP 404 real e ter título próprio. (corrige A6)
+R20 — LCP abaixo de 2,5s em mobile (medido no PageSpeed Insights, dados de laboratório, perfil móvel).
+R21 — Imagens em WebP, com alt descritivo, width e height declarados e carregamento preguiçoso fora da primeira tela.
+R22 — NAP idêntico em todas as páginas e igual ao Google Meu Negócio (dados na seção 8).
+R23 — Redirecionamentos 301 de eventuais URLs antigas para as novas, sem cadeias de redirecionamento.
+R24 — Manter /tratamento no ar como página institucional do menu. Ela sai apenas dos anúncios — não deve ser excluída nem redirecionada.
+
+6. Especificação página por página
+6.1  /fisioterapia-pelvica  —  Prioridade 1
+Elemento
+Conteúdo
+Title
+Fisioterapia Pélvica no Brooklin, São Paulo | PELVIE  (52 caracteres)
+Meta description
+Tratamento de incontinência urinária, diástase abdominal, vaginismo e endometriose. Fisioterapia pélvica no Brooklin, São Paulo. Agende sua avaliação. (148 caracteres)
+H1
+Fisioterapia Pélvica em São Paulo
+
+
+Estrutura de seções (H2)
+Vamos incluir um parágrafo de abertura com o termo principal nas primeiras 100 palavras e vamos manter os demais tópicos (cada caso que tratamos) com o conteúdo que está, porém retirando os accordions.
+TEXTO DO PARÁGRAFO DE ABERTURA:
+O que é fisioterapia pélvica?
+É a área da fisioterapia que cuida do assoalho pélvico. Quando esses músculos perdem força ou coordenação, o corpo avisa: escape de urina ao tossir, rir ou treinar (incontinência urinária), dor na relação sexual, a barriga que não volta depois da gestação (diástase abdominal), sensação de peso ou de bola na vagina (prolapso), intestino preso e dores pélvicas que ninguém consegue explicar. A fisioterapia pélvica também prepara o corpo para o parto e organiza a recuperação no pós-parto. O tratamento é individual e tudo começa com uma avaliação detalhada. São utilizados exercícios específicos, terapias manuais e recursos como biofeedback e eletroestimulação. O tratamento é conduzido por fisioterapeutas especializadas na área. A avaliação é o momento mais importante pois é quando entenderemos o seu caso antes de propor qualquer conduta. Após a avaliação, você recebe seu Plano de Tratamento personalizado. 
+
+No final da página, manter aquela parte da equipe e podemos incluir um botão que leva pra página “como funciona”.
+
+6.2  /acupuntura  —  Prioridade 2
+Elemento
+Conteúdo
+Title
+Acupuntura para Fertilidade e Gestação | PELVIE SP  (49 caracteres)
+Meta description
+Acupuntura para fertilidade, gestação, ansiedade, enxaqueca e dores crônicas. Fisioterapeuta acupunturista no Brooklin, São Paulo. Agende sua sessão. (148 caracteres)
+H1
+Acupuntura em São Paulo
+
+
+MANTER O TEXTO TODO, SÓ ALTERAR ISSO:
+
+
+Estímulo à fertilidade e realização do Protocolo de Paulus - aplicado antes e depois da transferência embrionária em FIV (Fertilização In Vitro);
+Gestação e preparo para o parto (favorece o início do trabalho de parto de forma espontânea);
+
+
+No final da página, manter aquela parte da equipe e podemos incluir um botão que leva pra página “como funciona”.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6.3  /pilates  —  Prioridade 3
+Elemento
+Conteúdo
+Title
+Pilates para Gestantes e Pós-Parto | PELVIE Brooklin SP  (54 caracteres)
+Meta description
+Pilates conduzido por fisioterapeuta, em grupos reduzidos. Para gestantes, pós-parto e diástase abdominal. Brooklin, São Paulo. Agende sua aula experimental. (155 caracteres)
+H1
+Pilates em São Paulo
+
+
+TEXTO MELHORADO:
+
+Pilates especializado em Gestação e Pós-Parto (Diástase Abdominal)
+É um método de exercícios desenvolvido por Joseph Pilates na década de 1920 que visa trabalhar a conexão entre mente e corpo, como uma unidade, de modo a melhorar a consciência corporal. Pode ser feito com equipamentos (studio) ou em solo. Utiliza-se acessórios como a bola de pilates, faixas elásticas e halteres. Sua prática traz diversos benefícios, como melhora da flexibilidade e da mobilidade, ganho de força muscular e alívio de dores. Aqui na PELVIE oferecemos aulas de Pilates com fisioterapeuta especialista. As aulas são INDIVIDUAIS e totalmente focadas em gestantes e mulheres no pós-parto, contribuindo para a manutenção da qualidade de vida nesse período, aliviando dores e preparando a mulher para lidar com todas as alterações corporais desse período.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6.4  /massagem-e-drenagem-linfatica  —  Prioridade 4
+Elemento
+Conteúdo
+Title
+Massagem e Drenagem Linfática | PELVIE Brooklin, SP  (50 caracteres)
+Meta description
+Massagem relaxante e drenagem linfática com fisioterapeuta. Pós-operatório, gestantes e retenção de líquido. Brooklin, São Paulo. Agende seu horário. (147 caracteres)
+H1
+Massagem Relaxante e Drenagem Linfática em São Paulo
+
+
+TEXTO MELHORADO:
+Massagem Relaxante
+A saúde vai muito além da ausência de dor. Cuidar do corpo é também cuidar da mente — e a massagem relaxante é uma das formas mais eficazes de promover esse equilíbrio. Com técnicas suaves, movimentos rítmicos e foco no relaxamento muscular, a massagem relaxante proporciona alívio imediato do estresse, ansiedade e tensões acumuladas no dia a dia.
+Benefícios da Massagem:
+Redução do estresse e da ansiedade;
+Alívio de dores musculares e tensões;
+Melhora da circulação sanguínea;
+Melhora da qualidade do sono;
+Sensação profunda de bem-estar e relaxamento.
+A sessão é realizada por uma fisioterapeuta especializada, em um ambiente calmo, confortável e seguro. Permita-se esse cuidado!
+
+Drenagem Linfática 
+A drenagem linfática é uma técnica manual suave, indicada para estimular o sistema linfático — responsável por eliminar toxinas, líquidos retidos e resíduos metabólicos do corpo. A drenagem linfática é muito bem indicada para gestantes e outras situações clínicas.
+Benefícios da Drenagem:
+Redução do inchaço (edema) e da retenção de líquidos;
+Melhora da circulação sanguínea e linfática;
+Auxílio no pós-operatório (cirurgias plásticas, ortopédicas, etc.);
+Alívio de dores e sensação de peso nas pernas;
+Estímulo ao sistema imunológico;
+Relaxamento corporal e redução do estresse.
+Além disso, a drenagem linfática é uma grande aliada em casos de linfedema, celulite, TPM, gestação (com liberação médica) e outros quadros que envolvem acúmulo de líquidos ou inflamação leve dos tecidos. Essa técnica é realizada por fisioterapeuta especializada, garantindo segurança, conforto e resultados reais.
+
+7. Correções globais no site
+Estas correções valem para todas as páginas existentes, não só para as 4 novas. Elas podem ser feitas em paralelo ou logo após as páginas prioritárias.
+#
+Correção
+Escopo
+G1
+Adicionar um <h1> único e descritivo
+Todas as páginas do site
+G2
+<title> único e específico
+Todas as páginas
+G3
+Meta description única
+Todas as páginas
+G4
+Tag canonical
+Todas as páginas
+G5
+Schema JSON-LD MedicalBusiness no site e FAQPage onde houver FAQ
+Site
+G6
+Corrigir o soft-404: retornar HTTP 404 real com título próprio
+Roteamento
+G7
+Padronizar URLs em minúsculas com hífen, com 301 das antigas (/QuemSomos → /quem-somos; /ComoFunciona → /como-funciona)
+Roteamento
+G8
+Publicar sitemap.xml com todas as páginas e referenciá-lo no robots.txt
+Site
+G9
+Adicionar os links das 4 páginas novas no menu, dentro de "Tratamentos"
+Navegação
+
+
+8. Dados fixos da clínica
+Usar exatamente estes dados, sem variação de escrita, em todas as páginas e no schema markup.
+Campo
+Valor
+Nome
+PELVIE - Fisioterapia Pélvica Funcional
+Endereço
+Rua James Watt, 142, Sala 42 — Brooklin, São Paulo/SP — CEP 04576-050
+Telefone / WhatsApp
+(11) 91311-2992
+E-mail
+secretaria@pelviefisioterapia.com.br
+Horário
+Segunda a sexta, 7h às 20h30 
+Sábados, 8h às 14h
+
+
+Equipe — usar nome completo e CREFITO em todas as páginas
+Profissional
+Especialidade
+Registro
+Dra. Juliana de Sá
+Fisioterapeuta especializada em Saúde da Mulher e Instrutora do Método Pilates
+CREFITO-3/226407-F
+Dra. Laura Noronha
+Fisioterapeuta especializada em Saúde da Mulher e Terapia do Movimento
+CREFITO-3/309697-F
+Dra. Leila Cristina
+Fisioterapeuta especializada em Saúde da Mulher
+CREFITO-3/322756-F
+Dra. Cibele Ferrari
+Fisioterapeuta Acupunturista especializada em Saúde da Mulher e Gestantes
+CREFITO-3/111858-F
+Dra. Thipphane Yuka
+Fisioterapeuta especializada em Saúde da Mulher, Massoterapeuta e Instrutora do Método Pilates
+CREFITO-3/439481-F
+Dra. Isadora Savi
+Fisioterapeuta especializada em Saúde Pélvica e Obstétrica e Instrutora do Método Pilates
+CREFITO-3/402185-F
+
+
+
+9. Checklist de aceite
+Cada página será conferida item a item antes de entrar nos anúncios. Uma página com qualquer item reprovado não será publicada nas campanhas.
+OK
+Item verificado
+Como testar
+☐
+Existe exatamente um <h1> e ele contém o termo principal
+Inspecionar elemento
+☐
+<title> único, entre 50 e 60 caracteres
+Aba do navegador / código-fonte
+☐
+Meta description única, entre 140 e 155 caracteres
+Código-fonte
+☐
+Canonical presente e apontando para a própria URL
+Código-fonte
+☐
+Nenhum conteúdo principal escondido em accordion ou aba
+Leitura visual da página
+☐
+Mínimo de 600 palavras de texto visível
+Copiar o texto e contar
+☐
+Todas as condições e termos da seção 6 aparecem no texto
+Ctrl+F na página
+☐
+CTA de WhatsApp visível sem rolagem em desktop e mobile
+Abrir em 1366×768 e 390×844
+☐
+Botão de WhatsApp fixo presente em mobile
+Rolar a página no celular
+☐
+Mensagem do WhatsApp pré-preenchida e específica da página
+Clicar no botão
+☐
+CTA repetido pelo menos 4 vezes ao longo da página
+Contagem visual
+☐
+Bloco de localização com endereço, mapa e "como chegar"
+Leitura visual
+☐
+Seção de perguntas frequentes com no mínimo 6 perguntas
+Leitura visual
+☐
+Conteúdo presente no HTML sem executar JavaScript
+Ver código-fonte (Ctrl+U)
+☐
+Schema MedicalBusiness e FAQPage válidos
+Teste de Resultados Aprimorados do Google
+☐
+LCP abaixo de 2,5s em mobile
+PageSpeed Insights
+☐
+Todas as imagens em WebP, com alt preenchido
+Inspecionar elemento
+☐
+Endereço e telefone idênticos aos da seção 8
+Comparar texto
+☐
+URL em minúsculas, sem acento, com hífen
+Barra de endereço
+☐
+Página abre sem erro no console do navegador
+F12 → Console
+☐
+Página aparece no menu, dentro de "Tratamentos"
+Navegação
+☐
+URL inexistente retorna 404 real (não soft-404)
+Testar uma URL inventada
+
+
+10. O que não fazer
+Os pontos abaixo são erros que já cometemos ou que anulariam o objetivo do projeto.
+Não criar uma única página com os quatro serviços. Já foi feito em 04/08 com a /tratamento e não moveu a nota. Uma página por serviço não é preferência estética — é o que a métrica exige.
+Não colocar o conteúdo dentro de accordion, aba ou carrossel. Foi exatamente isso que esvaziou a /tratamento.
+Não reaproveitar o mesmo <title> e a mesma meta description entre as páginas novas.
+Não usar imagem contendo texto no lugar de texto real. O Google não lê texto dentro de imagem.
+Não redirecionar as URLs novas para /tratamento nem entre si.
+Não publicar as páginas sem avisar. Faremos o checklist da seção 9 antes.
+Não deixar a página depender de JavaScript para exibir o conteúdo principal.
+11. Prazo, entrega e como o resultado será medido
+Ordem de Prioridade:
+Etapa
+Entrega
+1
+/fisioterapia-pelvica publicada e aprovada no checklist
+2
+/acupuntura publicada e aprovada
+3
+/pilates e /massagem-e-drenagem-linfatica
+4
+Correções globais G1 a G9
+
+
+A prioridade 1 concentra 94,7% dos contatos da conta. Se houver qualquer restrição de prazo ou escopo, ela deve ser entregue primeiro e sozinha — o restante pode escalonar.
+Como vamos medir se funcionou
+A avaliação não será subjetiva. Usaremos a própria métrica do Google Ads que hoje nos reprova:
+Indicador
+Hoje
+Meta em até 6 semanas após a publicação
+Experiência na página de destino ("fisioterapia pélvica")
+Abaixo da média
+Na média ou Acima da média
+Índice de qualidade
+3/10
+5/10 ou mais
+Impressões perdidas por classificação
+32,25%
+Abaixo de 25%
+CPC médio da conta
+R$ 7,73
+Abaixo de R$ 7,00
+
+
+12. Dúvidas e aprovações
+Antes de iniciar, por favor confirmar:
+Prazo de cada etapa do cronograma da seção 11.
+Se a renderização no servidor (R16) é viável na arquitetura atual do site. Se não for, proponham a alternativa técnica com a mesma finalidade.
+Falta algum conteúdo?
+Custo
+
+
+
+
+
+
+
+
+
+Dra. Juliana de Sá — CEO, PELVIE Fisioterapia Pélvica Funcional
+CREFITO-3/226407-F · secretaria@pelviefisioterapia.com.br · (11) 91311-2992
+
+Fontes dos dados: conta Google Ads 342-696-1641, relatórios de Campanhas, Palavras-chave e Termos de pesquisa, período de 06/07/2026 a 23/08/2026. Auditoria técnica do site realizada em 24/08/2026.
