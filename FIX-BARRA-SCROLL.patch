@@ -1,0 +1,66 @@
+diff --git a/src/pages/fisioterapiaPelvica/styles.css b/src/pages/fisioterapiaPelvica/styles.css
+index 7933f84..e8a6555 100644
+--- a/src/pages/fisioterapiaPelvica/styles.css
++++ b/src/pages/fisioterapiaPelvica/styles.css
+@@ -767,3 +767,61 @@ body:has(#redesignacao-sexual:target) .fisioIndice a[href="#redesignacao-sexual"
+     border-width: 2px;
+   }
+ }
++
++/* ============================================================
++   PROTÓTIPO COORDENADOR — fim da barra de rolagem no índice
++   O usuário reprovou a barra que aparecia em tela baixa. A correção anterior
++   (max-height + overflow-y) resolvia o item inalcançável a 1366x768, mas ao
++   custo de uma barra grossa e visível — trocar um defeito por outro.
++   Aqui o índice simplesmente DEIXA DE SER FIXO onde não cabe: acompanha a
++   rolagem como conteúdo normal, sem barra própria e sem item perdido.
++   O corte é por ALTURA de viewport, não por largura: o problema nunca foi a
++   largura da tela, e sim não haver altura para o painel inteiro.
++   ============================================================ */
++@media (min-width: 1001px) and (max-height: 899px) {
++  .fisioIndice {
++    position: static;
++    max-height: none;
++    overflow-y: visible;
++  }
++}
++
++/* Rede de segurança: se em alguma combinação a barra ainda aparecer, que seja
++   discreta, e não o calhau roxo padrão do Chrome sobre fundo claro. */
++@media (min-width: 1001px) {
++  .fisioIndice {
++    scrollbar-width: thin;
++    scrollbar-color: var(--roxo9) transparent;
++  }
++  .fisioIndice::-webkit-scrollbar {
++    width: 6px;
++  }
++  .fisioIndice::-webkit-scrollbar-track {
++    background: transparent;
++  }
++  .fisioIndice::-webkit-scrollbar-thumb {
++    background-color: var(--roxo9);
++    border-radius: 100px;
++  }
++}
++
++/* ============================================================
++   PROTÓTIPO COORDENADOR — o índice deixa de ser sticky (desktop)
++   CAUSA RAIZ da barra de rolagem reprovada pelo usuário: `position: sticky`
++   só gruda enquanto o CONTAINER PAI atravessa a viewport. Antes do modo aba,
++   `.fisioLayout` tinha 7488px (as 17 condições empilhadas) e havia trilho de
++   sobra. Com uma condição visível por vez o pai encolheu para 750px — a MESMA
++   altura do índice — então não existe trilho: medido, o índice rolava junto
++   (top 315 → -315 → -1810). O sticky já não fazia nada; sobrava dele o
++   `max-height`/`overflow-y`, que produzia a barra.
++   Sem sticky a seção inteira é curta, tudo cabe, e nenhum item fica cortado
++   ou inalcançável em nenhuma altura de tela.
++   ============================================================ */
++@media (min-width: 1001px) {
++  .fisioIndice {
++    position: static;
++    top: auto;
++    max-height: none;
++    overflow-y: visible;
++  }
++}
