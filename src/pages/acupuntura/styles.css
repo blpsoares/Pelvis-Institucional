@@ -313,3 +313,48 @@
 .landingBlocos > .boxAnimation:last-child .acupunturaBloco {
   border-bottom: none;
 }
+
+/* ===========================================================================
+   VARIANTE "PERGUNTA AO LADO" — FAQ
+   Cada item vira uma linha de duas colunas: pergunta à esquerda, grudada no
+   topo enquanto a resposta rola à direita. Sem cartão, sem fundo; a separação
+   vem de uma divisória fina. Desenho diferente do corpo da página (que é texto
+   corrido em duas colunas), então a FAQ se distingue sem virar caixa.
+   =========================================================================== */
+@media (min-width: 1001px) {
+  .faqSection .faqItens {
+    display: block;
+    column-count: auto;
+  }
+
+  .faqSection .faqItens > .boxAnimation {
+    display: block;
+  }
+
+  .faqSection .faqItem {
+    display: grid;
+    grid-template-columns: minmax(24rem, 34%) minmax(0, 1fr);
+    column-gap: 5rem;
+    align-items: start;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid #ece5f1;
+    border-radius: 0;
+    padding: 3rem 0;
+  }
+
+  .faqSection .faqItem h3 {
+    position: sticky;
+    top: 13rem;
+    margin-bottom: 0;
+    font-size: 2.2rem;
+  }
+
+  .faqSection .faqItem p {
+    max-width: 60rem;
+  }
+
+  .faqSection .faqItem .faqPrecoCta {
+    grid-column: 2;
+  }
+}
