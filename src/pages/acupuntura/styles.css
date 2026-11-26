@@ -313,3 +313,62 @@
 .landingBlocos > .boxAnimation:last-child .acupunturaBloco {
   border-bottom: none;
 }
+
+/* ===========================================================================
+   FAQ — manchete e texto (variante A)
+
+   O corpo da página já usa "coluna estreita à esquerda + conteúdo à direita"
+   (índice fixo + condições). Repetir essa silhueta na FAQ faria a seção
+   parecer o mesmo componente duas vezes. Aqui o ritmo é outro: a pergunta
+   ocupa a largura inteira, como manchete, e a resposta corre logo abaixo em
+   duas colunas de texto. A leitura passa a ser de cima para baixo, não
+   lateral — e a resposta usa toda a largura, o que corta a altura da seção.
+
+   Continua sem accordion, sem aba e sem cartão: tudo visível no
+   carregamento, separado só por uma divisória fina.
+   =========================================================================== */
+@media (min-width: 1001px) {
+  .faqSection {
+    max-width: 104rem;
+  }
+
+  .faqSection .faqItens {
+    display: block;
+    column-count: auto;
+  }
+
+  .faqSection .faqItens > .boxAnimation {
+    display: block;
+  }
+
+  .faqSection .faqItem {
+    display: block;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid #ece5f1;
+    border-radius: 0;
+    padding: 3.2rem 0 3.6rem;
+    max-width: none;
+  }
+
+  /* Manchete: largura inteira, sem recuo, para o olho bater na pergunta antes
+     do texto. */
+  .faqSection .faqItem h3 {
+    font-size: 2.8rem;
+    line-height: 1.25;
+    margin-bottom: 1.8rem;
+    max-width: 88rem;
+  }
+
+  /* Resposta em duas colunas de texto: cada coluna fica em torno de 50rem, o
+     que mantém a medida de linha na faixa de 60–70 caracteres. */
+  .faqSection .faqItem p {
+    columns: 2;
+    column-gap: 4.4rem;
+    max-width: none;
+  }
+
+  .faqSection .faqItem .faqPrecoCta {
+    margin-top: 2rem;
+  }
+}

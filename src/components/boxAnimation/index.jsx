@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import "./styles.css";
 
-const BoxAnimation = ({ animation, addClass, children }) => {
+const BoxAnimation = ({ animation, addClass, children, style }) => {
   useEffect(() => {
     const target = document.querySelectorAll("[data-anime]");
 
@@ -57,7 +57,11 @@ const BoxAnimation = ({ animation, addClass, children }) => {
   }, []); // O array vazio como segundo argumento garante que o useEffect só é executado uma vez
 
   return (
-    <span className={`boxAnimation ${addClass}`} data-anime={animation}>
+    <span
+      className={`boxAnimation ${addClass}`}
+      data-anime={animation}
+      style={style}
+    >
       {children}
     </span>
   );
